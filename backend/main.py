@@ -1,7 +1,7 @@
-﻿from importlib import import_module
-
-from fastapi import FastAPI
+﻿from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+
+from api.routes import api_router
 
 
 APP_NAME = "教育本体构建系统"
@@ -23,23 +23,8 @@ def create_app() -> FastAPI:
         allow_headers=["*"],
     )
 
-    _include_api_router(app)
+    app.include_router(api_router)
     return app
-
-
-def _include_api_router(app: FastAPI) -> None:
-    """
-    api/routes.py 写好 api_router 后会自动挂载。
-    现在 routes.py 还是空文件，所以这里先保持兼容。
-    """
-    try:
-        routes_module = import_module("api.routes")
-    except ModuleNotFoundError:
-        return
-
-    api_router = getattr(routes_module, "api_router", None)
-    if api_router is not None:
-        app.include_router(api_router)
 
 
 app = create_app()
@@ -57,3 +42,4 @@ def root() -> dict:
 @app.get("/health")
 def health_check() -> dict:
     return {"status": "ok"}
+
