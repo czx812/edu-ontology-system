@@ -1,4 +1,4 @@
-from datetime import datetime
+﻿from datetime import datetime
 from pathlib import Path
 from xml.sax.saxutils import escape
 
@@ -20,8 +20,8 @@ def _safe_name(name: str) -> str:
 
 def generate_owl(ontology: dict) -> str:
     """
-    输入:align_ontology() 之后的 ontology
-    输出：生成的 owl 文件路径
+    杈撳叆:align_ontology() 涔嬪悗鐨?ontology
+    杈撳嚭锛氱敓鎴愮殑 owl 鏂囦欢璺緞
     """
 
     classes = ontology.get("classes", [])
@@ -83,4 +83,4 @@ def generate_owl(ontology: dict) -> str:
 
     output_path.write_text("\n".join(lines), encoding="utf-8")
 
-    return str(output_path)
+    return output_path.name

@@ -31,9 +31,10 @@ def upload_pdf(file: UploadFile) -> dict:
         while chunk := file.file.read(1024 * 1024):
             target.write(chunk)
 
-    return {"file_path": str(save_path)}
+    return {"file_path": save_path.name}
 
 
 @router.post("/upload")
 def upload(file: UploadFile) -> dict:
     return upload_pdf(file)
+

@@ -2,6 +2,8 @@
 from pathlib import Path
 from typing import Any, Callable
 
+from config import settings
+
 
 class ModuleNotReadyError(RuntimeError):
     pass
@@ -84,9 +86,13 @@ def run_workflow(state: dict) -> dict:
     state = _merge_state(state)
     file_path = Path(state["file_path"])
     if not file_path.exists():
+        file_path = settings.UPLOAD_DIR / file_path.name
+    if not file_path.exists():
         raise FileNotFoundError(f"PDF文件不存在:{state['file_path']}")
+    state["file_path"] = str(file_path)
 
     for node in (extract_node, clean_node, match_node, llm_node, align_node, owl_node):
         state = node(state)
 
     return state
+

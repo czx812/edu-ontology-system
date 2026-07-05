@@ -13,7 +13,7 @@ class GenerateRequest(BaseModel):
 
 def generate_ontology(file_path: str) -> dict:
     """
-    输入：PDF路径
+    输入：PDF路径或上传后的PDF文件名
     输出：
     {
         "ontology": dict,
@@ -33,6 +33,8 @@ def generate(request: GenerateRequest) -> dict:
         result = generate_ontology(request.file_path)
     except FileNotFoundError as exc:
         raise HTTPException(status_code=404, detail=str(exc)) from exc
+    except RuntimeError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
     except ModuleNotReadyError as exc:
         raise HTTPException(status_code=501, detail=str(exc)) from exc
 

@@ -3,6 +3,8 @@
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import FileResponse
 
+from config import settings
+
 
 router = APIRouter(tags=["export"])
 
@@ -12,6 +14,8 @@ def export_owl(file_path: str) -> dict:
     输出OWL下载路径
     """
     path = Path(file_path)
+    if not path.exists():
+        path = settings.EXPORT_DIR / path.name
     if not path.exists() or not path.is_file():
         raise FileNotFoundError(f"OWL文件不存在：{file_path}")
     if path.suffix.lower() != ".owl":
@@ -34,3 +38,4 @@ def export(file_path: str):
         filename=path.name,
         media_type="application/octet-stream",
     )
+
