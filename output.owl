@@ -1,0 +1,8 @@
+### Classes ###
+Class: Department
+Class: Course
+Class: Student
+
+### Relations ###
+张三 belongsTo 计算机系
+张三 studies 人工智能
