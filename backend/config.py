@@ -1,0 +1,24 @@
+﻿from pathlib import Path
+
+
+BASE_DIR = Path(__file__).resolve().parent
+DATA_DIR = BASE_DIR / "data"
+UPLOAD_DIR = DATA_DIR / "uploads"
+EXPORT_DIR = DATA_DIR / "exports"
+
+
+class Settings:
+    APP_NAME = "教育本体构建系统"
+    APP_VERSION = "0.1.0"
+    CORS_ORIGINS = ["*"]
+
+    BASE_DIR = BASE_DIR
+    DATA_DIR = DATA_DIR
+    UPLOAD_DIR = UPLOAD_DIR
+    EXPORT_DIR = EXPORT_DIR
+
+
+settings = Settings()
+
+for directory in (settings.DATA_DIR, settings.UPLOAD_DIR, settings.EXPORT_DIR):
+    directory.mkdir(parents=True, exist_ok=True)
