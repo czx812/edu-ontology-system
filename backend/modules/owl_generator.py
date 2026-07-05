@@ -1,23 +1,85 @@
-def generate_owl(state):
-    ontology = state.get("ontology", {})
+from datetime import datetime
+from pathlib import Path
+from xml.sax.saxutils import escape
 
-    owl_text = ""
+from config import settings
 
-    owl_text += "### Classes ###\n"
-    for c in ontology.get("classes", []):
-        owl_text += f"Class: {c}\n"
 
-    owl_text += "\n### Relations ###\n"
-    for r in ontology.get("relations", []):
-        owl_text += f"{r['subject']} {r['type']} {r['object']}\n"
+def _safe_name(name: str) -> str:
+    name = str(name or "").strip()
+    if not name:
+        return "Unnamed"
+    return (
+        name.replace(" ", "_")
+        .replace("/", "_")
+        .replace("\\", "_")
+        .replace(":", "_")
+        .replace(":", "_")
+    )
 
-    file_path = "output.owl"
 
-    with open(file_path, "w", encoding="utf-8") as f:
-        f.write(owl_text)
+def generate_owl(ontology: dict) -> str:
+    """
+    输入:align_ontology() 之后的 ontology
+    输出：生成的 owl 文件路径
+    """
 
-    state["owl_file"] = file_path
+    classes = ontology.get("classes", [])
+    relations = ontology.get("relations", [])
+    properties = ontology.get("properties", [])
 
-    print("✔ OWL生成完成:", file_path)
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    output_path = settings.EXPORT_DIR / f"ontology_{timestamp}.owl"
 
-    return state
+    lines = []
+    lines.append('<?xml version="1.0" encoding="UTF-8"?>')
+    lines.append('<rdf:RDF')
+    lines.append('  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"')
+    lines.append('  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"')
+    lines.append('  xmlns:owl="http://www.w3.org/2002/07/owl#"')
+    lines.append('  xmlns:edu="http://example.org/edu-ontology#">')
+    lines.append("")
+    lines.append('  <owl:Ontology rdf:about="http://example.org/edu-ontology"/>')
+    lines.append("")
+
+    for cls in classes:
+        if isinstance(cls, dict):
+            name = _safe_name(cls.get("name"))
+            label = cls.get("label", name)
+        else:
+            name = _safe_name(cls)
+            label = name
+
+        lines.append(f'  <owl:Class rdf:about="http://example.org/edu-ontology#{escape(name)}">')
+        lines.append(f"    <rdfs:label>{escape(str(label))}</rdfs:label>")
+        lines.append("  </owl:Class>")
+        lines.append("")
+
+    for prop in properties:
+        name = _safe_name(prop.get("name", "property"))
+        label = prop.get("label", name)
+
+        lines.append(f'  <owl:DatatypeProperty rdf:about="http://example.org/edu-ontology#{escape(name)}">')
+        lines.append(f"    <rdfs:label>{escape(str(label))}</rdfs:label>")
+        lines.append("  </owl:DatatypeProperty>")
+        lines.append("")
+
+    for relation in relations:
+        subject = _safe_name(relation.get("subject"))
+        predicate = _safe_name(relation.get("predicate"))
+        obj = _safe_name(relation.get("object"))
+
+        relation_name = f"{subject}_{predicate}_{obj}"
+
+        lines.append(f'  <owl:ObjectProperty rdf:about="http://example.org/edu-ontology#{escape(relation_name)}">')
+        lines.append(f"    <rdfs:label>{escape(predicate)}</rdfs:label>")
+        lines.append(f'    <rdfs:domain rdf:resource="http://example.org/edu-ontology#{escape(subject)}"/>')
+        lines.append(f'    <rdfs:range rdf:resource="http://example.org/edu-ontology#{escape(obj)}"/>')
+        lines.append("  </owl:ObjectProperty>")
+        lines.append("")
+
+    lines.append("</rdf:RDF>")
+
+    output_path.write_text("\n".join(lines), encoding="utf-8")
+
+    return str(output_path)
