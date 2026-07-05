@@ -19,7 +19,7 @@
 <script setup>
 import { ref } from "vue";
 import { useRoute } from "vue-router";
-import { generateOntology, exportOWL } from "../api/request";
+import { generateOntology } from "../api/request";
 
 const route = useRoute();
 const filePath = route.query.filePath;
@@ -33,9 +33,9 @@ async function generate() {
   owlFile.value = res.data.owl_file;
 }
 
-async function download() {
-  const res = await exportOWL(owlFile.value);
-  window.open(res.data.download_url);
+function download() {
+  const url = `http://127.0.0.1:8000/export?file_path=${encodeURIComponent(owlFile.value)}`;
+  window.open(url, "_blank");
 }
 </script>
 

@@ -1,10 +1,19 @@
-﻿from fastapi import FastAPI
+import sys
+from pathlib import Path
+
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+
+CURRENT_DIR = Path(__file__).resolve().parent
+PROJECT_DIR = CURRENT_DIR.parent
+for path in (CURRENT_DIR, PROJECT_DIR):
+    if str(path) not in sys.path:
+        sys.path.insert(0, str(path))
 
 from api.routes import api_router
 
 
-APP_NAME = "教育本体构建系统"
+APP_NAME = "????????"
 APP_VERSION = "0.1.0"
 
 
@@ -12,7 +21,7 @@ def create_app() -> FastAPI:
     app = FastAPI(
         title=APP_NAME,
         version=APP_VERSION,
-        description="教育本体构建系统后端服务",
+        description="????????????",
     )
 
     app.add_middleware(
@@ -42,4 +51,3 @@ def root() -> dict:
 @app.get("/health")
 def health_check() -> dict:
     return {"status": "ok"}
-

@@ -6,7 +6,7 @@ from pathlib import Path
 import pdfplumber
 import camelot
 from typing import List, Set, Dict, Any
-from backend.utils.file_utils import read_file_bytes, calc_md5, safe_remove, logger
+from utils.file_utils import read_file_bytes, calc_md5, safe_remove, logger
 
 # ====================== 全局标准常量（统一配置） ======================
 # JYT标准9列表头（补齐引用编号）

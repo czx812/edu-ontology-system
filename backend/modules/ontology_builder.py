@@ -10,8 +10,8 @@ from __future__ import annotations
 import json
 from typing import Any, Dict
 
-from backend.ai.llm_service import LLMService
-from backend.ai.ontology_generator import OntologyGenerator
+from ai.llm_service import LLMService
+from ai.ontology_generator import OntologyGenerator
 
 
 def build_ontology(clean_data: Dict[str, Any]) -> Dict[str, Any]:
@@ -32,7 +32,7 @@ def _clean_data_to_text(clean_data: Dict[str, Any]) -> str:
     if not clean_data:
         return ""
 
-    for key in ("raw_text", "clean_text", "text", "content"):
+    for key in ("clean_text", "raw_text", "text", "content"):
         value = clean_data.get(key)
         if isinstance(value, str) and value.strip():
             return value

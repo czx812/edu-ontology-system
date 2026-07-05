@@ -5,9 +5,9 @@ from __future__ import annotations
 import json
 from typing import Any, Dict, List, Optional, Set, Tuple, Union
 
-from backend.ai.entity_extractor import EntityExtractor
-from backend.ai.llm_service import LLMService
-from backend.ai.prompts import build_ontology_prompt
+from ai.entity_extractor import EntityExtractor
+from ai.llm_service import LLMService
+from ai.prompts import build_ontology_prompt
 
 
 class OntologyGenerator:

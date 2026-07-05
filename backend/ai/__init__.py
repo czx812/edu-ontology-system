@@ -1,6 +1,6 @@
 """AI core package for LLM-based ontology construction."""
 
-from backend.ai.entity_extractor import EntityExtractor
-from backend.ai.ontology_generator import OntologyGenerator
+from ai.entity_extractor import EntityExtractor
+from ai.ontology_generator import OntologyGenerator
 
 __all__ = ["EntityExtractor", "OntologyGenerator"]

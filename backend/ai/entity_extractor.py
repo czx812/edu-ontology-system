@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from typing import Any, Dict, List, Optional, Set, Tuple, Union
 
-from backend.ai.llm_service import LLMService
-from backend.ai.prompts import build_entity_prompt
+from ai.llm_service import LLMService
+from ai.prompts import build_entity_prompt
 
 
 class EntityExtractor:

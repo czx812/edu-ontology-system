@@ -29,6 +29,7 @@ def generate_owl(ontology: dict) -> str:
     properties = ontology.get("properties", [])
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    settings.EXPORT_DIR.mkdir(parents=True, exist_ok=True)
     output_path = settings.EXPORT_DIR / f"ontology_{timestamp}.owl"
 
     lines = []
@@ -65,9 +66,9 @@ def generate_owl(ontology: dict) -> str:
         lines.append("")
 
     for relation in relations:
-        subject = _safe_name(relation.get("subject"))
-        predicate = _safe_name(relation.get("predicate"))
-        obj = _safe_name(relation.get("object"))
+        subject = _safe_name(relation.get("subject") or relation.get("source"))
+        predicate = _safe_name(relation.get("predicate") or relation.get("type"))
+        obj = _safe_name(relation.get("object") or relation.get("target"))
 
         relation_name = f"{subject}_{predicate}_{obj}"
 

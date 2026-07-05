@@ -1,21 +1,24 @@
+import sys
+from pathlib import Path
+
+CURRENT_DIR = Path(__file__).resolve().parent
+BACKEND_DIR = CURRENT_DIR.parent
+if str(BACKEND_DIR) not in sys.path:
+    sys.path.insert(0, str(BACKEND_DIR))
+
 from mock_data import get_mock_state
-from schema_matcher import schema_matcher
-from ontology_aligner import ontology_aligner
+from schema_matcher import match_schema
+from ontology_aligner import align_ontology
 from owl_generator import generate_owl
 
-print("\n🚀 D模块开始运行...\n")
 
-# 1. 获取数据
-state = get_mock_state()
+if __name__ == "__main__":
+    print("D module demo start")
 
-# 2. schema匹配
-state = schema_matcher(state)
+    state = get_mock_state()
+    state["clean_data"] = match_schema(state.get("clean_data", {}))
+    state["ontology"] = align_ontology(state.get("ontology", {}))
+    state["owl_file"] = generate_owl(state.get("ontology", {}))
 
-# 3. ontology优化
-state = ontology_aligner(state)
-
-# 4. OWL生成
-state = generate_owl(state)
-
-print("\n🎉 全部完成！")
-print("最终OWL文件：", state["owl_file"])
+    print("done")
+    print("owl_file:", state["owl_file"])
