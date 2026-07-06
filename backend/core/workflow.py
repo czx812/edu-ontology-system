@@ -13,6 +13,8 @@ DEFAULT_STATE = {
     "file_path": "",
     "raw_text": "",
     "clean_data": {},
+    "entity_json": {},
+    "semantic_model": {},
     "ontology": {},
     "owl_file": "",
 }
@@ -50,17 +52,29 @@ def clean_node(state: dict) -> dict:
     return state
 
 
-def match_node(state: dict) -> dict:
+def entity_extract_node(state: dict) -> dict:
     state = _merge_state(state)
     match_schema = _load_function("modules.schema_matcher", "match_schema")
+    extract_entities = _load_function("ai.entity_extractor", "extract_entities")
     state["clean_data"] = match_schema(state["clean_data"])
+    state["entity_json"] = extract_entities(state["clean_data"])
     return state
 
 
-def llm_node(state: dict) -> dict:
+def semantic_classify_node(state: dict) -> dict:
+    state = _merge_state(state)
+    semantic_classify = _load_function("modules.semantic_classifier", "semantic_classify")
+    state["semantic_model"] = semantic_classify({
+        "entity_json": state["entity_json"],
+        "clean_data": state["clean_data"],
+    })
+    return state
+
+
+def ontology_build_node(state: dict) -> dict:
     state = _merge_state(state)
     build_ontology = _load_function("modules.ontology_builder", "build_ontology")
-    state["ontology"] = build_ontology(state["clean_data"])
+    state["ontology"] = build_ontology(state["semantic_model"])
     return state
 
 
@@ -71,7 +85,7 @@ def align_node(state: dict) -> dict:
     return state
 
 
-def owl_node(state: dict) -> dict:
+def owl_generate_node(state: dict) -> dict:
     state = _merge_state(state)
     generate_owl = _load_function("modules.owl_generator", "generate_owl")
     state["owl_file"] = generate_owl(state["ontology"])
@@ -80,8 +94,8 @@ def owl_node(state: dict) -> dict:
 
 def run_workflow(state: dict) -> dict:
     """
-    完整流程：
-    PDF -> 清洗 -> 匹配 -> LLM -> OWL
+    Full flow:
+    PDF -> extract -> clean -> entity_extract -> semantic_classify -> ontology_build -> owl_generate
     """
     state = _merge_state(state)
     file_path = Path(state["file_path"])
@@ -91,8 +105,15 @@ def run_workflow(state: dict) -> dict:
         raise FileNotFoundError(f"PDF文件不存在:{state['file_path']}")
     state["file_path"] = str(file_path)
 
-    for node in (extract_node, clean_node, match_node, llm_node, align_node, owl_node):
+    for node in (
+        extract_node,
+        clean_node,
+        entity_extract_node,
+        semantic_classify_node,
+        ontology_build_node,
+        align_node,
+        owl_generate_node,
+    ):
         state = node(state)
 
     return state
-

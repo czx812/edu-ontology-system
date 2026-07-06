@@ -1,110 +1,48 @@
-"""Adapter for ontology generation."""
+﻿"""Build ontology JSON from semantic classification output."""
 
 from __future__ import annotations
 
-import json
-import re
-from typing import Any, Dict
+from typing import Any, Dict, Iterable, List
 
-from ai.llm_service import LLMService
-from ai.ontology_generator import OntologyGenerator
+from modules.semantic_classifier import semantic_classify
 
 
-MAX_LLM_TEXT_CHARS = 30000
+def build_ontology(semantic_data: Dict[str, Any]) -> Dict[str, Any]:
+    """Build an ontology from semantic classes/properties/relations.
 
+    The builder only accepts concepts already separated by semantic role. It
+    never promotes every extracted entity or JCTB data item to owl:Class.
+    """
+    if not isinstance(semantic_data, dict):
+        return _empty_ontology()
 
-def build_ontology(clean_data: Dict[str, Any]) -> Dict[str, Any]:
-    """Build ontology JSON from cleaned PDF data."""
-    records = clean_data.get("records", []) if isinstance(clean_data, dict) else []
-    if records:
-        return _build_ontology_from_records(records)
+    if not _looks_classified(semantic_data):
+        semantic_data = semantic_classify(semantic_data)
 
-    text = _limit_text(_clean_data_to_text(clean_data))
-    return OntologyGenerator().generate(text)
+    classes = _dedupe_classes(semantic_data.get("classes", []))
+    class_names = {item["name"] for item in classes}
 
-
-def call_llm(prompt: str) -> str:
-    """Call the configured LLM and return raw text."""
-    return LLMService().chat(prompt)
-
-
-def _clean_data_to_text(clean_data: Dict[str, Any]) -> str:
-    if not clean_data:
-        return ""
-
-    for key in ("clean_text", "raw_text", "text", "content"):
-        value = clean_data.get(key)
-        if isinstance(value, str) and value.strip():
-            return value
-
-    return json.dumps(clean_data, ensure_ascii=False, indent=2)
-
-
-def _limit_text(text: str) -> str:
-    text = text.strip()
-    if len(text) <= MAX_LLM_TEXT_CHARS:
-        return text
-    return text[:MAX_LLM_TEXT_CHARS] + "\n\n[Content truncated for LLM request.]"
-
-
-def _build_ontology_from_records(records: Any) -> Dict[str, Any]:
-    classes = []
-    properties = []
-    relations = []
-    seen_classes = set()
-    seen_properties = set()
-    seen_relations = set()
-
-    for record in records:
-        if not isinstance(record, dict):
-            continue
-
-        code = _clean_value(record.get("id"))
-        label = _clean_value(record.get("cn_name")) or _clean_value(record.get("item_name")) or code
-        item_name = _clean_value(record.get("item_name"))
-        description = _record_description(record)
-
-        if code and code not in seen_classes:
-            seen_classes.add(code)
+    properties = _dedupe_properties(semantic_data.get("properties", []))
+    for prop in properties:
+        domain = prop.get("domain") or "EducationResource"
+        if domain not in class_names:
             classes.append({
-                "name": code,
-                "label": label,
-                "description": description,
+                "name": domain,
+                "label": domain,
+                "description": "Inferred property domain.",
             })
+            class_names.add(domain)
 
-        property_name = _property_name(item_name or code)
-        if property_name:
-            property_key = ("EducationDataElement", property_name)
-            if property_key not in seen_properties:
-                seen_properties.add(property_key)
-                properties.append({
-                    "name": property_name,
-                    "label": label,
-                    "domain": "EducationDataElement",
-                    "range": _range_from_record(record),
-                    "description": description,
+    relations = _dedupe_relations(semantic_data.get("relations", []))
+    for relation in relations:
+        for endpoint in (relation.get("source"), relation.get("target")):
+            if endpoint and endpoint not in class_names:
+                classes.append({
+                    "name": endpoint,
+                    "label": endpoint,
+                    "description": "Inferred relation endpoint.",
                 })
-
-        reference = _clean_value(record.get("reference"))
-        if code and reference:
-            for target in _extract_reference_codes(reference):
-                relation_key = (code, target, "references")
-                if relation_key not in seen_relations:
-                    seen_relations.add(relation_key)
-                    relations.append({
-                        "source": code,
-                        "target": target,
-                        "type": "references",
-                        "label": "引用",
-                        "description": f"{label} 引用 {target}",
-                    })
-
-    if classes:
-        classes.insert(0, {
-            "name": "EducationDataElement",
-            "label": "教育数据元",
-            "description": "教育管理信息标准中的数据项。",
-        })
+                class_names.add(endpoint)
 
     return {
         "classes": classes,
@@ -113,44 +51,76 @@ def _build_ontology_from_records(records: Any) -> Dict[str, Any]:
     }
 
 
-def _clean_value(value: Any) -> str:
+def _looks_classified(data: Dict[str, Any]) -> bool:
+    return any(key in data for key in ("classes", "properties", "relations"))
+
+
+def _dedupe_classes(items: Any) -> List[Dict[str, str]]:
+    seen = set()
+    result: List[Dict[str, str]] = []
+    for item in _as_dicts(items):
+        name = _text(item.get("name") or item.get("label"))
+        if not name or name.lower() in seen:
+            continue
+        seen.add(name.lower())
+        result.append({
+            "name": name,
+            "label": _text(item.get("label")) or name,
+            "description": _text(item.get("description")),
+        })
+    return result
+
+
+def _dedupe_properties(items: Any) -> List[Dict[str, str]]:
+    seen = set()
+    result: List[Dict[str, str]] = []
+    for item in _as_dicts(items):
+        name = _text(item.get("name") or item.get("label"))
+        domain = _text(item.get("domain")) or "EducationResource"
+        marker = (domain.lower(), name.lower())
+        if not name or marker in seen:
+            continue
+        seen.add(marker)
+        result.append({
+            "name": name,
+            "label": _text(item.get("label")) or name,
+            "domain": domain,
+            "range": _text(item.get("range")) or "string",
+            "description": _text(item.get("description")),
+        })
+    return result
+
+
+def _dedupe_relations(items: Any) -> List[Dict[str, str]]:
+    seen = set()
+    result: List[Dict[str, str]] = []
+    for item in _as_dicts(items):
+        source = _text(item.get("source") or item.get("subject"))
+        target = _text(item.get("target") or item.get("object"))
+        rel_type = _text(item.get("type") or item.get("predicate") or item.get("relation"))
+        marker = (source.lower(), rel_type.lower(), target.lower())
+        if not all(marker) or marker in seen:
+            continue
+        seen.add(marker)
+        result.append({
+            "source": source,
+            "target": target,
+            "type": rel_type,
+            "label": _text(item.get("label")) or rel_type,
+            "description": _text(item.get("description")),
+        })
+    return result
+
+
+def _as_dicts(items: Any) -> Iterable[Dict[str, Any]]:
+    if not isinstance(items, list):
+        return []
+    return [item for item in items if isinstance(item, dict)]
+
+
+def _text(value: Any) -> str:
     return str(value or "").strip()
 
 
-def _record_description(record: Dict[str, Any]) -> str:
-    parts = []
-    item_name = _clean_value(record.get("item_name"))
-    code = _clean_value(record.get("id"))
-    description = _clean_value(record.get("description"))
-    value_space = _clean_value(record.get("value_space"))
-
-    if item_name or code:
-        parts.append("（".join(part for part in (item_name, code) if part) + ("）" if item_name and code else ""))
-    if description:
-        parts.append(description)
-    if value_space:
-        parts.append(f"值空间：{value_space}")
-    return "；".join(parts)
-
-
-def _property_name(name: str) -> str:
-    name = _clean_value(name)
-    if not name:
-        return ""
-    name = re.sub(r"\W+", "_", name, flags=re.UNICODE).strip("_")
-    return name or ""
-
-
-def _range_from_record(record: Dict[str, Any]) -> str:
-    data_type = _clean_value(record.get("data_type")).upper()
-    if data_type == "N":
-        return "decimal"
-    if data_type in {"D", "DATE"}:
-        return "date"
-    if data_type in {"B", "BOOLEAN"}:
-        return "boolean"
-    return "string"
-
-
-def _extract_reference_codes(reference: str) -> list[str]:
-    return re.findall(r"[A-Z]{2,}[A-Z0-9]*\d{4,}", reference)
+def _empty_ontology() -> Dict[str, Any]:
+    return {"classes": [], "properties": [], "relations": []}
