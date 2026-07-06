@@ -1,4 +1,4 @@
-"""Ontology generation: text -> ontology JSON through LLM."""
+﻿"""Ontology generation: text -> ontology JSON."""
 
 from __future__ import annotations
 
@@ -7,11 +7,10 @@ from typing import Any, Dict, List, Optional, Set, Tuple, Union
 
 from ai.entity_extractor import EntityExtractor
 from ai.llm_service import LLMService
-from ai.prompts import build_ontology_prompt
 
 
 class OntologyGenerator:
-    """Run the B-layer LLM chain and generate final ontology JSON."""
+    """Generate ontology JSON from extracted entities."""
 
     def __init__(
         self,
@@ -35,9 +34,7 @@ class OntologyGenerator:
 
         entity_json = self.extractor.extract(clean_text, use_llm=True)
         self.last_entity_json = entity_json
-        self.last_ontology_prompt = build_ontology_prompt(clean_text, entity_json)
-
-        ontology = self.llm_service.chat_json(self.last_ontology_prompt)
+        ontology = self._ontology_from_entities(entity_json)
         self.last_raw_ontology = ontology
         return self._normalize(ontology)
 
@@ -53,6 +50,54 @@ class OntologyGenerator:
             "entity_json": entity_json,
             "ontology_prompt": self.last_ontology_prompt,
             "ontology_json": ontology_json,
+        }
+
+    def _ontology_from_entities(self, entity_json: Dict[str, Any]) -> Dict[str, Any]:
+        entities = entity_json.get("entities", [])
+        attributes = entity_json.get("attributes", [])
+        relations = entity_json.get("relations", [])
+
+        classes = []
+        for item in entities:
+            if not isinstance(item, dict):
+                continue
+            name = item.get("name", "")
+            if not name:
+                continue
+            classes.append({
+                "name": name,
+                "label": item.get("label", name),
+                "description": item.get("description", item.get("evidence", "")),
+            })
+
+        known_classes = {item.get("name") for item in classes if item.get("name")}
+        properties = []
+        for item in attributes:
+            if not isinstance(item, dict):
+                continue
+            name = item.get("name", "")
+            if not name:
+                continue
+            domain = item.get("entity") or item.get("domain") or "EducationResource"
+            if domain not in known_classes:
+                classes.append({
+                    "name": domain,
+                    "label": domain,
+                    "description": "Inferred class for extracted attributes.",
+                })
+                known_classes.add(domain)
+            properties.append({
+                "name": name,
+                "label": item.get("label", name),
+                "domain": domain,
+                "range": item.get("data_type", item.get("range", "string")),
+                "description": item.get("description", item.get("evidence", "")),
+            })
+
+        return {
+            "classes": classes,
+            "properties": properties,
+            "relations": relations,
         }
 
     def _normalize(self, ontology: Dict[str, Any]) -> Dict[str, Any]:

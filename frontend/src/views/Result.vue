@@ -54,7 +54,7 @@ async function generate() {
 }
 
 function download() {
-  const url = `http://127.0.0.1:8000/export?file_path=${encodeURIComponent(owlFile.value)}`;
+  const url = `/api/export?file_path=${encodeURIComponent(owlFile.value)}`;
   window.open(url, "_blank");
 }
 </script>
@@ -117,3 +117,4 @@ pre {
   border-radius: 8px;
 }
 </style>
+

@@ -1,0 +1,466 @@
+第一次测试：
+{
+  "classes": [
+    {
+      "name": "PostalCodeTable",
+      "label": "邮政编码表",
+      "description": "包含邮政编码相关字段的表"
+    },
+    {
+      "name": "GradeTable",
+      "label": "年级表",
+      "description": "包含年级、学制、课程等字段的表"
+    },
+    {
+      "name": "Person",
+      "label": "人员",
+      "description": "人员实体，包含姓名、联系方式等属性"
+    },
+    {
+      "name": "Organization",
+      "label": "单位",
+      "description": "单位实体，包含单位号、名称、地址等属性"
+    },
+    {
+      "name": "Course",
+      "label": "课程",
+      "description": "课程实体，包含课程号、名称、考试方式等属性"
+    },
+    {
+      "name": "Major",
+      "label": "专业",
+      "description": "专业实体，包含专业码、名称等属性"
+    },
+    {
+      "name": "TimePeriod",
+      "label": "时间期间",
+      "description": "时间相关概念，如年度、年月、日期、学期等"
+    },
+    {
+      "name": "CodeStandard",
+      "label": "代码标准",
+      "description": "引用的代码标准，如GB/T 7408、JY/T 1001等"
+    }
+  ],
+  "relations": [
+    {
+      "subject": "Organization",
+      "predicate": "has_contact",
+      "object": "Person",
+      "source": "Organization",
+      "type": "has_contact",
+      "target": "Person",
+      "label": "拥有联系方式",
+      "description": "单位拥有邮政编码、通信地址等联系方式"
+    },
+    {
+      "subject": "Organization",
+      "predicate": "subordinate",
+      "object": "Organization",
+      "source": "Organization",
+      "type": "subordinate",
+      "target": "Organization",
+      "label": "隶属",
+      "description": "单位隶属关系"
+    },
+    {
+      "subject": "Organization",
+      "predicate": "has_leader",
+      "object": "Person",
+      "source": "Organization",
+      "type": "has_leader",
+      "target": "Person",
+      "label": "有负责人",
+      "description": "单位有负责人"
+    },
+    {
+      "subject": "GradeTable",
+      "predicate": "contains",
+      "object": "Course",
+      "source": "GradeTable",
+      "type": "contains",
+      "target": "Course",
+      "label": "包含课程",
+      "description": "年级表包含课程信息"
+    },
+    {
+      "subject": "GradeTable",
+      "predicate": "contains",
+      "object": "Major",
+      "source": "GradeTable",
+      "type": "contains",
+      "target": "Major",
+      "label": "包含专业",
+      "description": "年级表包含专业信息"
+    },
+    {
+      "subject": "PostalCodeTable",
+      "predicate": "references",
+      "object": "CodeStandard",
+      "source": "PostalCodeTable",
+      "type": "references",
+      "target": "CodeStandard",
+      "label": "引用标准",
+      "description": "邮政编码表引用代码标准"
+    }
+  ],
+  "properties": [
+    {
+      "name": "id",
+      "label": "编号",
+      "domain": "PostalCodeTable",
+      "range": "string",
+      "description": "数据项编号"
+    },
+    {
+      "name": "item_name",
+      "label": "数据项名",
+      "domain": "PostalCodeTable",
+      "range": "string",
+      "description": "数据项英文名"
+    },
+    {
+      "name": "cn_name",
+      "label": "中文简称",
+      "domain": "PostalCodeTable",
+      "range": "string",
+      "description": "数据项中文名称"
+    },
+    {
+      "name": "data_type",
+      "label": "数据类型",
+      "domain": "PostalCodeTable",
+      "range": "string",
+      "description": "数据类型"
+    },
+    {
+      "name": "length",
+      "label": "长度",
+      "domain": "PostalCodeTable",
+      "range": "string",
+      "description": "数据长度"
+    },
+    {
+      "name": "constraint",
+      "label": "约束",
+      "domain": "PostalCodeTable",
+      "range": "string",
+      "description": "约束条件"
+    },
+    {
+      "name": "value_space",
+      "label": "值空间",
+      "domain": "PostalCodeTable",
+      "range": "string",
+      "description": "取值范围或引用标准"
+    },
+    {
+      "name": "description",
+      "label": "描述",
+      "domain": "PostalCodeTable",
+      "range": "string",
+      "description": "解释或举例"
+    },
+    {
+      "name": "reference",
+      "label": "引用编号",
+      "domain": "PostalCodeTable",
+      "range": "string",
+      "description": "引用其他数据项编号"
+    },
+    {
+      "name": "source_table",
+      "label": "源表",
+      "domain": "PostalCodeTable",
+      "range": "string",
+      "description": "所属表名"
+    },
+    {
+      "name": "YZBM",
+      "label": "邮政编码",
+      "domain": "Person",
+      "range": "string",
+      "description": "邮政编码"
+    },
+    {
+      "name": "TXDZ",
+      "label": "通信地址",
+      "domain": "Person",
+      "range": "string",
+      "description": "包括省/地/县/乡/街/门牌号的详细地址"
+    },
+    {
+      "name": "DH",
+      "label": "电话",
+      "domain": "Person",
+      "range": "string",
+      "description": "电话号码"
+    },
+    {
+      "name": "YDDH",
+      "label": "移动电话",
+      "domain": "Person",
+      "range": "string",
+      "description": "移动电话"
+    },
+    {
+      "name": "CZDH",
+      "label": "传真电话",
+      "domain": "Person",
+      "range": "string",
+      "description": "传真电话"
+    },
+    {
+      "name": "DZXX",
+      "label": "电子信箱",
+      "domain": "Person",
+      "range": "string",
+      "description": "电子邮件地址"
+    },
+    {
+      "name": "WLDZ",
+      "label": "网络地址",
+      "domain": "Person",
+      "range": "string",
+      "description": "如主页、博客、微博网址"
+    },
+    {
+      "name": "JSTXH",
+      "label": "即时通讯号",
+      "domain": "Person",
+      "range": "string",
+      "description": "如MSN/QQ等号码"
+    },
+    {
+      "name": "ND",
+      "label": "年度",
+      "domain": "TimePeriod",
+      "range": "string",
+      "description": "格式YYYY，如2008"
+    },
+    {
+      "name": "NY",
+      "label": "年月",
+      "domain": "TimePeriod",
+      "range": "string",
+      "description": "格式YYYYMM，如200604"
+    },
+    {
+      "name": "RQ",
+      "label": "日期",
+      "domain": "TimePeriod",
+      "range": "string",
+      "description": "格式YYYYMMDD，如20060412"
+    },
+    {
+      "name": "SJ",
+      "label": "时间",
+      "domain": "TimePeriod",
+      "range": "string",
+      "description": "格式hhmmss，如141503"
+    },
+    {
+      "name": "XN",
+      "label": "学年",
+      "domain": "TimePeriod",
+      "range": "string",
+      "description": "格式YYYY-YYYY，如2001-2002"
+    },
+    {
+      "name": "XQM",
+      "label": "学期码",
+      "domain": "TimePeriod",
+      "range": "string",
+      "description": "学期代码，引用JY/T 1001 XQ"
+    },
+    {
+      "name": "YXQ",
+      "label": "有效期",
+      "domain": "TimePeriod",
+      "range": "string",
+      "description": "格式YYYYMMDD-YYYYMMDD"
+    },
+    {
+      "name": "DWH",
+      "label": "单位号",
+      "domain": "Organization",
+      "range": "string",
+      "description": "自行编码"
+    },
+    {
+      "name": "DWMC",
+      "label": "单位名称",
+      "domain": "Organization",
+      "range": "string",
+      "description": "单位名称"
+    },
+    {
+      "name": "DWYWMC",
+      "label": "单位英文名称",
+      "domain": "Organization",
+      "range": "string",
+      "description": "单位英文名称"
+    },
+    {
+      "name": "DWJC",
+      "label": "单位简称",
+      "domain": "Organization",
+      "range": "string",
+      "description": "单位简称"
+    },
+    {
+      "name": "DWYWJC",
+      "label": "单位英文简称",
+      "domain": "Organization",
+      "range": "string",
+      "description": "单位英文简称"
+    },
+    {
+      "name": "DWJP",
+      "label": "单位简拼",
+      "domain": "Organization",
+      "range": "string",
+      "description": "单位简拼"
+    },
+    {
+      "name": "DWDZ",
+      "label": "单位地址",
+      "domain": "Organization",
+      "range": "string",
+      "description": "单位地址，引用通信地址"
+    },
+    {
+      "name": "LSDWH",
+      "label": "隶属单位号",
+      "domain": "Organization",
+      "range": "string",
+      "description": "隶属单位号"
+    },
+    {
+      "name": "DWLBM",
+      "label": "单位类别码",
+      "domain": "Organization",
+      "range": "string",
+      "description": "引用JY/T 1001 DWLB"
+    },
+    {
+      "name": "DWBBM",
+      "label": "单位办别码",
+      "domain": "Organization",
+      "range": "string",
+      "description": "引用JY/T 1001 DWBB"
+    },
+    {
+      "name": "DWYXBS",
+      "label": "单位有效标识",
+      "domain": "Organization",
+      "range": "string",
+      "description": "1有效0失效"
+    },
+    {
+      "name": "SXRQ",
+      "label": "失效日期",
+      "domain": "Organization",
+      "range": "string",
+      "description": "单位失效日期"
+    },
+    {
+      "name": "SFST",
+      "label": "是否实体",
+      "domain": "Organization",
+      "range": "string",
+      "description": "1是0否（虚体）"
+    },
+    {
+      "name": "JLNY",
+      "label": "建立年月",
+      "domain": "Organization",
+      "range": "string",
+      "description": "格式YYYYMM"
+    },
+    {
+      "name": "DWFZRH",
+      "label": "单位负责人号",
+      "domain": "Organization",
+      "range": "string",
+      "description": "单位负责人工号"
+    },
+    {
+      "name": "NJ",
+      "label": "年级",
+      "domain": "GradeTable",
+      "range": "string",
+      "description": "年级"
+    },
+    {
+      "name": "XZ",
+      "label": "学制",
+      "domain": "GradeTable",
+      "range": "string",
+      "description": "以年为单位"
+    },
+    {
+      "name": "KCH",
+      "label": "课程号",
+      "domain": "Course",
+      "range": "string",
+      "description": "学校自编"
+    },
+    {
+      "name": "KCMC",
+      "label": "课程名称",
+      "domain": "Course",
+      "range": "string",
+      "description": "课程名称"
+    },
+    {
+      "name": "KCYWMC",
+      "label": "课程英文名称",
+      "domain": "Course",
+      "range": "string",
+      "description": "课程英文名称"
+    },
+    {
+      "name": "KSFSM",
+      "label": "考试方式码",
+      "domain": "Course",
+      "range": "string",
+      "description": "引用JY/T 1001 KSFS"
+    },
+    {
+      "name": "ZYM",
+      "label": "专业码",
+      "domain": "Major",
+      "range": "string",
+      "description": "引用专业目录"
+    },
+    {
+      "name": "ZYMC",
+      "label": "专业名称",
+      "domain": "Major",
+      "range": "string",
+      "description": "专业名称"
+    },
+    {
+      "name": "XM",
+      "label": "姓名",
+      "domain": "Person",
+      "range": "string",
+      "description": "姓名"
+    },
+    {
+      "name": "YWXM",
+      "label": "英文姓名",
+      "domain": "Person",
+      "range": "string",
+      "description": "英文姓名"
+    },
+    {
+      "name": "XMPY",
+      "label": "姓名拼音",
+      "domain": "Person",
+      "range": "string",
+      "description": "姓名拼音"
+    }
+  ]
+}

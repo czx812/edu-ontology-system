@@ -1,5 +1,4 @@
-
-"""LLM API client for the B layer."""
+﻿"""LLM API client for the B layer."""
 
 from __future__ import annotations
 
@@ -7,12 +6,11 @@ import json
 import os
 import re
 from typing import Any, Dict, Optional
-from urllib import error
-from urllib import request
+from urllib import error, request
 
 
 DEFAULT_LLM_BASE_URL = "https://api.deepseek.com/v1/chat/completions"
-DEFAULT_LLM_MODEL = "deepseek-v4-pro"
+DEFAULT_LLM_MODEL = "deepseek-chat"
 
 
 class LLMService:
@@ -23,7 +21,7 @@ class LLMService:
         api_key: Optional[str] = None,
         base_url: Optional[str] = None,
         model: Optional[str] = None,
-        timeout: int = 60,
+        timeout: int = 120,
     ) -> None:
         self.api_key = api_key or os.getenv("LLM_API_KEY", "")
         self.base_url = base_url or os.getenv("LLM_BASE_URL", DEFAULT_LLM_BASE_URL)
@@ -74,6 +72,11 @@ class LLMService:
         except error.HTTPError as exc:
             detail = exc.read().decode("utf-8", errors="ignore")
             raise RuntimeError(f"LLM request failed: {exc.code} {detail}") from exc
+        except (error.URLError, TimeoutError, OSError) as exc:
+            raise RuntimeError(
+                "LLM network request failed. Check LLM_BASE_URL, network/proxy, "
+                f"and model settings. Detail: {exc}"
+            ) from exc
 
         return result["choices"][0]["message"]["content"]
 
@@ -84,7 +87,22 @@ class LLMService:
             if "response_format" not in str(exc):
                 raise
             content = self.chat(prompt, temperature=temperature, json_mode=False)
-        return extract_json_object(content)
+
+        try:
+            return extract_json_object(content)
+        except ValueError as exc:
+            repair_prompt = (
+                "下面是一段模型输出的、不完整或不合法的 JSON。"
+                "请只根据已有内容修复为一个合法 JSON 对象。"
+                "如果内容被截断，不要补造新事实，只保留已经完整出现的项目，并正确闭合数组和对象。"
+                "不要输出 Markdown 或解释。\n\n"
+                f"{content[:30000]}"
+            )
+            repaired = self.chat(repair_prompt, temperature=0.0, json_mode=True)
+            try:
+                return extract_json_object(repaired)
+            except ValueError:
+                raise ValueError(f"{exc} Raw LLM output prefix: {content[:500]}") from exc
 
 
 def extract_json_object(content: str) -> Dict[str, Any]:
@@ -131,3 +149,4 @@ def extract_json_object(content: str) -> Dict[str, Any]:
                     return data
 
     raise ValueError("LLM output contains incomplete JSON.")
+
