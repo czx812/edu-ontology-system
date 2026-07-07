@@ -124,6 +124,7 @@ def run_workflow(state: dict) -> dict:
         schema_match_node,
         ontology_build_node,
         align_node,
+        provenance_node,
         owl_generate_node,
     ):
         state = node(state)

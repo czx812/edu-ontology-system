@@ -55,6 +55,10 @@ def generate_ontology(file_path: str, user: dict) -> dict:
             "ontology": state.get("ontology", {}),
             "structured_file": structured_file,
             "record_count": record_count,
+          
+            "trace_map": state.get("trace_map", {}),
+            "trace_file": state.get("trace_file", ""),
+
             "owl_file": owl_file,
             "errors": state.get("errors", []),
             "generation_record": {"status": "SUCCESS", "duration_ms": duration_ms},

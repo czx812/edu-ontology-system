@@ -16,6 +16,16 @@
 
       <pre v-if="ontology">{{ ontology }}</pre>
 
+      <div v-if="traceSummary" class="trace-summary">
+      <h2>数据溯源结果</h2>
+        <p>结构化记录数：{{ traceSummary.total_records }}</p>
+        <p>本体元素数：{{ traceSummary.total_trace_items }}</p>
+        <p>已匹配来源：{{ traceSummary.matched_items }}</p>
+        <p>未匹配来源：{{ traceSummary.unmatched_items }}</p>
+        <p v-if="traceSummary.trace_file">溯源文件：{{ traceSummary.trace_file }}</p>
+      </div>
+
+      <pre v-if="traceMap" class="trace-json">{{ traceMap }}</pre>
       <button v-if="owlFile" class="btn2" @click="download">
         下载 OWL 文件
       </button>
@@ -102,5 +112,25 @@ async function download() {
 .summary div { background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 8px; padding: 10px; }
 .summary strong, .summary span { display: block; word-break: break-all; }
 .summary strong { color: #475569; margin-bottom: 4px; }
+.trace-summary {
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 10px;
+  background: #f8f9ff;
+  text-align: left;
+  color: #333;
+}
+
+.trace-summary h2 {
+  margin-top: 0;
+}
+
+.trace-summary p {
+  margin: 6px 0;
+}
+
+.trace-json {
+  max-height: 45vh;
+}
 pre { max-height: 55vh; overflow: auto; background: #f4f4f4; padding: 10px; margin-top: 20px; text-align: left; border-radius: 8px; }
 </style>
