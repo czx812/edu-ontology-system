@@ -1,24 +1,13 @@
 ﻿<template>
-  <div class="page">
-    <div class="card">
-      <h1>PDF 上传系统</h1>
-
-      <input type="file" accept="application/pdf" :disabled="loading" @change="handleFile" />
-
-      <button class="btn" :disabled="loading" @click="upload">
-        {{ loading ? "上传中..." : "上传文件" }}
-      </button>
-
-      <p v-if="error" class="error">{{ error }}</p>
-
-      <p v-if="filePath" class="success">
-        上传成功：{{ filePath }}
-      </p>
-
-      <button v-if="filePath" class="btn2" @click="goNext">
-        去生成本体
-      </button>
-    </div>
+  <div class="upload-card">
+    <h2>上传 PDF 文档</h2>
+    <input type="file" accept="application/pdf" :disabled="loading" @change="handleFile" />
+    <button class="btn" :disabled="loading" @click="upload">
+      {{ loading ? "上传中..." : "上传文档" }}
+    </button>
+    <p v-if="error" class="error">{{ error }}</p>
+    <p v-if="filePath" class="success">上传成功，文件已保存到当前用户空间，可继续生成本体。</p>
+    <button v-if="filePath" class="btn2" @click="goNext">进入生成页面</button>
   </div>
 </template>
 
@@ -68,56 +57,28 @@ function goNext() {
 </script>
 
 <style scoped>
-.page {
-  min-height: 100vh;
+.upload-card {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(120deg, #89f7fe, #66a6ff);
-}
-
-.card {
-  background: white;
-  padding: 40px;
-  border-radius: 16px;
-  width: min(420px, calc(100vw - 32px));
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  border-radius: 12px;
+  background: #f8fbff;
+  box-shadow: inset 0 0 0 1px #dce7f5;
 }
 
 .btn,
 .btn2 {
-  margin-top: 20px;
-  padding: 10px 20px;
+  padding: 10px 16px;
   border: none;
-  color: white;
   border-radius: 8px;
+  color: white;
   cursor: pointer;
 }
 
-.btn {
-  background: #4facfe;
-}
-
-.btn:disabled {
-  cursor: not-allowed;
-  opacity: 0.7;
-}
-
-.btn2 {
-  margin-top: 15px;
-  background: #43e97b;
-}
-
-.success {
-  margin-top: 10px;
-  color: green;
-  word-break: break-word;
-}
-
-.error {
-  margin-top: 10px;
-  color: #b00020;
-  word-break: break-word;
-}
+.btn { background: #2563eb; }
+.btn2 { background: #16a34a; }
+.btn:disabled { opacity: 0.7; cursor: not-allowed; }
+.success { color: #15803d; }
+.error { color: #b91c1c; }
 </style>

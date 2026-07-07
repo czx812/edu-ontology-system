@@ -11,6 +11,7 @@ class ModuleNotReadyError(RuntimeError):
 
 DEFAULT_STATE = {
     "file_path": "",
+    "export_dir": "",
     "raw_text": "",
     "clean_data": {},
     "entity_json": {},
@@ -88,7 +89,8 @@ def align_node(state: dict) -> dict:
 def owl_generate_node(state: dict) -> dict:
     state = _merge_state(state)
     generate_owl = _load_function("modules.owl_generator", "generate_owl")
-    state["owl_file"] = generate_owl(state["ontology"])
+    export_dir = state.get("export_dir") or str(settings.EXPORT_DIR)
+    state["owl_file"] = generate_owl(state["ontology"], export_dir=export_dir)
     return state
 
 

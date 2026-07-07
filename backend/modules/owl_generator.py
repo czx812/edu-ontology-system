@@ -35,15 +35,17 @@ def _xsd_range(value: str) -> str:
     return XSD_RANGES.get(key, "string")
 
 
-def generate_owl(ontology: dict) -> str:
+def generate_owl(ontology: dict, export_dir: str | None = None) -> str:
     """Generate OWL with separated Class, DatatypeProperty, and ObjectProperty."""
     classes = ontology.get("classes", [])
     relations = ontology.get("relations", [])
     properties = ontology.get("properties", [])
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    settings.EXPORT_DIR.mkdir(parents=True, exist_ok=True)
-    output_path = settings.EXPORT_DIR / f"ontology_{timestamp}.owl"
+    output_dir = Path(export_dir) if export_dir else settings.EXPORT_DIR
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    output_path = output_dir / f"ontology_{timestamp}.owl"
 
     lines = []
     lines.append('<?xml version="1.0" encoding="UTF-8"?>')
@@ -113,4 +115,4 @@ def generate_owl(ontology: dict) -> str:
 
     lines.append("</rdf:RDF>")
     output_path.write_text("\n".join(lines), encoding="utf-8")
-    return output_path.name
+    return str(output_path)
