@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 import re
 from typing import Any, Dict, List, Optional, Set, Tuple, Union
 
@@ -30,7 +31,10 @@ class EntityExtractor:
         self.last_prompt = build_entity_prompt(data)
         self.last_warnings = []
 
-        if use_llm and self.llm_service.available:
+        if _has_structured_records(data) and not _llm_entity_for_records_enabled():
+            raw = self._rule_based_extract(data)
+            self.last_generation_mode = "rule_structured"
+        elif use_llm and self.llm_service.available:
             try:
                 raw = self.llm_service.chat_json(self.last_prompt)
                 self.last_generation_mode = "llm"
@@ -149,6 +153,14 @@ def _as_clean_data(data: Any) -> Dict[str, Any]:
     if isinstance(data, dict):
         return data
     return {"clean_text": str(data or "")}
+
+
+def _has_structured_records(data: Any) -> bool:
+    return isinstance(data, dict) and isinstance(data.get("records"), list) and bool(data.get("records"))
+
+
+def _llm_entity_for_records_enabled() -> bool:
+    return os.getenv("LLM_ENTITY_FOR_RECORDS", "0").lower() in {"1", "true", "yes", "on"}
 
 
 def _is_empty(data: Any) -> bool:

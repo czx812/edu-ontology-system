@@ -3,6 +3,7 @@ from __future__ import annotations
 import re
 from datetime import datetime
 from pathlib import Path
+from pathlib import Path
 from xml.sax.saxutils import escape
 
 try:
@@ -68,15 +69,17 @@ def _xsd_range(prop: dict) -> str:
     )
 
 
-def generate_owl(ontology: dict) -> str:
+def generate_owl(ontology: dict, export_dir: str | None = None) -> str:
     """Generate RDF/XML OWL from ontology JSON and validate it."""
     classes = ontology.get("classes", []) if isinstance(ontology, dict) else []
     properties = ontology.get("properties", []) if isinstance(ontology, dict) else []
     relations = ontology.get("relations", []) if isinstance(ontology, dict) else []
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    settings.EXPORT_DIR.mkdir(parents=True, exist_ok=True)
-    output_path = settings.EXPORT_DIR / f"ontology_{timestamp}.owl"
+    output_dir = Path(export_dir) if export_dir else settings.EXPORT_DIR
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    output_path = output_dir / f"ontology_{timestamp}.owl"
 
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
@@ -150,7 +153,7 @@ def generate_owl(ontology: dict) -> str:
     lines.append("</rdf:RDF>")
     output_path.write_text("\n".join(lines), encoding="utf-8")
     validate_owl_file(str(output_path))
-    return output_path.name
+    return str(output_path)
 
 
 def validate_owl_file(file_path: str) -> bool:

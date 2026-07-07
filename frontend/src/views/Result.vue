@@ -2,11 +2,9 @@
   <div class="page">
     <div class="card">
       <h1>本体生成中心</h1>
-
       <button class="btn" :disabled="loading" @click="generate">
         {{ loading ? "正在生成..." : "开始生成" }}
       </button>
-
       <p v-if="error" class="error">{{ error }}</p>
 
       <div v-if="stats" class="stats">
@@ -37,10 +35,7 @@
       </p>
 
       <pre v-if="ontology">{{ ontology }}</pre>
-
-      <button v-if="owlFile" class="btn2" @click="download">
-        下载 OWL 文件
-      </button>
+      <button v-if="owlFile" class="btn2" @click="download">下载 OWL 文件</button>
     </div>
   </div>
 </template>
@@ -48,7 +43,7 @@
 <script setup>
 import { ref } from "vue";
 import { useRoute } from "vue-router";
-import { generateOntology } from "../api/request";
+import { generateOntology, exportOWL } from "../api/request";
 
 const route = useRoute();
 const filePath = route.query.filePath;
@@ -86,9 +81,17 @@ async function generate() {
   }
 }
 
-function download() {
-  const url = `/api/export?file_path=${encodeURIComponent(owlFile.value)}`;
-  window.open(url, "_blank");
+async function download() {
+  if (!owlFile.value) {
+    return;
+  }
+  const res = await exportOWL(owlFile.value);
+  const url = window.URL.createObjectURL(new Blob([res.data]));
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = owlFile.value.split("/").pop();
+  link.click();
+  window.URL.revokeObjectURL(url);
 }
 </script>
 

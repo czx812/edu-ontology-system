@@ -1,4 +1,4 @@
-﻿from importlib import import_module
+from importlib import import_module
 from pathlib import Path
 from typing import Any, Callable
 
@@ -11,12 +11,16 @@ class ModuleNotReadyError(RuntimeError):
 
 DEFAULT_STATE = {
     "file_path": "",
+    "export_dir": "",
     "raw_text": "",
+    "tables": [],
     "clean_data": {},
+    "structured_file": "",
     "entity_json": {},
     "semantic_model": {},
     "ontology": {},
     "owl_file": "",
+    "errors": [],
 }
 
 
@@ -40,23 +44,26 @@ def _load_function(module_name: str, function_name: str) -> Callable[..., Any]:
 
 def extract_node(state: dict) -> dict:
     state = _merge_state(state)
-    extract_pdf = _load_function("modules.pdf_parser", "extract_pdf")
-    state["raw_text"] = extract_pdf(state["file_path"])
-    return state
+    parse_pdf = _load_function("modules.pdf_parser", "parse_pdf")
+    return parse_pdf(state)
 
 
 def clean_node(state: dict) -> dict:
     state = _merge_state(state)
     clean_data = _load_function("modules.data_cleaner", "clean_data")
-    state["clean_data"] = clean_data(state["raw_text"])
+    return clean_data(state)
+
+
+def schema_match_node(state: dict) -> dict:
+    state = _merge_state(state)
+    match_schema = _load_function("modules.schema_matcher", "match_schema")
+    state["clean_data"] = match_schema(state.get("clean_data", {}))
     return state
 
 
 def entity_extract_node(state: dict) -> dict:
     state = _merge_state(state)
-    match_schema = _load_function("modules.schema_matcher", "match_schema")
     extract_entities = _load_function("ai.entity_extractor", "extract_entities")
-    state["clean_data"] = match_schema(state["clean_data"])
     state["entity_json"] = extract_entities(state["clean_data"])
     return state
 
@@ -74,11 +81,7 @@ def semantic_classify_node(state: dict) -> dict:
 def ontology_build_node(state: dict) -> dict:
     state = _merge_state(state)
     build_ontology = _load_function("modules.ontology_builder", "build_ontology")
-    state["ontology"] = build_ontology({
-        "clean_data": state["clean_data"],
-        "entity_json": state["entity_json"],
-        "semantic_model": state["semantic_model"],
-    })
+    state["ontology"] = build_ontology(state)
     return state
 
 
@@ -92,28 +95,25 @@ def align_node(state: dict) -> dict:
 def owl_generate_node(state: dict) -> dict:
     state = _merge_state(state)
     generate_owl = _load_function("modules.owl_generator", "generate_owl")
-    state["owl_file"] = generate_owl(state["ontology"])
+    export_dir = state.get("export_dir") or str(settings.EXPORT_DIR)
+    state["owl_file"] = generate_owl(state["ontology"], export_dir=export_dir)
     return state
 
 
 def run_workflow(state: dict) -> dict:
-    """
-    Full flow:
-    PDF -> extract -> clean -> entity_extract -> semantic_classify -> ontology_build -> owl_generate
-    """
+    """Full flow: PDF -> parse -> clean -> schema match -> ontology -> align -> OWL."""
     state = _merge_state(state)
     file_path = Path(state["file_path"])
     if not file_path.exists():
         file_path = settings.UPLOAD_DIR / file_path.name
     if not file_path.exists():
-        raise FileNotFoundError(f"PDF文件不存在:{state['file_path']}")
+        raise FileNotFoundError(f"PDF文件不存在：{state['file_path']}")
     state["file_path"] = str(file_path)
 
     for node in (
         extract_node,
         clean_node,
-        entity_extract_node,
-        semantic_classify_node,
+        schema_match_node,
         ontology_build_node,
         align_node,
         owl_generate_node,

@@ -77,7 +77,28 @@ def match_schema(clean_data: Dict[str, Any]) -> Dict[str, Any]:
     return result
 
 
-def _normalize_table(table: Any, index: int) -> Dict[str, Any]:
+def _normalize_record(record: Dict[str, Any]) -> Dict[str, Any]:
+    normalized = dict(record)
+    for new_key, old_key in LEGACY_FIELD_MAP.items():
+        value = str(normalized.get(new_key) or normalized.get(old_key) or "").strip()
+        normalized[new_key] = value
+        normalized[old_key] = value
+    normalized.setdefault("source", record.get("source", {}))
+    normalized.setdefault("source_table", _source_table_name(normalized.get("source")))
+    return normalized
+
+
+def _source_table_name(source: Any) -> str:
+    if not isinstance(source, dict):
+        return ""
+    page = source.get("page")
+    table_index = source.get("table_index")
+    if page is None and table_index is None:
+        return ""
+    return f"page_{page}_table_{table_index}"
+
+
+def _records_from_table(table: Any) -> Iterable[Dict[str, Any]]:
     if isinstance(table, dict):
         title = str(table.get("title") or table.get("table_name") or f"table_{index}")
         rows = [_normalize_row(row) for row in _as_dicts(table.get("rows", []))]

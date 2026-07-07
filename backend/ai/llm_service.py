@@ -1,4 +1,4 @@
-﻿"""LLM API client for the B layer."""
+"""LLM API client for the B layer."""
 
 from __future__ import annotations
 
