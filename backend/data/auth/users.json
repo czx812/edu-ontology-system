@@ -1,0 +1,16 @@
+{
+  "users": {
+    "demo_user": {
+      "id": "1",
+      "username": "demo_user",
+      "password_hash": "d48270ee4c8b98f8b9bb23e99ce7c70d5d2e94f63193537b6e3d7e9bc32fdf83",
+      "password_salt": "5f46ee2a4ef9620f"
+    },
+    "cj-fish-coder": {
+      "id": "2",
+      "username": "cj-fish-coder",
+      "password_hash": "1b3ceeda1580b0c9025aed258dbcf6417bf56c0a3fc7ee33411db753f490b568",
+      "password_salt": "187ca03ca6ceb76f"
+    }
+  }
+}
