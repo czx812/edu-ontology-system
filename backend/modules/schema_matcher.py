@@ -48,10 +48,23 @@ def match_schema(clean_data: Dict[str, Any]) -> Dict[str, Any]:
     normalized_tables = [table for table in normalized_tables if table["rows"]]
 
     records: List[Dict[str, Any]] = []
+
+    source_file = (
+        clean_data.get("source_file")
+        or clean_data.get("file_path")
+        or clean_data.get("source_path")
+        or ""
+    )
+
     for table in normalized_tables:
-        for row in table["rows"]:
+        for row_index, row in enumerate(table["rows"]):
             record = dict(row)
+
+            # 数据溯源需要保留来源信息
+            record["source_file"] = source_file
             record["source_table"] = table["title"]
+            record["source_row_index"] = row_index
+
             if record.get("id") or record.get("cn_name") or record.get("item_name"):
                 records.append(record)
 

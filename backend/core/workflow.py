@@ -14,6 +14,8 @@ DEFAULT_STATE = {
     "raw_text": "",
     "clean_data": {},
     "ontology": {},
+    "trace_map": {},
+    "trace_file": "",
     "owl_file": "",
 }
 
@@ -70,6 +72,12 @@ def align_node(state: dict) -> dict:
     state["ontology"] = align_ontology(state["ontology"])
     return state
 
+def provenance_node(state: dict) -> dict:
+    state = _merge_state(state)
+    build_trace_map = _load_function("modules.provenance", "build_trace_map")
+    state["trace_map"] = build_trace_map(state["clean_data"], state["ontology"])
+    state["trace_file"] = state["trace_map"].get("trace_file", "")
+    return state
 
 def owl_node(state: dict) -> dict:
     state = _merge_state(state)
@@ -91,7 +99,15 @@ def run_workflow(state: dict) -> dict:
         raise FileNotFoundError(f"PDF文件不存在:{state['file_path']}")
     state["file_path"] = str(file_path)
 
-    for node in (extract_node, clean_node, match_node, llm_node, align_node, owl_node):
+    for node in (
+        extract_node,
+        clean_node,
+        match_node,
+        llm_node,
+        align_node,
+        provenance_node,
+        owl_node,
+    ):
         state = node(state)
 
     return state

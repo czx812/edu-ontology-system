@@ -6,6 +6,8 @@ class OntologyState(TypedDict):
     raw_text: str
     clean_data: Dict[str, Any]
     ontology: Dict[str, Any]
+    trace_map: Dict[str, Any]
+    trace_file: str
     owl_file: str
 
 
@@ -15,5 +17,7 @@ def create_state() -> OntologyState:
         "raw_text": "",
         "clean_data": {},
         "ontology": {},
+        "trace_map": {},
+        "trace_file": "",
         "owl_file": "",
     }

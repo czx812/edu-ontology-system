@@ -1,0 +1,1016 @@
+{
+  "source_file": "",
+  "total_records": 0,
+  "total_trace_items": 128,
+  "matched_items": 0,
+  "unmatched_items": 128,
+  "items": [
+    {
+      "ontology_type": "class",
+      "ontology_name": "Student",
+      "ontology_label": "学生",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "Staff",
+      "ontology_label": "教职工",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "School",
+      "ontology_label": "学校",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "Class",
+      "ontology_label": "班级",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "Enrollment",
+      "ontology_label": "学籍",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "Score",
+      "ontology_label": "成绩",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "Graduation",
+      "ontology_label": "毕业",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "Employment",
+      "ontology_label": "就业",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "StudentAward",
+      "ontology_label": "学生奖励",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "StudentPunishment",
+      "ontology_label": "学生惩处",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "StaffAward",
+      "ontology_label": "教职工奖励",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "StaffPunishment",
+      "ontology_label": "教职工惩处",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "ProfessionalTitle",
+      "ontology_label": "专业技术职务",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "PartyPosition",
+      "ontology_label": "党政职务",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "FamilyMember",
+      "ontology_label": "家庭成员",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "StudyExperience",
+      "ontology_label": "学习简历",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "WorkExperience",
+      "ontology_label": "工作简历",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "EducationDegree",
+      "ontology_label": "学历学位",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "Organization",
+      "ontology_label": "单位",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "Course",
+      "ontology_label": "课程",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "Major",
+      "ontology_label": "专业",
+      "sources": []
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "student_id",
+      "ontology_label": "学号",
+      "sources": [],
+      "domain": "Student",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "name",
+      "ontology_label": "姓名",
+      "sources": [],
+      "domain": "Student",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "gender_code",
+      "ontology_label": "性别码",
+      "sources": [],
+      "domain": "Student",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "birth_date",
+      "ontology_label": "出生日期",
+      "sources": [],
+      "domain": "Student",
+      "range": "date"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "political_status_code",
+      "ontology_label": "政治面貌码",
+      "sources": [],
+      "domain": "Student",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "staff_id",
+      "ontology_label": "工号",
+      "sources": [],
+      "domain": "Staff",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "name",
+      "ontology_label": "姓名",
+      "sources": [],
+      "domain": "Staff",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "gender_code",
+      "ontology_label": "性别码",
+      "sources": [],
+      "domain": "Staff",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "birth_date",
+      "ontology_label": "出生日期",
+      "sources": [],
+      "domain": "Staff",
+      "range": "date"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "political_status_code",
+      "ontology_label": "政治面貌码",
+      "sources": [],
+      "domain": "Staff",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "school_code",
+      "ontology_label": "学校代码",
+      "sources": [],
+      "domain": "School",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "name",
+      "ontology_label": "学校名称",
+      "sources": [],
+      "domain": "School",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "address",
+      "ontology_label": "学校地址",
+      "sources": [],
+      "domain": "School",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "established_year_month",
+      "ontology_label": "建校年月",
+      "sources": [],
+      "domain": "School",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "school_type_code",
+      "ontology_label": "学校办学类型码",
+      "sources": [],
+      "domain": "School",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "class_id",
+      "ontology_label": "班号",
+      "sources": [],
+      "domain": "Class",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "class_name",
+      "ontology_label": "班级名称",
+      "sources": [],
+      "domain": "Class",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "establish_year_month",
+      "ontology_label": "建班年月",
+      "sources": [],
+      "domain": "Class",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "grade",
+      "ontology_label": "所属年级",
+      "sources": [],
+      "domain": "Class",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "student_id",
+      "ontology_label": "学号",
+      "sources": [],
+      "domain": "Enrollment",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "enrollment_year_month",
+      "ontology_label": "入学年月",
+      "sources": [],
+      "domain": "Enrollment",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "student_category_code",
+      "ontology_label": "学生类别码",
+      "sources": [],
+      "domain": "Enrollment",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "education_system",
+      "ontology_label": "学制",
+      "sources": [],
+      "domain": "Enrollment",
+      "range": "integer"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "class_id",
+      "ontology_label": "所在班号",
+      "sources": [],
+      "domain": "Enrollment",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "student_id",
+      "ontology_label": "学号",
+      "sources": [],
+      "domain": "Score",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "course_id",
+      "ontology_label": "课程号",
+      "sources": [],
+      "domain": "Score",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "exam_date",
+      "ontology_label": "考试日期",
+      "sources": [],
+      "domain": "Score",
+      "range": "date"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "score",
+      "ontology_label": "课程成绩",
+      "sources": [],
+      "domain": "Score",
+      "range": "float"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "academic_year",
+      "ontology_label": "学年",
+      "sources": [],
+      "domain": "Score",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "student_id",
+      "ontology_label": "学号",
+      "sources": [],
+      "domain": "Graduation",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "graduation_year_month",
+      "ontology_label": "结束学业年月",
+      "sources": [],
+      "domain": "Graduation",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "graduation_code",
+      "ontology_label": "结束学业码",
+      "sources": [],
+      "domain": "Graduation",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "diploma_number",
+      "ontology_label": "毕业证书号",
+      "sources": [],
+      "domain": "Graduation",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "student_id",
+      "ontology_label": "学号",
+      "sources": [],
+      "domain": "Employment",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "agreement_number",
+      "ontology_label": "协议书编号",
+      "sources": [],
+      "domain": "Employment",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "destination_code",
+      "ontology_label": "毕业去向码",
+      "sources": [],
+      "domain": "Employment",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "employer_name",
+      "ontology_label": "接收单位",
+      "sources": [],
+      "domain": "Employment",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "student_id",
+      "ontology_label": "学号",
+      "sources": [],
+      "domain": "StudentAward",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "award_name",
+      "ontology_label": "奖励名称",
+      "sources": [],
+      "domain": "StudentAward",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "award_level_code",
+      "ontology_label": "奖励级别码",
+      "sources": [],
+      "domain": "StudentAward",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "award_academic_year",
+      "ontology_label": "奖励学年度",
+      "sources": [],
+      "domain": "StudentAward",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "student_id",
+      "ontology_label": "学号",
+      "sources": [],
+      "domain": "StudentPunishment",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "violation_category_code",
+      "ontology_label": "违纪类别码",
+      "sources": [],
+      "domain": "StudentPunishment",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "punishment_name_code",
+      "ontology_label": "处分名称码",
+      "sources": [],
+      "domain": "StudentPunishment",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "punishment_date",
+      "ontology_label": "处分日期",
+      "sources": [],
+      "domain": "StudentPunishment",
+      "range": "date"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "staff_id",
+      "ontology_label": "工号",
+      "sources": [],
+      "domain": "StaffAward",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "award_name",
+      "ontology_label": "奖励名称",
+      "sources": [],
+      "domain": "StaffAward",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "award_level_code",
+      "ontology_label": "奖励级别码",
+      "sources": [],
+      "domain": "StaffAward",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "award_date",
+      "ontology_label": "获奖日期",
+      "sources": [],
+      "domain": "StaffAward",
+      "range": "date"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "staff_id",
+      "ontology_label": "工号",
+      "sources": [],
+      "domain": "StaffPunishment",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "punishment_name",
+      "ontology_label": "惩处名称",
+      "sources": [],
+      "domain": "StaffPunishment",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "punishment_reason",
+      "ontology_label": "惩处原因",
+      "sources": [],
+      "domain": "StaffPunishment",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "punishment_date",
+      "ontology_label": "惩处日期",
+      "sources": [],
+      "domain": "StaffPunishment",
+      "range": "date"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "staff_id",
+      "ontology_label": "工号",
+      "sources": [],
+      "domain": "ProfessionalTitle",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "qualification_code",
+      "ontology_label": "任职资格名称码",
+      "sources": [],
+      "domain": "ProfessionalTitle",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "position_code",
+      "ontology_label": "聘任职务码",
+      "sources": [],
+      "domain": "ProfessionalTitle",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "start_date",
+      "ontology_label": "聘任起始日期",
+      "sources": [],
+      "domain": "ProfessionalTitle",
+      "range": "date"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "staff_id",
+      "ontology_label": "工号",
+      "sources": [],
+      "domain": "PartyPosition",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "position_name",
+      "ontology_label": "职务名称",
+      "sources": [],
+      "domain": "PartyPosition",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "level_code",
+      "ontology_label": "职务级别码",
+      "sources": [],
+      "domain": "PartyPosition",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "appointment_date",
+      "ontology_label": "任职日期",
+      "sources": [],
+      "domain": "PartyPosition",
+      "range": "date"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "relationship_code",
+      "ontology_label": "关系码",
+      "sources": [],
+      "domain": "FamilyMember",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "member_name",
+      "ontology_label": "成员姓名",
+      "sources": [],
+      "domain": "FamilyMember",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "member_work_unit",
+      "ontology_label": "成员工作单位",
+      "sources": [],
+      "domain": "FamilyMember",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "start_date",
+      "ontology_label": "学习起始日期",
+      "sources": [],
+      "domain": "StudyExperience",
+      "range": "date"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "end_date",
+      "ontology_label": "学习终止日期",
+      "sources": [],
+      "domain": "StudyExperience",
+      "range": "date"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "institution",
+      "ontology_label": "学习单位",
+      "sources": [],
+      "domain": "StudyExperience",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "major_name",
+      "ontology_label": "所学专业名称",
+      "sources": [],
+      "domain": "StudyExperience",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "start_date",
+      "ontology_label": "工作起始日期",
+      "sources": [],
+      "domain": "WorkExperience",
+      "range": "date"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "end_date",
+      "ontology_label": "工作终止日期",
+      "sources": [],
+      "domain": "WorkExperience",
+      "range": "date"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "employer",
+      "ontology_label": "工作单位",
+      "sources": [],
+      "domain": "WorkExperience",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "admission_date",
+      "ontology_label": "入学年月",
+      "sources": [],
+      "domain": "EducationDegree",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "education_code",
+      "ontology_label": "学历码",
+      "sources": [],
+      "domain": "EducationDegree",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "degree_code",
+      "ontology_label": "获得学位码",
+      "sources": [],
+      "domain": "EducationDegree",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "org_id",
+      "ontology_label": "单位号",
+      "sources": [],
+      "domain": "Organization",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "org_name",
+      "ontology_label": "单位名称",
+      "sources": [],
+      "domain": "Organization",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "org_address",
+      "ontology_label": "单位地址",
+      "sources": [],
+      "domain": "Organization",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "course_id",
+      "ontology_label": "课程号",
+      "sources": [],
+      "domain": "Course",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "course_name",
+      "ontology_label": "课程名称",
+      "sources": [],
+      "domain": "Course",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "english_name",
+      "ontology_label": "课程英文名称",
+      "sources": [],
+      "domain": "Course",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "major_code",
+      "ontology_label": "专业码",
+      "sources": [],
+      "domain": "Major",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "major_name",
+      "ontology_label": "专业名称",
+      "sources": [],
+      "domain": "Major",
+      "range": "string"
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Student-studies_in-School",
+      "ontology_label": "Student studies_in School",
+      "subject": "Student",
+      "predicate": "studies_in",
+      "object": "School",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Student-belongs_to-Class",
+      "ontology_label": "Student belongs_to Class",
+      "subject": "Student",
+      "predicate": "belongs_to",
+      "object": "Class",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Student-has-Enrollment",
+      "ontology_label": "Student has Enrollment",
+      "subject": "Student",
+      "predicate": "has",
+      "object": "Enrollment",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Student-has-Score",
+      "ontology_label": "Student has Score",
+      "subject": "Student",
+      "predicate": "has",
+      "object": "Score",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Score-for_course-Course",
+      "ontology_label": "Score for_course Course",
+      "subject": "Score",
+      "predicate": "for_course",
+      "object": "Course",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Student-has-Graduation",
+      "ontology_label": "Student has Graduation",
+      "subject": "Student",
+      "predicate": "has",
+      "object": "Graduation",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Student-has-Employment",
+      "ontology_label": "Student has Employment",
+      "subject": "Student",
+      "predicate": "has",
+      "object": "Employment",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Student-receives-StudentAward",
+      "ontology_label": "Student receives StudentAward",
+      "subject": "Student",
+      "predicate": "receives",
+      "object": "StudentAward",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Student-receives-StudentPunishment",
+      "ontology_label": "Student receives StudentPunishment",
+      "subject": "Student",
+      "predicate": "receives",
+      "object": "StudentPunishment",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Student-has-FamilyMember",
+      "ontology_label": "Student has FamilyMember",
+      "subject": "Student",
+      "predicate": "has",
+      "object": "FamilyMember",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Student-has-StudyExperience",
+      "ontology_label": "Student has StudyExperience",
+      "subject": "Student",
+      "predicate": "has",
+      "object": "StudyExperience",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Student-has-WorkExperience",
+      "ontology_label": "Student has WorkExperience",
+      "subject": "Student",
+      "predicate": "has",
+      "object": "WorkExperience",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Student-has-EducationDegree",
+      "ontology_label": "Student has EducationDegree",
+      "subject": "Student",
+      "predicate": "has",
+      "object": "EducationDegree",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Staff-works_at-School",
+      "ontology_label": "Staff works_at School",
+      "subject": "Staff",
+      "predicate": "works_at",
+      "object": "School",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Staff-receives-StaffAward",
+      "ontology_label": "Staff receives StaffAward",
+      "subject": "Staff",
+      "predicate": "receives",
+      "object": "StaffAward",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Staff-receives-StaffPunishment",
+      "ontology_label": "Staff receives StaffPunishment",
+      "subject": "Staff",
+      "predicate": "receives",
+      "object": "StaffPunishment",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Staff-has-ProfessionalTitle",
+      "ontology_label": "Staff has ProfessionalTitle",
+      "subject": "Staff",
+      "predicate": "has",
+      "object": "ProfessionalTitle",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Staff-holds-PartyPosition",
+      "ontology_label": "Staff holds PartyPosition",
+      "subject": "Staff",
+      "predicate": "holds",
+      "object": "PartyPosition",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Staff-has-FamilyMember",
+      "ontology_label": "Staff has FamilyMember",
+      "subject": "Staff",
+      "predicate": "has",
+      "object": "FamilyMember",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Staff-has-StudyExperience",
+      "ontology_label": "Staff has StudyExperience",
+      "subject": "Staff",
+      "predicate": "has",
+      "object": "StudyExperience",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Staff-has-WorkExperience",
+      "ontology_label": "Staff has WorkExperience",
+      "subject": "Staff",
+      "predicate": "has",
+      "object": "WorkExperience",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Staff-has-EducationDegree",
+      "ontology_label": "Staff has EducationDegree",
+      "subject": "Staff",
+      "predicate": "has",
+      "object": "EducationDegree",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Class-part_of-School",
+      "ontology_label": "Class part_of School",
+      "subject": "Class",
+      "predicate": "part_of",
+      "object": "School",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Course-offered_by-School",
+      "ontology_label": "Course offered_by School",
+      "subject": "Course",
+      "predicate": "offered_by",
+      "object": "School",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Major-offered_by-School",
+      "ontology_label": "Major offered_by School",
+      "subject": "Major",
+      "predicate": "offered_by",
+      "object": "School",
+      "sources": []
+    }
+  ]
+}

@@ -23,9 +23,10 @@ def generate_ontology(file_path: str) -> dict:
     state = run_workflow({"file_path": file_path})
     return {
         "ontology": state.get("ontology", {}),
+        "trace_map": state.get("trace_map", {}),
+        "trace_file": state.get("trace_file", ""),
         "owl_file": state.get("owl_file", ""),
     }
-
 
 @router.post("/generate")
 def generate(request: GenerateRequest) -> dict:
