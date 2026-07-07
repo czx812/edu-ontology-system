@@ -9,8 +9,8 @@ from typing import Any, Dict, Optional
 from urllib import error, request
 
 
-DEFAULT_LLM_BASE_URL = "https://api.deepseek.com/v1/chat/completions"
-DEFAULT_LLM_MODEL = "deepseek-chat"
+DEFAULT_LLM_BASE_URL = "https://api.deepseek.com/chat/completions"
+DEFAULT_LLM_MODEL = "deepseek-v4-pro"
 
 
 class LLMService:
@@ -24,10 +24,19 @@ class LLMService:
         timeout: int = 120,
     ) -> None:
         self.api_key = api_key or os.getenv("LLM_API_KEY", "")
-        self.base_url = base_url or os.getenv("LLM_BASE_URL", DEFAULT_LLM_BASE_URL)
+
+        raw_base_url = base_url or os.getenv("LLM_BASE_URL", DEFAULT_LLM_BASE_URL)
+        raw_base_url = raw_base_url.rstrip("/")
+
+        if raw_base_url in {
+            "https://api.deepseek.com",
+            "https://api.deepseek.com/v1",
+        }:
+            raw_base_url = raw_base_url + "/chat/completions"
+
+        self.base_url = raw_base_url
         self.model = model or os.getenv("LLM_MODEL", DEFAULT_LLM_MODEL)
         self.timeout = timeout
-
     @property
     def available(self) -> bool:
         return bool(self.api_key)
@@ -149,4 +158,5 @@ def extract_json_object(content: str) -> Dict[str, Any]:
                     return data
 
     raise ValueError("LLM output contains incomplete JSON.")
+
 
