@@ -1,4 +1,4 @@
-﻿"""Entity extraction: text -> entity JSON through LLM with rule fallback."""
+"""Entity extraction: text -> entity JSON through LLM with rule fallback."""
 
 from __future__ import annotations
 

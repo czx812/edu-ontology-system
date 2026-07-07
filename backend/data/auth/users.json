@@ -11,6 +11,12 @@
       "username": "cj-fish-coder",
       "password_hash": "1b3ceeda1580b0c9025aed258dbcf6417bf56c0a3fc7ee33411db753f490b568",
       "password_salt": "187ca03ca6ceb76f"
+    },
+    "czx": {
+      "id": "3",
+      "username": "czx",
+      "password_hash": "5a582f70cb52c0eac8043a967f35d56c93dd489d07dc5b923612e2b6c0108289",
+      "password_salt": "9c73efc2a083dceb"
     }
   }
 }

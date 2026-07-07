@@ -1,4 +1,4 @@
-﻿"""Build ontology JSON from semantic classification output."""
+"""Build ontology JSON from semantic classification output."""
 
 from __future__ import annotations
 

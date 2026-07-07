@@ -1,4 +1,4 @@
-﻿from typing import Any, Dict, TypedDict
+from typing import Any, Dict, TypedDict
 
 
 class OntologyState(TypedDict):

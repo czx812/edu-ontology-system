@@ -1,4 +1,4 @@
-﻿"""Prompt templates for ontology construction."""
+"""Prompt templates for ontology construction."""
 
 from __future__ import annotations
 

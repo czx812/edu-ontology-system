@@ -1,4 +1,4 @@
-﻿"""Ontology generation: text -> ontology JSON."""
+"""Ontology generation: text -> ontology JSON."""
 
 from __future__ import annotations
 
