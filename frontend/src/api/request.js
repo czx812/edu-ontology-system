@@ -1,4 +1,4 @@
-﻿import axios from "axios";
+import axios from "axios";
 
 const api = axios.create({
   baseURL: "/api",
@@ -43,4 +43,32 @@ export function exportOWL(filePath) {
     params: { file_path: filePath },
     responseType: "blob",
   });
+}
+
+export function getMyOperations() {
+  return api.get("/logs/my-operations");
+}
+
+export function getMyGenerations() {
+  return api.get("/logs/my-generations");
+}
+
+export function getMyQuestions() {
+  return api.get("/logs/my-questions");
+}
+
+export function getAdminOperationLogs(params = {}) {
+  return api.get("/admin/logs/operations", { params });
+}
+
+export function getAdminGenerationRecords(params = {}) {
+  return api.get("/admin/logs/generations", { params });
+}
+
+export function getAdminSystemLogs() {
+  return api.get("/admin/logs/system");
+}
+
+export function getAdminQuestionRecords(params = {}) {
+  return api.get("/admin/logs/questions", { params });
 }

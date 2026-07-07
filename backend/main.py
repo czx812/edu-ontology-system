@@ -10,7 +10,15 @@ for path in (CURRENT_DIR, PROJECT_DIR):
     if str(path) not in sys.path:
         sys.path.insert(0, str(path))
 
-from api.routes import api_router
+from api.admin_logs import router as admin_logs_router
+from api.auth import router as auth_router
+from api.export import router as export_router
+from api.generate import router as generate_router
+from api.logs import router as logs_router
+from api.upload import router as upload_router
+from config import settings
+from middleware.log_middleware import RequestLogMiddleware
+from services.log_service import init_log_tables, write_system_log
 
 
 APP_NAME = "教育本体构建系统"
@@ -31,8 +39,25 @@ def create_app() -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
     )
+    app.add_middleware(RequestLogMiddleware)
 
-    app.include_router(api_router)
+    for router in (
+        auth_router,
+        upload_router,
+        generate_router,
+        export_router,
+        logs_router,
+        admin_logs_router,
+    ):
+        app.include_router(router)
+
+    @app.on_event("startup")
+    def startup() -> None:
+        init_log_tables()
+        write_system_log("INFO", "后端服务启动")
+        print("[系统] 日志管理模块已启用")
+        print(f"[系统] 系统日志文件：{settings.SYSTEM_LOG_FILE}")
+
     return app
 
 
