@@ -74,7 +74,11 @@ def semantic_classify_node(state: dict) -> dict:
 def ontology_build_node(state: dict) -> dict:
     state = _merge_state(state)
     build_ontology = _load_function("modules.ontology_builder", "build_ontology")
-    state["ontology"] = build_ontology(state["semantic_model"])
+    state["ontology"] = build_ontology({
+        "clean_data": state["clean_data"],
+        "entity_json": state["entity_json"],
+        "semantic_model": state["semantic_model"],
+    })
     return state
 
 

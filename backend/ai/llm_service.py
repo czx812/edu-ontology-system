@@ -5,12 +5,22 @@ from __future__ import annotations
 import json
 import os
 import re
+from pathlib import Path
 from typing import Any, Dict, Optional
 from urllib import error, request
 
+try:
+    from dotenv import load_dotenv
+except ImportError:  # pragma: no cover - dotenv is optional for direct module use.
+    load_dotenv = None
+
+
+if load_dotenv:
+    load_dotenv(Path(__file__).resolve().parents[2] / ".env")
+
 
 DEFAULT_LLM_BASE_URL = "https://api.deepseek.com/v1/chat/completions"
-DEFAULT_LLM_MODEL = "deepseek-chat"
+DEFAULT_LLM_MODEL = "deepseek-v4-pro"
 
 
 class LLMService:
@@ -149,4 +159,9 @@ def extract_json_object(content: str) -> Dict[str, Any]:
                     return data
 
     raise ValueError("LLM output contains incomplete JSON.")
+
+
+def call_llm(prompt: str) -> str:
+    """Compatibility helper for callers that need a plain LLM response."""
+    return LLMService().chat(prompt)
 

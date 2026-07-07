@@ -13,7 +13,7 @@ for path in (CURRENT_DIR, PROJECT_DIR):
 from api.routes import api_router
 
 
-APP_NAME = "????????"
+APP_NAME = "教育本体构建系统"
 APP_VERSION = "0.1.0"
 
 
@@ -21,7 +21,7 @@ def create_app() -> FastAPI:
     app = FastAPI(
         title=APP_NAME,
         version=APP_VERSION,
-        description="????????????",
+        description="基于大模型智能体的教育本体构建系统",
     )
 
     app.add_middleware(

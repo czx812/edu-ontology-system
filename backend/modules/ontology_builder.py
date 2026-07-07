@@ -1,125 +1,73 @@
-﻿"""Build ontology JSON from semantic classification output."""
+"""Build ontology JSON through the B-layer LLM pipeline."""
 
 from __future__ import annotations
 
-from typing import Any, Dict, Iterable, List
+from typing import Any, Dict, Iterable, List, Tuple
 
-from modules.semantic_classifier import semantic_classify
+from backend.ai.llm_service import LLMService
+from backend.ai.ontology_generator import OntologyGenerator
 
 
-def build_ontology(semantic_data: Dict[str, Any]) -> Dict[str, Any]:
-    """Build an ontology from semantic classes/properties/relations.
+def build_ontology(payload: Dict[str, Any]) -> Dict[str, Any]:
+    """Build ontology from workflow payload while keeping the public API stable."""
+    if not isinstance(payload, dict):
+        return _with_metadata(_empty_ontology(), "rule_fallback", ["输入不是有效 dict，返回空本体。"])
 
-    The builder only accepts concepts already separated by semantic role. It
-    never promotes every extracted entity or JCTB data item to owl:Class.
-    """
-    if not isinstance(semantic_data, dict):
-        return _empty_ontology()
+    clean_data = payload.get("clean_data") if "clean_data" in payload else payload
+    generator = OntologyGenerator()
+    ontology = generator.generate(clean_data, use_llm=True)
 
-    if not _looks_classified(semantic_data):
-        semantic_data = semantic_classify(semantic_data)
+    warnings = list(generator.last_warnings)
+    generation_mode = generator.last_generation_mode
+    if not ontology.get("relations"):
+        warning = "当前大模型未识别出对象关系，OWL 中不会生成 owl:ObjectProperty。"
+        if warning not in warnings:
+            warnings.append(warning)
+    if generation_mode == "rule_fallback":
+        warnings.append("当前使用规则 fallback 生成，本体语义质量可能较低。")
 
-    classes = _dedupe_classes(semantic_data.get("classes", []))
-    class_names = {item["name"] for item in classes}
+    result = _with_metadata(ontology, generation_mode, warnings)
+    result["stats"] = _stats(result, generation_mode)
+    return result
 
-    properties = _dedupe_properties(semantic_data.get("properties", []))
-    for prop in properties:
-        domain = prop.get("domain") or "EducationResource"
-        if domain not in class_names:
-            classes.append({
-                "name": domain,
-                "label": domain,
-                "description": "Inferred property domain.",
-            })
-            class_names.add(domain)
 
-    relations = _dedupe_relations(semantic_data.get("relations", []))
-    for relation in relations:
-        for endpoint in (relation.get("source"), relation.get("target")):
-            if endpoint and endpoint not in class_names:
-                classes.append({
-                    "name": endpoint,
-                    "label": endpoint,
-                    "description": "Inferred relation endpoint.",
-                })
-                class_names.add(endpoint)
+def call_llm(prompt: str) -> str:
+    """Compatibility helper required by module interface documents."""
+    return LLMService().chat(prompt)
 
+
+def _with_metadata(ontology: Dict[str, Any], mode: str, warnings: List[str]) -> Dict[str, Any]:
+    result = {
+        "classes": ontology.get("classes", []),
+        "properties": ontology.get("properties", []),
+        "relations": ontology.get("relations", []),
+        "metadata": {"generation_mode": mode},
+        "warnings": _dedupe_text(warnings),
+    }
+    return result
+
+
+def _stats(ontology: Dict[str, Any], mode: str) -> Dict[str, Any]:
+    relations = ontology.get("relations", [])
     return {
-        "classes": classes,
-        "properties": properties,
-        "relations": relations,
+        "classes": len(ontology.get("classes", [])),
+        "datatype_properties": len(ontology.get("properties", [])),
+        "object_properties": len(relations),
+        "relations": len(relations),
+        "generation_mode": mode,
     }
 
 
-def _looks_classified(data: Dict[str, Any]) -> bool:
-    return any(key in data for key in ("classes", "properties", "relations"))
-
-
-def _dedupe_classes(items: Any) -> List[Dict[str, str]]:
+def _dedupe_text(items: Iterable[str]) -> List[str]:
     seen = set()
-    result: List[Dict[str, str]] = []
-    for item in _as_dicts(items):
-        name = _text(item.get("name") or item.get("label"))
-        if not name or name.lower() in seen:
+    result = []
+    for item in items:
+        text = str(item or "").strip()
+        if not text or text in seen:
             continue
-        seen.add(name.lower())
-        result.append({
-            "name": name,
-            "label": _text(item.get("label")) or name,
-            "description": _text(item.get("description")),
-        })
+        seen.add(text)
+        result.append(text)
     return result
-
-
-def _dedupe_properties(items: Any) -> List[Dict[str, str]]:
-    seen = set()
-    result: List[Dict[str, str]] = []
-    for item in _as_dicts(items):
-        name = _text(item.get("name") or item.get("label"))
-        domain = _text(item.get("domain")) or "EducationResource"
-        marker = (domain.lower(), name.lower())
-        if not name or marker in seen:
-            continue
-        seen.add(marker)
-        result.append({
-            "name": name,
-            "label": _text(item.get("label")) or name,
-            "domain": domain,
-            "range": _text(item.get("range")) or "string",
-            "description": _text(item.get("description")),
-        })
-    return result
-
-
-def _dedupe_relations(items: Any) -> List[Dict[str, str]]:
-    seen = set()
-    result: List[Dict[str, str]] = []
-    for item in _as_dicts(items):
-        source = _text(item.get("source") or item.get("subject"))
-        target = _text(item.get("target") or item.get("object"))
-        rel_type = _text(item.get("type") or item.get("predicate") or item.get("relation"))
-        marker = (source.lower(), rel_type.lower(), target.lower())
-        if not all(marker) or marker in seen:
-            continue
-        seen.add(marker)
-        result.append({
-            "source": source,
-            "target": target,
-            "type": rel_type,
-            "label": _text(item.get("label")) or rel_type,
-            "description": _text(item.get("description")),
-        })
-    return result
-
-
-def _as_dicts(items: Any) -> Iterable[Dict[str, Any]]:
-    if not isinstance(items, list):
-        return []
-    return [item for item in items if isinstance(item, dict)]
-
-
-def _text(value: Any) -> str:
-    return str(value or "").strip()
 
 
 def _empty_ontology() -> Dict[str, Any]:

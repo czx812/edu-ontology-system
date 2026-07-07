@@ -1,73 +1,87 @@
 from __future__ import annotations
 
 import json
+import re
 from typing import Any, Dict, Iterable, List
 
+
 STANDARD_COLUMNS = [
-    "\u7f16\u53f7",
-    "\u6570\u636e\u9879\u540d",
-    "\u4e2d\u6587\u7b80\u79f0",
-    "\u7c7b\u578b",
-    "\u957f\u5ea6",
-    "\u7ea6\u675f",
-    "\u503c\u7a7a\u95f4",
-    "\u89e3\u91ca/\u4e3e\u4f8b",
-    "\u5f15\u7528\u7f16\u53f7",
+    "编号",
+    "数据项名",
+    "中文简称",
+    "类型",
+    "长度",
+    "约束",
+    "值空间",
+    "解释/举例",
+    "引用编号",
 ]
 
 KEY_ALIASES = {
     "id": "id",
     "code": "id",
+    "编号": "id",
     "item_name": "item_name",
     "name": "item_name",
+    "数据项名": "item_name",
     "cn_name": "cn_name",
     "label": "cn_name",
+    "中文简称": "cn_name",
+    "short_name": "short_name",
     "data_type": "data_type",
     "type": "data_type",
+    "类型": "data_type",
     "length": "length",
+    "长度": "length",
     "constraint": "constraint",
+    "约束": "constraint",
     "value_space": "value_space",
+    "值空间": "value_space",
     "description": "description",
+    "解释/举例": "description",
     "reference": "reference",
-    STANDARD_COLUMNS[0]: "id",
-    STANDARD_COLUMNS[1]: "item_name",
-    STANDARD_COLUMNS[2]: "cn_name",
-    STANDARD_COLUMNS[3]: "data_type",
-    STANDARD_COLUMNS[4]: "length",
-    STANDARD_COLUMNS[5]: "constraint",
-    STANDARD_COLUMNS[6]: "value_space",
-    STANDARD_COLUMNS[7]: "description",
-    STANDARD_COLUMNS[8]: "reference",
+    "引用编号": "reference",
+    "source_table": "source_table",
+    "source_section": "source_section",
 }
 
 
 def match_schema(clean_data: Dict[str, Any]) -> Dict[str, Any]:
-    """Normalize C-layer clean_data so B can consume a stable JSON/text contract."""
-    tables = clean_data.get("tables", []) if isinstance(clean_data, dict) else []
-    normalized_tables = [_normalize_table(table, index) for index, table in enumerate(tables, 1)]
-    normalized_tables = [table for table in normalized_tables if table["rows"]]
+    """Normalize C-layer clean_data so B receives a stable JSON contract."""
+    if not isinstance(clean_data, dict):
+        clean_data = {"clean_text": str(clean_data or "")}
 
-    records: List[Dict[str, Any]] = []
-    for table in normalized_tables:
-        for row in table["rows"]:
-            record = dict(row)
-            record["source_table"] = table["title"]
-            if record.get("id") or record.get("cn_name") or record.get("item_name"):
-                records.append(record)
+    records = [_normalize_row(row) for row in _as_dicts(clean_data.get("records", []))]
+    records = [record for record in records if _record_has_content(record)]
 
-    result = dict(clean_data or {})
+    if not records:
+        tables = clean_data.get("tables", [])
+        normalized_tables = [_normalize_table(table, index) for index, table in enumerate(tables, 1)]
+        records = []
+        for table in normalized_tables:
+            for row in table["rows"]:
+                row["source_table"] = row.get("source_table") or table["title"]
+                records.append(row)
+    else:
+        normalized_tables = clean_data.get("tables", [])
+
+    for record in records:
+        record["candidate_domains"] = _candidate_domains(record)
+
+    result = dict(clean_data)
     result["tables"] = normalized_tables
     result["records"] = records
+    result["records_count"] = len(records)
     result["tables_count"] = len(normalized_tables)
-    result["clean_text"] = _records_to_text(records, result.get("raw_text", ""))
+    result["clean_text"] = _records_to_text(records, result.get("clean_text") or result.get("raw_text") or "")
     return result
 
 
 def _normalize_table(table: Any, index: int) -> Dict[str, Any]:
     if isinstance(table, dict):
         title = str(table.get("title") or table.get("table_name") or f"table_{index}")
-        rows = [_normalize_row(row) for row in table.get("rows", []) if isinstance(row, dict)]
-        return {"title": title, "rows": [row for row in rows if _has_content(row)]}
+        rows = [_normalize_row(row) for row in _as_dicts(table.get("rows", []))]
+        return {"title": title, "rows": [row for row in rows if _record_has_content(row)]}
 
     if isinstance(table, list):
         rows = _rows_from_matrix(table)
@@ -99,7 +113,7 @@ def _rows_from_matrix(table: List[Any]) -> List[Dict[str, Any]]:
             if values[position]
         }
         row = _normalize_row(mapped)
-        if _has_content(row):
+        if _record_has_content(row):
             rows.append(row)
     return rows
 
@@ -115,13 +129,40 @@ def _normalize_row(row: Dict[str, Any]) -> Dict[str, Any]:
         "id": values.get("id", ""),
         "item_name": values.get("item_name", ""),
         "cn_name": values.get("cn_name", ""),
+        "short_name": values.get("short_name", ""),
         "data_type": values.get("data_type", ""),
         "length": values.get("length", ""),
         "constraint": values.get("constraint", ""),
         "value_space": values.get("value_space", ""),
         "description": values.get("description", ""),
         "reference": values.get("reference", ""),
+        "source_table": values.get("source_table", ""),
+        "source_section": values.get("source_section", ""),
     }
+
+
+def _candidate_domains(record: Dict[str, Any]) -> List[str]:
+    text = " ".join(str(record.get(key) or "") for key in ("id", "source_table", "source_section", "cn_name", "item_name", "description"))
+    code = str(record.get("id") or "").upper()
+    if code.startswith("JCXX"):
+        return ["School", "Campus", "Class", "Grade"]
+    if code.startswith("JCXS"):
+        return ["Student", "Enrollment", "StudentStatus", "Score", "Reward", "Punishment", "Graduation"]
+    if code.startswith("JCJG"):
+        return ["Teacher", "Staff", "Position", "ProfessionalTitle", "Assessment", "Training"]
+    if code.startswith("JCBX"):
+        return ["FinanceItem", "Building", "Room", "Facility", "Instrument", "Book", "Journal", "Laboratory", "Experiment"]
+    if code.startswith("JCTB"):
+        return ["ContactInfo", "TimeInfo", "Organization", "Course", "Major", "Person"]
+    if "学校" in text:
+        return ["School"]
+    if "学生" in text:
+        return ["Student"]
+    if "教师" in text or "教职工" in text:
+        return ["Teacher", "Staff"]
+    if "课程" in text:
+        return ["Course"]
+    return ["EducationResource"]
 
 
 def _canonical_key(key: Any) -> str:
@@ -141,18 +182,29 @@ def _as_list(row: Any) -> List[Any]:
     return [row]
 
 
-def _has_content(row: Dict[str, Any]) -> bool:
+def _as_dicts(items: Any) -> Iterable[Dict[str, Any]]:
+    if not isinstance(items, list):
+        return []
+    return [item for item in items if isinstance(item, dict)]
+
+
+def _record_has_content(row: Dict[str, Any]) -> bool:
+    label = str(row.get("cn_name") or row.get("item_name") or row.get("id") or "").strip()
+    if label in {"码", "号", "称", "位", "期", "箱", "女", "话"}:
+        return False
     return any(str(value).strip() for value in row.values())
 
 
 def _infer_table_title(rows: List[Dict[str, Any]], index: int) -> str:
     for row in rows:
+        if row.get("source_table"):
+            return row["source_table"]
         if row.get("id"):
             return " ".join(part for part in (row.get("id"), row.get("cn_name") or row.get("item_name")) if part)
     return f"table_{index}"
 
 
-def _records_to_text(records: List[Dict[str, Any]], raw_text: str) -> str:
+def _records_to_text(records: List[Dict[str, Any]], clean_text: str) -> str:
     if records:
         return json.dumps(records, ensure_ascii=False, indent=2)
-    return raw_text or ""
+    return clean_text or ""

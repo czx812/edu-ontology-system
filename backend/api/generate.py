@@ -21,9 +21,30 @@ def generate_ontology(file_path: str) -> dict:
     }
     """
     state = run_workflow({"file_path": file_path})
+    ontology = state.get("ontology", {})
+    relations = ontology.get("relations", []) if isinstance(ontology, dict) else []
+    metadata = ontology.get("metadata", {}) if isinstance(ontology, dict) else {}
+    warnings = list(ontology.get("warnings", [])) if isinstance(ontology, dict) else []
+    if not relations:
+        warning = "当前大模型未识别出对象关系，OWL 中不会生成 owl:ObjectProperty。"
+        if warning not in warnings:
+            warnings.append(warning)
+    generation_mode = metadata.get("generation_mode", "llm")
     return {
-        "ontology": state.get("ontology", {}),
+        "ontology": {
+            "classes": ontology.get("classes", []),
+            "properties": ontology.get("properties", []),
+            "relations": relations,
+        },
         "owl_file": state.get("owl_file", ""),
+        "stats": {
+            "classes": len(ontology.get("classes", [])),
+            "datatype_properties": len(ontology.get("properties", [])),
+            "object_properties": len(relations),
+            "relations": len(relations),
+            "generation_mode": generation_mode,
+        },
+        "warnings": warnings,
     }
 
 

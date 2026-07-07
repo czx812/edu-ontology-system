@@ -2,7 +2,7 @@
 
 const api = axios.create({
   baseURL: "/api",
-  timeout: 180000,
+  timeout: 1800000,
 });
 
 export function uploadPDF(file) {
