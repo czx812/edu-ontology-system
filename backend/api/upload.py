@@ -5,6 +5,7 @@ from fastapi import APIRouter, Depends, HTTPException, UploadFile
 
 from api.auth import get_current_user
 from config import settings
+from services.log_service import write_operation_log, write_system_log
 
 
 router = APIRouter(tags=["upload"])
@@ -18,13 +19,6 @@ def _safe_pdf_name(filename: str) -> str:
 
 
 def upload_pdf(file: UploadFile, user_id: str) -> dict:
-    """
-    输入：PDF文件
-    输出：
-    {
-        "file_path": str
-    }
-    """
     save_name = _safe_pdf_name(file.filename)
     save_dir = settings.UPLOAD_DIR / str(user_id)
     save_dir.mkdir(parents=True, exist_ok=True)
@@ -34,10 +28,22 @@ def upload_pdf(file: UploadFile, user_id: str) -> dict:
         while chunk := file.file.read(1024 * 1024):
             target.write(chunk)
 
-    return {"file_path": str(save_path)}
+    return {"file_path": str(save_path), "file_name": file.filename or save_name}
 
 
 @router.post("/upload")
 def upload(file: UploadFile, user: dict = Depends(get_current_user)) -> dict:
-    return upload_pdf(file, user["id"])
-
+    try:
+        result = upload_pdf(file, user["id"])
+        detail = f"上传文件：{file.filename}，保存路径：{result['file_path']}"
+        write_operation_log(user=user, action="UPLOAD_PDF", method="POST", path="/upload", status_code=200, detail=detail)
+        write_system_log("INFO", f"上传 PDF 成功：{file.filename}")
+        return result
+    except HTTPException as exc:
+        write_operation_log(user=user, action="UPLOAD_PDF", method="POST", path="/upload", status_code=exc.status_code, detail=str(exc.detail))
+        write_system_log("ERROR", f"上传 PDF 失败：{exc.detail}")
+        raise
+    except Exception as exc:
+        write_operation_log(user=user, action="UPLOAD_PDF", method="POST", path="/upload", status_code=500, detail=str(exc))
+        write_system_log("ERROR", f"上传 PDF 失败：{exc}")
+        raise HTTPException(status_code=500, detail=f"上传失败：{exc}") from exc

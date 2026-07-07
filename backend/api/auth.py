@@ -53,6 +53,16 @@ class AuthStore:
         digest = hashlib.pbkdf2_hmac("sha256", encoded, salt.encode("utf-8"), 200000).hex()
         return hmac.compare_digest(digest, expected_hash)
 
+    def _public_user(self, user: Dict[str, Any]) -> Dict[str, Any]:
+        username = user.get("username", "")
+        role = user.get("role") or ("admin" if username == "admin" else "user")
+        return {
+            "id": user.get("id"),
+            "username": username,
+            "role": role,
+            "is_admin": bool(user.get("is_admin") or role == "admin" or username == "admin"),
+        }
+
     def register_user(self, username: str, password: str) -> Dict[str, Any]:
         username = (username or "").strip()
         password = (password or "").strip()
@@ -68,10 +78,11 @@ class AuthStore:
             "username": username,
             "password_hash": password_info["hash"],
             "password_salt": password_info["salt"],
+            "role": "admin" if username == "admin" else "user",
         }
         self._users[username] = user
         self._save()
-        return {"id": user_id, "username": username}
+        return self._public_user(user)
 
     def verify_password(self, username: str, password: str) -> bool:
         user = self._users.get((username or "").strip())
@@ -90,14 +101,14 @@ class AuthStore:
             return None
         for user in self._users.values():
             if user.get("id") == user_id:
-                return {"id": user["id"], "username": user["username"]}
+                return self._public_user(user)
         return None
 
     def get_user_by_username(self, username: str) -> Optional[Dict[str, Any]]:
         user = self._users.get((username or "").strip())
         if not user:
             return None
-        return {"id": user["id"], "username": user["username"]}
+        return self._public_user(user)
 
 
 auth_store = AuthStore()

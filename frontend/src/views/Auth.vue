@@ -2,7 +2,7 @@
   <div class="page">
     <div class="card">
       <h1>教育本体生成系统</h1>
-      <p class="subtitle">注册或登录后即可上传 PDF 并生成个人专属本体</p>
+      <p class="subtitle">登录后上传 PDF，生成结构化数据、本体与 OWL 文件。</p>
 
       <div class="toggle">
         <button :class="{ active: mode === 'login' }" @click="mode = 'login'">登录</button>
@@ -48,6 +48,7 @@ async function submit() {
       : await registerUser(username.value, password.value);
 
     localStorage.setItem("token", res.data.token);
+    localStorage.setItem("user", JSON.stringify(res.data.user || {}));
     router.push("/dashboard");
   } catch (err) {
     error.value = err.response?.data?.detail || err.message || "操作失败";
@@ -58,8 +59,8 @@ async function submit() {
 </script>
 
 <style scoped>
-.page { min-height: 100vh; display: flex; justify-content: center; align-items: center; background: linear-gradient(120deg, #4f46e5, #0891b2); }
-.card { width: min(420px, calc(100vw - 32px)); padding: 32px; border-radius: 16px; background: white; box-shadow: 0 12px 32px rgba(0,0,0,0.2); display: flex; flex-direction: column; gap: 12px; }
+.page { min-height: 100vh; display: flex; justify-content: center; align-items: center; background: #eef6ff; }
+.card { width: min(420px, calc(100vw - 32px)); padding: 32px; border-radius: 12px; background: white; box-shadow: 0 12px 32px rgba(15, 23, 42, 0.16); display: flex; flex-direction: column; gap: 12px; }
 .subtitle { color: #64748b; margin-top: -6px; }
 .toggle { display: flex; gap: 8px; }
 .toggle button { flex: 1; padding: 8px; border-radius: 8px; border: 1px solid #cbd5e1; background: #f8fafc; cursor: pointer; }
