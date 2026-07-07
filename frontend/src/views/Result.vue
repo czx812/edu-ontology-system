@@ -2,24 +2,12 @@
   <div class="page">
     <div class="card">
       <h1>本体生成中心</h1>
-
       <button class="btn" :disabled="loading" @click="generate">
         {{ loading ? "正在生成..." : "开始生成" }}
       </button>
-
       <p v-if="error" class="error">{{ error }}</p>
-
       <pre v-if="ontology">{{ ontology }}</pre>
-      <div v-if="traceSummary" class="trace-summary">
-        <h2>数据溯源结果</h2>
-        <p>结构化记录数：{{ traceSummary.total_records }}</p>
-        <p>本体元素数：{{ traceSummary.total_trace_items }}</p>
-        <p>已匹配来源：{{ traceSummary.matched_items }}</p>
-        <p>未匹配来源：{{ traceSummary.unmatched_items }}</p>
-        <p v-if="traceSummary.trace_file">溯源文件：{{ traceSummary.trace_file }}</p>
-      </div>
 
-      <pre v-if="traceMap">{{ traceMap }}</pre>
       <button v-if="owlFile" class="btn2" @click="download">
         下载 OWL 文件
       </button>
@@ -30,7 +18,7 @@
 <script setup>
 import { ref } from "vue";
 import { useRoute } from "vue-router";
-import { generateOntology } from "../api/request";
+import { generateOntology, exportOWL } from "../api/request";
 
 const route = useRoute();
 const filePath = route.query.filePath;
@@ -77,9 +65,17 @@ async function generate() {
   }
 }
 
-function download() {
-  const url = `/api/export?file_path=${encodeURIComponent(owlFile.value)}`;
-  window.open(url, "_blank");
+async function download() {
+  if (!owlFile.value) {
+    return;
+  }
+  const res = await exportOWL(owlFile.value);
+  const url = window.URL.createObjectURL(new Blob([res.data]));
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = owlFile.value.split("/").pop();
+  link.click();
+  window.URL.revokeObjectURL(url);
 }
 </script>
 
@@ -129,23 +125,6 @@ function download() {
   margin-top: 16px;
   color: #b00020;
   word-break: break-word;
-}
-
-.trace-summary {
-  margin-top: 20px;
-  padding: 16px;
-  border-radius: 10px;
-  background: #f8f9ff;
-  text-align: left;
-  color: #333;
-}
-
-.trace-summary h2 {
-  margin-top: 0;
-}
-
-.trace-summary p {
-  margin: 6px 0;
 }
 
 pre {

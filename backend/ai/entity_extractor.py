@@ -1,4 +1,4 @@
-﻿"""Entity extraction: text -> entity JSON through LLM with rule fallback."""
+"""Entity extraction: text -> entity JSON through LLM with rule fallback."""
 
 from __future__ import annotations
 
@@ -16,7 +16,7 @@ MAX_FALLBACK_ATTRIBUTES = 500
 
 
 class EntityExtractor:
-    """Extract entities, attributes, and relations from education text."""
+    """Extract concepts, properties, and relations from education text."""
 
     def __init__(self, llm_service: Optional[LLMService] = None) -> None:
         self.llm_service = llm_service or LLMService()
@@ -27,15 +27,14 @@ class EntityExtractor:
         clean_text = text.strip()
         if not clean_text:
             return self._empty_result()
-        if not use_llm:
-            raise RuntimeError("Entity extraction requires LLM. Set use_llm=True.")
-        if not self.llm_service.available:
-            raise RuntimeError("LLM_API_KEY is not configured.")
 
         self.last_prompt = build_entity_prompt(clean_text)
-        try:
-            data = self.llm_service.chat_json(self.last_prompt)
-        except ValueError:
+        if use_llm and self.llm_service.available:
+            try:
+                data = self.llm_service.chat_json(self.last_prompt)
+            except ValueError:
+                data = self._rule_based_extract(clean_text)
+        else:
             data = self._rule_based_extract(clean_text)
 
         self.last_raw_result = data
@@ -69,36 +68,33 @@ class EntityExtractor:
             if not code or not label:
                 continue
 
-            entity_type = "table" if code.startswith("JCTB") else "field"
-            if code not in seen_entities:
-                seen_entities.add(code)
-                entities.append(
-                    {
-                        "name": code,
-                        "label": label,
-                        "type": entity_type,
-                        "description": f"{label}（{code}）",
-                        "evidence": evidence,
-                    }
-                )
+            domain = self._infer_domain(label)
+            if domain not in seen_entities:
+                seen_entities.add(domain)
+                entities.append({
+                    "name": domain,
+                    "label": self._domain_label(domain),
+                    "type": "class",
+                    "semantic_type": "class",
+                    "description": f"{self._domain_label(domain)}概念",
+                    "evidence": evidence,
+                })
 
-            for attr_name, attr_label in (("code", "编号"), ("label", "名称")):
-                marker = (code, attr_name)
-                if marker in seen_attributes:
-                    continue
+            marker = (domain, code)
+            if marker not in seen_attributes:
                 seen_attributes.add(marker)
-                attributes.append(
-                    {
-                        "entity": code,
-                        "name": attr_name,
-                        "label": attr_label,
-                        "data_type": "string",
-                        "description": f"{label}的{attr_label}",
-                        "evidence": evidence,
-                    }
-                )
+                attributes.append({
+                    "entity": domain,
+                    "name": code,
+                    "label": label,
+                    "type": "property",
+                    "semantic_type": "property",
+                    "data_type": "string",
+                    "description": f"{self._domain_label(domain)}的{label}",
+                    "evidence": evidence,
+                })
 
-            if len(entities) >= MAX_FALLBACK_ENTITIES:
+            if len(attributes) >= MAX_FALLBACK_ATTRIBUTES:
                 break
 
         return {
@@ -132,24 +128,37 @@ class EntityExtractor:
             return ""
         return label[:40]
 
+    def _infer_domain(self, label: str) -> str:
+        if "学生" in label:
+            return "Student"
+        if "学校" in label or "院校" in label:
+            return "School"
+        if "联系" in label or "电话" in label or "邮箱" in label or "邮编" in label:
+            return "ContactInfo"
+        if "教师" in label:
+            return "Teacher"
+        if "课程" in label:
+            return "Course"
+        return "EducationResource"
+
+    def _domain_label(self, domain: str) -> str:
+        return {
+            "Student": "学生",
+            "School": "学校",
+            "ContactInfo": "联系信息",
+            "Teacher": "教师",
+            "Course": "课程",
+            "EducationResource": "教育资源",
+        }.get(domain, domain)
+
     def _normalize(self, data: Dict[str, Any]) -> Dict[str, Any]:
         return {
             "entities": self._dedupe_dicts(data.get("entities", []), "name"),
-            "attributes": self._dedupe_dicts(
-                data.get("attributes", []),
-                ("entity", "name"),
-            ),
-            "relations": self._dedupe_dicts(
-                data.get("relations", []),
-                ("source", "target", "type"),
-            ),
+            "attributes": self._dedupe_dicts(data.get("attributes", []), ("entity", "name")),
+            "relations": self._dedupe_dicts(data.get("relations", []), ("source", "target", "type")),
         }
 
-    def _dedupe_dicts(
-        self,
-        items: Any,
-        key: Union[str, Tuple[str, ...]],
-    ) -> List[Dict[str, Any]]:
+    def _dedupe_dicts(self, items: Any, key: Union[str, Tuple[str, ...]]) -> List[Dict[str, Any]]:
         if not isinstance(items, list):
             return []
 
@@ -158,11 +167,7 @@ class EntityExtractor:
         for item in items:
             if not isinstance(item, dict):
                 continue
-            marker = (
-                tuple(item.get(part, "") for part in key)
-                if isinstance(key, tuple)
-                else item.get(key, "")
-            )
+            marker = tuple(item.get(part, "") for part in key) if isinstance(key, tuple) else item.get(key, "")
             if not marker or marker in seen:
                 continue
             seen.add(marker)
@@ -172,3 +177,87 @@ class EntityExtractor:
     def _empty_result(self) -> Dict[str, Any]:
         return {"entities": [], "attributes": [], "relations": []}
 
+
+def extract_entities(clean_data: Dict[str, Any]) -> Dict[str, Any]:
+    """Extract entity JSON from normalized clean_data."""
+    records = clean_data.get("records", []) if isinstance(clean_data, dict) else []
+    if records:
+        return _records_to_entity_json(records)
+
+    text = ""
+    if isinstance(clean_data, dict):
+        text = str(clean_data.get("clean_text") or clean_data.get("raw_text") or "")
+    return EntityExtractor().extract(text, use_llm=True)
+
+
+def _records_to_entity_json(records: List[Dict[str, Any]]) -> Dict[str, Any]:
+    entities: List[Dict[str, Any]] = []
+    attributes: List[Dict[str, Any]] = []
+    seen_entities = set()
+    seen_attributes = set()
+
+    for record in records:
+        if not isinstance(record, dict):
+            continue
+        label_text = str(record.get("cn_name") or record.get("item_name") or "")
+        domain = _infer_domain_from_text(" ".join([
+            str(record.get("source_table") or ""),
+            str(record.get("item_name") or ""),
+            label_text,
+            str(record.get("description") or ""),
+        ]))
+        if domain not in seen_entities:
+            seen_entities.add(domain)
+            entities.append({
+                "name": domain,
+                "label": _domain_label(domain),
+                "type": "class",
+                "semantic_type": "class",
+                "description": "Inferred concept domain.",
+                "evidence": str(record.get("source_table") or ""),
+            })
+
+        name = str(record.get("id") or record.get("item_name") or label_text).strip()
+        if not name:
+            continue
+        marker = (domain, name)
+        if marker in seen_attributes:
+            continue
+        seen_attributes.add(marker)
+        attributes.append({
+            "entity": domain,
+            "name": name,
+            "label": label_text or name,
+            "type": "property",
+            "semantic_type": "property",
+            "data_type": record.get("data_type", "string") or "string",
+            "description": str(record.get("description") or record.get("value_space") or ""),
+            "evidence": str(record.get("source_table") or ""),
+        })
+
+    return {"entities": entities, "attributes": attributes, "relations": []}
+
+
+def _infer_domain_from_text(text: str) -> str:
+    if "学生" in text:
+        return "Student"
+    if "学校" in text or "院校" in text:
+        return "School"
+    if "联系" in text or "电话" in text or "邮箱" in text or "邮编" in text:
+        return "ContactInfo"
+    if "教师" in text:
+        return "Teacher"
+    if "课程" in text:
+        return "Course"
+    return "EducationResource"
+
+
+def _domain_label(domain: str) -> str:
+    return {
+        "Student": "学生",
+        "School": "学校",
+        "ContactInfo": "联系信息",
+        "Teacher": "教师",
+        "Course": "课程",
+        "EducationResource": "教育资源",
+    }.get(domain, domain)

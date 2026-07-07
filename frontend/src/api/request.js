@@ -5,6 +5,26 @@ const api = axios.create({
   timeout: 600000,
 });
 
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+export function registerUser(username, password) {
+  return api.post("/auth/register", { username, password });
+}
+
+export function loginUser(username, password) {
+  return api.post("/auth/login", { username, password });
+}
+
+export function getCurrentUser() {
+  return api.get("/auth/me");
+}
+
 export function uploadPDF(file) {
   const formData = new FormData();
   formData.append("file", file);

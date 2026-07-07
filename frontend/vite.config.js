@@ -1,8 +1,13 @@
-﻿import { defineConfig } from "vite";
+import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 
 export default defineConfig({
+  cacheDir: "../../tmp/vite-cache",
   plugins: [vue()],
+  build: {
+    outDir: "../../tmp/frontend-dist",
+    emptyOutDir: true,
+  },
   server: {
     proxy: {
       "/api": {
