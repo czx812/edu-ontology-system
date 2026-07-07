@@ -1,0 +1,5 @@
+[2026-07-07 15:17:32] [INFO] 日志模块验证
+[2026-07-07 15:32:25] [INFO] 后端服务启动
+[2026-07-07 15:33:22] [INFO] 上传 PDF 成功：JYT1002_教育管理基础信息.pdf
+[2026-07-07 15:33:28] [INFO] 本体生成开始：D:\基于大模型智能体的教育本体构建系统\edu-ontology-system\backend\data\uploads\3\dcdffd91a9f848ddb9e74c84c091f516.pdf
+[2026-07-07 15:33:32] [INFO] 本体生成成功：D:\基于大模型智能体的教育本体构建系统\edu-ontology-system\backend\data\uploads\3\dcdffd91a9f848ddb9e74c84c091f516.pdf
