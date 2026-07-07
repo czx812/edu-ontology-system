@@ -14,20 +14,18 @@ class GenerateRequest(BaseModel):
 
 
 def generate_ontology(file_path: str, user_id: str) -> dict:
-    """
-    输入：PDF路径或上传后的PDF文件名
-    输出：
-    {
-        "ontology": dict,
-        "owl_file": str
-    }
-    """
+    """Run the full PDF -> structured data -> ontology -> OWL workflow."""
     export_dir = settings.EXPORT_DIR / str(user_id)
     export_dir.mkdir(parents=True, exist_ok=True)
     state = run_workflow({"file_path": file_path, "export_dir": str(export_dir)})
+    clean_data = state.get("clean_data", {}) if isinstance(state.get("clean_data", {}), dict) else {}
     return {
+        "message": "本体生成成功",
         "ontology": state.get("ontology", {}),
+        "structured_file": state.get("structured_file", ""),
+        "record_count": clean_data.get("record_count", 0),
         "owl_file": state.get("owl_file", ""),
+        "errors": state.get("errors", []),
     }
 
 

@@ -1,4 +1,4 @@
-"""Build ontology JSON from semantic classification output."""
+"""Build ontology JSON from structured records or semantic classification output."""
 
 from __future__ import annotations
 
@@ -6,16 +6,16 @@ from typing import Any, Dict, Iterable, List
 
 from modules.semantic_classifier import semantic_classify
 
+MAX_RECORDS_FOR_ONTOLOGY = 50
+MAX_RAW_TEXT_FALLBACK = 3000
 
-def build_ontology(semantic_data: Dict[str, Any]) -> Dict[str, Any]:
-    """Build an ontology from semantic classes/properties/relations.
 
-    The builder only accepts concepts already separated by semantic role. It
-    never promotes every extracted entity or JCTB data item to owl:Class.
-    """
-    if not isinstance(semantic_data, dict):
+def build_ontology(payload: Dict[str, Any]) -> Dict[str, Any]:
+    """Build an ontology, preferring clean_data.records over raw PDF text."""
+    if not isinstance(payload, dict):
         return _empty_ontology()
 
+    semantic_data = _semantic_input(payload)
     if not _looks_classified(semantic_data):
         semantic_data = semantic_classify(semantic_data)
 
@@ -49,6 +49,32 @@ def build_ontology(semantic_data: Dict[str, Any]) -> Dict[str, Any]:
         "properties": properties,
         "relations": relations,
     }
+
+
+def _semantic_input(payload: Dict[str, Any]) -> Dict[str, Any]:
+    if _looks_classified(payload):
+        return payload
+
+    clean_data = payload.get("clean_data", {}) if isinstance(payload.get("clean_data", {}), dict) else {}
+    records = clean_data.get("records", []) if isinstance(clean_data.get("records", []), list) else []
+    if records:
+        limited_records = records[:MAX_RECORDS_FOR_ONTOLOGY]
+        print(f"[本体构建] 使用结构化记录 {len(limited_records)} 条生成本体")
+        return {"clean_data": {**clean_data, "records": limited_records}, "entity_json": {}}
+
+    if "semantic_model" in payload and isinstance(payload.get("semantic_model"), dict):
+        return payload["semantic_model"]
+
+    raw_text = str(payload.get("raw_text") or clean_data.get("unstructured_text") or "")
+    raw_text = raw_text[:MAX_RAW_TEXT_FALLBACK]
+    if raw_text:
+        print("[本体构建] records 为空，使用截断 raw_text fallback")
+        from ai.entity_extractor import extract_entities
+
+        entity_json = extract_entities({"clean_text": raw_text, "records": []})
+        return {"entity_json": entity_json, "clean_data": {"records": []}}
+
+    return {"classes": [], "properties": [], "relations": []}
 
 
 def _looks_classified(data: Dict[str, Any]) -> bool:
