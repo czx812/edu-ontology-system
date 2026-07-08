@@ -29,7 +29,7 @@ def create_app() -> FastAPI:
     app = FastAPI(
         title=APP_NAME,
         version=APP_VERSION,
-        description="教育本体构建系统后端服务",
+        description="基于大模型智能体的教育本体构建系统",
     )
 
     app.add_middleware(
