@@ -1,4 +1,4 @@
-import hashlib
+﻿import hashlib
 import hmac
 import json
 import secrets
@@ -110,6 +110,10 @@ class AuthStore:
             return None
         return self._public_user(user)
 
+    def list_users(self) -> list[Dict[str, Any]]:
+        users = [self._public_user(user) for user in self._users.values()]
+        return sorted(users, key=lambda item: int(item.get("id") or 0))
+
 
 auth_store = AuthStore()
 router = APIRouter(tags=["auth"])
@@ -156,3 +160,11 @@ def login(request: LoginRequest) -> dict:
 @router.get("/auth/me")
 def me(user: Dict[str, Any] = Depends(get_current_user)) -> dict:
     return {"user": user}
+
+
+@router.get("/admin/users")
+def admin_users(user: Dict[str, Any] = Depends(get_current_user)) -> dict:
+    if not (user.get("is_admin") or user.get("role") == "admin" or user.get("username") == "admin"):
+        raise HTTPException(status_code=403, detail="需要管理员权限")
+    return {"items": auth_store.list_users()}
+

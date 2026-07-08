@@ -1,11 +1,11 @@
-import { defineConfig } from "vite";
+﻿import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 
 export default defineConfig({
-  cacheDir: "../../tmp/vite-cache",
+  cacheDir: "node_modules/.vite",
   plugins: [vue()],
   build: {
-    outDir: "../../tmp/frontend-dist",
+    outDir: "dist",
     emptyOutDir: true,
   },
   server: {

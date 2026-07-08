@@ -1,4 +1,4 @@
-import axios from "axios";
+﻿import axios from "axios";
 
 const api = axios.create({
   baseURL: "/api",
@@ -71,4 +71,12 @@ export function getAdminSystemLogs() {
 
 export function getAdminQuestionRecords(params = {}) {
   return api.get("/admin/logs/questions", { params });
+}
+
+export function searchDataSources(params = {}) {
+  return api.get("/sources/search", { params });
+}
+
+export function getAdminUsers() {
+  return api.get("/admin/users");
 }
