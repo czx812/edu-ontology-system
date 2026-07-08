@@ -27,6 +27,8 @@ DEFAULT_STATE = {
     "entity_json": {},
     "semantic_model": {},
     "ontology": {},
+    "trace_map": {},
+    "trace_file": "",
     "owl_file": "",
     "errors": [],
     "generate_options": {},
@@ -101,6 +103,14 @@ def align_node(state: dict) -> dict:
     return state
 
 
+def provenance_node(state: dict) -> dict:
+    state = _merge_state(state)
+    build_trace_map = _load_function("modules.provenance", "build_trace_map")
+    state["trace_map"] = build_trace_map(state["clean_data"], state["ontology"])
+    state["trace_file"] = state["trace_map"].get("trace_file", "")
+    return state
+
+
 def owl_generate_node(state: dict) -> dict:
     state = _merge_state(state)
     ontology = state.get("ontology", {}) if isinstance(state.get("ontology", {}), dict) else {}
@@ -114,7 +124,7 @@ def owl_generate_node(state: dict) -> dict:
 
 
 def run_workflow(state: dict) -> dict:
-    """Full flow: PDF -> parse -> clean -> schema match -> ontology -> align -> OWL."""
+    """Full flow: PDF -> parse -> clean -> schema match -> ontology -> align -> provenance -> OWL."""
     state = _merge_state(state)
     file_path = Path(state["file_path"])
     if not file_path.exists():
@@ -130,6 +140,7 @@ def run_workflow(state: dict) -> dict:
         ("schema_match", "模式匹配中", schema_match_node),
         ("rule_draft", "规则生成初始本体中", ontology_build_node),
         ("align", "多本体对齐中", align_node),
+        ("provenance", "数据溯源中", provenance_node),
         ("owl_export", "OWL 导出中", owl_generate_node),
     )
     for step, label, node in nodes:

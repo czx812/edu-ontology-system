@@ -1,0 +1,2213 @@
+{
+  "source_file": "",
+  "total_records": 0,
+  "total_trace_items": 279,
+  "matched_items": 0,
+  "unmatched_items": 279,
+  "items": [
+    {
+      "ontology_type": "class",
+      "ontology_name": "Standard_JYT1002",
+      "ontology_label": "JY/T 1002—2012 教育管理信息 教育管理基础信息",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "Dataset_EMGI",
+      "ontology_label": "教育管理基础信息数据集",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "DataSubset_JCTB",
+      "ontology_label": "JCTB 通用/标准数据子集",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "DataSubset_JCXX",
+      "ontology_label": "JCXX 学校数据子集",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "DataSubset_JCXS",
+      "ontology_label": "JCXS 学生数据子集",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "DataSubset_JCJG",
+      "ontology_label": "JCJG 教职工数据子集",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "JCTB0101",
+      "ontology_label": "JCTB0101 通用通讯数据子类",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "JCTB0102",
+      "ontology_label": "JCTB0102 通用时间数据子类",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "JCTB0103",
+      "ontology_label": "JCTB0103 单位基本数据子类",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "JCTB0104",
+      "ontology_label": "JCTB0104 通用教学数据子类",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "JCTB0201",
+      "ontology_label": "JCTB0201 人员基本数据子类",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "JCXX0101",
+      "ontology_label": "JCXX0101 学校基本数据子类",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "JCXX0102",
+      "ontology_label": "JCXX0102 校区基本数据子类",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "JCXS0110",
+      "ontology_label": "JCXS0110 学生来源数据子类",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "JCXS0201",
+      "ontology_label": "JCXS0201 学籍基本数据子类",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "JCXS0202",
+      "ontology_label": "JCXS0202 学籍异动数据子类",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "JCXS0203",
+      "ontology_label": "JCXS0203 成绩数据子类",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "JCXS0204",
+      "ontology_label": "JCXS0204 奖励数据子类",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "JCXS0205",
+      "ontology_label": "JCXS0205 惩处数据子类",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "JCXS0301",
+      "ontology_label": "JCXS0301 毕业数据子类",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "JCXS0302",
+      "ontology_label": "JCXS0302 就业数据子类",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "JCJG0110",
+      "ontology_label": "JCJG0110 奖励数据子类",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "JCJG0201",
+      "ontology_label": "JCJG0201 语言能力数据子类",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "JCJG0202",
+      "ontology_label": "JCJG0202 专业技术职务数据子类",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "JCJG0205",
+      "ontology_label": "JCJG0205 党政职务数据子类",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "JCXS0101",
+      "ontology_label": "JCXS0101 学生基本数据子类",
+      "sources": []
+    },
+    {
+      "ontology_type": "class",
+      "ontology_name": "JCJG0101",
+      "ontology_label": "JCJG0101 教职工基本数据子类",
+      "sources": []
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "YZBM",
+      "ontology_label": "邮政编码",
+      "sources": [],
+      "domain": "JCTB0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "TXDZ",
+      "ontology_label": "通信地址",
+      "sources": [],
+      "domain": "JCTB0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "DH",
+      "ontology_label": "电话",
+      "sources": [],
+      "domain": "JCTB0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "YDDH",
+      "ontology_label": "移动电话",
+      "sources": [],
+      "domain": "JCTB0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "CZDH",
+      "ontology_label": "传真电话",
+      "sources": [],
+      "domain": "JCTB0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "DZXX",
+      "ontology_label": "电子信箱",
+      "sources": [],
+      "domain": "JCTB0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "WLDZ",
+      "ontology_label": "网络地址",
+      "sources": [],
+      "domain": "JCTB0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JSTXH",
+      "ontology_label": "即时通讯号",
+      "sources": [],
+      "domain": "JCTB0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "ND",
+      "ontology_label": "年度（年份、年）",
+      "sources": [],
+      "domain": "JCTB0102",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "NY",
+      "ontology_label": "年月",
+      "sources": [],
+      "domain": "JCTB0102",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "RQ",
+      "ontology_label": "日期",
+      "sources": [],
+      "domain": "JCTB0102",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "SJ",
+      "ontology_label": "时间",
+      "sources": [],
+      "domain": "JCTB0102",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XN",
+      "ontology_label": "学年（度）",
+      "sources": [],
+      "domain": "JCTB0102",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XQM",
+      "ontology_label": "学期码",
+      "sources": [],
+      "domain": "JCTB0102",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "YXQ",
+      "ontology_label": "有效期",
+      "sources": [],
+      "domain": "JCTB0102",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "DWH",
+      "ontology_label": "单位号",
+      "sources": [],
+      "domain": "JCTB0103",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "DWMC",
+      "ontology_label": "单位名称",
+      "sources": [],
+      "domain": "JCTB0103",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "DWYWMC",
+      "ontology_label": "单位英文名称",
+      "sources": [],
+      "domain": "JCTB0103",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "DWJC",
+      "ontology_label": "单位简称",
+      "sources": [],
+      "domain": "JCTB0103",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "DWYWJC",
+      "ontology_label": "单位英文简称",
+      "sources": [],
+      "domain": "JCTB0103",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "DWJP",
+      "ontology_label": "单位简拼",
+      "sources": [],
+      "domain": "JCTB0103",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "DWDZ",
+      "ontology_label": "单位地址",
+      "sources": [],
+      "domain": "JCTB0103",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "LSDWH",
+      "ontology_label": "隶属单位号",
+      "sources": [],
+      "domain": "JCTB0103",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "DWLBM",
+      "ontology_label": "单位类别码",
+      "sources": [],
+      "domain": "JCTB0103",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "DWBBM",
+      "ontology_label": "单位办别码",
+      "sources": [],
+      "domain": "JCTB0103",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "DWYXBS",
+      "ontology_label": "单位有效标识",
+      "sources": [],
+      "domain": "JCTB0103",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "SXRQ",
+      "ontology_label": "失效日期",
+      "sources": [],
+      "domain": "JCTB0103",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "SFST",
+      "ontology_label": "是否实体",
+      "sources": [],
+      "domain": "JCTB0103",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JLNY",
+      "ontology_label": "建立年月",
+      "sources": [],
+      "domain": "JCTB0103",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "DWFZRH",
+      "ontology_label": "单位负责人号",
+      "sources": [],
+      "domain": "JCTB0103",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "NJ",
+      "ontology_label": "年级",
+      "sources": [],
+      "domain": "JCTB0104",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XZ",
+      "ontology_label": "学制",
+      "sources": [],
+      "domain": "JCTB0104",
+      "range": "float"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "KCH",
+      "ontology_label": "课程号",
+      "sources": [],
+      "domain": "JCTB0104",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "KCMC",
+      "ontology_label": "课程名称",
+      "sources": [],
+      "domain": "JCTB0104",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "KCYWMC",
+      "ontology_label": "课程英文名称",
+      "sources": [],
+      "domain": "JCTB0104",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "KSFSM",
+      "ontology_label": "考试方式码",
+      "sources": [],
+      "domain": "JCTB0104",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "ZYM",
+      "ontology_label": "专业码",
+      "sources": [],
+      "domain": "JCTB0104",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "ZYMC",
+      "ontology_label": "专业名称",
+      "sources": [],
+      "domain": "JCTB0104",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XM",
+      "ontology_label": "姓名",
+      "sources": [],
+      "domain": "JCTB0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "YWXM",
+      "ontology_label": "英文姓名",
+      "sources": [],
+      "domain": "JCTB0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XMPY",
+      "ontology_label": "姓名拼音",
+      "sources": [],
+      "domain": "JCTB0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "CYM",
+      "ontology_label": "曾用名",
+      "sources": [],
+      "domain": "JCTB0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XBM",
+      "ontology_label": "性别码",
+      "sources": [],
+      "domain": "JCTB0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "CSRQ",
+      "ontology_label": "出生日期",
+      "sources": [],
+      "domain": "JCTB0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "CSDM",
+      "ontology_label": "出生地码",
+      "sources": [],
+      "domain": "JCTB0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JG",
+      "ontology_label": "籍贯",
+      "sources": [],
+      "domain": "JCTB0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "MZM",
+      "ontology_label": "民族码",
+      "sources": [],
+      "domain": "JCTB0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "GJDQM",
+      "ontology_label": "国籍/地区码",
+      "sources": [],
+      "domain": "JCTB0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "SFZJLXM",
+      "ontology_label": "身份证件类型码",
+      "sources": [],
+      "domain": "JCTB0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "SFZJH",
+      "ontology_label": "身份证件号",
+      "sources": [],
+      "domain": "JCTB0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "HYZKM",
+      "ontology_label": "婚姻状况码",
+      "sources": [],
+      "domain": "JCTB0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "GATQWM",
+      "ontology_label": "港澳台侨外码",
+      "sources": [],
+      "domain": "JCTB0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "ZZMMM",
+      "ontology_label": "政治面貌码",
+      "sources": [],
+      "domain": "JCTB0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JKZKM",
+      "ontology_label": "健康状况码",
+      "sources": [],
+      "domain": "JCTB0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XYZJM",
+      "ontology_label": "信仰宗教码",
+      "sources": [],
+      "domain": "JCTB0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XXM",
+      "ontology_label": "血型码",
+      "sources": [],
+      "domain": "JCTB0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "ZP",
+      "ontology_label": "照片",
+      "sources": [],
+      "domain": "JCTB0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "RYH",
+      "ontology_label": "人员号",
+      "sources": [],
+      "domain": "JCTB0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "SFZJYXQ",
+      "ontology_label": "身份证件有效期",
+      "sources": [],
+      "domain": "JCTB0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "SFDSZN",
+      "ontology_label": "是否独生子女",
+      "sources": [],
+      "domain": "JCTB0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XXDM",
+      "ontology_label": "学校代码",
+      "sources": [],
+      "domain": "JCXX0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XXMC",
+      "ontology_label": "学校名称",
+      "sources": [],
+      "domain": "JCXX0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XXYWMC",
+      "ontology_label": "学校英文名称",
+      "sources": [],
+      "domain": "JCXX0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XXDZ",
+      "ontology_label": "学校地址",
+      "sources": [],
+      "domain": "JCXX0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XXYZBM",
+      "ontology_label": "学校邮政编码",
+      "sources": [],
+      "domain": "JCXX0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XZQHM",
+      "ontology_label": "行政区划码",
+      "sources": [],
+      "domain": "JCXX0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JXNY",
+      "ontology_label": "建校年月",
+      "sources": [],
+      "domain": "JCXX0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XQR",
+      "ontology_label": "校庆日",
+      "sources": [],
+      "domain": "JCXX0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XXBXLXM",
+      "ontology_label": "学校办学类型码",
+      "sources": [],
+      "domain": "JCXX0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XXJBZM",
+      "ontology_label": "学校举办者码",
+      "sources": [],
+      "domain": "JCXX0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XXZGBMM",
+      "ontology_label": "学校主管部门码",
+      "sources": [],
+      "domain": "JCXX0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "FDDBRH",
+      "ontology_label": "法定代表人号",
+      "sources": [],
+      "domain": "JCXX0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "FRZSH",
+      "ontology_label": "法人证书号",
+      "sources": [],
+      "domain": "JCXX0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XZGH",
+      "ontology_label": "校长工号",
+      "sources": [],
+      "domain": "JCXX0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XZXM",
+      "ontology_label": "校长姓名",
+      "sources": [],
+      "domain": "JCXX0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "DWFZRH",
+      "ontology_label": "党委负责人号",
+      "sources": [],
+      "domain": "JCXX0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "ZZJGM",
+      "ontology_label": "组织机构码",
+      "sources": [],
+      "domain": "JCXX0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "LXDH",
+      "ontology_label": "联系电话",
+      "sources": [],
+      "domain": "JCXX0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "CZDH",
+      "ontology_label": "传真电话",
+      "sources": [],
+      "domain": "JCXX0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "DZXX",
+      "ontology_label": "电子信箱",
+      "sources": [],
+      "domain": "JCXX0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "ZYDZ",
+      "ontology_label": "主页地址",
+      "sources": [],
+      "domain": "JCXX0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "LSYG",
+      "ontology_label": "历史沿革",
+      "sources": [],
+      "domain": "JCXX0101",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XQH",
+      "ontology_label": "校区号",
+      "sources": [],
+      "domain": "JCXX0102",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XQMC",
+      "ontology_label": "校区名称",
+      "sources": [],
+      "domain": "JCXX0102",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XQDZ",
+      "ontology_label": "校区地址",
+      "sources": [],
+      "domain": "JCXX0102",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XQYZBM",
+      "ontology_label": "校区邮政编码",
+      "sources": [],
+      "domain": "JCXX0102",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XQLXDH",
+      "ontology_label": "校区联系电话",
+      "sources": [],
+      "domain": "JCXX0102",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XQCZDH",
+      "ontology_label": "校区传真电话",
+      "sources": [],
+      "domain": "JCXX0102",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XQFZRH",
+      "ontology_label": "校区负责人号",
+      "sources": [],
+      "domain": "JCXX0102",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "YXXMC",
+      "ontology_label": "原学校名称",
+      "sources": [],
+      "domain": "JCXS0110",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "YXH",
+      "ontology_label": "原学号",
+      "sources": [],
+      "domain": "JCXS0110",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "RXFSM",
+      "ontology_label": "入学方式码",
+      "sources": [],
+      "domain": "JCXS0110",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "LYDQM",
+      "ontology_label": "来源地区码",
+      "sources": [],
+      "domain": "JCXS0110",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XSLYM",
+      "ontology_label": "学生来源码",
+      "sources": [],
+      "domain": "JCXS0110",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JDFSM",
+      "ontology_label": "就读方式码",
+      "sources": [],
+      "domain": "JCXS0110",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "RXNY",
+      "ontology_label": "入学年月",
+      "sources": [],
+      "domain": "JCXS0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XSLBM",
+      "ontology_label": "学生类别码",
+      "sources": [],
+      "domain": "JCXS0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XZ",
+      "ontology_label": "学制",
+      "sources": [],
+      "domain": "JCXS0201",
+      "range": "float"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "ZYM",
+      "ontology_label": "专业码",
+      "sources": [],
+      "domain": "JCXS0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "SZBH",
+      "ontology_label": "所在班号",
+      "sources": [],
+      "domain": "JCXS0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "SZNJ",
+      "ontology_label": "所在年级",
+      "sources": [],
+      "domain": "JCXS0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XSDQZTM",
+      "ontology_label": "学生当前状态码",
+      "sources": [],
+      "domain": "JCXS0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "YDLBM",
+      "ontology_label": "异动类别码",
+      "sources": [],
+      "domain": "JCXS0202",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "YDRQ",
+      "ontology_label": "异动日期",
+      "sources": [],
+      "domain": "JCXS0202",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "YDYYM",
+      "ontology_label": "异动原因码",
+      "sources": [],
+      "domain": "JCXS0202",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "SPRQ",
+      "ontology_label": "审批日期",
+      "sources": [],
+      "domain": "JCXS0202",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "SPWH",
+      "ontology_label": "审批文号",
+      "sources": [],
+      "domain": "JCXS0202",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "YDLYXXM",
+      "ontology_label": "异动来源学校码",
+      "sources": [],
+      "domain": "JCXS0202",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "YDQXXXM",
+      "ontology_label": "异动去向学校码",
+      "sources": [],
+      "domain": "JCXS0202",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "YDSM",
+      "ontology_label": "异动说明",
+      "sources": [],
+      "domain": "JCXS0202",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "YYXSH",
+      "ontology_label": "原院系所号",
+      "sources": [],
+      "domain": "JCXS0202",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "YZYM",
+      "ontology_label": "原专业码",
+      "sources": [],
+      "domain": "JCXS0202",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "YBH",
+      "ontology_label": "原班号",
+      "sources": [],
+      "domain": "JCXS0202",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "YNJ",
+      "ontology_label": "原年级",
+      "sources": [],
+      "domain": "JCXS0202",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "YXZ",
+      "ontology_label": "原学制",
+      "sources": [],
+      "domain": "JCXS0202",
+      "range": "float"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XYXSH",
+      "ontology_label": "现院系所号",
+      "sources": [],
+      "domain": "JCXS0202",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XZYM",
+      "ontology_label": "现专业码",
+      "sources": [],
+      "domain": "JCXS0202",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XBH",
+      "ontology_label": "现班号",
+      "sources": [],
+      "domain": "JCXS0202",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XNJ",
+      "ontology_label": "现年级",
+      "sources": [],
+      "domain": "JCXS0202",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XXZ",
+      "ontology_label": "现学制",
+      "sources": [],
+      "domain": "JCXS0202",
+      "range": "float"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XN",
+      "ontology_label": "学年（度）",
+      "sources": [],
+      "domain": "JCXS0203",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XQM",
+      "ontology_label": "学期码",
+      "sources": [],
+      "domain": "JCXS0203",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "KSRQ",
+      "ontology_label": "考试日期",
+      "sources": [],
+      "domain": "JCXS0203",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "KCH",
+      "ontology_label": "课程号",
+      "sources": [],
+      "domain": "JCXS0203",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "PSCJ",
+      "ontology_label": "平时成绩",
+      "sources": [],
+      "domain": "JCXS0203",
+      "range": "float"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "KSFSM",
+      "ontology_label": "考试方式码",
+      "sources": [],
+      "domain": "JCXS0203",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "KSXZM",
+      "ontology_label": "考试性质码",
+      "sources": [],
+      "domain": "JCXS0203",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "KSXSM",
+      "ontology_label": "考试形式码",
+      "sources": [],
+      "domain": "JCXS0203",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "FSLKSCJ",
+      "ontology_label": "分数类考试成绩",
+      "sources": [],
+      "domain": "JCXS0203",
+      "range": "float"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "DJLKSCJ",
+      "ontology_label": "等级类考试成绩",
+      "sources": [],
+      "domain": "JCXS0203",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "KCCJ",
+      "ontology_label": "课程成绩",
+      "sources": [],
+      "domain": "JCXS0203",
+      "range": "float"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "KCDJCJM",
+      "ontology_label": "课程等级成绩码",
+      "sources": [],
+      "domain": "JCXS0203",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "RKJSGH",
+      "ontology_label": "任课教师工号",
+      "sources": [],
+      "domain": "JCXS0203",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "CJLRRH",
+      "ontology_label": "成绩录入人号",
+      "sources": [],
+      "domain": "JCXS0203",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "CJLRRQ",
+      "ontology_label": "成绩录入日期",
+      "sources": [],
+      "domain": "JCXS0203",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "CJLRSJ",
+      "ontology_label": "成绩录入时间",
+      "sources": [],
+      "domain": "JCXS0203",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JLMC",
+      "ontology_label": "奖励名称",
+      "sources": [],
+      "domain": "JCXS0204",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JLJBM",
+      "ontology_label": "奖励级别码",
+      "sources": [],
+      "domain": "JCXS0204",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JLDJM",
+      "ontology_label": "奖励等级码",
+      "sources": [],
+      "domain": "JCXS0204",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "HJLBM",
+      "ontology_label": "获奖类别码",
+      "sources": [],
+      "domain": "JCXS0204",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JLYY",
+      "ontology_label": "奖励原因",
+      "sources": [],
+      "domain": "JCXS0204",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JLJE",
+      "ontology_label": "奖励金额",
+      "sources": [],
+      "domain": "JCXS0204",
+      "range": "float"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JLWH",
+      "ontology_label": "奖励文号",
+      "sources": [],
+      "domain": "JCXS0204",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JLXND",
+      "ontology_label": "奖励学年度",
+      "sources": [],
+      "domain": "JCXS0204",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "BJDW",
+      "ontology_label": "颁奖单位",
+      "sources": [],
+      "domain": "JCXS0204",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JLLXM",
+      "ontology_label": "奖励类型码",
+      "sources": [],
+      "domain": "JCXS0204",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JLFSM",
+      "ontology_label": "奖励方式码",
+      "sources": [],
+      "domain": "JCXS0204",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "WJRQ",
+      "ontology_label": "违纪日期",
+      "sources": [],
+      "domain": "JCXS0205",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "WJJK",
+      "ontology_label": "违纪简况",
+      "sources": [],
+      "domain": "JCXS0205",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "WJLBM",
+      "ontology_label": "违纪类别码",
+      "sources": [],
+      "domain": "JCXS0205",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "CFMCM",
+      "ontology_label": "处分名称码",
+      "sources": [],
+      "domain": "JCXS0205",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "CFYY",
+      "ontology_label": "处分原因",
+      "sources": [],
+      "domain": "JCXS0205",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "CFRQ",
+      "ontology_label": "处分日期",
+      "sources": [],
+      "domain": "JCXS0205",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "CFWH",
+      "ontology_label": "处分文号",
+      "sources": [],
+      "domain": "JCXS0205",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "CFCXRQ",
+      "ontology_label": "处分撤消日期",
+      "sources": [],
+      "domain": "JCXS0205",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "CFCXWH",
+      "ontology_label": "处分撤消文号",
+      "sources": [],
+      "domain": "JCXS0205",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JSXYNY",
+      "ontology_label": "结束学业年月",
+      "sources": [],
+      "domain": "JCXS0301",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JSXYM",
+      "ontology_label": "结束学业码",
+      "sources": [],
+      "domain": "JCXS0301",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JSXYYYSM",
+      "ontology_label": "结束学业原因说明",
+      "sources": [],
+      "domain": "JCXS0301",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "BYZSH",
+      "ontology_label": "毕业证书号",
+      "sources": [],
+      "domain": "JCXS0301",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XWZSH",
+      "ontology_label": "学位证书号",
+      "sources": [],
+      "domain": "JCXS0301",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JYZSH",
+      "ontology_label": "结业证书号",
+      "sources": [],
+      "domain": "JCXS0301",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "HBYZSRQ",
+      "ontology_label": "获毕业证书日期",
+      "sources": [],
+      "domain": "JCXS0301",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "HXWZSRQ",
+      "ontology_label": "获学位证书日期",
+      "sources": [],
+      "domain": "JCXS0301",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "HJYZSRQ",
+      "ontology_label": "获结业证书日期",
+      "sources": [],
+      "domain": "JCXS0301",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XYSBH",
+      "ontology_label": "协议书编号",
+      "sources": [],
+      "domain": "JCXS0302",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XYQDRQ",
+      "ontology_label": "协议签订日期",
+      "sources": [],
+      "domain": "JCXS0302",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "XYNX",
+      "ontology_label": "协议年限",
+      "sources": [],
+      "domain": "JCXS0302",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "BDRQ",
+      "ontology_label": "报到日期",
+      "sources": [],
+      "domain": "JCXS0302",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JYLSFSM",
+      "ontology_label": "就业落实方式码",
+      "sources": [],
+      "domain": "JCXS0302",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "BYQXM",
+      "ontology_label": "毕业去向码",
+      "sources": [],
+      "domain": "JCXS0302",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JSDW",
+      "ontology_label": "接收单位",
+      "sources": [],
+      "domain": "JCXS0302",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "DWSZDQHM",
+      "ontology_label": "单位所在地区划码",
+      "sources": [],
+      "domain": "JCXS0302",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "DWZGBM",
+      "ontology_label": "单位主管部门",
+      "sources": [],
+      "domain": "JCXS0302",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "SHDWXZM",
+      "ontology_label": "社会单位性质码",
+      "sources": [],
+      "domain": "JCXS0302",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "DWJJXZM",
+      "ontology_label": "单位经济性质码",
+      "sources": [],
+      "domain": "JCXS0302",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "DWTGDDY",
+      "ontology_label": "单位提供的待遇",
+      "sources": [],
+      "domain": "JCXS0302",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "DAJSDZ",
+      "ontology_label": "档案接收地址",
+      "sources": [],
+      "domain": "JCXS0302",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JSDYZBM",
+      "ontology_label": "接收地邮政编码",
+      "sources": [],
+      "domain": "JCXS0302",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "GZGWXZM",
+      "ontology_label": "工作岗位性质码",
+      "sources": [],
+      "domain": "JCXS0302",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "DWHYM",
+      "ontology_label": "单位行业码",
+      "sources": [],
+      "domain": "JCXS0302",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "BDZH",
+      "ontology_label": "报到证号",
+      "sources": [],
+      "domain": "JCXS0302",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "YRDWYRXSM",
+      "ontology_label": "用人单位用人形式码",
+      "sources": [],
+      "domain": "JCXS0302",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "PQF",
+      "ontology_label": "派遣费",
+      "sources": [],
+      "domain": "JCXS0302",
+      "range": "float"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "HJXM",
+      "ontology_label": "获奖项目",
+      "sources": [],
+      "domain": "JCJG0110",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JLJBM",
+      "ontology_label": "奖励级别码",
+      "sources": [],
+      "domain": "JCJG0110",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JLDJM",
+      "ontology_label": "奖励等级码",
+      "sources": [],
+      "domain": "JCJG0110",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "HJLBM",
+      "ontology_label": "获奖类别码",
+      "sources": [],
+      "domain": "JCJG0110",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JLFSM",
+      "ontology_label": "奖励方式码",
+      "sources": [],
+      "domain": "JCJG0110",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JLMC",
+      "ontology_label": "奖励名称",
+      "sources": [],
+      "domain": "JCJG0110",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JLMCM",
+      "ontology_label": "奖励名称码",
+      "sources": [],
+      "domain": "JCJG0110",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "HJYY",
+      "ontology_label": "获奖原因",
+      "sources": [],
+      "domain": "JCJG0110",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JLNR",
+      "ontology_label": "奖励内容",
+      "sources": [],
+      "domain": "JCJG0110",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "BJDW",
+      "ontology_label": "颁奖单位",
+      "sources": [],
+      "domain": "JCJG0110",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "HJRQ",
+      "ontology_label": "获奖日期",
+      "sources": [],
+      "domain": "JCJG0110",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "RYCHM",
+      "ontology_label": "荣誉称号码",
+      "sources": [],
+      "domain": "JCJG0110",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "HJJSM",
+      "ontology_label": "获奖角色码",
+      "sources": [],
+      "domain": "JCJG0110",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "WGYZM",
+      "ontology_label": "外国语种码",
+      "sources": [],
+      "domain": "JCJG0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "WGYZSLCDM",
+      "ontology_label": "外国语种熟练程度码",
+      "sources": [],
+      "domain": "JCJG0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "ZGYZM",
+      "ontology_label": "中国语种码",
+      "sources": [],
+      "domain": "JCJG0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "ZGYZSLCDM",
+      "ontology_label": "中国语种熟练程度码",
+      "sources": [],
+      "domain": "JCJG0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "PTHSPDJM",
+      "ontology_label": "普通话水平等级码",
+      "sources": [],
+      "domain": "JCJG0201",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "RZZGMCM",
+      "ontology_label": "任职资格名称码",
+      "sources": [],
+      "domain": "JCJG0202",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "QDZGTJM",
+      "ontology_label": "取得资格途径码",
+      "sources": [],
+      "domain": "JCJG0202",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "PSDW",
+      "ontology_label": "评审单位",
+      "sources": [],
+      "domain": "JCJG0202",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "PDRQ",
+      "ontology_label": "评定日期",
+      "sources": [],
+      "domain": "JCJG0202",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "PRZWM",
+      "ontology_label": "聘任职务码",
+      "sources": [],
+      "domain": "JCJG0202",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "PRDW",
+      "ontology_label": "聘任单位",
+      "sources": [],
+      "domain": "JCJG0202",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "PRQSRQ",
+      "ontology_label": "聘任起始日期",
+      "sources": [],
+      "domain": "JCJG0202",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "PRZZRQ",
+      "ontology_label": "聘任终止日期",
+      "sources": [],
+      "domain": "JCJG0202",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "PRQKM",
+      "ontology_label": "聘任情况码",
+      "sources": [],
+      "domain": "JCJG0202",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JPRQ",
+      "ontology_label": "解聘日期",
+      "sources": [],
+      "domain": "JCJG0202",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "JPYY",
+      "ontology_label": "解聘原因",
+      "sources": [],
+      "domain": "JCJG0202",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "ZWMC",
+      "ontology_label": "职务名称",
+      "sources": [],
+      "domain": "JCJG0205",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "ZWMCM",
+      "ontology_label": "职务名称码",
+      "sources": [],
+      "domain": "JCJG0205",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "ZWLBM",
+      "ontology_label": "职务类别码",
+      "sources": [],
+      "domain": "JCJG0205",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "ZWFLM",
+      "ontology_label": "职位分类码",
+      "sources": [],
+      "domain": "JCJG0205",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "ZWJBM",
+      "ontology_label": "职务级别码",
+      "sources": [],
+      "domain": "JCJG0205",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "RZRQ",
+      "ontology_label": "任职日期",
+      "sources": [],
+      "domain": "JCJG0205",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "RZBM",
+      "ontology_label": "任职部门",
+      "sources": [],
+      "domain": "JCJG0205",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "RZFSM",
+      "ontology_label": "任职方式码",
+      "sources": [],
+      "domain": "JCJG0205",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "RZYY",
+      "ontology_label": "任职原因",
+      "sources": [],
+      "domain": "JCJG0205",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "RZWH",
+      "ontology_label": "任职文号",
+      "sources": [],
+      "domain": "JCJG0205",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "RZPZDW",
+      "ontology_label": "任职批准单位",
+      "sources": [],
+      "domain": "JCJG0205",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "ZWBDLBM",
+      "ontology_label": "职务变动类别码",
+      "sources": [],
+      "domain": "JCJG0205",
+      "range": "string"
+    },
+    {
+      "ontology_type": "property",
+      "ontology_name": "DQRZZK",
+      "ontology_label": "当前任职状况",
+      "sources": [],
+      "domain": "JCJG0205",
+      "range": "string"
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Standard_JYT1002-composed_of-Dataset_EMGI",
+      "ontology_label": "Standard_JYT1002 composed_of Dataset_EMGI",
+      "subject": "Standard_JYT1002",
+      "predicate": "composed_of",
+      "object": "Dataset_EMGI",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Dataset_EMGI-composed_of-DataSubset_JCTB",
+      "ontology_label": "Dataset_EMGI composed_of DataSubset_JCTB",
+      "subject": "Dataset_EMGI",
+      "predicate": "composed_of",
+      "object": "DataSubset_JCTB",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Dataset_EMGI-composed_of-DataSubset_JCXX",
+      "ontology_label": "Dataset_EMGI composed_of DataSubset_JCXX",
+      "subject": "Dataset_EMGI",
+      "predicate": "composed_of",
+      "object": "DataSubset_JCXX",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Dataset_EMGI-composed_of-DataSubset_JCXS",
+      "ontology_label": "Dataset_EMGI composed_of DataSubset_JCXS",
+      "subject": "Dataset_EMGI",
+      "predicate": "composed_of",
+      "object": "DataSubset_JCXS",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "Dataset_EMGI-composed_of-DataSubset_JCJG",
+      "ontology_label": "Dataset_EMGI composed_of DataSubset_JCJG",
+      "subject": "Dataset_EMGI",
+      "predicate": "composed_of",
+      "object": "DataSubset_JCJG",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "DataSubset_JCTB-composed_of-JCTB0101",
+      "ontology_label": "DataSubset_JCTB composed_of JCTB0101",
+      "subject": "DataSubset_JCTB",
+      "predicate": "composed_of",
+      "object": "JCTB0101",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "DataSubset_JCTB-composed_of-JCTB0102",
+      "ontology_label": "DataSubset_JCTB composed_of JCTB0102",
+      "subject": "DataSubset_JCTB",
+      "predicate": "composed_of",
+      "object": "JCTB0102",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "DataSubset_JCTB-composed_of-JCTB0103",
+      "ontology_label": "DataSubset_JCTB composed_of JCTB0103",
+      "subject": "DataSubset_JCTB",
+      "predicate": "composed_of",
+      "object": "JCTB0103",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "DataSubset_JCTB-composed_of-JCTB0104",
+      "ontology_label": "DataSubset_JCTB composed_of JCTB0104",
+      "subject": "DataSubset_JCTB",
+      "predicate": "composed_of",
+      "object": "JCTB0104",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "DataSubset_JCTB-composed_of-JCTB0201",
+      "ontology_label": "DataSubset_JCTB composed_of JCTB0201",
+      "subject": "DataSubset_JCTB",
+      "predicate": "composed_of",
+      "object": "JCTB0201",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "DataSubset_JCXS-composed_of-JCXS0110",
+      "ontology_label": "DataSubset_JCXS composed_of JCXS0110",
+      "subject": "DataSubset_JCXS",
+      "predicate": "composed_of",
+      "object": "JCXS0110",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "DataSubset_JCXS-composed_of-JCXS0201",
+      "ontology_label": "DataSubset_JCXS composed_of JCXS0201",
+      "subject": "DataSubset_JCXS",
+      "predicate": "composed_of",
+      "object": "JCXS0201",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "DataSubset_JCXS-composed_of-JCXS0202",
+      "ontology_label": "DataSubset_JCXS composed_of JCXS0202",
+      "subject": "DataSubset_JCXS",
+      "predicate": "composed_of",
+      "object": "JCXS0202",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "DataSubset_JCXS-composed_of-JCXS0203",
+      "ontology_label": "DataSubset_JCXS composed_of JCXS0203",
+      "subject": "DataSubset_JCXS",
+      "predicate": "composed_of",
+      "object": "JCXS0203",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "DataSubset_JCXS-composed_of-JCXS0204",
+      "ontology_label": "DataSubset_JCXS composed_of JCXS0204",
+      "subject": "DataSubset_JCXS",
+      "predicate": "composed_of",
+      "object": "JCXS0204",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "DataSubset_JCXS-composed_of-JCXS0205",
+      "ontology_label": "DataSubset_JCXS composed_of JCXS0205",
+      "subject": "DataSubset_JCXS",
+      "predicate": "composed_of",
+      "object": "JCXS0205",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "DataSubset_JCXS-composed_of-JCXS0301",
+      "ontology_label": "DataSubset_JCXS composed_of JCXS0301",
+      "subject": "DataSubset_JCXS",
+      "predicate": "composed_of",
+      "object": "JCXS0301",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "DataSubset_JCXS-composed_of-JCXS0302",
+      "ontology_label": "DataSubset_JCXS composed_of JCXS0302",
+      "subject": "DataSubset_JCXS",
+      "predicate": "composed_of",
+      "object": "JCXS0302",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "DataSubset_JCJG-composed_of-JCJG0110",
+      "ontology_label": "DataSubset_JCJG composed_of JCJG0110",
+      "subject": "DataSubset_JCJG",
+      "predicate": "composed_of",
+      "object": "JCJG0110",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "DataSubset_JCJG-composed_of-JCJG0201",
+      "ontology_label": "DataSubset_JCJG composed_of JCJG0201",
+      "subject": "DataSubset_JCJG",
+      "predicate": "composed_of",
+      "object": "JCJG0201",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "DataSubset_JCJG-composed_of-JCJG0202",
+      "ontology_label": "DataSubset_JCJG composed_of JCJG0202",
+      "subject": "DataSubset_JCJG",
+      "predicate": "composed_of",
+      "object": "JCJG0202",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "DataSubset_JCJG-composed_of-JCJG0205",
+      "ontology_label": "DataSubset_JCJG composed_of JCJG0205",
+      "subject": "DataSubset_JCJG",
+      "predicate": "composed_of",
+      "object": "JCJG0205",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "DataSubset_JCXX-composed_of-JCXX0101",
+      "ontology_label": "DataSubset_JCXX composed_of JCXX0101",
+      "subject": "DataSubset_JCXX",
+      "predicate": "composed_of",
+      "object": "JCXX0101",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "DataSubset_JCXX-composed_of-JCXX0102",
+      "ontology_label": "DataSubset_JCXX composed_of JCXX0102",
+      "subject": "DataSubset_JCXX",
+      "predicate": "composed_of",
+      "object": "JCXX0102",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "JCXS0101-uses-JCTB0201",
+      "ontology_label": "JCXS0101 uses JCTB0201",
+      "subject": "JCXS0101",
+      "predicate": "uses",
+      "object": "JCTB0201",
+      "sources": []
+    },
+    {
+      "ontology_type": "relation",
+      "ontology_name": "JCJG0101-uses-JCTB0201",
+      "ontology_label": "JCJG0101 uses JCTB0201",
+      "subject": "JCJG0101",
+      "predicate": "uses",
+      "object": "JCTB0201",
+      "sources": []
+    }
+  ]
+}

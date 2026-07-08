@@ -45,6 +45,17 @@
       </div>
 
       <pre v-if="ontology">{{ ontology }}</pre>
+
+      <div v-if="traceSummary" class="trace-summary">
+        <h2>数据溯源结果</h2>
+        <p>结构化记录数：{{ traceSummary.total_records }}</p>
+        <p>本体元素数：{{ traceSummary.total_trace_items }}</p>
+        <p>已匹配来源：{{ traceSummary.matched_items }}</p>
+        <p>未匹配来源：{{ traceSummary.unmatched_items }}</p>
+        <p v-if="traceSummary.trace_file">溯源文件：{{ traceSummary.trace_file }}</p>
+      </div>
+
+      <pre v-if="traceMap" class="trace-json">{{ traceMap }}</pre>
       <button v-if="owlFile" class="btn2" @click="download">下载 OWL 文件</button>
     </div>
   </div>
@@ -62,6 +73,8 @@ const forceRegenerate = computed(() => route.query.forceRegenerate === "true");
 const maxGroupRecords = computed(() => Number(route.query.maxGroupRecords || 80));
 
 const ontology = ref("");
+const traceMap = ref("");
+const traceSummary = ref(null);
 const owlFile = ref("");
 const resultInfo = ref(null);
 const progress = ref(null);
@@ -113,6 +126,8 @@ async function generate() {
   loading.value = true;
   error.value = "";
   ontology.value = "";
+  traceMap.value = "";
+  traceSummary.value = null;
   owlFile.value = "";
   resultInfo.value = null;
   progress.value = null;
@@ -147,9 +162,7 @@ function poll(jobId) {
       if (res.data.status === "success") {
         clearInterval(timer);
         const result = await getGenerationResult(jobId);
-        resultInfo.value = result.data;
-        ontology.value = JSON.stringify(result.data.ontology, null, 2);
-        owlFile.value = result.data.owl_file;
+        setResult(result.data);
         loading.value = false;
       } else if (res.data.status === "failed") {
         clearInterval(timer);
@@ -162,6 +175,21 @@ function poll(jobId) {
       error.value = displayError(err);
     }
   }, 1500);
+}
+
+function setResult(data) {
+  resultInfo.value = data;
+  ontology.value = JSON.stringify(data.ontology, null, 2);
+  owlFile.value = data.owl_file;
+  const trace = data.trace_map || {};
+  traceMap.value = Object.keys(trace).length ? JSON.stringify(trace, null, 2) : "";
+  traceSummary.value = Object.keys(trace).length ? {
+    total_records: trace.total_records || 0,
+    total_trace_items: trace.total_trace_items || 0,
+    matched_items: trace.matched_items || 0,
+    unmatched_items: trace.unmatched_items || 0,
+    trace_file: trace.trace_file || data.trace_file || "",
+  } : null;
 }
 
 function displayError(err) {
@@ -209,5 +237,9 @@ onBeforeUnmount(() => clearInterval(timer));
 .progress-grid strong, .progress-grid span, .summary strong, .summary span { display: block; word-break: break-all; }
 .progress-grid strong, .summary strong { color: #475569; margin-bottom: 4px; }
 .warnings { margin-top: 12px; color: #92400e; background: #fef3c7; border: 1px solid #fcd34d; border-radius: 8px; padding: 10px; }
+.trace-summary { margin-top: 20px; padding: 16px; border-radius: 8px; background: #f8f9ff; text-align: left; color: #333; }
+.trace-summary h2 { margin-top: 0; }
+.trace-summary p { margin: 6px 0; }
+.trace-json { max-height: 45vh; }
 pre { max-height: 55vh; overflow: auto; background: #f4f4f4; padding: 10px; margin-top: 20px; text-align: left; border-radius: 8px; }
 </style>

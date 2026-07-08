@@ -28,6 +28,7 @@ GENERATION_STEPS = [
     ("apply_enhancement", "应用大模型增强结果中"),
     ("validate", "本体规则校验补全中"),
     ("align", "多本体对齐中"),
+    ("provenance", "数据溯源中"),
     ("owl_export", "OWL 导出中"),
     ("done", "完成"),
 ]
@@ -123,6 +124,8 @@ def generate_ontology(request: GenerateRequest, user: dict, job_id: str | None =
             "ontology": ontology,
             "structured_file": state.get("structured_file", ""),
             "record_count": record_count,
+            "trace_map": state.get("trace_map", {}),
+            "trace_file": state.get("trace_file", ""),
             "owl_file": state.get("owl_file", ""),
             "errors": state.get("errors", []),
             "generation_record": {"status": record_status, "duration_ms": duration_ms},
@@ -132,7 +135,8 @@ def generate_ontology(request: GenerateRequest, user: dict, job_id: str | None =
         write_operation_log(user=user, action="GENERATE_ONTOLOGY", method="POST", path="/generate", status_code=200, duration_ms=duration_ms, detail=f"生成完成：mode={generation_mode}, record_count={record_count}, owl_file={result['owl_file']}")
         write_system_log("INFO", f"本体生成成功：{file_path}")
         if job_id:
-            _update_job(job_id, "done", STEP_LABEL["done"], message="完成" if response_status == "success" else "规则初始本体已生成，大模型轻量增强超时，当前为规则兜底结果。", stats=stats, warnings=warnings, status="success")
+            message = "完成" if response_status == "success" else "规则初始本体已生成，大模型轻量增强超时，当前为规则兜底结果。"
+            _update_job(job_id, "done", STEP_LABEL["done"], message=message, stats=stats, warnings=warnings, status="success")
             with JOBS_LOCK:
                 JOBS[job_id]["progress_percent"] = 100
                 JOBS[job_id]["result"] = result
