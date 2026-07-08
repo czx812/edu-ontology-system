@@ -1,0 +1,594 @@
+{
+  "classes": [
+    {
+      "id": "Person",
+      "label": "Person",
+      "description": "An individual, typically a staff member or student in the education system.",
+      "source_record_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "Organization",
+      "label": "Organization",
+      "description": "An entity such as a school, hospital, or administrative department.",
+      "source_record_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "FinancialRecord",
+      "label": "Financial Record",
+      "description": "A record of financial transactions, budgets, or assets.",
+      "source_record_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "GeographicLocation",
+      "label": "Geographic Location",
+      "description": "A physical location or address.",
+      "source_record_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "Document",
+      "label": "Document",
+      "description": "A physical or digital document or identifier.",
+      "source_record_ids": [],
+      "evidence": []
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "hasEmail",
+      "label": "has email",
+      "domain": "Person",
+      "range": "string",
+      "description": "The email address of the person.",
+      "source_record_ids": [
+        "JCTB010106",
+        "JCXX010120"
+      ],
+      "evidence": [
+        "电子信箱 电子邮件地址",
+        "\"item_name\": \"电子信箱\"",
+        "\"description\": \"电子邮件地址\""
+      ]
+    },
+    {
+      "id": "hasEthnicityCode",
+      "label": "has ethnicity code",
+      "domain": "Person",
+      "range": "string",
+      "description": "A 2-digit code representing ethnicity (e.g., 01 for Han).",
+      "source_record_ids": [
+        "JCTB020109"
+      ],
+      "evidence": [
+        "民族码 取用2位数字代码，如： 01 汉族，02 蒙古族",
+        "\"description\": \"取用2位数字代码，如： 01 汉族，02 蒙古族\""
+      ]
+    },
+    {
+      "id": "isOnlyChild",
+      "label": "is only child",
+      "domain": "Person",
+      "range": "boolean",
+      "description": "Indicates if the person is an only child (1 for yes, 0 for no).",
+      "source_record_ids": [
+        "JCTB020122"
+      ],
+      "evidence": [
+        "是否独生子 女 1 是独生子女 0 不是独生子女",
+        "\"item_name\": \"是否独生子 女\"",
+        "\"description\": \"1 是独生子女 0 不是独生子女\""
+      ]
+    },
+    {
+      "id": "hasFamilyEmail",
+      "label": "has family email",
+      "domain": "Person",
+      "range": "string",
+      "description": "The family's email address.",
+      "source_record_ids": [
+        "JCTB020604"
+      ],
+      "evidence": [
+        "家庭电子信 箱",
+        "\"item_name\": \"家庭电子信 箱\""
+      ]
+    },
+    {
+      "id": "hasRelationshipCode",
+      "label": "has relationship code",
+      "domain": "Person",
+      "range": "string",
+      "description": "A code indicating the relationship of a family member or contact.",
+      "source_record_ids": [
+        "JCTB020701"
+      ],
+      "evidence": [
+        "关系码",
+        "\"item_name\": \"关系码\""
+      ]
+    },
+    {
+      "id": "hasPositionSortOrder",
+      "label": "has position sort order",
+      "domain": "Person",
+      "range": "integer",
+      "description": "The sequential order of a leading cadre within a leadership group.",
+      "source_record_ids": [
+        "JCJG020514"
+      ],
+      "evidence": [
+        "职务排序 指领导干部在领导班子 内排列的顺序号",
+        "\"description\": \"指领导干部在领导班子 内排列的顺序号\""
+      ]
+    },
+    {
+      "id": "hasSeparationDate",
+      "label": "has separation date",
+      "domain": "Person",
+      "range": "date",
+      "description": "The date the person left the organization.",
+      "source_record_ids": [
+        "JCJG070101"
+      ],
+      "evidence": [
+        "离职日期 离开本单位的日期"
+      ]
+    },
+    {
+      "id": "hasSeparationReasonCode",
+      "label": "has separation reason code",
+      "domain": "Person",
+      "range": "string",
+      "description": "Code for the reason of leaving the organization.",
+      "source_record_ids": [
+        "JCJG070102"
+      ],
+      "evidence": [
+        "离职原因码"
+      ]
+    },
+    {
+      "id": "hasSeparationDestination",
+      "label": "has separation destination",
+      "domain": "Person",
+      "range": "string",
+      "description": "The destination or next step after leaving the organization.",
+      "source_record_ids": [
+        "JCJG070103"
+      ],
+      "evidence": [
+        "离职去向 离开本单位工作岗位后 的去向"
+      ]
+    },
+    {
+      "id": "hasRetirementCategoryCode",
+      "label": "has retirement category code",
+      "domain": "Person",
+      "range": "string",
+      "description": "Code for the category of retirement or separation.",
+      "source_record_ids": [
+        "JCJG070201"
+      ],
+      "evidence": [
+        "离退类别码"
+      ]
+    },
+    {
+      "id": "hasRetirementStartDate",
+      "label": "has retirement start date",
+      "domain": "Person",
+      "range": "date",
+      "description": "The official date of retirement approved by the organization.",
+      "source_record_ids": [
+        "JCJG070202"
+      ],
+      "evidence": [
+        "离退起始日 期 由组织、人事部门批准 的离退休日期"
+      ]
+    },
+    {
+      "id": "hasPostRetirementRankCode",
+      "label": "has post-retirement rank code",
+      "domain": "Person",
+      "range": "string",
+      "description": "The rank or level enjoyed after retirement.",
+      "source_record_ids": [
+        "JCJG070203"
+      ],
+      "evidence": [
+        "离退后享受 级别码"
+      ]
+    },
+    {
+      "id": "hasPensionPaymentUnitName",
+      "label": "has pension payment unit name",
+      "domain": "Organization",
+      "range": "string",
+      "description": "The name of the unit responsible for paying the pension.",
+      "source_record_ids": [
+        "JCJG070204"
+      ],
+      "evidence": [
+        "离退休费支 付单位 离退休后，支付离退休 费的单位名称"
+      ]
+    },
+    {
+      "id": "hasPostRetirementManagementUnit",
+      "label": "has post-retirement management unit",
+      "domain": "Organization",
+      "range": "string",
+      "description": "The specific unit managing the person after retirement.",
+      "source_record_ids": [
+        "JCJG070205"
+      ],
+      "evidence": [
+        "离退后管理 单位 离退后的具体管理单位 名称"
+      ]
+    },
+    {
+      "id": "hasRemoteSettlementLocation",
+      "label": "has remote settlement location",
+      "domain": "GeographicLocation",
+      "range": "string",
+      "description": "The location where a retired person is settled away from the original location.",
+      "source_record_ids": [
+        "JCJG070206"
+      ],
+      "evidence": [
+        "异地安置地 点 离退后安置到异地生活 的地点"
+      ]
+    },
+    {
+      "id": "hasReemploymentStartDate",
+      "label": "has re-employment start date",
+      "domain": "Person",
+      "range": "date",
+      "description": "The start date of re-employment after retirement.",
+      "source_record_ids": [
+        "JCJG070301"
+      ],
+      "evidence": [
+        "返聘起始日 期 离退休后被重新聘任工 作的起始日期"
+      ]
+    },
+    {
+      "id": "hasReemploymentEndDate",
+      "label": "has re-employment end date",
+      "domain": "Person",
+      "range": "date",
+      "description": "The end date of re-employment after retirement.",
+      "source_record_ids": [
+        "JCJG070302"
+      ],
+      "evidence": [
+        "返聘终止日 期 离退休后被重新聘任工 作的终止日期"
+      ]
+    },
+    {
+      "id": "hasReemploymentUnitId",
+      "label": "has re-employment unit ID",
+      "domain": "Organization",
+      "range": "string",
+      "description": "The ID of the re-employment unit (school-defined).",
+      "source_record_ids": [
+        "JCJG070303"
+      ],
+      "evidence": [
+        "返聘单位号 重新聘任的工作单位 号，学校自编"
+      ]
+    },
+    {
+      "id": "hasReemploymentPosition",
+      "label": "has re-employment position",
+      "domain": "Person",
+      "range": "string",
+      "description": "The job position of the re-employment.",
+      "source_record_ids": [
+        "JCJG070304"
+      ],
+      "evidence": [
+        "返聘岗位 重新聘任的工作岗位"
+      ]
+    },
+    {
+      "id": "hasRemuneration",
+      "label": "has remuneration",
+      "domain": "FinancialRecord",
+      "range": "decimal",
+      "description": "The monthly remuneration for re-employment (CNY/month).",
+      "source_record_ids": [
+        "JCJG070305"
+      ],
+      "evidence": [
+        "返聘酬金 重新聘任工作的劳动报 酬，单位：元/月"
+      ]
+    },
+    {
+      "id": "hasRemunerationSource",
+      "label": "has remuneration source",
+      "domain": "FinancialRecord",
+      "range": "string",
+      "description": "The funding source for the re-employment remuneration.",
+      "source_record_ids": [
+        "JCJG070306"
+      ],
+      "evidence": [
+        "返聘金来源 返聘资金的经费来源"
+      ]
+    },
+    {
+      "id": "hasReemploymentWorkload",
+      "label": "has re-employment workload",
+      "domain": "Person",
+      "range": "decimal",
+      "description": "The monthly workload for re-employment (hours/month).",
+      "source_record_ids": [
+        "JCJG070307"
+      ],
+      "evidence": [
+        "返聘工作量 单位：小时/月"
+      ]
+    },
+    {
+      "id": "hasRehabilitationDiagnosisHospital",
+      "label": "has rehabilitation diagnosis hospital",
+      "domain": "Organization",
+      "range": "string",
+      "description": "The name of the hospital where rehabilitation diagnosis was performed.",
+      "source_record_ids": [
+        "JCJG060405"
+      ],
+      "evidence": [
+        "康复诊断医 院 进行康复诊断的医院名 称"
+      ]
+    },
+    {
+      "id": "hasRehabilitationCertificate",
+      "label": "has rehabilitation certificate",
+      "domain": "Document",
+      "range": "string",
+      "description": "The rehabilitation certificate issued by the hospital.",
+      "source_record_ids": [
+        "JCJG060406"
+      ],
+      "evidence": [
+        "康复诊断证 明 医院开具的康复诊断证 明"
+      ]
+    },
+    {
+      "id": "hasApprovalUnitName",
+      "label": "has approval unit name",
+      "domain": "Organization",
+      "range": "string",
+      "description": "The name of the superior department that approved the overseas trip.",
+      "source_record_ids": [
+        "JCJG040209"
+      ],
+      "evidence": [
+        "审批单位 批准出国（境）并签发 审批文件的上级主管部 门名称",
+        "\"description\": \"批准出国（境）并签发 审批文件的上级主管部 门名称\""
+      ]
+    },
+    {
+      "id": "hasLandId",
+      "label": "has land ID",
+      "domain": "GeographicLocation",
+      "range": "string",
+      "description": "School-defined land identifier.",
+      "source_record_ids": [
+        "JCBX020101"
+      ],
+      "evidence": [
+        "用地编号 学校自编"
+      ]
+    },
+    {
+      "id": "hasLandArea",
+      "label": "has land area",
+      "domain": "GeographicLocation",
+      "range": "decimal",
+      "description": "The area of the land in square meters.",
+      "source_record_ids": [
+        "JCBX020105"
+      ],
+      "evidence": [
+        "占地面积 单位：平方米"
+      ]
+    },
+    {
+      "id": "hasBookBarcode",
+      "label": "has book barcode",
+      "domain": "Document",
+      "range": "string",
+      "description": "The barcode corresponding to a book.",
+      "source_record_ids": [
+        "JCBX040102"
+      ],
+      "evidence": [
+        "图书条形码 图书对应的条形码",
+        "\"description\": \"图书对应的条形码\""
+      ]
+    },
+    {
+      "id": "hasJournalBarcode",
+      "label": "has journal barcode",
+      "domain": "Document",
+      "range": "string",
+      "description": "The barcode corresponding to a journal.",
+      "source_record_ids": [
+        "JCBX040202"
+      ],
+      "evidence": [
+        "期刊条形码 期刊对应的条形码",
+        "\"description\": \"期刊对应的条形码\""
+      ]
+    }
+  ],
+  "object_properties": [
+    {
+      "id": "diagnosedAt",
+      "label": "diagnosed at",
+      "domain": "Person",
+      "range": "Organization",
+      "description": "The hospital where the person received rehabilitation diagnosis.",
+      "source_record_ids": [
+        "JCJG060405"
+      ],
+      "evidence": [
+        "康复诊断医 院 进行康复诊断的医院名 称"
+      ]
+    },
+    {
+      "id": "paidBy",
+      "label": "paid by",
+      "domain": "Person",
+      "range": "Organization",
+      "description": "The organization responsible for paying the person's pension.",
+      "source_record_ids": [
+        "JCJG070204"
+      ],
+      "evidence": [
+        "离退休费支 付单位 离退休后，支付离退休 费的单位名称"
+      ]
+    },
+    {
+      "id": "managedBy",
+      "label": "managed by",
+      "domain": "Person",
+      "range": "Organization",
+      "description": "The organization managing the person after retirement.",
+      "source_record_ids": [
+        "JCJG070205"
+      ],
+      "evidence": [
+        "离退后管理 单位 离退后的具体管理单位 名称"
+      ]
+    },
+    {
+      "id": "settledAt",
+      "label": "settled at",
+      "domain": "Person",
+      "range": "GeographicLocation",
+      "description": "The location where a retired person is settled.",
+      "source_record_ids": [
+        "JCJG070206"
+      ],
+      "evidence": [
+        "异地安置地 点 离退后安置到异地生活 的地点"
+      ]
+    },
+    {
+      "id": "reemployedBy",
+      "label": "re-employed by",
+      "domain": "Person",
+      "range": "Organization",
+      "description": "The organization that re-employed the person.",
+      "source_record_ids": [
+        "JCJG070303"
+      ],
+      "evidence": [
+        "返聘单位号 重新聘任的工作单位 号，学校自编"
+      ]
+    },
+    {
+      "id": "approvedBy",
+      "label": "approved by",
+      "domain": "Person",
+      "range": "Organization",
+      "description": "The organization that approved the person's overseas trip.",
+      "source_record_ids": [
+        "JCJG040209"
+      ],
+      "evidence": [
+        "审批单位 批准出国（境）并签发 审批文件的上级主管部 门名称"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "subject": "Person",
+      "predicate": "diagnosedAt",
+      "object": "Organization",
+      "source_record_ids": [
+        "JCJG060405"
+      ],
+      "evidence": [
+        "康复诊断医 院 进行康复诊断的医院名 称"
+      ]
+    },
+    {
+      "subject": "Person",
+      "predicate": "paidBy",
+      "object": "Organization",
+      "source_record_ids": [
+        "JCJG070204"
+      ],
+      "evidence": [
+        "离退休费支 付单位 离退休后，支付离退休 费的单位名称"
+      ]
+    },
+    {
+      "subject": "Person",
+      "predicate": "managedBy",
+      "object": "Organization",
+      "source_record_ids": [
+        "JCJG070205"
+      ],
+      "evidence": [
+        "离退后管理 单位 离退后的具体管理单位 名称"
+      ]
+    },
+    {
+      "subject": "Person",
+      "predicate": "settledAt",
+      "object": "GeographicLocation",
+      "source_record_ids": [
+        "JCJG070206"
+      ],
+      "evidence": [
+        "异地安置地 点 离退后安置到异地生活 的地点"
+      ]
+    },
+    {
+      "subject": "Person",
+      "predicate": "reemployedBy",
+      "object": "Organization",
+      "source_record_ids": [
+        "JCJG070303"
+      ],
+      "evidence": [
+        "返聘单位号 重新聘任的工作单位 号，学校自编"
+      ]
+    },
+    {
+      "subject": "Person",
+      "predicate": "approvedBy",
+      "object": "Organization",
+      "source_record_ids": [
+        "JCJG040209"
+      ],
+      "evidence": [
+        "审批单位 批准出国（境）并签发 审批文件的上级主管部 门名称"
+      ]
+    }
+  ],
+  "class_hierarchy": [
+    {
+      "parent": "FinancialRecord",
+      "child": "Remuneration",
+      "evidence": [
+        "返聘酬金"
+      ]
+    },
+    {
+      "parent": "FinancialRecord",
+      "child": "PensionPayment",
+      "evidence": [
+        "离退休费"
+      ]
+    }
+  ]
+}

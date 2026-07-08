@@ -1,0 +1,459 @@
+{
+  "classes": [
+    {
+      "id": "ContactInformation",
+      "label": "Contact Information",
+      "description": "Information used to contact an entity, including addresses, phone numbers, and electronic contact details.",
+      "source_record_ids": [
+        "JCTB010101",
+        "JCTB010102",
+        "JCTB010103",
+        "JCTB010104",
+        "JCTB010105",
+        "JCTB010106",
+        "JCTB010107",
+        "JCTB010108"
+      ],
+      "evidence": [
+        "Main fields: 邮政编码、通信地址、电话、移动电话、传真电话、电子信箱、网络地址、即时通讯号"
+      ]
+    },
+    {
+      "id": "TemporalConcept",
+      "label": "Temporal Concept",
+      "description": "Concepts related to time, including specific dates, years, and time formats.",
+      "source_record_ids": [
+        "JCTB010201",
+        "JCTB010202",
+        "JCTB010203",
+        "JCTB010204",
+        "JCTB010205",
+        "JCTB010206",
+        "JCTB010207"
+      ],
+      "evidence": [
+        "Main fields: 年度（年份、年）、年月、日期、时间"
+      ]
+    },
+    {
+      "id": "OrganizationalUnit",
+      "label": "Organizational Unit",
+      "description": "A unit or organization within an educational or administrative context.",
+      "source_record_ids": [
+        "JCTB010301",
+        "JCTB010302",
+        "JCTB010303",
+        "JCTB010304",
+        "JCTB010305",
+        "JCTB010306",
+        "JCTB010307",
+        "JCTB010308",
+        "JCTB010309",
+        "JCTB010310",
+        "JCTB010311",
+        "JCTB010312",
+        "JCTB010313",
+        "JCTB010314",
+        "JCTB010315"
+      ],
+      "evidence": [
+        "Main fields: 单位号、单位名称、单位地址、隶属单位号、单位负责人号"
+      ]
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "hasPostalCode",
+      "label": "has postal code",
+      "domain": "ContactInformation",
+      "range": "string",
+      "description": "The postal code for the contact address.",
+      "source_record_ids": [
+        "JCTB010101"
+      ],
+      "evidence": [
+        "JCTB010101 邮政编码"
+      ]
+    },
+    {
+      "id": "hasMailingAddress",
+      "label": "has mailing address",
+      "domain": "ContactInformation",
+      "range": "string",
+      "description": "The detailed mailing address including province, city, county, town, street, and house number.",
+      "source_record_ids": [
+        "JCTB010102"
+      ],
+      "evidence": [
+        "JCTB010102 通信地址 指包括省（自治区、直辖市） /地（市、州）/县（区、旗） /乡（镇）/街（村）/门牌 号的详细地址"
+      ]
+    },
+    {
+      "id": "hasPhoneNumber",
+      "label": "has phone number",
+      "domain": "ContactInformation",
+      "range": "string",
+      "description": "The telephone number.",
+      "source_record_ids": [
+        "JCTB010103"
+      ],
+      "evidence": [
+        "JCTB010103 电话 即电话号码"
+      ]
+    },
+    {
+      "id": "hasMobileNumber",
+      "label": "has mobile number",
+      "domain": "ContactInformation",
+      "range": "string",
+      "description": "The mobile phone number.",
+      "source_record_ids": [
+        "JCTB010104"
+      ],
+      "evidence": [
+        "JCTB010104 移动电话"
+      ]
+    },
+    {
+      "id": "hasFaxNumber",
+      "label": "has fax number",
+      "domain": "ContactInformation",
+      "range": "string",
+      "description": "The fax telephone number.",
+      "source_record_ids": [
+        "JCTB010105"
+      ],
+      "evidence": [
+        "JCTB010105 传真电话"
+      ]
+    },
+    {
+      "id": "hasEmailAddress",
+      "label": "has email address",
+      "domain": "ContactInformation",
+      "range": "string",
+      "description": "The email address.",
+      "source_record_ids": [
+        "JCTB010106"
+      ],
+      "evidence": [
+        "JCTB010106 电子信箱 电子邮件地址"
+      ]
+    },
+    {
+      "id": "hasWebAddress",
+      "label": "has web address",
+      "domain": "ContactInformation",
+      "range": "string",
+      "description": "The network address such as homepage, blog, or microblog URL.",
+      "source_record_ids": [
+        "JCTB010107"
+      ],
+      "evidence": [
+        "JCTB010107 网络地址 如主页、博客、微博网址"
+      ]
+    },
+    {
+      "id": "hasInstantMessagingId",
+      "label": "has instant messaging id",
+      "domain": "ContactInformation",
+      "range": "string",
+      "description": "The instant messaging number such as MSN/QQ.",
+      "source_record_ids": [
+        "JCTB010108"
+      ],
+      "evidence": [
+        "JCTB010108 即时通讯号 如MSN/QQ等号码"
+      ]
+    },
+    {
+      "id": "hasYear",
+      "label": "has year",
+      "domain": "TemporalConcept",
+      "range": "string",
+      "description": "The year in format YYYY.",
+      "source_record_ids": [
+        "JCTB010201"
+      ],
+      "evidence": [
+        "JCTB010201 年度（年份、年） 格式：YYYY，如：2008"
+      ]
+    },
+    {
+      "id": "hasYearMonth",
+      "label": "has year month",
+      "domain": "TemporalConcept",
+      "range": "string",
+      "description": "The year and month in format YYYYMM.",
+      "source_record_ids": [
+        "JCTB010202"
+      ],
+      "evidence": [
+        "JCTB010202 年月 格式：YYYYMM，如： 200604表示2006年4 月"
+      ]
+    },
+    {
+      "id": "hasDate",
+      "label": "has date",
+      "domain": "TemporalConcept",
+      "range": "string",
+      "description": "The date in format YYYYMMDD.",
+      "source_record_ids": [
+        "JCTB010203"
+      ],
+      "evidence": [
+        "JCTB010203 日期 格式：YYYYMMDD，如： 20060412表示2006 年4月12日"
+      ]
+    },
+    {
+      "id": "hasTime",
+      "label": "has time",
+      "domain": "TemporalConcept",
+      "range": "string",
+      "description": "The time in format hhmmss.",
+      "source_record_ids": [
+        "JCTB010204"
+      ],
+      "evidence": [
+        "JCTB010204 时间 格式：hhmmss，如： 141503表示下午2时 15分3秒"
+      ]
+    },
+    {
+      "id": "hasSchoolYear",
+      "label": "has school year",
+      "domain": "TemporalConcept",
+      "range": "string",
+      "description": "The school year in format YYYY-YYYY.",
+      "source_record_ids": [
+        "JCTB010205"
+      ],
+      "evidence": [
+        "JCTB010205 学年（度） 格式：YYYY-YYYY，如： 2001-2002"
+      ]
+    },
+    {
+      "id": "hasSemesterCode",
+      "label": "has semester code",
+      "domain": "TemporalConcept",
+      "range": "string",
+      "description": "The code representing the semester.",
+      "source_record_ids": [
+        "JCTB010206"
+      ],
+      "evidence": [
+        "JCTB010206 学期码"
+      ]
+    },
+    {
+      "id": "hasValidityPeriod",
+      "label": "has validity period",
+      "domain": "TemporalConcept",
+      "range": "string",
+      "description": "The validity period in format YYYYMMDD-YYYYMMDD.",
+      "source_record_ids": [
+        "JCTB010207"
+      ],
+      "evidence": [
+        "JCTB010207 有效期 格式： YYYYMMDD-YYYYMMDD"
+      ]
+    },
+    {
+      "id": "hasUnitNumber",
+      "label": "has unit number",
+      "domain": "OrganizationalUnit",
+      "range": "string",
+      "description": "The code for the organizational unit.",
+      "source_record_ids": [
+        "JCTB010301"
+      ],
+      "evidence": [
+        "JCTB010301 单位号 自行编码"
+      ]
+    },
+    {
+      "id": "hasUnitName",
+      "label": "has unit name",
+      "domain": "OrganizationalUnit",
+      "range": "string",
+      "description": "The name of the organizational unit.",
+      "source_record_ids": [
+        "JCTB010302"
+      ],
+      "evidence": [
+        "JCTB010302 单位名称"
+      ]
+    },
+    {
+      "id": "hasUnitEnglishName",
+      "label": "has unit english name",
+      "domain": "OrganizationalUnit",
+      "range": "string",
+      "description": "The English name of the organizational unit.",
+      "source_record_ids": [
+        "JCTB010303"
+      ],
+      "evidence": [
+        "JCTB010303 单位英文名称"
+      ]
+    },
+    {
+      "id": "hasUnitAbbreviation",
+      "label": "has unit abbreviation",
+      "domain": "OrganizationalUnit",
+      "range": "string",
+      "description": "The abbreviation of the organizational unit.",
+      "source_record_ids": [
+        "JCTB010304"
+      ],
+      "evidence": [
+        "JCTB010304 单位简称"
+      ]
+    },
+    {
+      "id": "hasUnitEnglishAbbreviation",
+      "label": "has unit english abbreviation",
+      "domain": "OrganizationalUnit",
+      "range": "string",
+      "description": "The English abbreviation of the organizational unit.",
+      "source_record_ids": [
+        "JCTB010305"
+      ],
+      "evidence": [
+        "JCTB010305 单位英文简称"
+      ]
+    },
+    {
+      "id": "hasUnitPinyinAbbreviation",
+      "label": "has unit pinyin abbreviation",
+      "domain": "OrganizationalUnit",
+      "range": "string",
+      "description": "The pinyin abbreviation of the organizational unit.",
+      "source_record_ids": [
+        "JCTB010306"
+      ],
+      "evidence": [
+        "JCTB010306 单位简拼"
+      ]
+    },
+    {
+      "id": "hasUnitAddress",
+      "label": "has unit address",
+      "domain": "OrganizationalUnit",
+      "range": "string",
+      "description": "The address of the organizational unit.",
+      "source_record_ids": [
+        "JCTB010307"
+      ],
+      "evidence": [
+        "JCTB010307 单位地址"
+      ]
+    },
+    {
+      "id": "hasSubordinateUnitNumber",
+      "label": "has subordinate unit number",
+      "domain": "OrganizationalUnit",
+      "range": "string",
+      "description": "The number of the subordinate unit.",
+      "source_record_ids": [
+        "JCTB010308"
+      ],
+      "evidence": [
+        "JCTB010308 隶属单位号"
+      ]
+    },
+    {
+      "id": "hasUnitCategoryCode",
+      "label": "has unit category code",
+      "domain": "OrganizationalUnit",
+      "range": "string",
+      "description": "The category code of the organizational unit.",
+      "source_record_ids": [
+        "JCTB010309"
+      ],
+      "evidence": [
+        "JCTB010309 单位类别码"
+      ]
+    },
+    {
+      "id": "hasUnitManagementCode",
+      "label": "has unit management code",
+      "domain": "OrganizationalUnit",
+      "range": "string",
+      "description": "The management code of the organizational unit.",
+      "source_record_ids": [
+        "JCTB010310"
+      ],
+      "evidence": [
+        "JCTB010310 单位办别码"
+      ]
+    },
+    {
+      "id": "hasUnitValidityFlag",
+      "label": "has unit validity flag",
+      "domain": "OrganizationalUnit",
+      "range": "string",
+      "description": "Flag indicating if the unit is valid (1) or invalid (0).",
+      "source_record_ids": [
+        "JCTB010311"
+      ],
+      "evidence": [
+        "JCTB010311 单位有效标识 1 是 (有效) 0 否 (失效)"
+      ]
+    },
+    {
+      "id": "hasInvalidationDate",
+      "label": "has invalidation date",
+      "domain": "OrganizationalUnit",
+      "range": "string",
+      "description": "The date when the unit became invalid.",
+      "source_record_ids": [
+        "JCTB010312"
+      ],
+      "evidence": [
+        "JCTB010312 失效日期 指单位失效日期"
+      ]
+    },
+    {
+      "id": "isPhysicalEntity",
+      "label": "is physical entity",
+      "domain": "OrganizationalUnit",
+      "range": "string",
+      "description": "Flag indicating if the unit is a physical entity (1) or virtual (0).",
+      "source_record_ids": [
+        "JCTB010313"
+      ],
+      "evidence": [
+        "JCTB010313 是否实体 1 是 0 否（即虚体）"
+      ]
+    },
+    {
+      "id": "hasEstablishmentDate",
+      "label": "has establishment date",
+      "domain": "OrganizationalUnit",
+      "range": "string",
+      "description": "The year and month when the unit was established.",
+      "source_record_ids": [
+        "JCTB010314"
+      ],
+      "evidence": [
+        "JCTB010314 建立年月 格式：YYYYMM 指单位最初建立的年月"
+      ]
+    },
+    {
+      "id": "hasUnitHeadId",
+      "label": "has unit head id",
+      "domain": "OrganizationalUnit",
+      "range": "string",
+      "description": "The employee ID of the unit head.",
+      "source_record_ids": [
+        "JCTB010315"
+      ],
+      "evidence": [
+        "JCTB010315 单位负责人号 单位负责人工号"
+      ]
+    }
+  ],
+  "object_properties": [],
+  "relations": [],
+  "class_hierarchy": []
+}

@@ -1,0 +1,469 @@
+{
+  "classes": [
+    {
+      "id": "ContactInformation",
+      "label": "Contact Information",
+      "description": "Information used to contact an individual or organization, including addresses, phone numbers, and electronic contact methods.",
+      "source_record_ids": [
+        "JCTB010101",
+        "JCTB010102",
+        "JCTB010103",
+        "JCTB010104",
+        "JCTB010105",
+        "JCTB010106",
+        "JCTB010107",
+        "JCTB010108",
+        "JCTB020604",
+        "JCXX010120"
+      ],
+      "evidence": [
+        "Main fields: 邮政编码、通信地址、电话、移动电话、传真电话、电子信箱、网络地址、即时通讯号"
+      ]
+    },
+    {
+      "id": "DateTime",
+      "label": "Date Time",
+      "description": "Fields representing specific points in time or durations, including years, months, days, and times.",
+      "source_record_ids": [
+        "JCTB010201",
+        "JCTB010202",
+        "JCTB010203",
+        "JCTB010204",
+        "JCTB010205",
+        "JCTB010206",
+        "JCTB010207"
+      ],
+      "evidence": [
+        "Main fields: 年度（年份、年）、年月、日期、时间"
+      ]
+    },
+    {
+      "id": "Organization",
+      "label": "Organization",
+      "description": "An educational or administrative unit, such as a school or department.",
+      "source_record_ids": [
+        "JCTB010301",
+        "JCTB010302",
+        "JCTB010303",
+        "JCTB010304",
+        "JCTB010305",
+        "JCTB010306",
+        "JCTB010307",
+        "JCTB010308",
+        "JCTB010309",
+        "JCTB010310",
+        "JCTB010311",
+        "JCTB010312",
+        "JCTB010313",
+        "JCTB010314",
+        "JCTB010315"
+      ],
+      "evidence": [
+        "Main fields: 单位号、单位名称、单位地址"
+      ]
+    },
+    {
+      "id": "AcademicStructure",
+      "label": "Academic Structure",
+      "description": "Elements defining the academic framework, including grades, programs, and courses.",
+      "source_record_ids": [
+        "JCTB010401",
+        "JCTB010402",
+        "JCTB010403",
+        "JCTB010404",
+        "JCTB010405",
+        "JCTB010406",
+        "JCTB010407",
+        "JCTB010408"
+      ],
+      "evidence": [
+        "Main fields: 年级、学制、课程号、课程名称、专业码、专业名称"
+      ]
+    },
+    {
+      "id": "Person",
+      "label": "Person",
+      "description": "An individual, such as a student, teacher, or staff member.",
+      "source_record_ids": [
+        "JCTB020101",
+        "JCTB020102",
+        "JCTB020103",
+        "JCTB020104",
+        "JCTB020105",
+        "JCTB020106",
+        "JCTB020107",
+        "JCTB020108",
+        "JCTB020109",
+        "JCTB020110",
+        "JCTB020111",
+        "JCTB020112",
+        "JCTB020113",
+        "JCTB020114",
+        "JCTB020115",
+        "JCTB020116",
+        "JCTB020117",
+        "JCTB020118",
+        "JCTB020119",
+        "JCTB020120",
+        "JCTB020121",
+        "JCTB020122"
+      ],
+      "evidence": [
+        "Main fields: 姓名、性别码、出生日期、民族码、身份证件号"
+      ]
+    },
+    {
+      "id": "EducationExperience",
+      "label": "Education Experience",
+      "description": "A record of an individual's learning history at various institutions.",
+      "source_record_ids": [
+        "JCTB020201",
+        "JCTB020202",
+        "JCTB020203",
+        "JCTB020204",
+        "JCTB020205",
+        "JCTB020206",
+        "JCTB020207",
+        "JCTB020208"
+      ],
+      "evidence": [
+        "Main fields: 学习起始日期、学习终止日期、学习单位、所学专业名称、所获学位码"
+      ]
+    },
+    {
+      "id": "WorkExperience",
+      "label": "Work Experience",
+      "description": "A record of an individual's employment history and positions held.",
+      "source_record_ids": [
+        "JCTB020301",
+        "JCTB020302",
+        "JCTB020303",
+        "JCTB020304",
+        "JCTB020305",
+        "JCTB020306",
+        "JCTB020307",
+        "JCTB020308"
+      ],
+      "evidence": [
+        "Main fields: 工作起始日期、工作终止日期、工作单位、曾任党政职务、曾任专业技术职务码"
+      ]
+    },
+    {
+      "id": "PoliticalAffiliation",
+      "label": "Political Affiliation",
+      "description": "Records regarding an individual's membership in political parties or organizations.",
+      "source_record_ids": [
+        "JCTB020401",
+        "JCTB020402",
+        "JCTB020403",
+        "JCTB020404"
+      ],
+      "evidence": [
+        "Main fields: 参加日期、参加所在单位、介绍人、转正日期"
+      ]
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "hasPostalCode",
+      "label": "has postal code",
+      "domain": "ContactInformation",
+      "range": "string",
+      "description": "The postal code for the address.",
+      "source_record_ids": [
+        "JCTB010101"
+      ],
+      "evidence": [
+        "JCTB010101 邮政编码"
+      ]
+    },
+    {
+      "id": "hasPhoneNumber",
+      "label": "has phone number",
+      "domain": "ContactInformation",
+      "range": "string",
+      "description": "The landline phone number.",
+      "source_record_ids": [
+        "JCTB010103"
+      ],
+      "evidence": [
+        "JCTB010103 电话"
+      ]
+    },
+    {
+      "id": "hasMobilePhone",
+      "label": "has mobile phone",
+      "domain": "ContactInformation",
+      "range": "string",
+      "description": "The mobile phone number.",
+      "source_record_ids": [
+        "JCTB010104"
+      ],
+      "evidence": [
+        "JCTB010104 移动电话"
+      ]
+    },
+    {
+      "id": "hasFaxNumber",
+      "label": "has fax number",
+      "domain": "ContactInformation",
+      "range": "string",
+      "description": "The fax phone number.",
+      "source_record_ids": [
+        "JCTB010105"
+      ],
+      "evidence": [
+        "JCTB010105 传真电话"
+      ]
+    },
+    {
+      "id": "hasEmailAddress",
+      "label": "has email address",
+      "domain": "ContactInformation",
+      "range": "string",
+      "description": "The email address.",
+      "source_record_ids": [
+        "JCTB010106",
+        "JCXX010120"
+      ],
+      "evidence": [
+        "JCTB010106 电子信箱 电子邮件地址",
+        "JCXX010120 电子信箱"
+      ]
+    },
+    {
+      "id": "hasNetworkAddress",
+      "label": "has network address",
+      "domain": "ContactInformation",
+      "range": "string",
+      "description": "The network address such as homepage, blog, or Weibo URL.",
+      "source_record_ids": [
+        "JCTB010107"
+      ],
+      "evidence": [
+        "JCTB010107 网络地址"
+      ]
+    },
+    {
+      "id": "hasIMNumber",
+      "label": "has instant messaging number",
+      "domain": "ContactInformation",
+      "range": "string",
+      "description": "The instant messaging number such as MSN/QQ.",
+      "source_record_ids": [
+        "JCTB010108"
+      ],
+      "evidence": [
+        "JCTB010108 即时通讯号"
+      ]
+    },
+    {
+      "id": "hasPersonName",
+      "label": "has person name",
+      "domain": "Person",
+      "range": "string",
+      "description": "The name of the person.",
+      "source_record_ids": [
+        "JCTB020101"
+      ],
+      "evidence": [
+        "JCTB020101 姓名"
+      ]
+    },
+    {
+      "id": "hasEthnicityCode",
+      "label": "has ethnicity code",
+      "domain": "Person",
+      "range": "string",
+      "description": "The code representing the ethnicity of the person.",
+      "source_record_ids": [
+        "JCTB020109"
+      ],
+      "evidence": [
+        "JCTB020109 民族码 取用2位数字代码，如： 01 汉族，02 蒙古族"
+      ]
+    },
+    {
+      "id": "isOnlyChild",
+      "label": "is only child",
+      "domain": "Person",
+      "range": "string",
+      "description": "Indicator of whether the person is an only child.",
+      "source_record_ids": [
+        "JCTB020122"
+      ],
+      "evidence": [
+        "JCTB020122 是否独生子 女 1 是独生子女 0 不是独生子女"
+      ]
+    },
+    {
+      "id": "hasApprovalUnit",
+      "label": "has approval unit",
+      "domain": "Organization",
+      "range": "string",
+      "description": "The name of the superior department that approved the overseas trip and issued the approval document.",
+      "source_record_ids": [
+        "JCJG040209"
+      ],
+      "evidence": [
+        "JCJG040209 审批单位 批准出国（境）并签发 审批文件的上级主管部 门名称"
+      ]
+    }
+  ],
+  "object_properties": [
+    {
+      "id": "hasContactInformation",
+      "label": "has contact information",
+      "domain": "Person",
+      "range": "ContactInformation",
+      "description": "Associates a person with their contact details.",
+      "source_record_ids": [
+        "JCTB010106",
+        "JCTB020604"
+      ],
+      "evidence": [
+        "JCTB010106 电子信箱",
+        "JCTB020604 家庭电子信箱"
+      ]
+    },
+    {
+      "id": "belongsToOrganization",
+      "label": "belongs to organization",
+      "domain": "Person",
+      "range": "Organization",
+      "description": "Associates a person with the organization they belong to.",
+      "source_record_ids": [
+        "JCTB010315"
+      ],
+      "evidence": [
+        "JCTB010315 单位负责人号"
+      ]
+    },
+    {
+      "id": "hasEducationExperience",
+      "label": "has education experience",
+      "domain": "Person",
+      "range": "EducationExperience",
+      "description": "Associates a person with their education history.",
+      "source_record_ids": [
+        "JCTB020201",
+        "JCTB020203"
+      ],
+      "evidence": [
+        "JCTB020201 学习起始日期",
+        "JCTB020203 学习单位"
+      ]
+    },
+    {
+      "id": "hasWorkExperience",
+      "label": "has work experience",
+      "domain": "Person",
+      "range": "WorkExperience",
+      "description": "Associates a person with their work history.",
+      "source_record_ids": [
+        "JCTB020301",
+        "JCTB020303"
+      ],
+      "evidence": [
+        "JCTB020301 工作起始日期",
+        "JCTB020303 工作单位"
+      ]
+    },
+    {
+      "id": "hasPoliticalAffiliation",
+      "label": "has political affiliation",
+      "domain": "Person",
+      "range": "PoliticalAffiliation",
+      "description": "Associates a person with their political party membership.",
+      "source_record_ids": [
+        "JCTB020401",
+        "JCTB020402"
+      ],
+      "evidence": [
+        "JCTB020401 参加日期",
+        "JCTB020402 参加所在单位"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "subject": "Person",
+      "predicate": "hasContactInformation",
+      "object": "ContactInformation",
+      "source_record_ids": [
+        "JCTB010106",
+        "JCTB020604"
+      ],
+      "evidence": [
+        "JCTB010106 电子信箱",
+        "JCTB020604 家庭电子信箱"
+      ]
+    },
+    {
+      "subject": "Person",
+      "predicate": "belongsToOrganization",
+      "object": "Organization",
+      "source_record_ids": [
+        "JCTB010315"
+      ],
+      "evidence": [
+        "JCTB010315 单位负责人号"
+      ]
+    },
+    {
+      "subject": "Person",
+      "predicate": "hasEducationExperience",
+      "object": "EducationExperience",
+      "source_record_ids": [
+        "JCTB020201",
+        "JCTB020203"
+      ],
+      "evidence": [
+        "JCTB020201 学习起始日期",
+        "JCTB020203 学习单位"
+      ]
+    },
+    {
+      "subject": "Person",
+      "predicate": "hasWorkExperience",
+      "object": "WorkExperience",
+      "source_record_ids": [
+        "JCTB020301",
+        "JCTB020303"
+      ],
+      "evidence": [
+        "JCTB020301 工作起始日期",
+        "JCTB020303 工作单位"
+      ]
+    },
+    {
+      "subject": "Person",
+      "predicate": "hasPoliticalAffiliation",
+      "object": "PoliticalAffiliation",
+      "source_record_ids": [
+        "JCTB020401",
+        "JCTB020402"
+      ],
+      "evidence": [
+        "JCTB020401 参加日期",
+        "JCTB020402 参加所在单位"
+      ]
+    }
+  ],
+  "class_hierarchy": [
+    {
+      "parent": "ContactInformation",
+      "child": "Organization",
+      "evidence": [
+        "JCTB010307 单位地址"
+      ]
+    },
+    {
+      "parent": "ContactInformation",
+      "child": "Person",
+      "evidence": [
+        "JCTB010106 电子信箱"
+      ]
+    }
+  ]
+}

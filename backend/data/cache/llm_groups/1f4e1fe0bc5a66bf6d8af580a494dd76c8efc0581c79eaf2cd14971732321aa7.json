@@ -1,0 +1,1223 @@
+{
+  "classes": [
+    {
+      "id": "AcademicSociety",
+      "label": "Academic Society",
+      "description": "An academic society or organization in which a person holds a part-time position.",
+      "source_record_ids": [
+        "JCJG030201",
+        "JCJG030202",
+        "JCJG030203"
+      ],
+      "evidence": [
+        "兼职的学术团体名称",
+        "学术团体隶属或主管单位的名称"
+      ]
+    },
+    {
+      "id": "AcademicPosition",
+      "label": "Academic Position",
+      "description": "A part-time position or role held by a person within an academic society.",
+      "source_record_ids": [
+        "JCJG030204",
+        "JCJG030205",
+        "JCJG030206",
+        "JCJG030207"
+      ],
+      "evidence": [
+        "本人在学术团体内兼任的职务",
+        "兼任职务的批准日期",
+        "兼任职务的终止日期"
+      ]
+    },
+    {
+      "id": "AdvancedStudy",
+      "label": "Advanced Study",
+      "description": "A record of advanced study, training, or a course taken by a person.",
+      "source_record_ids": [
+        "JCJG040101",
+        "JCJG040102",
+        "JCJG040103",
+        "JCJG040104",
+        "JCJG040105",
+        "JCJG040106",
+        "JCJG040107",
+        "JCJG040108",
+        "JCJG040109",
+        "JCJG040110",
+        "JCJG040111",
+        "JCJG040112"
+      ],
+      "evidence": [
+        "指实际学习的累计时间",
+        "主办和组织学习的单位名称"
+      ]
+    },
+    {
+      "id": "OverseasVisit",
+      "label": "Overseas Visit",
+      "description": "A record of a person's travel abroad for study, work, or other purposes.",
+      "source_record_ids": [
+        "JCJG040201",
+        "JCJG040202",
+        "JCJG040203",
+        "JCJG040204",
+        "JCJG040205",
+        "JCJG040206",
+        "JCJG040207",
+        "JCJG040208",
+        "JCJG040209",
+        "JCJG040210",
+        "JCJG040211",
+        "JCJG040212",
+        "JCJG040213",
+        "JCJG040214",
+        "JCJG040215",
+        "JCJG040216",
+        "JCJG040217",
+        "JCJG040218"
+      ],
+      "evidence": [
+        "出国（境）日期",
+        "派遣本人出国（境）学习、工作的单位名称",
+        "批准出国（境）并签发审批文件的上级主管部门名称"
+      ]
+    },
+    {
+      "id": "Assessment",
+      "label": "Assessment",
+      "description": "A record of an evaluation, examination, or appraisal of a person.",
+      "source_record_ids": [
+        "JCJG050101",
+        "JCJG050102",
+        "JCJG050103",
+        "JCJG050104",
+        "JCJG050105",
+        "JCJG050201",
+        "JCJG050202",
+        "JCJG050203",
+        "JCJG050204",
+        "JCJG050205",
+        "JCJG050206",
+        "JCJG050207",
+        "JCJG050301",
+        "JCJG050302",
+        "JCJG050303",
+        "JCJG050304",
+        "JCJG050305",
+        "JCJG050306",
+        "JCJG050307"
+      ],
+      "evidence": [
+        "组织、干部、人事部门组派的考察组对德、才、勤、绩诸方面的评价意见",
+        "业务考核的结论和评语",
+        "考工考技的评语"
+      ]
+    },
+    {
+      "id": "PersonnelChange",
+      "label": "Personnel Change",
+      "description": "A record of a change in a person's employment status, such as joining, transferring, or taking leave.",
+      "source_record_ids": [
+        "JCJG060101",
+        "JCJG060102",
+        "JCJG060103",
+        "JCJG060104",
+        "JCJG060105",
+        "JCJG060106",
+        "JCJG060107",
+        "JCJG060108",
+        "JCJG060109",
+        "JCJG060110",
+        "JCJG060201",
+        "JCJG060202",
+        "JCJG060203",
+        "JCJG060204",
+        "JCJG060205",
+        "JCJG060206",
+        "JCJG060301",
+        "JCJG060302",
+        "JCJG060303",
+        "JCJG060401",
+        "JCJG060402",
+        "JCJG060403",
+        "JCJG060404"
+      ],
+      "evidence": [
+        "来单位工作的实际报到年月",
+        "组织自行编号：组织内部调动后原院系所中心号",
+        "因病休假的起始日期"
+      ]
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "socialPartTimeResignationReasonCode",
+      "label": "Social Part-time Resignation Reason Code",
+      "domain": "PersonnelChange",
+      "range": "string",
+      "description": "Code for the reason of resignation from a social part-time position.",
+      "source_record_ids": [
+        "JCJG030104"
+      ],
+      "evidence": [
+        "社会兼职辞职原因码"
+      ]
+    },
+    {
+      "id": "academicSocietyName",
+      "label": "Academic Society Name",
+      "domain": "AcademicSociety",
+      "range": "string",
+      "description": "Name of the academic society.",
+      "source_record_ids": [
+        "JCJG030201"
+      ],
+      "evidence": [
+        "兼职的学术团体名称"
+      ]
+    },
+    {
+      "id": "academicSocietyLevelCode",
+      "label": "Academic Society Level Code",
+      "domain": "AcademicSociety",
+      "range": "string",
+      "description": "Code for the level of the academic society.",
+      "source_record_ids": [
+        "JCJG030202"
+      ],
+      "evidence": [
+        "学术团体级别码"
+      ]
+    },
+    {
+      "id": "academicSocietySupervisingUnit",
+      "label": "Academic Society Supervising Unit",
+      "domain": "AcademicSociety",
+      "range": "string",
+      "description": "Name of the unit to which the academic society is subordinate or supervised.",
+      "source_record_ids": [
+        "JCJG030203"
+      ],
+      "evidence": [
+        "学术团体隶属或主管单位的名称"
+      ]
+    },
+    {
+      "id": "academicPositionTitle",
+      "label": "Academic Position Title",
+      "domain": "AcademicPosition",
+      "range": "string",
+      "description": "Title of the part-time position held in the academic society.",
+      "source_record_ids": [
+        "JCJG030204"
+      ],
+      "evidence": [
+        "本人在学术团体内兼任的职务"
+      ]
+    },
+    {
+      "id": "academicPositionStartDate",
+      "label": "Academic Position Start Date",
+      "domain": "AcademicPosition",
+      "range": "string",
+      "description": "Date when the part-time position was approved.",
+      "source_record_ids": [
+        "JCJG030205"
+      ],
+      "evidence": [
+        "兼任职务的批准日期"
+      ]
+    },
+    {
+      "id": "academicPositionEndDate",
+      "label": "Academic Position End Date",
+      "domain": "AcademicPosition",
+      "range": "string",
+      "description": "Date when the part-time position ended.",
+      "source_record_ids": [
+        "JCJG030206"
+      ],
+      "evidence": [
+        "兼任职务的终止日期"
+      ]
+    },
+    {
+      "id": "academicPositionResignationReasonCode",
+      "label": "Academic Position Resignation Reason Code",
+      "domain": "AcademicPosition",
+      "range": "string",
+      "description": "Code for the reason of resignation from the academic position.",
+      "source_record_ids": [
+        "JCJG030207"
+      ],
+      "evidence": [
+        "学术兼职辞职原因码"
+      ]
+    },
+    {
+      "id": "advancedStudyNatureCode",
+      "label": "Advanced Study Nature Code",
+      "domain": "AdvancedStudy",
+      "range": "string",
+      "description": "Code for the nature of the advanced study.",
+      "source_record_ids": [
+        "JCJG040101"
+      ],
+      "evidence": [
+        "进修性质码"
+      ]
+    },
+    {
+      "id": "learningMethodCode",
+      "label": "Learning Method Code",
+      "domain": "AdvancedStudy",
+      "range": "string",
+      "description": "Code for the method of learning.",
+      "source_record_ids": [
+        "JCJG040102"
+      ],
+      "evidence": [
+        "学习方式码"
+      ]
+    },
+    {
+      "id": "learningStartYearMonth",
+      "label": "Learning Start Year Month",
+      "domain": "AdvancedStudy",
+      "range": "string",
+      "description": "Start year and month of the learning period.",
+      "source_record_ids": [
+        "JCJG040103"
+      ],
+      "evidence": [
+        "学习起始年月"
+      ]
+    },
+    {
+      "id": "learningEndYearMonth",
+      "label": "Learning End Year Month",
+      "domain": "AdvancedStudy",
+      "range": "string",
+      "description": "End year and month of the learning period.",
+      "source_record_ids": [
+        "JCJG040104"
+      ],
+      "evidence": [
+        "学习终止年月"
+      ]
+    },
+    {
+      "id": "totalClassHours",
+      "label": "Total Class Hours",
+      "domain": "AdvancedStudy",
+      "range": "string",
+      "description": "Cumulative hours of actual learning.",
+      "source_record_ids": [
+        "JCJG040105"
+      ],
+      "evidence": [
+        "指实际学习的累计时间"
+      ]
+    },
+    {
+      "id": "learningContent",
+      "label": "Learning Content",
+      "domain": "AdvancedStudy",
+      "range": "string",
+      "description": "Content of the learning.",
+      "source_record_ids": [
+        "JCJG040106"
+      ],
+      "evidence": [
+        "学习内容"
+      ]
+    },
+    {
+      "id": "trainingCourseName",
+      "label": "Training Course Name",
+      "domain": "AdvancedStudy",
+      "range": "string",
+      "description": "Name of the training course.",
+      "source_record_ids": [
+        "JCJG040107"
+      ],
+      "evidence": [
+        "进修班名称"
+      ]
+    },
+    {
+      "id": "organizingUnit",
+      "label": "Organizing Unit",
+      "domain": "AdvancedStudy",
+      "range": "string",
+      "description": "Name of the unit that organizes and hosts the learning.",
+      "source_record_ids": [
+        "JCJG040108"
+      ],
+      "evidence": [
+        "主办和组织学习的单位名称"
+      ]
+    },
+    {
+      "id": "organizingUnitNatureCode",
+      "label": "Organizing Unit Nature Code",
+      "domain": "AdvancedStudy",
+      "range": "string",
+      "description": "Code for the nature of the organizing unit.",
+      "source_record_ids": [
+        "JCJG040109"
+      ],
+      "evidence": [
+        "主办单位性质码"
+      ]
+    },
+    {
+      "id": "studyUnit",
+      "label": "Study Unit",
+      "domain": "AdvancedStudy",
+      "range": "string",
+      "description": "The unit where the person is studying.",
+      "source_record_ids": [
+        "JCJG040110"
+      ],
+      "evidence": [
+        "在学单位"
+      ]
+    },
+    {
+      "id": "studyUnitCategoryCode",
+      "label": "Study Unit Category Code",
+      "domain": "AdvancedStudy",
+      "range": "string",
+      "description": "Code for the category of the study unit.",
+      "source_record_ids": [
+        "JCJG040111"
+      ],
+      "evidence": [
+        "在学单位类别码"
+      ]
+    },
+    {
+      "id": "advancedStudyResultCode",
+      "label": "Advanced Study Result Code",
+      "domain": "AdvancedStudy",
+      "range": "string",
+      "description": "Code for the result of the advanced study.",
+      "source_record_ids": [
+        "JCJG040112"
+      ],
+      "evidence": [
+        "进修结果码"
+      ]
+    },
+    {
+      "id": "overseasDate",
+      "label": "Overseas Date",
+      "domain": "OverseasVisit",
+      "range": "string",
+      "description": "Date of departure for the overseas visit.",
+      "source_record_ids": [
+        "JCJG040201"
+      ],
+      "evidence": [
+        "出国（境）日期"
+      ]
+    },
+    {
+      "id": "overseasPurposeCode",
+      "label": "Overseas Purpose Code",
+      "domain": "OverseasVisit",
+      "range": "string",
+      "description": "Code for the purpose of the overseas visit.",
+      "source_record_ids": [
+        "JCJG040202"
+      ],
+      "evidence": [
+        "出国（境）目的码"
+      ]
+    },
+    {
+      "id": "overseasCountryCode",
+      "label": "Overseas Country Code",
+      "domain": "OverseasVisit",
+      "range": "string",
+      "description": "Three-letter country code for the destination.",
+      "source_record_ids": [
+        "JCJG040203"
+      ],
+      "evidence": [
+        "用三字母国别代码，如 CHN 中国"
+      ]
+    },
+    {
+      "id": "destinationUnitEnglishName",
+      "label": "Destination Unit English Name",
+      "domain": "OverseasVisit",
+      "range": "string",
+      "description": "English name of the destination unit.",
+      "source_record_ids": [
+        "JCJG040204"
+      ],
+      "evidence": [
+        "所去单位英文名称"
+      ]
+    },
+    {
+      "id": "destinationUnitChineseName",
+      "label": "Destination Unit Chinese Name",
+      "domain": "OverseasVisit",
+      "range": "string",
+      "description": "Chinese name of the destination unit.",
+      "source_record_ids": [
+        "JCJG040205"
+      ],
+      "evidence": [
+        "所去单位中文名称"
+      ]
+    },
+    {
+      "id": "dispatchingUnit",
+      "label": "Dispatching Unit",
+      "domain": "OverseasVisit",
+      "range": "string",
+      "description": "Name of the unit that dispatched the person.",
+      "source_record_ids": [
+        "JCJG040206"
+      ],
+      "evidence": [
+        "派遣本人出国（境）学习、工作的单位名称"
+      ]
+    },
+    {
+      "id": "delegationName",
+      "label": "Delegation Name",
+      "domain": "OverseasVisit",
+      "range": "string",
+      "description": "Specific name of the dispatched delegation.",
+      "source_record_ids": [
+        "JCJG040207"
+      ],
+      "evidence": [
+        "出国（境）工作或学习派出团组的具体名称"
+      ]
+    },
+    {
+      "id": "overseasFundingSourceCode",
+      "label": "Overseas Funding Source Code",
+      "domain": "OverseasVisit",
+      "range": "string",
+      "description": "Code for the source of funding for the overseas visit.",
+      "source_record_ids": [
+        "JCJG040208"
+      ],
+      "evidence": [
+        "出国（境）经费来源码"
+      ]
+    },
+    {
+      "id": "approvingUnit",
+      "label": "Approving Unit",
+      "domain": "OverseasVisit",
+      "range": "string",
+      "description": "Name of the higher-level supervisory department that approved the visit and issued the approval document.",
+      "source_record_ids": [
+        "JCJG040209"
+      ],
+      "evidence": [
+        "批准出国（境）并签发审批文件的上级主管部门名称"
+      ]
+    },
+    {
+      "id": "approvalDate",
+      "label": "Approval Date",
+      "domain": "OverseasVisit",
+      "range": "string",
+      "description": "Date when the approval document was issued.",
+      "source_record_ids": [
+        "JCJG040210"
+      ],
+      "evidence": [
+        "批准出国（境）并签发审批文件的具体日期"
+      ]
+    },
+    {
+      "id": "approvalDocumentNumber",
+      "label": "Approval Document Number",
+      "domain": "OverseasVisit",
+      "range": "string",
+      "description": "Number of the approval document issued by the approving unit.",
+      "source_record_ids": [
+        "JCJG040211"
+      ],
+      "evidence": [
+        "批准出国（境）学习工作的单位签发的批准文件编号"
+      ]
+    },
+    {
+      "id": "approvedDurationMonths",
+      "label": "Approved Duration Months",
+      "domain": "OverseasVisit",
+      "range": "string",
+      "description": "Approved duration of stay abroad, in months.",
+      "source_record_ids": [
+        "JCJG040212"
+      ],
+      "evidence": [
+        "批准在国（境）外滞留的期限，单位：月"
+      ]
+    },
+    {
+      "id": "studyWorkContent",
+      "label": "Study Work Content",
+      "domain": "OverseasVisit",
+      "range": "string",
+      "description": "Main content of the study or work abroad.",
+      "source_record_ids": [
+        "JCJG040213"
+      ],
+      "evidence": [
+        "出国（境）学习工作的主要内容"
+      ]
+    },
+    {
+      "id": "studyWorkAchievement",
+      "label": "Study Work Achievement",
+      "domain": "OverseasVisit",
+      "range": "string",
+      "description": "Completion status and main achievements of the study or work abroad.",
+      "source_record_ids": [
+        "JCJG040214"
+      ],
+      "evidence": [
+        "出国（境）学习工作的完成情况和主要成绩"
+      ]
+    },
+    {
+      "id": "expectedReturnDate",
+      "label": "Expected Return Date",
+      "domain": "OverseasVisit",
+      "range": "string",
+      "description": "Expected date of return.",
+      "source_record_ids": [
+        "JCJG040215"
+      ],
+      "evidence": [
+        "应回国日期"
+      ]
+    },
+    {
+      "id": "actualReturnDate",
+      "label": "Actual Return Date",
+      "domain": "OverseasVisit",
+      "range": "string",
+      "description": "Actual date of return.",
+      "source_record_ids": [
+        "JCJG040216"
+      ],
+      "evidence": [
+        "实回国日期"
+      ]
+    },
+    {
+      "id": "passportOrPermitNumber",
+      "label": "Passport or Permit Number",
+      "domain": "OverseasVisit",
+      "range": "string",
+      "description": "Passport number or permit number (e.g., for travel to Hong Kong and Macau).",
+      "source_record_ids": [
+        "JCJG040217"
+      ],
+      "evidence": [
+        "通行证即“往来港澳通行证”"
+      ]
+    },
+    {
+      "id": "documentValidityPeriod",
+      "label": "Document Validity Period",
+      "domain": "OverseasVisit",
+      "range": "string",
+      "description": "Validity period of the passport or permit.",
+      "source_record_ids": [
+        "JCJG040218"
+      ],
+      "evidence": [
+        "证件有效期"
+      ]
+    },
+    {
+      "id": "assessmentCategoryCode",
+      "label": "Assessment Category Code",
+      "domain": "Assessment",
+      "range": "string",
+      "description": "Code for the category of the assessment.",
+      "source_record_ids": [
+        "JCJG050101",
+        "JCJG050201"
+      ],
+      "evidence": [
+        "考察（考核）类别码",
+        "考核类别码"
+      ]
+    },
+    {
+      "id": "assessmentDate",
+      "label": "Assessment Date",
+      "domain": "Assessment",
+      "range": "string",
+      "description": "Date of the assessment.",
+      "source_record_ids": [
+        "JCJG050102",
+        "JCJG050202"
+      ],
+      "evidence": [
+        "组织、干部、人事部门组派的考察组进行考察（考核）的日期",
+        "业务考核的具体日期"
+      ]
+    },
+    {
+      "id": "assessmentOpinion",
+      "label": "Assessment Opinion",
+      "domain": "Assessment",
+      "range": "string",
+      "description": "Evaluation opinion on various aspects such as morality, ability, diligence, and performance.",
+      "source_record_ids": [
+        "JCJG050103"
+      ],
+      "evidence": [
+        "组织、干部、人事部门组派的考察组对德、才、勤、绩诸方面的评价意见"
+      ]
+    },
+    {
+      "id": "assessmentResultCode",
+      "label": "Assessment Result Code",
+      "domain": "Assessment",
+      "range": "string",
+      "description": "Code for the result of the assessment.",
+      "source_record_ids": [
+        "JCJG050104",
+        "JCJG050204"
+      ],
+      "evidence": [
+        "经考核委员会或考察小组审核后，由部门负责人确定的考核结论",
+        "考核结果码"
+      ]
+    },
+    {
+      "id": "assessmentOrganizationAndAssessors",
+      "label": "Assessment Organization and Assessors",
+      "domain": "Assessment",
+      "range": "string",
+      "description": "Name of the assessment group and names of assessors and the department head who determined the conclusion.",
+      "source_record_ids": [
+        "JCJG050105"
+      ],
+      "evidence": [
+        "组织、干部、人事部门组派的考察组名称及直接参与考核的考察组成员姓名，以及确定考察结论的部门负责人姓名"
+      ]
+    },
+    {
+      "id": "assessmentContent",
+      "label": "Assessment Content",
+      "domain": "Assessment",
+      "range": "string",
+      "description": "Main content of the business assessment.",
+      "source_record_ids": [
+        "JCJG050203"
+      ],
+      "evidence": [
+        "业务考核的主要内容"
+      ]
+    },
+    {
+      "id": "assessmentResponsiblePersonId",
+      "label": "Assessment Responsible Person ID",
+      "domain": "Assessment",
+      "range": "string",
+      "description": "ID of the person responsible for the business assessment.",
+      "source_record_ids": [
+        "JCJG050205"
+      ],
+      "evidence": [
+        "负责业务考核的人员工号"
+      ]
+    },
+    {
+      "id": "assessmentComment",
+      "label": "Assessment Comment",
+      "domain": "Assessment",
+      "range": "string",
+      "description": "Conclusion and comments of the business assessment.",
+      "source_record_ids": [
+        "JCJG050206"
+      ],
+      "evidence": [
+        "业务考核的结论和评语"
+      ]
+    },
+    {
+      "id": "assessmentDepartment",
+      "label": "Assessment Department",
+      "domain": "Assessment",
+      "range": "string",
+      "description": "Name of the department responsible for the assessment.",
+      "source_record_ids": [
+        "JCJG050207"
+      ],
+      "evidence": [
+        "负责考核的部门名称"
+      ]
+    },
+    {
+      "id": "skillTestYearMonth",
+      "label": "Skill Test Year Month",
+      "domain": "Assessment",
+      "range": "string",
+      "description": "Year and month of participating in a job recruitment or technical level test.",
+      "source_record_ids": [
+        "JCJG050301"
+      ],
+      "evidence": [
+        "参加招工或技术级别考试的年月"
+      ]
+    },
+    {
+      "id": "skillTestTradeCode",
+      "label": "Skill Test Trade Code",
+      "domain": "Assessment",
+      "range": "string",
+      "description": "Code for the trade of the skill test.",
+      "source_record_ids": [
+        "JCJG050302"
+      ],
+      "evidence": [
+        "考核工种码"
+      ]
+    },
+    {
+      "id": "skillTestDepartment",
+      "label": "Skill Test Department",
+      "domain": "Assessment",
+      "range": "string",
+      "description": "Department in charge of the test.",
+      "source_record_ids": [
+        "JCJG050303"
+      ],
+      "evidence": [
+        "主管考试的部门"
+      ]
+    },
+    {
+      "id": "technicalLevel",
+      "label": "Technical Level",
+      "domain": "Assessment",
+      "range": "string",
+      "description": "Technical level applied for in the test.",
+      "source_record_ids": [
+        "JCJG050304"
+      ],
+      "evidence": [
+        "报考的技术级别"
+      ]
+    },
+    {
+      "id": "skillTestCertificateNumber",
+      "label": "Skill Test Certificate Number",
+      "domain": "Assessment",
+      "range": "string",
+      "description": "Certificate number obtained from the skill test.",
+      "source_record_ids": [
+        "JCJG050305"
+      ],
+      "evidence": [
+        "考工考技获得的证书号"
+      ]
+    },
+    {
+      "id": "skillTestComment",
+      "label": "Skill Test Comment",
+      "domain": "Assessment",
+      "range": "string",
+      "description": "Comments from the skill test.",
+      "source_record_ids": [
+        "JCJG050306"
+      ],
+      "evidence": [
+        "考工考技的评语"
+      ]
+    },
+    {
+      "id": "skillTestScore",
+      "label": "Skill Test Score",
+      "domain": "Assessment",
+      "range": "string",
+      "description": "Score or grade achieved in the skill test.",
+      "source_record_ids": [
+        "JCJG050307"
+      ],
+      "evidence": [
+        "分数类或等级类成绩"
+      ]
+    },
+    {
+      "id": "arrivalDateAtUnit",
+      "label": "Arrival Date at Unit",
+      "domain": "PersonnelChange",
+      "range": "string",
+      "description": "Actual date of reporting for work at the unit, as recorded by the personnel department.",
+      "source_record_ids": [
+        "JCJG060101"
+      ],
+      "evidence": [
+        "来单位工作的实际报到年月，以人事部门记载为准"
+      ]
+    },
+    {
+      "id": "sourceCode",
+      "label": "Source Code",
+      "domain": "PersonnelChange",
+      "range": "string",
+      "description": "Code for the source of the person.",
+      "source_record_ids": [
+        "JCJG060102"
+      ],
+      "evidence": [
+        "中小学、中职和幼儿园采用JZGLY 教职工来源代码，高校采用GXJZGLY 高校教职工来源代码"
+      ]
+    },
+    {
+      "id": "sourceRegionCode",
+      "label": "Source Region Code",
+      "domain": "PersonnelChange",
+      "range": "string",
+      "description": "Code for the source region.",
+      "source_record_ids": [
+        "JCJG060103"
+      ],
+      "evidence": [
+        "来源地区码"
+      ]
+    },
+    {
+      "id": "reasonForJoiningUnit",
+      "label": "Reason for Joining Unit",
+      "domain": "PersonnelChange",
+      "range": "string",
+      "description": "Reason for joining the unit.",
+      "source_record_ids": [
+        "JCJG060104"
+      ],
+      "evidence": [
+        "来单位原因"
+      ]
+    },
+    {
+      "id": "previousUnitName",
+      "label": "Previous Unit Name",
+      "domain": "PersonnelChange",
+      "range": "string",
+      "description": "Name of the previous unit.",
+      "source_record_ids": [
+        "JCJG060105"
+      ],
+      "evidence": [
+        "原单位名称"
+      ]
+    },
+    {
+      "id": "previousPartyGovernmentPositionCode",
+      "label": "Previous Party-Government Position Code",
+      "domain": "PersonnelChange",
+      "range": "string",
+      "description": "Code for the previous party or government position.",
+      "source_record_ids": [
+        "JCJG060106"
+      ],
+      "evidence": [
+        "原党政职务码"
+      ]
+    },
+    {
+      "id": "previousTechnicalPositionCode",
+      "label": "Previous Technical Position Code",
+      "domain": "PersonnelChange",
+      "range": "string",
+      "description": "Code for the previous technical position.",
+      "source_record_ids": [
+        "JCJG060107"
+      ],
+      "evidence": [
+        "空白为未任任何专业技术职务"
+      ]
+    },
+    {
+      "id": "previousDisciplineCode",
+      "label": "Previous Discipline Code",
+      "domain": "PersonnelChange",
+      "range": "string",
+      "description": "Code for the previously engaged discipline.",
+      "source_record_ids": [
+        "JCJG060108"
+      ],
+      "evidence": [
+        "采用一、二级分类代码"
+      ]
+    },
+    {
+      "id": "previousTotalSalary",
+      "label": "Previous Total Salary",
+      "domain": "PersonnelChange",
+      "range": "string",
+      "description": "Previous total salary.",
+      "source_record_ids": [
+        "JCJG060109"
+      ],
+      "evidence": [
+        "原工资总额"
+      ]
+    },
+    {
+      "id": "previousTeachingNursingAllowance",
+      "label": "Previous Teaching/Nursing Allowance",
+      "domain": "PersonnelChange",
+      "range": "string",
+      "description": "Previous teaching or nursing allowance.",
+      "source_record_ids": [
+        "JCJG060110"
+      ],
+      "evidence": [
+        "原教护龄津贴"
+      ]
+    },
+    {
+      "id": "departmentTransferDate",
+      "label": "Department Transfer Date",
+      "domain": "PersonnelChange",
+      "range": "string",
+      "description": "Date of the department transfer.",
+      "source_record_ids": [
+        "JCJG060201"
+      ],
+      "evidence": [
+        "部门调动日期"
+      ]
+    },
+    {
+      "id": "departmentTransferReason",
+      "label": "Department Transfer Reason",
+      "domain": "PersonnelChange",
+      "range": "string",
+      "description": "Reason for the department transfer.",
+      "source_record_ids": [
+        "JCJG060202"
+      ],
+      "evidence": [
+        "部门调动原因"
+      ]
+    },
+    {
+      "id": "transferOutDepartmentId",
+      "label": "Transfer Out Department ID",
+      "domain": "PersonnelChange",
+      "range": "string",
+      "description": "ID of the department the person transferred out of within the organization.",
+      "source_record_ids": [
+        "JCJG060203"
+      ],
+      "evidence": [
+        "组织自行编号：组织内部调动后原院系所中心号"
+      ]
+    },
+    {
+      "id": "transferInDepartmentId",
+      "label": "Transfer In Department ID",
+      "domain": "PersonnelChange",
+      "range": "string",
+      "description": "ID of the department the person transferred into within the organization.",
+      "source_record_ids": [
+        "JCJG060204"
+      ],
+      "evidence": [
+        "组织自行编号：组织内部调动后现院系所中心号"
+      ]
+    },
+    {
+      "id": "salaryTransferDate",
+      "label": "Salary Transfer Date",
+      "domain": "PersonnelChange",
+      "range": "string",
+      "description": "Date of the personal salary and labor transfer.",
+      "source_record_ids": [
+        "JCJG060205"
+      ],
+      "evidence": [
+        "个人劳资转移日期"
+      ]
+    },
+    {
+      "id": "documentFileNumber",
+      "label": "Document File Number",
+      "domain": "PersonnelChange",
+      "range": "string",
+      "description": "File number of documents related to the personal change.",
+      "source_record_ids": [
+        "JCJG060206"
+      ],
+      "evidence": [
+        "跟个人变动有关的文件档案编号"
+      ]
+    },
+    {
+      "id": "leaveDate",
+      "label": "Leave Date",
+      "domain": "PersonnelChange",
+      "range": "string",
+      "description": "Date of leaving the post.",
+      "source_record_ids": [
+        "JCJG060301"
+      ],
+      "evidence": [
+        "离岗日期"
+      ]
+    },
+    {
+      "id": "leaveReasonCode",
+      "label": "Leave Reason Code",
+      "domain": "PersonnelChange",
+      "range": "string",
+      "description": "Code for the reason of leaving the post.",
+      "source_record_ids": [
+        "JCJG060302"
+      ],
+      "evidence": [
+        "离岗原因码"
+      ]
+    },
+    {
+      "id": "returnToPostDate",
+      "label": "Return to Post Date",
+      "domain": "PersonnelChange",
+      "range": "string",
+      "description": "Date of returning to the post.",
+      "source_record_ids": [
+        "JCJG060303"
+      ],
+      "evidence": [
+        "返回工作岗位的日期"
+      ]
+    },
+    {
+      "id": "sickLeaveStartDate",
+      "label": "Sick Leave Start Date",
+      "domain": "PersonnelChange",
+      "range": "string",
+      "description": "Start date of sick leave.",
+      "source_record_ids": [
+        "JCJG060401"
+      ],
+      "evidence": [
+        "因病休假的起始日期"
+      ]
+    },
+    {
+      "id": "sickLeaveDiagnosingHospital",
+      "label": "Sick Leave Diagnosing Hospital",
+      "domain": "PersonnelChange",
+      "range": "string",
+      "description": "Name of the hospital that diagnosed the sick leave.",
+      "source_record_ids": [
+        "JCJG060402"
+      ],
+      "evidence": [
+        "病休诊断的医院名称"
+      ]
+    },
+    {
+      "id": "sickLeaveDiagnosisCertificate",
+      "label": "Sick Leave Diagnosis Certificate",
+      "domain": "PersonnelChange",
+      "range": "string",
+      "description": "Sick leave diagnosis certificate issued by the hospital.",
+      "source_record_ids": [
+        "JCJG060403"
+      ],
+      "evidence": [
+        "医院开据的病休诊断证明"
+      ]
+    },
+    {
+      "id": "sickLeaveRecoveryDate",
+      "label": "Sick Leave Recovery Date",
+      "domain": "PersonnelChange",
+      "range": "string",
+      "description": "Date of recovery and return to work from sick leave.",
+      "source_record_ids": [
+        "JCJG060404"
+      ],
+      "evidence": [
+        "病休恢复工作的日期"
+      ]
+    }
+  ],
+  "object_properties": [
+    {
+      "id": "holdsAcademicPosition",
+      "label": "holds Academic Position",
+      "domain": "AcademicSociety",
+      "range": "AcademicPosition",
+      "description": "Associates an academic society with the positions held within it.",
+      "source_record_ids": [
+        "JCJG030201",
+        "JCJG030204"
+      ],
+      "evidence": [
+        "兼职的学术团体名称",
+        "本人在学术团体内兼任的职务"
+      ]
+    },
+    {
+      "id": "hasAssessmentRecord",
+      "label": "has Assessment Record",
+      "domain": "PersonnelChange",
+      "range": "Assessment",
+      "description": "Associates a personnel change record with an assessment record.",
+      "source_record_ids": [
+        "JCJG050101",
+        "JCJG050201"
+      ],
+      "evidence": [
+        "考察（考核）类别码",
+        "考核类别码"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "subject": "AcademicSociety",
+      "predicate": "holdsAcademicPosition",
+      "object": "AcademicPosition",
+      "source_record_ids": [
+        "JCJG030201",
+        "JCJG030204"
+      ],
+      "evidence": [
+        "兼职的学术团体名称",
+        "本人在学术团体内兼任的职务"
+      ]
+    },
+    {
+      "subject": "PersonnelChange",
+      "predicate": "hasAssessmentRecord",
+      "object": "Assessment",
+      "source_record_ids": [
+        "JCJG050101",
+        "JCJG050201"
+      ],
+      "evidence": [
+        "考察（考核）类别码",
+        "考核类别码"
+      ]
+    }
+  ],
+  "class_hierarchy": []
+}

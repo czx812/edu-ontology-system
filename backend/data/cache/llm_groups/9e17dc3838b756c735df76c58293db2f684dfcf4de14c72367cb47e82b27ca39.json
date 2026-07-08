@@ -1,0 +1,314 @@
+{
+  "classes": [
+    {
+      "id": "EducationRevenue",
+      "label": "Education Revenue",
+      "description": "Revenue items in education financial records, measured in yuan.",
+      "source_record_ids": [
+        "JCBX010103",
+        "JCBX010104",
+        "JCBX010105",
+        "JCBX010106",
+        "JCBX010201",
+        "JCBX010202",
+        "JCBX010203",
+        "JCBX010301",
+        "JCBX010302",
+        "JCBX010303",
+        "JCBX010304",
+        "JCBX010305"
+      ],
+      "evidence": [
+        "教育费附加、地方教育费附加、地方基金、基本建设拨款、学杂费收入、经营收入、附属单位上缴收入、港澳台及海外捐款收入、其他捐款收入、资产处置收入、联合办学（班）收入、其他培训拨款收入"
+      ]
+    },
+    {
+      "id": "EducationExpenditure",
+      "label": "Education Expenditure",
+      "description": "Expenditure items in education financial records, measured in yuan.",
+      "source_record_ids": [
+        "JCBX010401",
+        "JCBX010402",
+        "JCBX010403",
+        "JCBX010404",
+        "JCBX010405",
+        "JCBX010501",
+        "JCBX010502",
+        "JCBX010503",
+        "JCBX010504",
+        "JCBX010601",
+        "JCBX010602",
+        "JCBX010603",
+        "JCBX010604",
+        "JCBX010605",
+        "JCBX010606",
+        "JCBX010607",
+        "JCBX010608",
+        "JCBX010609"
+      ],
+      "evidence": [
+        "基本工资、津贴补贴、奖金及绩效工资、社会保障缴费、其他工资福利性支出、离退休费、医疗费、助学金、其他补助性支出、办公费、水费、电费、邮电费、取暖费、差旅费、维修（护）费、培训费、专用材料费"
+      ]
+    },
+    {
+      "id": "GovernmentAllocation",
+      "label": "Government Allocation",
+      "description": "Revenue from government appropriations and funds.",
+      "source_record_ids": [
+        "JCBX010103",
+        "JCBX010104",
+        "JCBX010105",
+        "JCBX010106",
+        "JCBX010305"
+      ],
+      "evidence": [
+        "教育费附加、地方教育费附加、地方基金、基本建设拨款、其他培训拨款收入"
+      ]
+    },
+    {
+      "id": "TuitionAndMiscellaneousFee",
+      "label": "Tuition and Miscellaneous Fee",
+      "description": "Revenue from student tuition and miscellaneous fees.",
+      "source_record_ids": [
+        "JCBX010201"
+      ],
+      "evidence": [
+        "学杂费收入"
+      ]
+    },
+    {
+      "id": "OperatingIncome",
+      "label": "Operating Income",
+      "description": "Revenue from operating activities.",
+      "source_record_ids": [
+        "JCBX010202"
+      ],
+      "evidence": [
+        "经营收入"
+      ]
+    },
+    {
+      "id": "SubsidiaryRemittance",
+      "label": "Subsidiary Remittance",
+      "description": "Revenue from remittances by subsidiary units.",
+      "source_record_ids": [
+        "JCBX010203"
+      ],
+      "evidence": [
+        "附属单位上缴收入"
+      ]
+    },
+    {
+      "id": "DonationIncome",
+      "label": "Donation Income",
+      "description": "Revenue from donations, including overseas and other donations.",
+      "source_record_ids": [
+        "JCBX010301",
+        "JCBX010302"
+      ],
+      "evidence": [
+        "港澳台及海外捐款收入、其他捐款收入"
+      ]
+    },
+    {
+      "id": "AssetDisposalIncome",
+      "label": "Asset Disposal Income",
+      "description": "Revenue from asset disposal.",
+      "source_record_ids": [
+        "JCBX010303"
+      ],
+      "evidence": [
+        "资产处置收入"
+      ]
+    },
+    {
+      "id": "JointProgramIncome",
+      "label": "Joint Program Income",
+      "description": "Revenue from joint programs or classes.",
+      "source_record_ids": [
+        "JCBX010304"
+      ],
+      "evidence": [
+        "联合办学（班）收入"
+      ]
+    },
+    {
+      "id": "PersonnelExpenditure",
+      "label": "Personnel Expenditure",
+      "description": "Expenditure on personnel, including wages, allowances, and social security.",
+      "source_record_ids": [
+        "JCBX010401",
+        "JCBX010402",
+        "JCBX010403",
+        "JCBX010404",
+        "JCBX010405"
+      ],
+      "evidence": [
+        "基本工资、津贴补贴、奖金及绩效工资、社会保障缴费、其他工资福利性支出"
+      ]
+    },
+    {
+      "id": "WelfareSubsidyExpenditure",
+      "label": "Welfare and Subsidy Expenditure",
+      "description": "Expenditure on welfare and subsidies, including pensions, medical fees, and grants.",
+      "source_record_ids": [
+        "JCBX010501",
+        "JCBX010502",
+        "JCBX010503",
+        "JCBX010504"
+      ],
+      "evidence": [
+        "离退休费、医疗费、助学金、其他补助性支出"
+      ]
+    },
+    {
+      "id": "AdministrativeExpenditure",
+      "label": "Administrative Expenditure",
+      "description": "Administrative and operational expenditure items.",
+      "source_record_ids": [
+        "JCBX010601",
+        "JCBX010602",
+        "JCBX010603",
+        "JCBX010604",
+        "JCBX010605",
+        "JCBX010606",
+        "JCBX010607",
+        "JCBX010608",
+        "JCBX010609"
+      ],
+      "evidence": [
+        "办公费、水费、电费、邮电费、取暖费、差旅费、维修（护）费、培训费、专用材料费"
+      ]
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "hasMonetaryValue",
+      "label": "has monetary value",
+      "domain": "EducationRevenue",
+      "range": "string",
+      "description": "The monetary amount in yuan.",
+      "source_record_ids": [
+        "JCBX010103",
+        "JCBX010104",
+        "JCBX010105",
+        "JCBX010106",
+        "JCBX010201",
+        "JCBX010202",
+        "JCBX010203",
+        "JCBX010301",
+        "JCBX010302",
+        "JCBX010303",
+        "JCBX010304",
+        "JCBX010305"
+      ],
+      "evidence": [
+        "单位：元"
+      ]
+    },
+    {
+      "id": "hasMonetaryValue",
+      "label": "has monetary value",
+      "domain": "EducationExpenditure",
+      "range": "string",
+      "description": "The monetary amount in yuan.",
+      "source_record_ids": [
+        "JCBX010401",
+        "JCBX010402",
+        "JCBX010403",
+        "JCBX010404",
+        "JCBX010405",
+        "JCBX010501",
+        "JCBX010502",
+        "JCBX010503",
+        "JCBX010504",
+        "JCBX010601",
+        "JCBX010602",
+        "JCBX010603",
+        "JCBX010604",
+        "JCBX010605",
+        "JCBX010606",
+        "JCBX010607",
+        "JCBX010608",
+        "JCBX010609"
+      ],
+      "evidence": [
+        "单位：元"
+      ]
+    }
+  ],
+  "object_properties": [],
+  "relations": [],
+  "class_hierarchy": [
+    {
+      "parent": "EducationRevenue",
+      "child": "GovernmentAllocation",
+      "evidence": [
+        "教育费附加、地方教育费附加、地方基金、基本建设拨款、其他培训拨款收入"
+      ]
+    },
+    {
+      "parent": "EducationRevenue",
+      "child": "TuitionAndMiscellaneousFee",
+      "evidence": [
+        "学杂费收入"
+      ]
+    },
+    {
+      "parent": "EducationRevenue",
+      "child": "OperatingIncome",
+      "evidence": [
+        "经营收入"
+      ]
+    },
+    {
+      "parent": "EducationRevenue",
+      "child": "SubsidiaryRemittance",
+      "evidence": [
+        "附属单位上缴收入"
+      ]
+    },
+    {
+      "parent": "EducationRevenue",
+      "child": "DonationIncome",
+      "evidence": [
+        "港澳台及海外捐款收入、其他捐款收入"
+      ]
+    },
+    {
+      "parent": "EducationRevenue",
+      "child": "AssetDisposalIncome",
+      "evidence": [
+        "资产处置收入"
+      ]
+    },
+    {
+      "parent": "EducationRevenue",
+      "child": "JointProgramIncome",
+      "evidence": [
+        "联合办学（班）收入"
+      ]
+    },
+    {
+      "parent": "EducationExpenditure",
+      "child": "PersonnelExpenditure",
+      "evidence": [
+        "基本工资、津贴补贴、奖金及绩效工资、社会保障缴费、其他工资福利性支出"
+      ]
+    },
+    {
+      "parent": "EducationExpenditure",
+      "child": "WelfareSubsidyExpenditure",
+      "evidence": [
+        "离退休费、医疗费、助学金、其他补助性支出"
+      ]
+    },
+    {
+      "parent": "EducationExpenditure",
+      "child": "AdministrativeExpenditure",
+      "evidence": [
+        "办公费、水费、电费、邮电费、取暖费、差旅费、维修（护）费、培训费、专用材料费"
+      ]
+    }
+  ]
+}

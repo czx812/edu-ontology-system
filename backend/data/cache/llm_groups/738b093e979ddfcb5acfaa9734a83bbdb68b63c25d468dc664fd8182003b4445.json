@@ -1,0 +1,544 @@
+{
+  "classes": [
+    {
+      "id": "Experiment",
+      "label": "Experiment",
+      "description": "A teaching or non-teaching experiment project.",
+      "source_record_ids": [
+        "JCBX030803",
+        "JCBX030804",
+        "JCBX030805",
+        "JCBX030806",
+        "JCBX030807",
+        "JCBX030808",
+        "JCBX030809",
+        "JCBX030810",
+        "JCBX030811",
+        "JCBX030812",
+        "JCBX030813"
+      ],
+      "evidence": [
+        "JCBX030803 隶属课程号 非教学实验不填",
+        "JCBX030805 专业分类码 本实验项目所属的专业码"
+      ]
+    },
+    {
+      "id": "Book",
+      "label": "Book",
+      "description": "A library resource including books, tapes, and disks.",
+      "source_record_ids": [
+        "JCBX040101",
+        "JCBX040102",
+        "JCBX040103",
+        "JCBX040104",
+        "JCBX040105",
+        "JCBX040106",
+        "JCBX040107",
+        "JCBX040108",
+        "JCBX040109",
+        "JCBX040110",
+        "JCBX040111",
+        "JCBX040112",
+        "JCBX040113",
+        "JCBX040114",
+        "JCBX040115",
+        "JCBX040116",
+        "JCBX040117",
+        "JCBX040118",
+        "JCBX040119"
+      ],
+      "evidence": [
+        "JCBX040101 图书编号 指校内图书资料的编号，包括图书、磁带、录象带、磁盘、光盘等"
+      ]
+    },
+    {
+      "id": "Course",
+      "label": "Course",
+      "description": "A course to which an experiment belongs.",
+      "source_record_ids": [
+        "JCBX030803"
+      ],
+      "evidence": [
+        "JCBX030803 隶属课程号"
+      ]
+    },
+    {
+      "id": "Teacher",
+      "label": "Teacher",
+      "description": "A teacher guiding an experiment.",
+      "source_record_ids": [
+        "JCBX030812"
+      ],
+      "evidence": [
+        "JCBX030812 带课教师号"
+      ]
+    },
+    {
+      "id": "Author",
+      "label": "Author",
+      "description": "An author of a book.",
+      "source_record_ids": [
+        "JCBX040108",
+        "JCBX040109"
+      ],
+      "evidence": [
+        "JCBX040108 第一作者",
+        "JCBX040109 其他作者"
+      ]
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "experimentCourseId",
+      "label": "隶属课程号",
+      "domain": "Experiment",
+      "range": "string",
+      "description": "非教学实验不填",
+      "source_record_ids": [
+        "JCBX030803"
+      ],
+      "evidence": [
+        "JCBX030803 隶属课程号 非教学实验不填"
+      ]
+    },
+    {
+      "id": "experimentCategoryCode",
+      "label": "实验类别码",
+      "domain": "Experiment",
+      "range": "string",
+      "description": "",
+      "source_record_ids": [
+        "JCBX030804"
+      ],
+      "evidence": [
+        "JCBX030804 实验类别码"
+      ]
+    },
+    {
+      "id": "experimentMajorCode",
+      "label": "专业分类码",
+      "domain": "Experiment",
+      "range": "string",
+      "description": "本实验项目所属的专业码",
+      "source_record_ids": [
+        "JCBX030805"
+      ],
+      "evidence": [
+        "JCBX030805 专业分类码 本实验项目所属的专业码"
+      ]
+    },
+    {
+      "id": "experimentRequirementCode",
+      "label": "实验要求码",
+      "domain": "Experiment",
+      "range": "string",
+      "description": "",
+      "source_record_ids": [
+        "JCBX030806"
+      ],
+      "evidence": [
+        "JCBX030806 实验要求码"
+      ]
+    },
+    {
+      "id": "experimenterCategoryCode",
+      "label": "实验者类别码",
+      "domain": "Experiment",
+      "range": "string",
+      "description": "",
+      "source_record_ids": [
+        "JCBX030807"
+      ],
+      "evidence": [
+        "JCBX030807 实验者类别码"
+      ]
+    },
+    {
+      "id": "experimenterCount",
+      "label": "实验者人数",
+      "domain": "Experiment",
+      "range": "string",
+      "description": "参加实验的总人数，单位：人",
+      "source_record_ids": [
+        "JCBX030808"
+      ],
+      "evidence": [
+        "JCBX030808 实验者人数 参加实验的总人数，单位：人"
+      ]
+    },
+    {
+      "id": "groupSize",
+      "label": "每组人数",
+      "domain": "Experiment",
+      "range": "string",
+      "description": "指每套仪器设备上作实验的人数，非教学实验不填，单位：人",
+      "source_record_ids": [
+        "JCBX030809"
+      ],
+      "evidence": [
+        "JCBX030809 每组人数 指每套仪器设备上作实验的人数，非教学实验不填，单位：人"
+      ]
+    },
+    {
+      "id": "experimentHours",
+      "label": "实验时数",
+      "domain": "Experiment",
+      "range": "string",
+      "description": "指完成本实验的时数，单位：小时",
+      "source_record_ids": [
+        "JCBX030810"
+      ],
+      "evidence": [
+        "JCBX030810 实验时数 指完成本实验的时数，单位：小时"
+      ]
+    },
+    {
+      "id": "awardLevelCode",
+      "label": "获奖级别码",
+      "domain": "Experiment",
+      "range": "string",
+      "description": "",
+      "source_record_ids": [
+        "JCBX030811"
+      ],
+      "evidence": [
+        "JCBX030811 获奖级别码"
+      ]
+    },
+    {
+      "id": "experimentLocation",
+      "label": "实验地点",
+      "domain": "Experiment",
+      "range": "string",
+      "description": "",
+      "source_record_ids": [
+        "JCBX030813"
+      ],
+      "evidence": [
+        "JCBX030813 实验地点"
+      ]
+    },
+    {
+      "id": "bookId",
+      "label": "图书编号",
+      "domain": "Book",
+      "range": "string",
+      "description": "指校内图书资料的编号，包括图书、磁带、录象带、磁盘、光盘等，学校自编",
+      "source_record_ids": [
+        "JCBX040101"
+      ],
+      "evidence": [
+        "JCBX040101 图书编号 指校内图书资料的编号，包括图书、磁带、录象带、磁盘、光盘等，学校自编"
+      ]
+    },
+    {
+      "id": "bookBarcode",
+      "label": "图书条形码",
+      "domain": "Book",
+      "range": "string",
+      "description": "图书对应的条形码",
+      "source_record_ids": [
+        "JCBX040102"
+      ],
+      "evidence": [
+        "JCBX040102 图书条形码 图书对应的条形码"
+      ]
+    },
+    {
+      "id": "bookTitle",
+      "label": "正标题",
+      "domain": "Book",
+      "range": "string",
+      "description": "填写中文或英文",
+      "source_record_ids": [
+        "JCBX040103"
+      ],
+      "evidence": [
+        "JCBX040103 正标题 填写中文或英文"
+      ]
+    },
+    {
+      "id": "bookParallelTitle",
+      "label": "并列标题",
+      "domain": "Book",
+      "range": "string",
+      "description": "填写中文或英文",
+      "source_record_ids": [
+        "JCBX040104"
+      ],
+      "evidence": [
+        "JCBX040104 并列标题 填写中文或英文"
+      ]
+    },
+    {
+      "id": "bookSubtitle",
+      "label": "副标题",
+      "domain": "Book",
+      "range": "string",
+      "description": "填写中文或英文",
+      "source_record_ids": [
+        "JCBX040105"
+      ],
+      "evidence": [
+        "JCBX040105 副标题 填写中文或英文"
+      ]
+    },
+    {
+      "id": "bookKeywords",
+      "label": "检索关键字",
+      "domain": "Book",
+      "range": "string",
+      "description": "图书检索的关键字",
+      "source_record_ids": [
+        "JCBX040106"
+      ],
+      "evidence": [
+        "JCBX040106 检索关键字 图书检索的关键字"
+      ]
+    },
+    {
+      "id": "bookIsbn",
+      "label": "图书出版号",
+      "domain": "Book",
+      "range": "string",
+      "description": "图书相应的ISBN等标准出版号",
+      "source_record_ids": [
+        "JCBX040107"
+      ],
+      "evidence": [
+        "JCBX040107 图书出版号 图书相应的ISBN等标准出版号"
+      ]
+    },
+    {
+      "id": "bookPrice",
+      "label": "价格",
+      "domain": "Book",
+      "range": "string",
+      "description": "图书的单价，外币按汇率折算成人民币，取两位小数，单位：元",
+      "source_record_ids": [
+        "JCBX040110"
+      ],
+      "evidence": [
+        "JCBX040110 价格 图书的单价，外币按汇率折算成人民币，取两位小数，单位：元"
+      ]
+    },
+    {
+      "id": "bookLiteratureType",
+      "label": "文献类型码",
+      "domain": "Book",
+      "range": "string",
+      "description": "",
+      "source_record_ids": [
+        "JCBX040111"
+      ],
+      "evidence": [
+        "JCBX040111 文献类型码"
+      ]
+    },
+    {
+      "id": "bookBindingCode",
+      "label": "装订码",
+      "domain": "Book",
+      "range": "string",
+      "description": "",
+      "source_record_ids": [
+        "JCBX040112"
+      ],
+      "evidence": [
+        "JCBX040112 装订码"
+      ]
+    },
+    {
+      "id": "bookClassificationCode",
+      "label": "分类号",
+      "domain": "Book",
+      "range": "string",
+      "description": "按《中国图书馆分类法》进行分类的编号",
+      "source_record_ids": [
+        "JCBX040113"
+      ],
+      "evidence": [
+        "JCBX040113 分类号 按《中国图书馆分类法》进行分类的编号"
+      ]
+    },
+    {
+      "id": "bookChineseLanguageCode",
+      "label": "中国语种码",
+      "domain": "Book",
+      "range": "string",
+      "description": "",
+      "source_record_ids": [
+        "JCBX040114"
+      ],
+      "evidence": [
+        "JCBX040114 中国语种码"
+      ]
+    },
+    {
+      "id": "bookLanguageCode",
+      "label": "语种码",
+      "domain": "Book",
+      "range": "string",
+      "description": "",
+      "source_record_ids": [
+        "JCBX040115"
+      ],
+      "evidence": [
+        "JCBX040115 语种码"
+      ]
+    },
+    {
+      "id": "bookFormat",
+      "label": "开本",
+      "domain": "Book",
+      "range": "string",
+      "description": "",
+      "source_record_ids": [
+        "JCBX040116"
+      ],
+      "evidence": [
+        "JCBX040116 开本"
+      ]
+    },
+    {
+      "id": "bookPageCount",
+      "label": "页数",
+      "domain": "Book",
+      "range": "string",
+      "description": "图书的总页数，单位：页",
+      "source_record_ids": [
+        "JCBX040117"
+      ],
+      "evidence": [
+        "JCBX040117 页数 图书的总页数，单位：页"
+      ]
+    },
+    {
+      "id": "bookEdition",
+      "label": "版次",
+      "domain": "Book",
+      "range": "string",
+      "description": "",
+      "source_record_ids": [
+        "JCBX040118"
+      ],
+      "evidence": [
+        "JCBX040118 版次"
+      ]
+    },
+    {
+      "id": "bookAttachmentName",
+      "label": "图书附件名称",
+      "domain": "Book",
+      "range": "string",
+      "description": "图书相关的附件名称",
+      "source_record_ids": [
+        "JCBX040119"
+      ],
+      "evidence": [
+        "JCBX040119 图书附件名称 图书相关的附件名称"
+      ]
+    }
+  ],
+  "object_properties": [
+    {
+      "id": "belongsToCourse",
+      "label": "隶属于",
+      "domain": "Experiment",
+      "range": "Course",
+      "description": "Indicates the course to which an experiment belongs.",
+      "source_record_ids": [
+        "JCBX030803"
+      ],
+      "evidence": [
+        "JCBX030803 隶属课程号"
+      ]
+    },
+    {
+      "id": "guidedByTeacher",
+      "label": "带课教师",
+      "domain": "Experiment",
+      "range": "Teacher",
+      "description": "Indicates the teacher guiding the experiment.",
+      "source_record_ids": [
+        "JCBX030812"
+      ],
+      "evidence": [
+        "JCBX030812 带课教师号"
+      ]
+    },
+    {
+      "id": "hasFirstAuthor",
+      "label": "第一作者",
+      "domain": "Book",
+      "range": "Author",
+      "description": "Indicates the first author of the book.",
+      "source_record_ids": [
+        "JCBX040108"
+      ],
+      "evidence": [
+        "JCBX040108 第一作者"
+      ]
+    },
+    {
+      "id": "hasOtherAuthor",
+      "label": "其他作者",
+      "domain": "Book",
+      "range": "Author",
+      "description": "Indicates other authors of the book.",
+      "source_record_ids": [
+        "JCBX040109"
+      ],
+      "evidence": [
+        "JCBX040109 其他作者"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "subject": "Experiment",
+      "predicate": "belongsToCourse",
+      "object": "Course",
+      "source_record_ids": [
+        "JCBX030803"
+      ],
+      "evidence": [
+        "JCBX030803 隶属课程号"
+      ]
+    },
+    {
+      "subject": "Experiment",
+      "predicate": "guidedByTeacher",
+      "object": "Teacher",
+      "source_record_ids": [
+        "JCBX030812"
+      ],
+      "evidence": [
+        "JCBX030812 带课教师号"
+      ]
+    },
+    {
+      "subject": "Book",
+      "predicate": "hasFirstAuthor",
+      "object": "Author",
+      "source_record_ids": [
+        "JCBX040108"
+      ],
+      "evidence": [
+        "JCBX040108 第一作者"
+      ]
+    },
+    {
+      "subject": "Book",
+      "predicate": "hasOtherAuthor",
+      "object": "Author",
+      "source_record_ids": [
+        "JCBX040109"
+      ],
+      "evidence": [
+        "JCBX040109 其他作者"
+      ]
+    }
+  ],
+  "class_hierarchy": []
+}

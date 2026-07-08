@@ -1,0 +1,95 @@
+{
+  "object_properties": [
+    {
+      "id": "hasContactInfo",
+      "label": "hasContactInfo",
+      "domain": "Building",
+      "range": "ContactInfo"
+    },
+    {
+      "id": "locatedOnCampus",
+      "label": "locatedOnCampus",
+      "domain": "Building",
+      "range": "Campus"
+    },
+    {
+      "id": "hasFacility",
+      "label": "hasFacility",
+      "domain": "Building",
+      "range": "Facility"
+    },
+    {
+      "id": "teachesCourse",
+      "label": "teachesCourse",
+      "domain": "Class",
+      "range": "Course"
+    },
+    {
+      "id": "hasEnrollment",
+      "label": "hasEnrollment",
+      "domain": "Course",
+      "range": "Enrollment"
+    },
+    {
+      "id": "hasAssessment",
+      "label": "hasAssessment",
+      "domain": "Course",
+      "range": "Assessment"
+    },
+    {
+      "id": "hasGrade",
+      "label": "hasGrade",
+      "domain": "Assessment",
+      "range": "Grade"
+    },
+    {
+      "id": "usesResource",
+      "label": "usesResource",
+      "domain": "Course",
+      "range": "EducationResource"
+    }
+  ],
+  "relations": [
+    {
+      "subject": "Building",
+      "predicate": "hasContactInfo",
+      "object": "ContactInfo"
+    },
+    {
+      "subject": "Building",
+      "predicate": "locatedOnCampus",
+      "object": "Campus"
+    },
+    {
+      "subject": "Building",
+      "predicate": "hasFacility",
+      "object": "Facility"
+    },
+    {
+      "subject": "Class",
+      "predicate": "teachesCourse",
+      "object": "Course"
+    },
+    {
+      "subject": "Course",
+      "predicate": "hasEnrollment",
+      "object": "Enrollment"
+    },
+    {
+      "subject": "Course",
+      "predicate": "hasAssessment",
+      "object": "Assessment"
+    },
+    {
+      "subject": "Assessment",
+      "predicate": "hasGrade",
+      "object": "Grade"
+    },
+    {
+      "subject": "Course",
+      "predicate": "usesResource",
+      "object": "EducationResource"
+    }
+  ],
+  "warnings": []
+}

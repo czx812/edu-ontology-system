@@ -1,0 +1,1632 @@
+{
+  "classes": [
+    {
+      "id": "Student",
+      "label": "学生",
+      "description": "学生基本信息实体",
+      "source_record_ids": [
+        "JCXS010101"
+      ],
+      "evidence": [
+        "学号 学校自编"
+      ]
+    },
+    {
+      "id": "School",
+      "label": "学校",
+      "description": "学校基本信息实体",
+      "source_record_ids": [
+        "JCXX010101",
+        "JCXX010102"
+      ],
+      "evidence": [
+        "学校代码",
+        "学校名称"
+      ]
+    },
+    {
+      "id": "Campus",
+      "label": "校区",
+      "description": "学校校区信息实体",
+      "source_record_ids": [
+        "JCXX010201",
+        "JCXX010202"
+      ],
+      "evidence": [
+        "校区号",
+        "校区名称"
+      ]
+    },
+    {
+      "id": "Class",
+      "label": "班级",
+      "description": "班级信息实体",
+      "source_record_ids": [
+        "JCXX020001",
+        "JCXX020002"
+      ],
+      "evidence": [
+        "班号",
+        "班级名称"
+      ]
+    },
+    {
+      "id": "FamilyMember",
+      "label": "家庭成员",
+      "description": "学生家庭成员信息实体",
+      "source_record_ids": [
+        "JCTB020702"
+      ],
+      "evidence": [
+        "成员姓名"
+      ]
+    },
+    {
+      "id": "AcademicRecord",
+      "label": "学业记录",
+      "description": "学生学业相关信息实体",
+      "source_record_ids": [
+        "JCTB020501",
+        "JCTB020504"
+      ],
+      "evidence": [
+        "入学年月",
+        "学历码"
+      ]
+    },
+    {
+      "id": "AbnormalRecord",
+      "label": "异常记录",
+      "description": "学籍异常情况记录实体",
+      "source_record_ids": [
+        "JCTB020405",
+        "JCTB020406"
+      ],
+      "evidence": [
+        "异常类别码",
+        "异常原因"
+      ]
+    },
+    {
+      "id": "TransferRecord",
+      "label": "转学记录",
+      "description": "学生转学信息实体",
+      "source_record_ids": [
+        "JCTB020408",
+        "JCTB020410"
+      ],
+      "evidence": [
+        "转入日期",
+        "转出日期"
+      ]
+    },
+    {
+      "id": "DegreeRecord",
+      "label": "学位记录",
+      "description": "学位获得信息实体",
+      "source_record_ids": [
+        "JCTB020509",
+        "JCTB020510"
+      ],
+      "evidence": [
+        "获得学位码",
+        "授学位单位名称"
+      ]
+    },
+    {
+      "id": "ContactInfo",
+      "label": "联系信息",
+      "description": "个人联系信息实体",
+      "source_record_ids": [
+        "JCTB020601",
+        "JCTB020603"
+      ],
+      "evidence": [
+        "家庭住址",
+        "家庭电话"
+      ]
+    },
+    {
+      "id": "FamilyEconomy",
+      "label": "家庭经济",
+      "description": "家庭经济状况信息实体",
+      "source_record_ids": [
+        "JCTB020901",
+        "JCTB020904"
+      ],
+      "evidence": [
+        "家庭人口",
+        "家庭人均月收入"
+      ]
+    },
+    {
+      "id": "DifficultyRecord",
+      "label": "困难记录",
+      "description": "学生困难情况记录实体",
+      "source_record_ids": [
+        "JCTB020907",
+        "JCTB020908"
+      ],
+      "evidence": [
+        "困难原因码",
+        "困难程度码"
+      ]
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "student_id",
+      "label": "学号",
+      "domain": "Student",
+      "range": "string",
+      "description": "学校自编学号",
+      "source_record_ids": [
+        "JCXS010101"
+      ],
+      "evidence": [
+        "学号 学校自编"
+      ]
+    },
+    {
+      "id": "school_code",
+      "label": "学校代码",
+      "domain": "School",
+      "range": "string",
+      "description": "学校代码",
+      "source_record_ids": [
+        "JCXX010101"
+      ],
+      "evidence": [
+        "学校代码"
+      ]
+    },
+    {
+      "id": "school_name",
+      "label": "学校名称",
+      "domain": "School",
+      "range": "string",
+      "description": "标准中文名称，与公章一致",
+      "source_record_ids": [
+        "JCXX010102"
+      ],
+      "evidence": [
+        "学校名称 标准中文名称，与公章一致"
+      ]
+    },
+    {
+      "id": "school_english_name",
+      "label": "学校英文名称",
+      "domain": "School",
+      "range": "string",
+      "description": "学校英文名称",
+      "source_record_ids": [
+        "JCXX010103"
+      ],
+      "evidence": [
+        "学校英文名称"
+      ]
+    },
+    {
+      "id": "school_address",
+      "label": "学校地址",
+      "domain": "School",
+      "range": "string",
+      "description": "详细到门牌号",
+      "source_record_ids": [
+        "JCXX010104"
+      ],
+      "evidence": [
+        "学校地址 详细到门牌号"
+      ]
+    },
+    {
+      "id": "school_postal_code",
+      "label": "学校邮政编码",
+      "domain": "School",
+      "range": "string",
+      "description": "学校邮政编码",
+      "source_record_ids": [
+        "JCXX010105"
+      ],
+      "evidence": [
+        "学校邮政编码"
+      ]
+    },
+    {
+      "id": "school_district_code",
+      "label": "行政区划码",
+      "domain": "School",
+      "range": "string",
+      "description": "学校所在地行政区划码",
+      "source_record_ids": [
+        "JCXX010106"
+      ],
+      "evidence": [
+        "行政区划码 学校所在地行政区划码"
+      ]
+    },
+    {
+      "id": "school_founding_date",
+      "label": "建校年月",
+      "domain": "School",
+      "range": "string",
+      "description": "建校年月",
+      "source_record_ids": [
+        "JCXX010107"
+      ],
+      "evidence": [
+        "建校年月"
+      ]
+    },
+    {
+      "id": "school_anniversary",
+      "label": "校庆日",
+      "domain": "School",
+      "range": "string",
+      "description": "指学校的校庆日或校庆的时间段",
+      "source_record_ids": [
+        "JCXX010108"
+      ],
+      "evidence": [
+        "校庆日 指学校的校庆日或校庆的时间段"
+      ]
+    },
+    {
+      "id": "school_type_code",
+      "label": "学校办学类型码",
+      "domain": "School",
+      "range": "string",
+      "description": "学校办学类型码",
+      "source_record_ids": [
+        "JCXX010109"
+      ],
+      "evidence": [
+        "学校办学类型码"
+      ]
+    },
+    {
+      "id": "school_sponsor_code",
+      "label": "学校举办者码",
+      "domain": "School",
+      "range": "string",
+      "description": "学校举办者码",
+      "source_record_ids": [
+        "JCXX010110"
+      ],
+      "evidence": [
+        "学校举办者码"
+      ]
+    },
+    {
+      "id": "school_admin_dept_code",
+      "label": "学校主管部门码",
+      "domain": "School",
+      "range": "string",
+      "description": "学校主管部门码",
+      "source_record_ids": [
+        "JCXX010111"
+      ],
+      "evidence": [
+        "学校主管部门码"
+      ]
+    },
+    {
+      "id": "legal_rep_id",
+      "label": "法定代表人号",
+      "domain": "School",
+      "range": "string",
+      "description": "法定代表人的工号",
+      "source_record_ids": [
+        "JCXX010112"
+      ],
+      "evidence": [
+        "法定代表人号 法定代表人的工号"
+      ]
+    },
+    {
+      "id": "legal_cert_no",
+      "label": "法人证书号",
+      "domain": "School",
+      "range": "string",
+      "description": "法人证书号",
+      "source_record_ids": [
+        "JCXX010113"
+      ],
+      "evidence": [
+        "法人证书号"
+      ]
+    },
+    {
+      "id": "principal_id",
+      "label": "校长工号",
+      "domain": "School",
+      "range": "string",
+      "description": "校长工号",
+      "source_record_ids": [
+        "JCXX010114"
+      ],
+      "evidence": [
+        "校长工号"
+      ]
+    },
+    {
+      "id": "principal_name",
+      "label": "校长姓名",
+      "domain": "School",
+      "range": "string",
+      "description": "校长姓名",
+      "source_record_ids": [
+        "JCXX010115"
+      ],
+      "evidence": [
+        "校长姓名"
+      ]
+    },
+    {
+      "id": "party_head_id",
+      "label": "党委负责人号",
+      "domain": "School",
+      "range": "string",
+      "description": "学校中共党组织负责人的工号",
+      "source_record_ids": [
+        "JCXX010116"
+      ],
+      "evidence": [
+        "党委负责人号 学校中共党组织负责人的工号"
+      ]
+    },
+    {
+      "id": "org_code",
+      "label": "组织机构码",
+      "domain": "School",
+      "range": "string",
+      "description": "学校组织机构代码",
+      "source_record_ids": [
+        "JCXX010117"
+      ],
+      "evidence": [
+        "组织机构码 学校组织机构代码"
+      ]
+    },
+    {
+      "id": "school_phone",
+      "label": "联系电话",
+      "domain": "School",
+      "range": "string",
+      "description": "学校联系电话",
+      "source_record_ids": [
+        "JCXX010118"
+      ],
+      "evidence": [
+        "联系电话"
+      ]
+    },
+    {
+      "id": "school_fax",
+      "label": "传真电话",
+      "domain": "School",
+      "range": "string",
+      "description": "学校传真电话",
+      "source_record_ids": [
+        "JCXX010119"
+      ],
+      "evidence": [
+        "传真电话"
+      ]
+    },
+    {
+      "id": "school_email",
+      "label": "电子信箱",
+      "domain": "School",
+      "range": "string",
+      "description": "学校电子邮件地址",
+      "source_record_ids": [
+        "JCXX010120"
+      ],
+      "evidence": [
+        "电子信箱"
+      ]
+    },
+    {
+      "id": "school_website",
+      "label": "主页地址",
+      "domain": "School",
+      "range": "string",
+      "description": "学校主页地址",
+      "source_record_ids": [
+        "JCXX010121"
+      ],
+      "evidence": [
+        "主页地址"
+      ]
+    },
+    {
+      "id": "school_history",
+      "label": "历史沿革",
+      "domain": "School",
+      "range": "string",
+      "description": "指学校发展过程中的重大变化或事件",
+      "source_record_ids": [
+        "JCXX010122"
+      ],
+      "evidence": [
+        "历史沿革 指学校发展过程中的重大变化或事件"
+      ]
+    },
+    {
+      "id": "campus_id",
+      "label": "校区号",
+      "domain": "Campus",
+      "range": "string",
+      "description": "学校自编校区号",
+      "source_record_ids": [
+        "JCXX010201"
+      ],
+      "evidence": [
+        "校区号 学校自编"
+      ]
+    },
+    {
+      "id": "campus_name",
+      "label": "校区名称",
+      "domain": "Campus",
+      "range": "string",
+      "description": "校区名称",
+      "source_record_ids": [
+        "JCXX010202"
+      ],
+      "evidence": [
+        "校区名称"
+      ]
+    },
+    {
+      "id": "campus_address",
+      "label": "校区地址",
+      "domain": "Campus",
+      "range": "string",
+      "description": "校区地址",
+      "source_record_ids": [
+        "JCXX010203"
+      ],
+      "evidence": [
+        "校区地址"
+      ]
+    },
+    {
+      "id": "campus_postal_code",
+      "label": "校区邮政编码",
+      "domain": "Campus",
+      "range": "string",
+      "description": "校区邮政编码",
+      "source_record_ids": [
+        "JCXX010204"
+      ],
+      "evidence": [
+        "校区邮政编码"
+      ]
+    },
+    {
+      "id": "campus_phone",
+      "label": "校区联系电话",
+      "domain": "Campus",
+      "range": "string",
+      "description": "校区联系电话",
+      "source_record_ids": [
+        "JCXX010205"
+      ],
+      "evidence": [
+        "校区联系电话"
+      ]
+    },
+    {
+      "id": "campus_fax",
+      "label": "校区传真电话",
+      "domain": "Campus",
+      "range": "string",
+      "description": "校区传真电话",
+      "source_record_ids": [
+        "JCXX010206"
+      ],
+      "evidence": [
+        "校区传真电话"
+      ]
+    },
+    {
+      "id": "campus_head_id",
+      "label": "校区负责人号",
+      "domain": "Campus",
+      "range": "string",
+      "description": "校区负责人的工号",
+      "source_record_ids": [
+        "JCXX010207"
+      ],
+      "evidence": [
+        "校区负责人号 校区负责人的工号"
+      ]
+    },
+    {
+      "id": "class_id",
+      "label": "班号",
+      "domain": "Class",
+      "range": "string",
+      "description": "学校自编班号",
+      "source_record_ids": [
+        "JCXX020001"
+      ],
+      "evidence": [
+        "班号 学校自编"
+      ]
+    },
+    {
+      "id": "class_name",
+      "label": "班级名称",
+      "domain": "Class",
+      "range": "string",
+      "description": "学校自编班级名称",
+      "source_record_ids": [
+        "JCXX020002"
+      ],
+      "evidence": [
+        "班级名称 学校自编"
+      ]
+    },
+    {
+      "id": "class_founding_date",
+      "label": "建班年月",
+      "domain": "Class",
+      "range": "string",
+      "description": "建班年月",
+      "source_record_ids": [
+        "JCXX020003"
+      ],
+      "evidence": [
+        "建班年月"
+      ]
+    },
+    {
+      "id": "class_grade",
+      "label": "所属年级",
+      "domain": "Class",
+      "range": "string",
+      "description": "所属年级",
+      "source_record_ids": [
+        "JCXX020004"
+      ],
+      "evidence": [
+        "所属年级"
+      ]
+    },
+    {
+      "id": "head_teacher_id",
+      "label": "班主任工号",
+      "domain": "Class",
+      "range": "string",
+      "description": "班主任工号",
+      "source_record_ids": [
+        "JCXX020005"
+      ],
+      "evidence": [
+        "班主任工号"
+      ]
+    },
+    {
+      "id": "monitor_student_id",
+      "label": "班长学号",
+      "domain": "Class",
+      "range": "string",
+      "description": "班长学号",
+      "source_record_ids": [
+        "JCXX020006"
+      ],
+      "evidence": [
+        "班长学号"
+      ]
+    },
+    {
+      "id": "abnormal_category_code",
+      "label": "异常类别码",
+      "domain": "AbnormalRecord",
+      "range": "string",
+      "description": "异常类别码",
+      "source_record_ids": [
+        "JCTB020405"
+      ],
+      "evidence": [
+        "异常类别码"
+      ]
+    },
+    {
+      "id": "abnormal_reason",
+      "label": "异常原因",
+      "domain": "AbnormalRecord",
+      "range": "string",
+      "description": "异常的原因说明",
+      "source_record_ids": [
+        "JCTB020406"
+      ],
+      "evidence": [
+        "异常原因 异常的原因说明"
+      ]
+    },
+    {
+      "id": "abnormal_date",
+      "label": "异常日期",
+      "domain": "AbnormalRecord",
+      "range": "string",
+      "description": "异常日期",
+      "source_record_ids": [
+        "JCTB020407"
+      ],
+      "evidence": [
+        "异常日期"
+      ]
+    },
+    {
+      "id": "transfer_in_date",
+      "label": "转入日期",
+      "domain": "TransferRecord",
+      "range": "string",
+      "description": "转入日期",
+      "source_record_ids": [
+        "JCTB020408"
+      ],
+      "evidence": [
+        "转入日期"
+      ]
+    },
+    {
+      "id": "transfer_in_prev_unit",
+      "label": "转入前单位",
+      "domain": "TransferRecord",
+      "range": "string",
+      "description": "转入前单位",
+      "source_record_ids": [
+        "JCTB020409"
+      ],
+      "evidence": [
+        "转入前单位"
+      ]
+    },
+    {
+      "id": "transfer_out_date",
+      "label": "转出日期",
+      "domain": "TransferRecord",
+      "range": "string",
+      "description": "转出日期",
+      "source_record_ids": [
+        "JCTB020410"
+      ],
+      "evidence": [
+        "转出日期"
+      ]
+    },
+    {
+      "id": "transfer_out_unit",
+      "label": "转出单位",
+      "domain": "TransferRecord",
+      "range": "string",
+      "description": "转出后到的单位名称",
+      "source_record_ids": [
+        "JCTB020411"
+      ],
+      "evidence": [
+        "转出单位 转出后到的单位名称"
+      ]
+    },
+    {
+      "id": "enrollment_date",
+      "label": "入学年月",
+      "domain": "AcademicRecord",
+      "range": "string",
+      "description": "入学年月",
+      "source_record_ids": [
+        "JCTB020501"
+      ],
+      "evidence": [
+        "入学年月"
+      ]
+    },
+    {
+      "id": "study_method_code",
+      "label": "学习方式码",
+      "domain": "AcademicRecord",
+      "range": "string",
+      "description": "学习方式码",
+      "source_record_ids": [
+        "JCTB020502"
+      ],
+      "evidence": [
+        "学习方式码"
+      ]
+    },
+    {
+      "id": "study_form_code",
+      "label": "学习形式码",
+      "domain": "AcademicRecord",
+      "range": "string",
+      "description": "学习形式码",
+      "source_record_ids": [
+        "JCTB020503"
+      ],
+      "evidence": [
+        "学习形式码"
+      ]
+    },
+    {
+      "id": "education_level_code",
+      "label": "学历码",
+      "domain": "AcademicRecord",
+      "range": "string",
+      "description": "学历码",
+      "source_record_ids": [
+        "JCTB020504"
+      ],
+      "evidence": [
+        "学历码"
+      ]
+    },
+    {
+      "id": "major_code",
+      "label": "所学专业码",
+      "domain": "AcademicRecord",
+      "range": "string",
+      "description": "取得学历所学习的专业码",
+      "source_record_ids": [
+        "JCTB020505"
+      ],
+      "evidence": [
+        "所学专业码 取得学历所学习的专业码"
+      ]
+    },
+    {
+      "id": "graduation_date",
+      "label": "结束学业年月",
+      "domain": "AcademicRecord",
+      "range": "string",
+      "description": "结束学业年月",
+      "source_record_ids": [
+        "JCTB020506"
+      ],
+      "evidence": [
+        "结束学业年月"
+      ]
+    },
+    {
+      "id": "graduation_school",
+      "label": "毕肄业学校或单位",
+      "domain": "AcademicRecord",
+      "range": "string",
+      "description": "从事学历教育并获得证书的毕肄业学校或科研单位名称",
+      "source_record_ids": [
+        "JCTB020507"
+      ],
+      "evidence": [
+        "毕肄业学校或单位 从事学历教育并获得证书的毕肄业学校或科研单位名称"
+      ]
+    },
+    {
+      "id": "education_cert_no",
+      "label": "学历证书号",
+      "domain": "AcademicRecord",
+      "range": "string",
+      "description": "学历证书号",
+      "source_record_ids": [
+        "JCTB020508"
+      ],
+      "evidence": [
+        "学历证书号"
+      ]
+    },
+    {
+      "id": "degree_code",
+      "label": "获得学位码",
+      "domain": "DegreeRecord",
+      "range": "string",
+      "description": "获得学位码",
+      "source_record_ids": [
+        "JCTB020509"
+      ],
+      "evidence": [
+        "获得学位码"
+      ]
+    },
+    {
+      "id": "degree_granting_unit",
+      "label": "授学位单位名称",
+      "domain": "DegreeRecord",
+      "range": "string",
+      "description": "颁发学位证书的单位名称",
+      "source_record_ids": [
+        "JCTB020510"
+      ],
+      "evidence": [
+        "授学位单位名称 颁发学位证书的单位名称"
+      ]
+    },
+    {
+      "id": "degree_country_code",
+      "label": "授学位国家/地区码",
+      "domain": "DegreeRecord",
+      "range": "string",
+      "description": "授学位国家/地区码",
+      "source_record_ids": [
+        "JCTB020511"
+      ],
+      "evidence": [
+        "授学位国家/地区码"
+      ]
+    },
+    {
+      "id": "degree_major_code",
+      "label": "获学位专业码",
+      "domain": "DegreeRecord",
+      "range": "string",
+      "description": "取得学历所学习的专业码",
+      "source_record_ids": [
+        "JCTB020512"
+      ],
+      "evidence": [
+        "获学位专业码 取得学历所学习的专业码"
+      ]
+    },
+    {
+      "id": "degree_date",
+      "label": "获学位日期",
+      "domain": "DegreeRecord",
+      "range": "string",
+      "description": "以学位证书的签发日期为准",
+      "source_record_ids": [
+        "JCTB020513"
+      ],
+      "evidence": [
+        "获学位日期 以学位证书的签发日期为准"
+      ]
+    },
+    {
+      "id": "degree_cert_no",
+      "label": "学位证书号",
+      "domain": "DegreeRecord",
+      "range": "string",
+      "description": "学位证书号",
+      "source_record_ids": [
+        "JCTB020514"
+      ],
+      "evidence": [
+        "学位证书号"
+      ]
+    },
+    {
+      "id": "home_address",
+      "label": "家庭住址",
+      "domain": "ContactInfo",
+      "range": "string",
+      "description": "家庭住址",
+      "source_record_ids": [
+        "JCTB020601"
+      ],
+      "evidence": [
+        "家庭住址"
+      ]
+    },
+    {
+      "id": "home_postal_code",
+      "label": "家庭邮政编码",
+      "domain": "ContactInfo",
+      "range": "string",
+      "description": "家庭邮政编码",
+      "source_record_ids": [
+        "JCTB020602"
+      ],
+      "evidence": [
+        "家庭邮政编码"
+      ]
+    },
+    {
+      "id": "home_phone",
+      "label": "家庭电话",
+      "domain": "ContactInfo",
+      "range": "string",
+      "description": "家庭电话",
+      "source_record_ids": [
+        "JCTB020603"
+      ],
+      "evidence": [
+        "家庭电话"
+      ]
+    },
+    {
+      "id": "home_email",
+      "label": "家庭电子信箱",
+      "domain": "ContactInfo",
+      "range": "string",
+      "description": "家庭电子信箱",
+      "source_record_ids": [
+        "JCTB020604"
+      ],
+      "evidence": [
+        "家庭电子信箱"
+      ]
+    },
+    {
+      "id": "relationship_code",
+      "label": "关系码",
+      "domain": "FamilyMember",
+      "range": "string",
+      "description": "关系码",
+      "source_record_ids": [
+        "JCTB020701"
+      ],
+      "evidence": [
+        "关系码"
+      ]
+    },
+    {
+      "id": "family_member_name",
+      "label": "成员姓名",
+      "domain": "FamilyMember",
+      "range": "string",
+      "description": "成员姓名",
+      "source_record_ids": [
+        "JCTB020702"
+      ],
+      "evidence": [
+        "成员姓名"
+      ]
+    },
+    {
+      "id": "family_member_birth_date",
+      "label": "出生年月",
+      "domain": "FamilyMember",
+      "range": "string",
+      "description": "出生年月",
+      "source_record_ids": [
+        "JCTB020703"
+      ],
+      "evidence": [
+        "出生年月"
+      ]
+    },
+    {
+      "id": "family_member_work_unit",
+      "label": "成员工作单位",
+      "domain": "FamilyMember",
+      "range": "string",
+      "description": "家庭成员工作的单位名称",
+      "source_record_ids": [
+        "JCTB020704"
+      ],
+      "evidence": [
+        "成员工作单位 家庭成员工作的单位名称"
+      ]
+    },
+    {
+      "id": "family_member_occupation_code",
+      "label": "从业码",
+      "domain": "FamilyMember",
+      "range": "string",
+      "description": "从业码",
+      "source_record_ids": [
+        "JCTB020705"
+      ],
+      "evidence": [
+        "从业码"
+      ]
+    },
+    {
+      "id": "family_member_tech_title_code",
+      "label": "专业技术职务码",
+      "domain": "FamilyMember",
+      "range": "string",
+      "description": "专业技术职务码",
+      "source_record_ids": [
+        "JCTB020706"
+      ],
+      "evidence": [
+        "专业技术职务码"
+      ]
+    },
+    {
+      "id": "family_member_position_level_code",
+      "label": "职务级别码",
+      "domain": "FamilyMember",
+      "range": "string",
+      "description": "职务级别码",
+      "source_record_ids": [
+        "JCTB020707"
+      ],
+      "evidence": [
+        "职务级别码"
+      ]
+    },
+    {
+      "id": "contact_person_name",
+      "label": "联系人姓名",
+      "domain": "ContactInfo",
+      "range": "string",
+      "description": "联系人姓名",
+      "source_record_ids": [
+        "JCTB020801"
+      ],
+      "evidence": [
+        "联系人姓名"
+      ]
+    },
+    {
+      "id": "family_population",
+      "label": "家庭人口",
+      "domain": "FamilyEconomy",
+      "range": "string",
+      "description": "指本人家庭户口人口数",
+      "source_record_ids": [
+        "JCTB020901"
+      ],
+      "evidence": [
+        "家庭人口 指本人家庭户口人口数"
+      ]
+    },
+    {
+      "id": "dependent_population",
+      "label": "赡养人口",
+      "domain": "FamilyEconomy",
+      "range": "string",
+      "description": "指本人(家庭)经济上负担赡养的人口数",
+      "source_record_ids": [
+        "JCTB020902"
+      ],
+      "evidence": [
+        "赡养人口 指本人(家庭)经济上负担赡养的人口数"
+      ]
+    },
+    {
+      "id": "labor_population",
+      "label": "劳动力人口",
+      "domain": "FamilyEconomy",
+      "range": "string",
+      "description": "指家庭劳动力人口数",
+      "source_record_ids": [
+        "JCTB020903"
+      ],
+      "evidence": [
+        "劳动力人口 指家庭劳动力人口数"
+      ]
+    },
+    {
+      "id": "family_per_capita_monthly_income",
+      "label": "家庭人均月收入",
+      "domain": "FamilyEconomy",
+      "range": "string",
+      "description": "家庭月均人收入",
+      "source_record_ids": [
+        "JCTB020904"
+      ],
+      "evidence": [
+        "家庭人均月收入 家庭月均人收入"
+      ]
+    },
+    {
+      "id": "family_main_income_source",
+      "label": "家庭主要收入来源",
+      "domain": "FamilyEconomy",
+      "range": "string",
+      "description": "家庭主要收入来源",
+      "source_record_ids": [
+        "JCTB020905"
+      ],
+      "evidence": [
+        "家庭主要收入来源"
+      ]
+    },
+    {
+      "id": "family_category_code",
+      "label": "家庭类别码",
+      "domain": "FamilyEconomy",
+      "range": "string",
+      "description": "家庭类别码",
+      "source_record_ids": [
+        "JCTB020906"
+      ],
+      "evidence": [
+        "家庭类别码"
+      ]
+    },
+    {
+      "id": "difficulty_reason_code",
+      "label": "困难原因码",
+      "domain": "DifficultyRecord",
+      "range": "string",
+      "description": "困难原因码",
+      "source_record_ids": [
+        "JCTB020907"
+      ],
+      "evidence": [
+        "困难原因码"
+      ]
+    },
+    {
+      "id": "difficulty_level_code",
+      "label": "困难程度码",
+      "domain": "DifficultyRecord",
+      "range": "string",
+      "description": "困难程度码",
+      "source_record_ids": [
+        "JCTB020908"
+      ],
+      "evidence": [
+        "困难程度码"
+      ]
+    },
+    {
+      "id": "is_low_income",
+      "label": "是否低保",
+      "domain": "DifficultyRecord",
+      "range": "string",
+      "description": "是否低保",
+      "source_record_ids": [
+        "JCTB020909"
+      ],
+      "evidence": [
+        "是否低保"
+      ]
+    },
+    {
+      "id": "pre_enrollment_hukou_code",
+      "label": "入学前户口类别码",
+      "domain": "Student",
+      "range": "string",
+      "description": "入学前户口类别码",
+      "source_record_ids": [
+        "JCTB020910"
+      ],
+      "evidence": [
+        "入学前户口类别码"
+      ]
+    },
+    {
+      "id": "low_income_line",
+      "label": "就学地低保线",
+      "domain": "DifficultyRecord",
+      "range": "string",
+      "description": "单位：元/月",
+      "source_record_ids": [
+        "JCTB020911"
+      ],
+      "evidence": [
+        "就学地低保线 单位：元/月"
+      ]
+    }
+  ],
+  "object_properties": [
+    {
+      "id": "enrolled_in_school",
+      "label": "就读于",
+      "domain": "Student",
+      "range": "School",
+      "description": "学生就读的学校",
+      "source_record_ids": [
+        "JCXS010101",
+        "JCXX010101"
+      ],
+      "evidence": [
+        "学号 学校自编",
+        "学校代码"
+      ]
+    },
+    {
+      "id": "has_campus",
+      "label": "拥有校区",
+      "domain": "School",
+      "range": "Campus",
+      "description": "学校拥有的校区",
+      "source_record_ids": [
+        "JCXX010101",
+        "JCXX010201"
+      ],
+      "evidence": [
+        "学校代码",
+        "校区号"
+      ]
+    },
+    {
+      "id": "belongs_to_class",
+      "label": "属于班级",
+      "domain": "Student",
+      "range": "Class",
+      "description": "学生所属的班级",
+      "source_record_ids": [
+        "JCXS010101",
+        "JCXX020001"
+      ],
+      "evidence": [
+        "学号 学校自编",
+        "班号 学校自编"
+      ]
+    },
+    {
+      "id": "has_academic_record",
+      "label": "有学业记录",
+      "domain": "Student",
+      "range": "AcademicRecord",
+      "description": "学生的学业记录",
+      "source_record_ids": [
+        "JCXS010101",
+        "JCTB020501"
+      ],
+      "evidence": [
+        "学号 学校自编",
+        "入学年月"
+      ]
+    },
+    {
+      "id": "has_abnormal_record",
+      "label": "有异常记录",
+      "domain": "Student",
+      "range": "AbnormalRecord",
+      "description": "学生的异常记录",
+      "source_record_ids": [
+        "JCXS010101",
+        "JCTB020405"
+      ],
+      "evidence": [
+        "学号 学校自编",
+        "异常类别码"
+      ]
+    },
+    {
+      "id": "has_transfer_record",
+      "label": "有转学记录",
+      "domain": "Student",
+      "range": "TransferRecord",
+      "description": "学生的转学记录",
+      "source_record_ids": [
+        "JCXS010101",
+        "JCTB020408"
+      ],
+      "evidence": [
+        "学号 学校自编",
+        "转入日期"
+      ]
+    },
+    {
+      "id": "has_degree_record",
+      "label": "有学位记录",
+      "domain": "Student",
+      "range": "DegreeRecord",
+      "description": "学生的学位记录",
+      "source_record_ids": [
+        "JCXS010101",
+        "JCTB020509"
+      ],
+      "evidence": [
+        "学号 学校自编",
+        "获得学位码"
+      ]
+    },
+    {
+      "id": "has_contact_info",
+      "label": "有联系信息",
+      "domain": "Student",
+      "range": "ContactInfo",
+      "description": "学生的联系信息",
+      "source_record_ids": [
+        "JCXS010101",
+        "JCTB020601"
+      ],
+      "evidence": [
+        "学号 学校自编",
+        "家庭住址"
+      ]
+    },
+    {
+      "id": "has_family_member",
+      "label": "有家庭成员",
+      "domain": "Student",
+      "range": "FamilyMember",
+      "description": "学生的家庭成员",
+      "source_record_ids": [
+        "JCXS010101",
+        "JCTB020702"
+      ],
+      "evidence": [
+        "学号 学校自编",
+        "成员姓名"
+      ]
+    },
+    {
+      "id": "has_family_economy",
+      "label": "有家庭经济信息",
+      "domain": "Student",
+      "range": "FamilyEconomy",
+      "description": "学生的家庭经济信息",
+      "source_record_ids": [
+        "JCXS010101",
+        "JCTB020901"
+      ],
+      "evidence": [
+        "学号 学校自编",
+        "家庭人口"
+      ]
+    },
+    {
+      "id": "has_difficulty_record",
+      "label": "有困难记录",
+      "domain": "Student",
+      "range": "DifficultyRecord",
+      "description": "学生的困难记录",
+      "source_record_ids": [
+        "JCXS010101",
+        "JCTB020907"
+      ],
+      "evidence": [
+        "学号 学校自编",
+        "困难原因码"
+      ]
+    },
+    {
+      "id": "managed_by_head_teacher",
+      "label": "班主任管理",
+      "domain": "Class",
+      "range": "Student",
+      "description": "班级由班主任管理",
+      "source_record_ids": [
+        "JCXX020005"
+      ],
+      "evidence": [
+        "班主任工号"
+      ]
+    },
+    {
+      "id": "has_monitor",
+      "label": "有班长",
+      "domain": "Class",
+      "range": "Student",
+      "description": "班级有班长",
+      "source_record_ids": [
+        "JCXX020006"
+      ],
+      "evidence": [
+        "班长学号"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "subject": "Student",
+      "predicate": "enrolled_in_school",
+      "object": "School",
+      "source_record_ids": [
+        "JCXS010101",
+        "JCXX010101"
+      ],
+      "evidence": [
+        "学号 学校自编",
+        "学校代码"
+      ]
+    },
+    {
+      "subject": "School",
+      "predicate": "has_campus",
+      "object": "Campus",
+      "source_record_ids": [
+        "JCXX010101",
+        "JCXX010201"
+      ],
+      "evidence": [
+        "学校代码",
+        "校区号"
+      ]
+    },
+    {
+      "subject": "Student",
+      "predicate": "belongs_to_class",
+      "object": "Class",
+      "source_record_ids": [
+        "JCXS010101",
+        "JCXX020001"
+      ],
+      "evidence": [
+        "学号 学校自编",
+        "班号 学校自编"
+      ]
+    },
+    {
+      "subject": "Student",
+      "predicate": "has_academic_record",
+      "object": "AcademicRecord",
+      "source_record_ids": [
+        "JCXS010101",
+        "JCTB020501"
+      ],
+      "evidence": [
+        "学号 学校自编",
+        "入学年月"
+      ]
+    },
+    {
+      "subject": "Student",
+      "predicate": "has_abnormal_record",
+      "object": "AbnormalRecord",
+      "source_record_ids": [
+        "JCXS010101",
+        "JCTB020405"
+      ],
+      "evidence": [
+        "学号 学校自编",
+        "异常类别码"
+      ]
+    },
+    {
+      "subject": "Student",
+      "predicate": "has_transfer_record",
+      "object": "TransferRecord",
+      "source_record_ids": [
+        "JCXS010101",
+        "JCTB020408"
+      ],
+      "evidence": [
+        "学号 学校自编",
+        "转入日期"
+      ]
+    },
+    {
+      "subject": "Student",
+      "predicate": "has_degree_record",
+      "object": "DegreeRecord",
+      "source_record_ids": [
+        "JCXS010101",
+        "JCTB020509"
+      ],
+      "evidence": [
+        "学号 学校自编",
+        "获得学位码"
+      ]
+    },
+    {
+      "subject": "Student",
+      "predicate": "has_contact_info",
+      "object": "ContactInfo",
+      "source_record_ids": [
+        "JCXS010101",
+        "JCTB020601"
+      ],
+      "evidence": [
+        "学号 学校自编",
+        "家庭住址"
+      ]
+    },
+    {
+      "subject": "Student",
+      "predicate": "has_family_member",
+      "object": "FamilyMember",
+      "source_record_ids": [
+        "JCXS010101",
+        "JCTB020702"
+      ],
+      "evidence": [
+        "学号 学校自编",
+        "成员姓名"
+      ]
+    },
+    {
+      "subject": "Student",
+      "predicate": "has_family_economy",
+      "object": "FamilyEconomy",
+      "source_record_ids": [
+        "JCXS010101",
+        "JCTB020901"
+      ],
+      "evidence": [
+        "学号 学校自编",
+        "家庭人口"
+      ]
+    },
+    {
+      "subject": "Student",
+      "predicate": "has_difficulty_record",
+      "object": "DifficultyRecord",
+      "source_record_ids": [
+        "JCXS010101",
+        "JCTB020907"
+      ],
+      "evidence": [
+        "学号 学校自编",
+        "困难原因码"
+      ]
+    },
+    {
+      "subject": "Class",
+      "predicate": "managed_by_head_teacher",
+      "object": "Student",
+      "source_record_ids": [
+        "JCXX020005"
+      ],
+      "evidence": [
+        "班主任工号"
+      ]
+    },
+    {
+      "subject": "Class",
+      "predicate": "has_monitor",
+      "object": "Student",
+      "source_record_ids": [
+        "JCXX020006"
+      ],
+      "evidence": [
+        "班长学号"
+      ]
+    }
+  ],
+  "class_hierarchy": [
+    {
+      "parent": "School",
+      "child": "Campus",
+      "evidence": [
+        "学校代码",
+        "校区号"
+      ]
+    },
+    {
+      "parent": "Student",
+      "child": "AcademicRecord",
+      "evidence": [
+        "学号 学校自编",
+        "入学年月"
+      ]
+    },
+    {
+      "parent": "Student",
+      "child": "AbnormalRecord",
+      "evidence": [
+        "学号 学校自编",
+        "异常类别码"
+      ]
+    },
+    {
+      "parent": "Student",
+      "child": "TransferRecord",
+      "evidence": [
+        "学号 学校自编",
+        "转入日期"
+      ]
+    },
+    {
+      "parent": "Student",
+      "child": "DegreeRecord",
+      "evidence": [
+        "学号 学校自编",
+        "获得学位码"
+      ]
+    },
+    {
+      "parent": "Student",
+      "child": "ContactInfo",
+      "evidence": [
+        "学号 学校自编",
+        "家庭住址"
+      ]
+    },
+    {
+      "parent": "Student",
+      "child": "FamilyMember",
+      "evidence": [
+        "学号 学校自编",
+        "成员姓名"
+      ]
+    },
+    {
+      "parent": "Student",
+      "child": "FamilyEconomy",
+      "evidence": [
+        "学号 学校自编",
+        "家庭人口"
+      ]
+    },
+    {
+      "parent": "Student",
+      "child": "DifficultyRecord",
+      "evidence": [
+        "学号 学校自编",
+        "困难原因码"
+      ]
+    }
+  ]
+}

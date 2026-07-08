@@ -1,0 +1,506 @@
+{
+  "classes": [
+    {
+      "id": "Land",
+      "label": "Land",
+      "description": "A piece of land associated with an educational institution.",
+      "source_record_ids": [
+        "JCBX020106",
+        "JCBX020107"
+      ],
+      "evidence": [
+        "用地地址 (Land Address)",
+        "土地证号 (Land Certificate Number)"
+      ]
+    },
+    {
+      "id": "Building",
+      "label": "Building",
+      "description": "A structure or building on the land.",
+      "source_record_ids": [
+        "JCBX020201",
+        "JCBX020202",
+        "JCBX020215"
+      ],
+      "evidence": [
+        "建筑物号 (Building Number)",
+        "建筑物名称 (Building Name)",
+        "建筑物地址 (Building Address)"
+      ]
+    },
+    {
+      "id": "Room",
+      "label": "Room",
+      "description": "A room within a building.",
+      "source_record_ids": [
+        "JCBX020301",
+        "JCBX020302"
+      ],
+      "evidence": [
+        "房间号 (Room Number)",
+        "房间名称 (Room Name)"
+      ]
+    },
+    {
+      "id": "BuildingRenovation",
+      "label": "Building Renovation",
+      "description": "A renovation event for a building.",
+      "source_record_ids": [
+        "JCBX020401"
+      ],
+      "evidence": [
+        "修缮开始日期 (Renovation Start Date)"
+      ]
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "landAddress",
+      "label": "Land Address",
+      "domain": "Land",
+      "range": "string",
+      "description": "The address of the land.",
+      "source_record_ids": [
+        "JCBX020106"
+      ],
+      "evidence": [
+        "用地地址"
+      ]
+    },
+    {
+      "id": "landCertificateNumber",
+      "label": "Land Certificate Number",
+      "domain": "Land",
+      "range": "string",
+      "description": "The certificate number for the land.",
+      "source_record_ids": [
+        "JCBX020107"
+      ],
+      "evidence": [
+        "土地证号"
+      ]
+    },
+    {
+      "id": "buildingNumber",
+      "label": "Building Number",
+      "domain": "Building",
+      "range": "string",
+      "description": "School-assigned building number.",
+      "source_record_ids": [
+        "JCBX020201"
+      ],
+      "evidence": [
+        "建筑物号 (学校自编)"
+      ]
+    },
+    {
+      "id": "buildingName",
+      "label": "Building Name",
+      "domain": "Building",
+      "range": "string",
+      "description": "The Chinese name of the building.",
+      "source_record_ids": [
+        "JCBX020202"
+      ],
+      "evidence": [
+        "建筑物名称"
+      ]
+    },
+    {
+      "id": "propertyRightCode",
+      "label": "Property Right Code",
+      "domain": "Building",
+      "range": "string",
+      "description": "Code for property rights of the building.",
+      "source_record_ids": [
+        "JCBX020203"
+      ],
+      "evidence": [
+        "房屋产权码"
+      ]
+    },
+    {
+      "id": "usageStatusCode",
+      "label": "Usage Status Code",
+      "domain": "Building",
+      "range": "string",
+      "description": "Code for usage status of the building.",
+      "source_record_ids": [
+        "JCBX020204"
+      ],
+      "evidence": [
+        "使用状况码"
+      ]
+    },
+    {
+      "id": "buildingCategoryCode",
+      "label": "Building Category Code",
+      "domain": "Building",
+      "range": "string",
+      "description": "Code for building category.",
+      "source_record_ids": [
+        "JCBX020205"
+      ],
+      "evidence": [
+        "建筑物分类码"
+      ]
+    },
+    {
+      "id": "buildingStructureCode",
+      "label": "Building Structure Code",
+      "domain": "Building",
+      "range": "string",
+      "description": "Code for building structure.",
+      "source_record_ids": [
+        "JCBX020206"
+      ],
+      "evidence": [
+        "建筑物结构码"
+      ]
+    },
+    {
+      "id": "numberOfFloors",
+      "label": "Number of Floors",
+      "domain": "Building",
+      "range": "integer",
+      "description": "Number of floors including basement, unit: floor.",
+      "source_record_ids": [
+        "JCBX020207"
+      ],
+      "evidence": [
+        "建筑物层数 (含地下室，单位：层)"
+      ]
+    },
+    {
+      "id": "completionDate",
+      "label": "Completion Date",
+      "domain": "Building",
+      "range": "date",
+      "description": "Date the building was completed.",
+      "source_record_ids": [
+        "JCBX020208"
+      ],
+      "evidence": [
+        "建成年月"
+      ]
+    },
+    {
+      "id": "totalInvestment",
+      "label": "Total Investment",
+      "domain": "Building",
+      "range": "decimal",
+      "description": "Total investment in the building, unit: Yuan.",
+      "source_record_ids": [
+        "JCBX020209"
+      ],
+      "evidence": [
+        "建筑物投资总额 (单位：元)"
+      ]
+    },
+    {
+      "id": "fundingSourceCode",
+      "label": "Funding Source Code",
+      "domain": "Building",
+      "range": "string",
+      "description": "Code for the source of funding.",
+      "source_record_ids": [
+        "JCBX020210"
+      ],
+      "evidence": [
+        "经费来源码"
+      ]
+    },
+    {
+      "id": "totalFloorArea",
+      "label": "Total Floor Area",
+      "domain": "Building",
+      "range": "decimal",
+      "description": "Total floor area, unit: square meters.",
+      "source_record_ids": [
+        "JCBX020211"
+      ],
+      "evidence": [
+        "总建筑面积 (单位：平方米)"
+      ]
+    },
+    {
+      "id": "totalUsableArea",
+      "label": "Total Usable Area",
+      "domain": "Building",
+      "range": "decimal",
+      "description": "Total usable area, unit: square meters.",
+      "source_record_ids": [
+        "JCBX020212"
+      ],
+      "evidence": [
+        "总使用面积 (单位：平方米)"
+      ]
+    },
+    {
+      "id": "seismicFortificationIntensityCode",
+      "label": "Seismic Fortification Intensity Code",
+      "domain": "Building",
+      "range": "string",
+      "description": "Code for seismic fortification intensity.",
+      "source_record_ids": [
+        "JCBX020213"
+      ],
+      "evidence": [
+        "抗震设防烈度码"
+      ]
+    },
+    {
+      "id": "seismicFortificationStandardCode",
+      "label": "Seismic Fortification Standard Code",
+      "domain": "Building",
+      "range": "string",
+      "description": "Code for seismic fortification standard.",
+      "source_record_ids": [
+        "JCBX020214"
+      ],
+      "evidence": [
+        "抗震设防标准码"
+      ]
+    },
+    {
+      "id": "buildingAddress",
+      "label": "Building Address",
+      "domain": "Building",
+      "range": "string",
+      "description": "Detailed address of the building.",
+      "source_record_ids": [
+        "JCBX020215"
+      ],
+      "evidence": [
+        "建筑物地址"
+      ]
+    },
+    {
+      "id": "buildingConditionCode",
+      "label": "Building Condition Code",
+      "domain": "Building",
+      "range": "string",
+      "description": "Code for building condition.",
+      "source_record_ids": [
+        "JCBX020216"
+      ],
+      "evidence": [
+        "建筑物状况码"
+      ]
+    },
+    {
+      "id": "buildingPhoto",
+      "label": "Building Photo",
+      "domain": "Building",
+      "range": "binary",
+      "description": "Photo of the building.",
+      "source_record_ids": [
+        "JCBX020217"
+      ],
+      "evidence": [
+        "建筑物图片"
+      ]
+    },
+    {
+      "id": "buildingFloorPlan",
+      "label": "Building Floor Plan",
+      "domain": "Building",
+      "range": "binary",
+      "description": "Architectural floor plan of the building.",
+      "source_record_ids": [
+        "JCBX020218"
+      ],
+      "evidence": [
+        "建筑物平面图"
+      ]
+    },
+    {
+      "id": "ownershipCertificateNumber",
+      "label": "Ownership Certificate Number",
+      "domain": "Building",
+      "range": "string",
+      "description": "Ownership certificate number.",
+      "source_record_ids": [
+        "JCBX020219"
+      ],
+      "evidence": [
+        "权属证号"
+      ]
+    },
+    {
+      "id": "buildingFootprintArea",
+      "label": "Building Footprint Area",
+      "domain": "Building",
+      "range": "decimal",
+      "description": "Area the building occupies, unit: square meters.",
+      "source_record_ids": [
+        "JCBX020220"
+      ],
+      "evidence": [
+        "建筑物占地面积 (单位：平方米)"
+      ]
+    },
+    {
+      "id": "designServiceLife",
+      "label": "Design Service Life",
+      "domain": "Building",
+      "range": "integer",
+      "description": "Design service life, unit: years.",
+      "source_record_ids": [
+        "JCBX020221"
+      ],
+      "evidence": [
+        "设计使用年限 (单位：年)"
+      ]
+    },
+    {
+      "id": "roomNumber",
+      "label": "Room Number",
+      "domain": "Room",
+      "range": "string",
+      "description": "School-assigned room number. Suggested first 6 digits are building number, last 6 are room number within building.",
+      "source_record_ids": [
+        "JCBX020301"
+      ],
+      "evidence": [
+        "房间号 (学校自编，建议前6位为建筑物编号，后6位为房间在该建筑物内的编号)"
+      ]
+    },
+    {
+      "id": "roomName",
+      "label": "Room Name",
+      "domain": "Room",
+      "range": "string",
+      "description": "Chinese name of the room.",
+      "source_record_ids": [
+        "JCBX020302"
+      ],
+      "evidence": [
+        "房间名称"
+      ]
+    },
+    {
+      "id": "roomUsageCode",
+      "label": "Room Usage Code",
+      "domain": "Room",
+      "range": "string",
+      "description": "Code for room usage.",
+      "source_record_ids": [
+        "JCBX020303"
+      ],
+      "evidence": [
+        "房间用途码"
+      ]
+    },
+    {
+      "id": "roomFloor",
+      "label": "Room Floor",
+      "domain": "Room",
+      "range": "string",
+      "description": "Floor where the room is located. Above ground uses Arabic numerals, below ground adds 'B' prefix.",
+      "source_record_ids": [
+        "JCBX020304"
+      ],
+      "evidence": [
+        "房间楼层 (指房间所在的楼层，地上楼层直接用阿拉伯数字表示，地下楼层在阿拉伯数字前加“B”)"
+      ]
+    },
+    {
+      "id": "roomFloorArea",
+      "label": "Room Floor Area",
+      "domain": "Room",
+      "range": "decimal",
+      "description": "Floor area of the room, unit: square meters.",
+      "source_record_ids": [
+        "JCBX020305"
+      ],
+      "evidence": [
+        "房间建筑面积 (单位：平方米)"
+      ]
+    },
+    {
+      "id": "roomUsableArea",
+      "label": "Room Usable Area",
+      "domain": "Room",
+      "range": "decimal",
+      "description": "Usable area of the room, unit: square meters.",
+      "source_record_ids": [
+        "JCBX020306"
+      ],
+      "evidence": [
+        "房间使用面积 (单位：平方米)"
+      ]
+    },
+    {
+      "id": "renovationStartDate",
+      "label": "Renovation Start Date",
+      "domain": "BuildingRenovation",
+      "range": "date",
+      "description": "Start date of the renovation.",
+      "source_record_ids": [
+        "JCBX020401"
+      ],
+      "evidence": [
+        "修缮开始日期"
+      ]
+    }
+  ],
+  "object_properties": [
+    {
+      "id": "hasBuilding",
+      "label": "has Building",
+      "domain": "Land",
+      "range": "Building",
+      "description": "A land parcel has buildings on it.",
+      "source_record_ids": [
+        "JCBX020106",
+        "JCBX020201"
+      ],
+      "evidence": [
+        "Land Address and Building Number are in the same section"
+      ]
+    },
+    {
+      "id": "hasRoom",
+      "label": "has Room",
+      "domain": "Building",
+      "range": "Room",
+      "description": "A building contains rooms.",
+      "source_record_ids": [
+        "JCBX020201",
+        "JCBX020301"
+      ],
+      "evidence": [
+        "Room number suggests first 6 digits are building number"
+      ]
+    },
+    {
+      "id": "hasRenovation",
+      "label": "has Renovation",
+      "domain": "Building",
+      "range": "BuildingRenovation",
+      "description": "A building has renovation records.",
+      "source_record_ids": [
+        "JCBX020201",
+        "JCBX020401"
+      ],
+      "evidence": [
+        "Building and Renovation are in the same section"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "subject": "Room",
+      "predicate": "hasRoom",
+      "object": "Building",
+      "source_record_ids": [
+        "JCBX020301"
+      ],
+      "evidence": [
+        "房间号 (学校自编，建议前6位为建筑物编号，后6位为房间在该建筑物内的编号)"
+      ]
+    }
+  ],
+  "class_hierarchy": []
+}

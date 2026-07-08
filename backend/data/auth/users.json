@@ -17,6 +17,13 @@
       "username": "czx",
       "password_hash": "5a582f70cb52c0eac8043a967f35d56c93dd489d07dc5b923612e2b6c0108289",
       "password_salt": "9c73efc2a083dceb"
+    },
+    "yanghuihui": {
+      "id": "4",
+      "username": "yanghuihui",
+      "password_hash": "1c8246537386d0e2d7ec637738bc2d8d683738d6177190f4f8a03836e9fe4a0c",
+      "password_salt": "dd72a44bd06724e7",
+      "role": "user"
     }
   }
 }

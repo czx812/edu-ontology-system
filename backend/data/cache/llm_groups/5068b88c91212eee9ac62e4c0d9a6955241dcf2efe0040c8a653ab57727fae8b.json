@@ -1,0 +1,690 @@
+{
+  "classes": [
+    {
+      "id": "EmploymentUnit",
+      "label": "Employment Unit",
+      "description": "An organization or employer providing job positions and related benefits.",
+      "source_record_ids": [
+        "JCXS030211",
+        "JCXS030212",
+        "JCXS030216",
+        "JCXS030218"
+      ],
+      "evidence": [
+        "单位经济性 质码",
+        "单位提供的 待遇",
+        "单位行业码",
+        "用人单位用 人形式码"
+      ]
+    },
+    {
+      "id": "JobPosition",
+      "label": "Job Position",
+      "description": "A specific role or post within an employment unit.",
+      "source_record_ids": [
+        "JCXS030215"
+      ],
+      "evidence": [
+        "工作岗位性 质码"
+      ]
+    },
+    {
+      "id": "GraduatePlacement",
+      "label": "Graduate Placement",
+      "description": "Information regarding the assignment and reporting details of a graduate.",
+      "source_record_ids": [
+        "JCXS030213",
+        "JCXS030214",
+        "JCXS030217",
+        "JCXS030219"
+      ],
+      "evidence": [
+        "档案接收地 址",
+        "接收地邮政 编码",
+        "报到证号",
+        "派遣费"
+      ]
+    },
+    {
+      "id": "Award",
+      "label": "Award",
+      "description": "A recognition or prize given to an individual for a specific achievement.",
+      "source_record_ids": [
+        "JCJG011001",
+        "JCJG011002",
+        "JCJG011003",
+        "JCJG011004",
+        "JCJG011005",
+        "JCJG011006",
+        "JCJG011007",
+        "JCJG011008",
+        "JCJG011009",
+        "JCJG011010",
+        "JCJG011011",
+        "JCJG011012",
+        "JCJG011013"
+      ],
+      "evidence": [
+        "获奖项目",
+        "奖励级别码",
+        "奖励等级码",
+        "获奖类别码",
+        "奖励方式码",
+        "奖励名称",
+        "奖励名称码",
+        "获奖原因",
+        "奖励内容",
+        "颁奖单位",
+        "获奖日期",
+        "荣誉称号码",
+        "获奖角色码"
+      ]
+    },
+    {
+      "id": "DisciplinaryAction",
+      "label": "Disciplinary Action",
+      "description": "A penalty or sanction imposed on an individual by an organization or authority.",
+      "source_record_ids": [
+        "JCJG011101",
+        "JCJG011102",
+        "JCJG011103",
+        "JCJG011104",
+        "JCJG011105",
+        "JCJG011106",
+        "JCJG011107",
+        "JCJG011108"
+      ],
+      "evidence": [
+        "惩处名称",
+        "纪律处分码",
+        "惩处原因",
+        "惩处内容",
+        "惩处单位",
+        "惩处文号",
+        "惩处日期",
+        "惩处撤销日期"
+      ]
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "hasUnitEconomicNatureCode",
+      "label": "Unit Economic Nature Code",
+      "domain": "EmploymentUnit",
+      "range": "string",
+      "description": "Code representing the economic nature of the unit.",
+      "source_record_ids": [
+        "JCXS030211"
+      ],
+      "evidence": [
+        "单位经济性 质码"
+      ]
+    },
+    {
+      "id": "hasUnitProvidedBenefits",
+      "label": "Unit Provided Benefits",
+      "domain": "EmploymentUnit",
+      "range": "string",
+      "description": "Benefits provided by the unit.",
+      "source_record_ids": [
+        "JCXS030212"
+      ],
+      "evidence": [
+        "单位提供的 待遇"
+      ]
+    },
+    {
+      "id": "hasUnitIndustryCode",
+      "label": "Unit Industry Code",
+      "domain": "EmploymentUnit",
+      "range": "string",
+      "description": "Code representing the industry of the unit.",
+      "source_record_ids": [
+        "JCXS030216"
+      ],
+      "evidence": [
+        "单位行业码"
+      ]
+    },
+    {
+      "id": "hasEmployerEmploymentFormCode",
+      "label": "Employer Employment Form Code",
+      "domain": "EmploymentUnit",
+      "range": "string",
+      "description": "Code representing the employment form of the employer.",
+      "source_record_ids": [
+        "JCXS030218"
+      ],
+      "evidence": [
+        "用人单位用 人形式码"
+      ]
+    },
+    {
+      "id": "hasJobPositionNatureCode",
+      "label": "Job Position Nature Code",
+      "domain": "JobPosition",
+      "range": "string",
+      "description": "Code representing the nature of the job position.",
+      "source_record_ids": [
+        "JCXS030215"
+      ],
+      "evidence": [
+        "工作岗位性 质码"
+      ]
+    },
+    {
+      "id": "hasArchiveReceiptAddress",
+      "label": "Archive Receipt Address",
+      "domain": "GraduatePlacement",
+      "range": "string",
+      "description": "Address where the archive is received.",
+      "source_record_ids": [
+        "JCXS030213"
+      ],
+      "evidence": [
+        "档案接收地 址"
+      ]
+    },
+    {
+      "id": "hasReceiptPostalCode",
+      "label": "Receipt Postal Code",
+      "domain": "GraduatePlacement",
+      "range": "string",
+      "description": "Postal code of the receipt location.",
+      "source_record_ids": [
+        "JCXS030214"
+      ],
+      "evidence": [
+        "接收地邮政 编码"
+      ]
+    },
+    {
+      "id": "hasRegistrationCertificateNumber",
+      "label": "Registration Certificate Number",
+      "domain": "GraduatePlacement",
+      "range": "string",
+      "description": "Number of the registration certificate.",
+      "source_record_ids": [
+        "JCXS030217"
+      ],
+      "evidence": [
+        "报到证号"
+      ]
+    },
+    {
+      "id": "hasDispatchFee",
+      "label": "Dispatch Fee",
+      "domain": "GraduatePlacement",
+      "range": "string",
+      "description": "Fee for dispatch.",
+      "source_record_ids": [
+        "JCXS030219"
+      ],
+      "evidence": [
+        "派遣费"
+      ]
+    },
+    {
+      "id": "hasAwardProjectName",
+      "label": "Award Project Name",
+      "domain": "Award",
+      "range": "string",
+      "description": "Name of the project that received the award.",
+      "source_record_ids": [
+        "JCJG011001"
+      ],
+      "evidence": [
+        "获奖项目"
+      ]
+    },
+    {
+      "id": "hasAwardLevelCode",
+      "label": "Award Level Code",
+      "domain": "Award",
+      "range": "string",
+      "description": "Code representing the level of the award.",
+      "source_record_ids": [
+        "JCJG011002"
+      ],
+      "evidence": [
+        "奖励级别码"
+      ]
+    },
+    {
+      "id": "hasAwardGradeCode",
+      "label": "Award Grade Code",
+      "domain": "Award",
+      "range": "string",
+      "description": "Code representing the grade of the award.",
+      "source_record_ids": [
+        "JCJG011003"
+      ],
+      "evidence": [
+        "奖励等级码"
+      ]
+    },
+    {
+      "id": "hasAwardCategoryCode",
+      "label": "Award Category Code",
+      "domain": "Award",
+      "range": "string",
+      "description": "Code representing the category of the award.",
+      "source_record_ids": [
+        "JCJG011004"
+      ],
+      "evidence": [
+        "获奖类别码"
+      ]
+    },
+    {
+      "id": "hasAwardMethodCode",
+      "label": "Award Method Code",
+      "domain": "Award",
+      "range": "string",
+      "description": "Code representing the method of the award.",
+      "source_record_ids": [
+        "JCJG011005"
+      ],
+      "evidence": [
+        "奖励方式码"
+      ]
+    },
+    {
+      "id": "hasAwardName",
+      "label": "Award Name",
+      "domain": "Award",
+      "range": "string",
+      "description": "Name of the award.",
+      "source_record_ids": [
+        "JCJG011006"
+      ],
+      "evidence": [
+        "奖励名称"
+      ]
+    },
+    {
+      "id": "hasAwardNameCode",
+      "label": "Award Name Code",
+      "domain": "Award",
+      "range": "string",
+      "description": "Code representing the name of the award.",
+      "source_record_ids": [
+        "JCJG011007"
+      ],
+      "evidence": [
+        "奖励名称码"
+      ]
+    },
+    {
+      "id": "hasAwardReason",
+      "label": "Award Reason",
+      "domain": "Award",
+      "range": "string",
+      "description": "Reason for receiving the award.",
+      "source_record_ids": [
+        "JCJG011008"
+      ],
+      "evidence": [
+        "获奖原因"
+      ]
+    },
+    {
+      "id": "hasAwardContent",
+      "label": "Award Content",
+      "domain": "Award",
+      "range": "string",
+      "description": "Specific content description of the award.",
+      "source_record_ids": [
+        "JCJG011009"
+      ],
+      "evidence": [
+        "奖励内容"
+      ]
+    },
+    {
+      "id": "hasAwardingUnit",
+      "label": "Awarding Unit",
+      "domain": "Award",
+      "range": "string",
+      "description": "Name of the unit that granted the award.",
+      "source_record_ids": [
+        "JCJG011010"
+      ],
+      "evidence": [
+        "颁奖单位"
+      ]
+    },
+    {
+      "id": "hasAwardDate",
+      "label": "Award Date",
+      "domain": "Award",
+      "range": "string",
+      "description": "Date the award was issued.",
+      "source_record_ids": [
+        "JCJG011011"
+      ],
+      "evidence": [
+        "获奖日期"
+      ]
+    },
+    {
+      "id": "hasHonoraryTitleCode",
+      "label": "Honorary Title Code",
+      "domain": "Award",
+      "range": "string",
+      "description": "Code representing the honorary title.",
+      "source_record_ids": [
+        "JCJG011012"
+      ],
+      "evidence": [
+        "荣誉称号码"
+      ]
+    },
+    {
+      "id": "hasAwardRoleCode",
+      "label": "Award Role Code",
+      "domain": "Award",
+      "range": "string",
+      "description": "Code representing the individual's role in the awarded project.",
+      "source_record_ids": [
+        "JCJG011013"
+      ],
+      "evidence": [
+        "获奖角色码"
+      ]
+    },
+    {
+      "id": "hasDisciplinaryName",
+      "label": "Disciplinary Name",
+      "domain": "DisciplinaryAction",
+      "range": "string",
+      "description": "Name of the disciplinary action.",
+      "source_record_ids": [
+        "JCJG011101"
+      ],
+      "evidence": [
+        "惩处名称"
+      ]
+    },
+    {
+      "id": "hasDisciplinaryCode",
+      "label": "Disciplinary Code",
+      "domain": "DisciplinaryAction",
+      "range": "string",
+      "description": "Code representing the disciplinary action.",
+      "source_record_ids": [
+        "JCJG011102"
+      ],
+      "evidence": [
+        "纪律处分码"
+      ]
+    },
+    {
+      "id": "hasDisciplinaryReason",
+      "label": "Disciplinary Reason",
+      "domain": "DisciplinaryAction",
+      "range": "string",
+      "description": "Reason for the disciplinary action.",
+      "source_record_ids": [
+        "JCJG011103"
+      ],
+      "evidence": [
+        "惩处原因"
+      ]
+    },
+    {
+      "id": "hasDisciplinaryContent",
+      "label": "Disciplinary Content",
+      "domain": "DisciplinaryAction",
+      "range": "string",
+      "description": "Specific content of the disciplinary action.",
+      "source_record_ids": [
+        "JCJG011104"
+      ],
+      "evidence": [
+        "惩处内容"
+      ]
+    },
+    {
+      "id": "hasDisciplinaryUnit",
+      "label": "Disciplinary Unit",
+      "domain": "DisciplinaryAction",
+      "range": "string",
+      "description": "Name of the organization that imposed the disciplinary action.",
+      "source_record_ids": [
+        "JCJG011105"
+      ],
+      "evidence": [
+        "惩处单位"
+      ]
+    },
+    {
+      "id": "hasDisciplinaryDocumentNumber",
+      "label": "Disciplinary Document Number",
+      "domain": "DisciplinaryAction",
+      "range": "string",
+      "description": "Document number of the disciplinary action.",
+      "source_record_ids": [
+        "JCJG011106"
+      ],
+      "evidence": [
+        "惩处文号"
+      ]
+    },
+    {
+      "id": "hasDisciplinaryDate",
+      "label": "Disciplinary Date",
+      "domain": "DisciplinaryAction",
+      "range": "string",
+      "description": "Date the disciplinary action was imposed.",
+      "source_record_ids": [
+        "JCJG011107"
+      ],
+      "evidence": [
+        "惩处日期"
+      ]
+    },
+    {
+      "id": "hasDisciplinaryRevocationDate",
+      "label": "Disciplinary Revocation Date",
+      "domain": "DisciplinaryAction",
+      "range": "string",
+      "description": "Date the disciplinary action was revoked.",
+      "source_record_ids": [
+        "JCJG011108"
+      ],
+      "evidence": [
+        "惩处撤销日期"
+      ]
+    }
+  ],
+  "object_properties": [
+    {
+      "id": "hasJobPosition",
+      "label": "Has Job Position",
+      "domain": "EmploymentUnit",
+      "range": "JobPosition",
+      "description": "Relates an employment unit to a job position.",
+      "source_record_ids": [
+        "JCXS030215"
+      ],
+      "evidence": [
+        "工作岗位性 质码"
+      ]
+    },
+    {
+      "id": "hasGraduatePlacement",
+      "label": "Has Graduate Placement",
+      "domain": "EmploymentUnit",
+      "range": "GraduatePlacement",
+      "description": "Relates an employment unit to a graduate placement.",
+      "source_record_ids": [
+        "JCXS030213",
+        "JCXS030214",
+        "JCXS030217",
+        "JCXS030219"
+      ],
+      "evidence": [
+        "档案接收地 址",
+        "接收地邮政 编码",
+        "报到证号",
+        "派遣费"
+      ]
+    },
+    {
+      "id": "hasAward",
+      "label": "Has Award",
+      "domain": "EmploymentUnit",
+      "range": "Award",
+      "description": "Relates an employment unit to an award.",
+      "source_record_ids": [
+        "JCJG011001",
+        "JCJG011002",
+        "JCJG011003",
+        "JCJG011004",
+        "JCJG011005",
+        "JCJG011006",
+        "JCJG011007",
+        "JCJG011008",
+        "JCJG011009",
+        "JCJG011010",
+        "JCJG011011",
+        "JCJG011012",
+        "JCJG011013"
+      ],
+      "evidence": [
+        "获奖项目",
+        "奖励级别码",
+        "奖励等级码",
+        "获奖类别码",
+        "奖励方式码",
+        "奖励名称",
+        "奖励名称码",
+        "获奖原因",
+        "奖励内容",
+        "颁奖单位",
+        "获奖日期",
+        "荣誉称号码",
+        "获奖角色码"
+      ]
+    },
+    {
+      "id": "hasDisciplinaryAction",
+      "label": "Has Disciplinary Action",
+      "domain": "EmploymentUnit",
+      "range": "DisciplinaryAction",
+      "description": "Relates an employment unit to a disciplinary action.",
+      "source_record_ids": [
+        "JCJG011101",
+        "JCJG011102",
+        "JCJG011103",
+        "JCJG011104",
+        "JCJG011105",
+        "JCJG011106",
+        "JCJG011107",
+        "JCJG011108"
+      ],
+      "evidence": [
+        "惩处名称",
+        "纪律处分码",
+        "惩处原因",
+        "惩处内容",
+        "惩处单位",
+        "惩处文号",
+        "惩处日期",
+        "惩处撤销日期"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "subject": "EmploymentUnit",
+      "predicate": "hasJobPosition",
+      "object": "JobPosition",
+      "source_record_ids": [
+        "JCXS030215"
+      ],
+      "evidence": [
+        "工作岗位性 质码"
+      ]
+    },
+    {
+      "subject": "EmploymentUnit",
+      "predicate": "hasGraduatePlacement",
+      "object": "GraduatePlacement",
+      "source_record_ids": [
+        "JCXS030213",
+        "JCXS030214",
+        "JCXS030217",
+        "JCXS030219"
+      ],
+      "evidence": [
+        "档案接收地 址",
+        "接收地邮政 编码",
+        "报到证号",
+        "派遣费"
+      ]
+    },
+    {
+      "subject": "EmploymentUnit",
+      "predicate": "hasAward",
+      "object": "Award",
+      "source_record_ids": [
+        "JCJG011001",
+        "JCJG011002",
+        "JCJG011003",
+        "JCJG011004",
+        "JCJG011005",
+        "JCJG011006",
+        "JCJG011007",
+        "JCJG011008",
+        "JCJG011009",
+        "JCJG011010",
+        "JCJG011011",
+        "JCJG011012",
+        "JCJG011013"
+      ],
+      "evidence": [
+        "获奖项目",
+        "奖励级别码",
+        "奖励等级码",
+        "获奖类别码",
+        "奖励方式码",
+        "奖励名称",
+        "奖励名称码",
+        "获奖原因",
+        "奖励内容",
+        "颁奖单位",
+        "获奖日期",
+        "荣誉称号码",
+        "获奖角色码"
+      ]
+    },
+    {
+      "subject": "EmploymentUnit",
+      "predicate": "hasDisciplinaryAction",
+      "object": "DisciplinaryAction",
+      "source_record_ids": [
+        "JCJG011101",
+        "JCJG011102",
+        "JCJG011103",
+        "JCJG011104",
+        "JCJG011105",
+        "JCJG011106",
+        "JCJG011107",
+        "JCJG011108"
+      ],
+      "evidence": [
+        "惩处名称",
+        "纪律处分码",
+        "惩处原因",
+        "惩处内容",
+        "惩处单位",
+        "惩处文号",
+        "惩处日期",
+        "惩处撤销日期"
+      ]
+    }
+  ],
+  "class_hierarchy": []
+}

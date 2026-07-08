@@ -1,0 +1,144 @@
+{
+  "classes": [
+    {
+      "id": "Expense",
+      "label": "Expense",
+      "description": "Financial expenditure items recorded in yuan.",
+      "source_record_ids": [
+        "JCBX010610",
+        "JCBX010611",
+        "JCBX010612",
+        "JCBX010701",
+        "JCBX010702",
+        "JCBX010703",
+        "JCBX010704",
+        "JCBX010705",
+        "JCBX010801",
+        "JCBX010802",
+        "JCBX010803",
+        "JCBX010804",
+        "JCBX010805",
+        "JCBX010806",
+        "JCBX010807"
+      ],
+      "evidence": [
+        "Main fields: 劳务费、福利费、其他商品和服务 性费用、向国家银行借款付息、其他国内借款付息、向国外政府借款付息、向国际组织借款付息、其他国外借款付息、办公设备购置费、专用设备购置费、交通工具购置费、信息网络购建费."
+      ]
+    },
+    {
+      "id": "Debt",
+      "label": "Debt",
+      "description": "Financial liabilities and loans recorded in yuan.",
+      "source_record_ids": [
+        "JCBX010901",
+        "JCBX010902",
+        "JCBX010903",
+        "JCBX010904",
+        "JCBX010905",
+        "JCBX010906",
+        "JCBX011001",
+        "JCBX011002",
+        "JCBX011003",
+        "JCBX011004"
+      ],
+      "evidence": [
+        "Main fields: 国外金融机构贷款、国内金融机构贷款、欠施工单位工程款、借（欠）个人款、借（欠）其他单位款、欠其他来源款、房屋建筑物购建和 大型修缮债务、土地征用费债务、设备购置债务、其他用途债务."
+      ]
+    },
+    {
+      "id": "Land",
+      "label": "Land",
+      "description": "Land parcels and their attributes within the institution.",
+      "source_record_ids": [
+        "JCBX020101",
+        "JCBX020102",
+        "JCBX020103",
+        "JCBX020104",
+        "JCBX020105"
+      ],
+      "evidence": [
+        "Main fields: 用地编号、土地产权码、土地使用状况 码、占地用途码、占地面积."
+      ]
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "hasMonetaryValue",
+      "label": "has monetary value",
+      "domain": "Expense",
+      "range": "string",
+      "description": "The monetary amount of the expense in yuan.",
+      "source_record_ids": [
+        "JCBX010610",
+        "JCBX010611",
+        "JCBX010612",
+        "JCBX010701",
+        "JCBX010702",
+        "JCBX010703",
+        "JCBX010704",
+        "JCBX010705",
+        "JCBX010801",
+        "JCBX010802",
+        "JCBX010803",
+        "JCBX010804",
+        "JCBX010805",
+        "JCBX010806",
+        "JCBX010807"
+      ],
+      "evidence": [
+        "单位：元"
+      ]
+    },
+    {
+      "id": "hasMonetaryValue",
+      "label": "has monetary value",
+      "domain": "Debt",
+      "range": "string",
+      "description": "The monetary amount of the debt in yuan.",
+      "source_record_ids": [
+        "JCBX010901",
+        "JCBX010902",
+        "JCBX010903",
+        "JCBX010904",
+        "JCBX010905",
+        "JCBX010906",
+        "JCBX011001",
+        "JCBX011002",
+        "JCBX011003",
+        "JCBX011004"
+      ],
+      "evidence": [
+        "单位：元"
+      ]
+    },
+    {
+      "id": "hasLandNumber",
+      "label": "has land number",
+      "domain": "Land",
+      "range": "string",
+      "description": "Institution-defined identifier for the land parcel.",
+      "source_record_ids": [
+        "JCBX020101"
+      ],
+      "evidence": [
+        "用地编号 学校自编"
+      ]
+    },
+    {
+      "id": "hasLandArea",
+      "label": "has land area",
+      "domain": "Land",
+      "range": "string",
+      "description": "The area of the land parcel in square meters.",
+      "source_record_ids": [
+        "JCBX020105"
+      ],
+      "evidence": [
+        "占地面积 单位：平方米"
+      ]
+    }
+  ],
+  "object_properties": [],
+  "relations": [],
+  "class_hierarchy": []
+}

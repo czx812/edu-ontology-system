@@ -1,0 +1,817 @@
+{
+  "classes": [
+    {
+      "id": "EducationRecord",
+      "label": "Education Record",
+      "description": "A record containing educational background information of an individual.",
+      "source_record_ids": [
+        "JCTB020504",
+        "JCTB020505",
+        "JCTB020506",
+        "JCTB020507",
+        "JCTB020508",
+        "JCTB020509",
+        "JCTB020510",
+        "JCTB020511",
+        "JCTB020512",
+        "JCTB020513",
+        "JCTB020514"
+      ],
+      "evidence": [
+        "Group summary mentions fields: 学历码、所学专业码、结束学业年月、毕肄业学校或单位、学历证书号、获得学位码、授学位单位名称、授学位国家/地区码、获学位专业码、获学位日期、学位证书号"
+      ]
+    },
+    {
+      "id": "FamilyInfo",
+      "label": "Family Information",
+      "description": "Information regarding an individual's family members and household details.",
+      "source_record_ids": [
+        "JCTB020601",
+        "JCTB020602",
+        "JCTB020603",
+        "JCTB020604",
+        "JCTB020701",
+        "JCTB020702",
+        "JCTB020703",
+        "JCTB020704",
+        "JCTB020705",
+        "JCTB020706",
+        "JCTB020707",
+        "JCTB020801",
+        "JCTB020901",
+        "JCTB020902",
+        "JCTB020903",
+        "JCTB020904",
+        "JCTB020905",
+        "JCTB020906",
+        "JCTB020907"
+      ],
+      "evidence": [
+        "Group summary mentions fields: 家庭住址, 家庭邮政编码, 家庭电话, 家庭电子信箱, 关系码, 成员姓名, 出生年月, 成员工作单位, 从业码, 专业技术职务码, 职务级别码, 联系人姓名, 家庭人口, 赡养人口, 劳动力人口, 家庭人均月收入, 家庭主要收入来源, 家庭类别码, 困难原因码"
+      ]
+    },
+    {
+      "id": "Degree",
+      "label": "Degree",
+      "description": "An academic degree awarded to an individual.",
+      "source_record_ids": [
+        "JCTB020509",
+        "JCTB020510",
+        "JCTB020511",
+        "JCTB020512",
+        "JCTB020513",
+        "JCTB020514"
+      ],
+      "evidence": [
+        "Fields: 获得学位码, 授学位单位名称, 授学位国家/地区码, 获学位专业码, 获学位日期, 学位证书号"
+      ]
+    },
+    {
+      "id": "SchoolOrInstitution",
+      "label": "School or Institution",
+      "description": "An educational or research institution where an individual studied or from which they received a degree.",
+      "source_record_ids": [
+        "JCTB020507",
+        "JCTB020510"
+      ],
+      "evidence": [
+        "Fields: 毕肄业学校或单位, 授学位单位名称"
+      ]
+    },
+    {
+      "id": "FamilyMember",
+      "label": "Family Member",
+      "description": "A member of an individual's family.",
+      "source_record_ids": [
+        "JCTB020701",
+        "JCTB020702",
+        "JCTB020703",
+        "JCTB020704",
+        "JCTB020705",
+        "JCTB020706",
+        "JCTB020707"
+      ],
+      "evidence": [
+        "Fields: 关系码, 成员姓名, 出生年月, 成员工作单位, 从业码, 专业技术职务码, 职务级别码"
+      ]
+    },
+    {
+      "id": "ContactInfo",
+      "label": "Contact Information",
+      "description": "Contact details for an individual or their family.",
+      "source_record_ids": [
+        "JCTB020601",
+        "JCTB020602",
+        "JCTB020603",
+        "JCTB020604",
+        "JCTB020801"
+      ],
+      "evidence": [
+        "Fields: 家庭住址, 家庭邮政编码, 家庭电话, 家庭电子信箱, 联系人姓名"
+      ]
+    },
+    {
+      "id": "MajorOrSpecialty",
+      "label": "Major or Specialty",
+      "description": "A field of study or academic major.",
+      "source_record_ids": [
+        "JCTB020505",
+        "JCTB020512"
+      ],
+      "evidence": [
+        "Fields: 所学专业码, 获学位专业码"
+      ]
+    },
+    {
+      "id": "Certificate",
+      "label": "Certificate",
+      "description": "A document certifying an achievement, such as a degree or completion of studies.",
+      "source_record_ids": [
+        "JCTB020508",
+        "JCTB020514"
+      ],
+      "evidence": [
+        "Fields: 学历证书号, 学位证书号"
+      ]
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "educationLevelCode",
+      "label": "Education Level Code",
+      "domain": "EducationRecord",
+      "range": "string",
+      "description": "Code representing the level of education.",
+      "source_record_ids": [
+        "JCTB020504"
+      ],
+      "evidence": [
+        "Record JCTB020504: 学历码"
+      ]
+    },
+    {
+      "id": "majorCode",
+      "label": "Major Code",
+      "domain": "MajorOrSpecialty",
+      "range": "string",
+      "description": "Code for the major or specialty studied.",
+      "source_record_ids": [
+        "JCTB020505"
+      ],
+      "evidence": [
+        "Record JCTB020505: 所学专业码 - 取得学历所学习的专业码"
+      ]
+    },
+    {
+      "id": "endDateOfStudy",
+      "label": "End Date of Study",
+      "domain": "EducationRecord",
+      "range": "string",
+      "description": "The year and month when studies ended.",
+      "source_record_ids": [
+        "JCTB020506"
+      ],
+      "evidence": [
+        "Record JCTB020506: 结束学业年月"
+      ]
+    },
+    {
+      "id": "schoolOrInstitutionName",
+      "label": "School or Institution Name",
+      "domain": "SchoolOrInstitution",
+      "range": "string",
+      "description": "Name of the school or institution.",
+      "source_record_ids": [
+        "JCTB020507"
+      ],
+      "evidence": [
+        "Record JCTB020507: 毕肄业学校或单位 - 从事学历教育并获得证书的毕肄业学校或科研单位名称"
+      ]
+    },
+    {
+      "id": "educationCertificateNumber",
+      "label": "Education Certificate Number",
+      "domain": "Certificate",
+      "range": "string",
+      "description": "Number of the education certificate.",
+      "source_record_ids": [
+        "JCTB020508"
+      ],
+      "evidence": [
+        "Record JCTB020508: 学历证书号"
+      ]
+    },
+    {
+      "id": "degreeCode",
+      "label": "Degree Code",
+      "domain": "Degree",
+      "range": "string",
+      "description": "Code representing the degree obtained.",
+      "source_record_ids": [
+        "JCTB020509"
+      ],
+      "evidence": [
+        "Record JCTB020509: 获得学位码"
+      ]
+    },
+    {
+      "id": "degreeAwardingInstitutionName",
+      "label": "Degree Awarding Institution Name",
+      "domain": "SchoolOrInstitution",
+      "range": "string",
+      "description": "Name of the institution that awarded the degree.",
+      "source_record_ids": [
+        "JCTB020510"
+      ],
+      "evidence": [
+        "Record JCTB020510: 授学位单位名称 - 颁发学位证书的单位名称"
+      ]
+    },
+    {
+      "id": "degreeAwardingCountryOrRegionCode",
+      "label": "Degree Awarding Country or Region Code",
+      "domain": "Degree",
+      "range": "string",
+      "description": "Code for the country or region where the degree was awarded.",
+      "source_record_ids": [
+        "JCTB020511"
+      ],
+      "evidence": [
+        "Record JCTB020511: 授学位国家/地区码"
+      ]
+    },
+    {
+      "id": "degreeMajorCode",
+      "label": "Degree Major Code",
+      "domain": "MajorOrSpecialty",
+      "range": "string",
+      "description": "Code for the major of the degree obtained.",
+      "source_record_ids": [
+        "JCTB020512"
+      ],
+      "evidence": [
+        "Record JCTB020512: 获学位专业码 - 取得学历所学习的专业码"
+      ]
+    },
+    {
+      "id": "degreeDate",
+      "label": "Degree Date",
+      "domain": "Degree",
+      "range": "string",
+      "description": "Date the degree was obtained, based on the issuance date of the degree certificate.",
+      "source_record_ids": [
+        "JCTB020513"
+      ],
+      "evidence": [
+        "Record JCTB020513: 获学位日期 - 以学位证书的签发日期为准"
+      ]
+    },
+    {
+      "id": "degreeCertificateNumber",
+      "label": "Degree Certificate Number",
+      "domain": "Certificate",
+      "range": "string",
+      "description": "Number of the degree certificate.",
+      "source_record_ids": [
+        "JCTB020514"
+      ],
+      "evidence": [
+        "Record JCTB020514: 学位证书号"
+      ]
+    },
+    {
+      "id": "homeAddress",
+      "label": "Home Address",
+      "domain": "ContactInfo",
+      "range": "string",
+      "description": "Home address of the individual.",
+      "source_record_ids": [
+        "JCTB020601"
+      ],
+      "evidence": [
+        "Record JCTB020601: 家庭住址"
+      ]
+    },
+    {
+      "id": "homePostalCode",
+      "label": "Home Postal Code",
+      "domain": "ContactInfo",
+      "range": "string",
+      "description": "Postal code of the home address.",
+      "source_record_ids": [
+        "JCTB020602"
+      ],
+      "evidence": [
+        "Record JCTB020602: 家庭邮政编码"
+      ]
+    },
+    {
+      "id": "homePhone",
+      "label": "Home Phone",
+      "domain": "ContactInfo",
+      "range": "string",
+      "description": "Home phone number.",
+      "source_record_ids": [
+        "JCTB020603"
+      ],
+      "evidence": [
+        "Record JCTB020603: 家庭电话"
+      ]
+    },
+    {
+      "id": "homeEmail",
+      "label": "Home Email",
+      "domain": "ContactInfo",
+      "range": "string",
+      "description": "Home email address.",
+      "source_record_ids": [
+        "JCTB020604"
+      ],
+      "evidence": [
+        "Record JCTB020604: 家庭电子信箱"
+      ]
+    },
+    {
+      "id": "relationshipCode",
+      "label": "Relationship Code",
+      "domain": "FamilyMember",
+      "range": "string",
+      "description": "Code indicating the relationship of the family member to the individual.",
+      "source_record_ids": [
+        "JCTB020701"
+      ],
+      "evidence": [
+        "Record JCTB020701: 关系码"
+      ]
+    },
+    {
+      "id": "familyMemberName",
+      "label": "Family Member Name",
+      "domain": "FamilyMember",
+      "range": "string",
+      "description": "Name of the family member.",
+      "source_record_ids": [
+        "JCTB020702"
+      ],
+      "evidence": [
+        "Record JCTB020702: 成员姓名"
+      ]
+    },
+    {
+      "id": "familyMemberBirthDate",
+      "label": "Family Member Birth Date",
+      "domain": "FamilyMember",
+      "range": "string",
+      "description": "Birth date of the family member.",
+      "source_record_ids": [
+        "JCTB020703"
+      ],
+      "evidence": [
+        "Record JCTB020703: 出生年月"
+      ]
+    },
+    {
+      "id": "familyMemberWorkUnit",
+      "label": "Family Member Work Unit",
+      "domain": "FamilyMember",
+      "range": "string",
+      "description": "Work unit of the family member.",
+      "source_record_ids": [
+        "JCTB020704"
+      ],
+      "evidence": [
+        "Record JCTB020704: 成员工作单位 - 家庭成员工作的单位名称"
+      ]
+    },
+    {
+      "id": "occupationCode",
+      "label": "Occupation Code",
+      "domain": "FamilyMember",
+      "range": "string",
+      "description": "Code for the occupation of the family member.",
+      "source_record_ids": [
+        "JCTB020705"
+      ],
+      "evidence": [
+        "Record JCTB020705: 从业码"
+      ]
+    },
+    {
+      "id": "professionalTitleCode",
+      "label": "Professional Title Code",
+      "domain": "FamilyMember",
+      "range": "string",
+      "description": "Code for the professional title of the family member.",
+      "source_record_ids": [
+        "JCTB020706"
+      ],
+      "evidence": [
+        "Record JCTB020706: 专业技术职务码"
+      ]
+    },
+    {
+      "id": "positionLevelCode",
+      "label": "Position Level Code",
+      "domain": "FamilyMember",
+      "range": "string",
+      "description": "Code for the position level of the family member.",
+      "source_record_ids": [
+        "JCTB020707"
+      ],
+      "evidence": [
+        "Record JCTB020707: 职务级别码"
+      ]
+    },
+    {
+      "id": "contactPersonName",
+      "label": "Contact Person Name",
+      "domain": "ContactInfo",
+      "range": "string",
+      "description": "Name of the contact person.",
+      "source_record_ids": [
+        "JCTB020801"
+      ],
+      "evidence": [
+        "Record JCTB020801: 联系人姓名"
+      ]
+    },
+    {
+      "id": "familyPopulation",
+      "label": "Family Population",
+      "domain": "FamilyInfo",
+      "range": "string",
+      "description": "Number of people in the family household.",
+      "source_record_ids": [
+        "JCTB020901"
+      ],
+      "evidence": [
+        "Record JCTB020901: 家庭人口 - 指本人家庭户口人口数"
+      ]
+    },
+    {
+      "id": "dependentPopulation",
+      "label": "Dependent Population",
+      "domain": "FamilyInfo",
+      "range": "string",
+      "description": "Number of dependents the individual supports financially.",
+      "source_record_ids": [
+        "JCTB020902"
+      ],
+      "evidence": [
+        "Record JCTB020902: 赡养人口 - 指本人(家庭)经济上负担赡养的人口数"
+      ]
+    },
+    {
+      "id": "laborForcePopulation",
+      "label": "Labor Force Population",
+      "domain": "FamilyInfo",
+      "range": "string",
+      "description": "Number of labor force members in the family.",
+      "source_record_ids": [
+        "JCTB020903"
+      ],
+      "evidence": [
+        "Record JCTB020903: 劳动力人口 - 指家庭劳动力人口数"
+      ]
+    },
+    {
+      "id": "familyPerCapitaMonthlyIncome",
+      "label": "Family Per Capita Monthly Income",
+      "domain": "FamilyInfo",
+      "range": "string",
+      "description": "Average monthly income per person in the family.",
+      "source_record_ids": [
+        "JCTB020904"
+      ],
+      "evidence": [
+        "Record JCTB020904: 家庭人均月收入 - 家庭月均人收入"
+      ]
+    },
+    {
+      "id": "mainFamilyIncomeSource",
+      "label": "Main Family Income Source",
+      "domain": "FamilyInfo",
+      "range": "string",
+      "description": "Main source of income for the family.",
+      "source_record_ids": [
+        "JCTB020905"
+      ],
+      "evidence": [
+        "Record JCTB020905: 家庭主要收入来源 - 家庭主要收入来源"
+      ]
+    },
+    {
+      "id": "familyCategoryCode",
+      "label": "Family Category Code",
+      "domain": "FamilyInfo",
+      "range": "string",
+      "description": "Code categorizing the family.",
+      "source_record_ids": [
+        "JCTB020906"
+      ],
+      "evidence": [
+        "Record JCTB020906: 家庭类别码"
+      ]
+    },
+    {
+      "id": "difficultyReasonCode",
+      "label": "Difficulty Reason Code",
+      "domain": "FamilyInfo",
+      "range": "string",
+      "description": "Code indicating the reason for family difficulty.",
+      "source_record_ids": [
+        "JCTB020907"
+      ],
+      "evidence": [
+        "Record JCTB020907: 困难原因码"
+      ]
+    }
+  ],
+  "object_properties": [
+    {
+      "id": "hasDegree",
+      "label": "has Degree",
+      "domain": "EducationRecord",
+      "range": "Degree",
+      "description": "An education record includes a degree obtained.",
+      "source_record_ids": [
+        "JCTB020509",
+        "JCTB020510",
+        "JCTB020511",
+        "JCTB020512",
+        "JCTB020513",
+        "JCTB020514"
+      ],
+      "evidence": [
+        "Degree-related fields are part of the education record group."
+      ]
+    },
+    {
+      "id": "awardedBy",
+      "label": "awarded By",
+      "domain": "Degree",
+      "range": "SchoolOrInstitution",
+      "description": "The degree was awarded by a specific institution.",
+      "source_record_ids": [
+        "JCTB020510"
+      ],
+      "evidence": [
+        "Record JCTB020510: 授学位单位名称"
+      ]
+    },
+    {
+      "id": "studiedAt",
+      "label": "studied At",
+      "domain": "EducationRecord",
+      "range": "SchoolOrInstitution",
+      "description": "The individual studied at a specific school or institution.",
+      "source_record_ids": [
+        "JCTB020507"
+      ],
+      "evidence": [
+        "Record JCTB020507: 毕肄业学校或单位"
+      ]
+    },
+    {
+      "id": "hasMajor",
+      "label": "has Major",
+      "domain": "EducationRecord",
+      "range": "MajorOrSpecialty",
+      "description": "The education record includes a major or specialty.",
+      "source_record_ids": [
+        "JCTB020505"
+      ],
+      "evidence": [
+        "Record JCTB020505: 所学专业码"
+      ]
+    },
+    {
+      "id": "degreeInMajor",
+      "label": "degree In Major",
+      "domain": "Degree",
+      "range": "MajorOrSpecialty",
+      "description": "The degree was obtained in a specific major.",
+      "source_record_ids": [
+        "JCTB020512"
+      ],
+      "evidence": [
+        "Record JCTB020512: 获学位专业码"
+      ]
+    },
+    {
+      "id": "hasEducationCertificate",
+      "label": "has Education Certificate",
+      "domain": "EducationRecord",
+      "range": "Certificate",
+      "description": "The education record includes an education certificate.",
+      "source_record_ids": [
+        "JCTB020508"
+      ],
+      "evidence": [
+        "Record JCTB020508: 学历证书号"
+      ]
+    },
+    {
+      "id": "hasDegreeCertificate",
+      "label": "has Degree Certificate",
+      "domain": "Degree",
+      "range": "Certificate",
+      "description": "The degree includes a degree certificate.",
+      "source_record_ids": [
+        "JCTB020514"
+      ],
+      "evidence": [
+        "Record JCTB020514: 学位证书号"
+      ]
+    },
+    {
+      "id": "hasFamilyMember",
+      "label": "has Family Member",
+      "domain": "FamilyInfo",
+      "range": "FamilyMember",
+      "description": "The family information includes a family member.",
+      "source_record_ids": [
+        "JCTB020701",
+        "JCTB020702",
+        "JCTB020703",
+        "JCTB020704",
+        "JCTB020705",
+        "JCTB020706",
+        "JCTB020707"
+      ],
+      "evidence": [
+        "Family member fields are part of the family information group."
+      ]
+    },
+    {
+      "id": "hasContactInfo",
+      "label": "has Contact Info",
+      "domain": "FamilyInfo",
+      "range": "ContactInfo",
+      "description": "The family information includes contact details.",
+      "source_record_ids": [
+        "JCTB020601",
+        "JCTB020602",
+        "JCTB020603",
+        "JCTB020604",
+        "JCTB020801"
+      ],
+      "evidence": [
+        "Contact info fields are part of the family information group."
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "subject": "EducationRecord",
+      "predicate": "hasDegree",
+      "object": "Degree",
+      "source_record_ids": [
+        "JCTB020509",
+        "JCTB020510",
+        "JCTB020511",
+        "JCTB020512",
+        "JCTB020513",
+        "JCTB020514"
+      ],
+      "evidence": [
+        "Degree-related fields are part of the education record group."
+      ]
+    },
+    {
+      "subject": "Degree",
+      "predicate": "awardedBy",
+      "object": "SchoolOrInstitution",
+      "source_record_ids": [
+        "JCTB020510"
+      ],
+      "evidence": [
+        "Record JCTB020510: 授学位单位名称"
+      ]
+    },
+    {
+      "subject": "EducationRecord",
+      "predicate": "studiedAt",
+      "object": "SchoolOrInstitution",
+      "source_record_ids": [
+        "JCTB020507"
+      ],
+      "evidence": [
+        "Record JCTB020507: 毕肄业学校或单位"
+      ]
+    },
+    {
+      "subject": "EducationRecord",
+      "predicate": "hasMajor",
+      "object": "MajorOrSpecialty",
+      "source_record_ids": [
+        "JCTB020505"
+      ],
+      "evidence": [
+        "Record JCTB020505: 所学专业码"
+      ]
+    },
+    {
+      "subject": "Degree",
+      "predicate": "degreeInMajor",
+      "object": "MajorOrSpecialty",
+      "source_record_ids": [
+        "JCTB020512"
+      ],
+      "evidence": [
+        "Record JCTB020512: 获学位专业码"
+      ]
+    },
+    {
+      "subject": "EducationRecord",
+      "predicate": "hasEducationCertificate",
+      "object": "Certificate",
+      "source_record_ids": [
+        "JCTB020508"
+      ],
+      "evidence": [
+        "Record JCTB020508: 学历证书号"
+      ]
+    },
+    {
+      "subject": "Degree",
+      "predicate": "hasDegreeCertificate",
+      "object": "Certificate",
+      "source_record_ids": [
+        "JCTB020514"
+      ],
+      "evidence": [
+        "Record JCTB020514: 学位证书号"
+      ]
+    },
+    {
+      "subject": "FamilyInfo",
+      "predicate": "hasFamilyMember",
+      "object": "FamilyMember",
+      "source_record_ids": [
+        "JCTB020701",
+        "JCTB020702",
+        "JCTB020703",
+        "JCTB020704",
+        "JCTB020705",
+        "JCTB020706",
+        "JCTB020707"
+      ],
+      "evidence": [
+        "Family member fields are part of the family information group."
+      ]
+    },
+    {
+      "subject": "FamilyInfo",
+      "predicate": "hasContactInfo",
+      "object": "ContactInfo",
+      "source_record_ids": [
+        "JCTB020601",
+        "JCTB020602",
+        "JCTB020603",
+        "JCTB020604",
+        "JCTB020801"
+      ],
+      "evidence": [
+        "Contact info fields are part of the family information group."
+      ]
+    }
+  ],
+  "class_hierarchy": [
+    {
+      "parent": "EducationRecord",
+      "child": "Degree",
+      "evidence": [
+        "Degree is a component of an education record."
+      ]
+    },
+    {
+      "parent": "EducationRecord",
+      "child": "MajorOrSpecialty",
+      "evidence": [
+        "Major is a component of an education record."
+      ]
+    },
+    {
+      "parent": "EducationRecord",
+      "child": "Certificate",
+      "evidence": [
+        "Certificate is a component of an education record."
+      ]
+    },
+    {
+      "parent": "FamilyInfo",
+      "child": "FamilyMember",
+      "evidence": [
+        "FamilyMember is a component of family information."
+      ]
+    },
+    {
+      "parent": "FamilyInfo",
+      "child": "ContactInfo",
+      "evidence": [
+        "ContactInfo is a component of family information."
+      ]
+    }
+  ]
+}

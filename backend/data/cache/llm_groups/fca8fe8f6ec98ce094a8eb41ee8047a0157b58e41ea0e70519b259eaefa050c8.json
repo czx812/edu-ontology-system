@@ -1,0 +1,605 @@
+{
+  "classes": [
+    {
+      "id": "TeachingActivity",
+      "label": "Teaching Activity",
+      "description": "Represents teaching activities measured in hours.",
+      "source_record_ids": [
+        "JCBX030311"
+      ],
+      "evidence": [
+        "教学时数 单位：小时"
+      ]
+    },
+    {
+      "id": "ResearchActivity",
+      "label": "Research Activity",
+      "description": "Represents research activities measured in hours.",
+      "source_record_ids": [
+        "JCBX030312"
+      ],
+      "evidence": [
+        "科研时数 单位：小时"
+      ]
+    },
+    {
+      "id": "SocialProjectActivity",
+      "label": "Social Project Activity",
+      "description": "Represents social project activities measured in hours.",
+      "source_record_ids": [
+        "JCBX030313"
+      ],
+      "evidence": [
+        "社会项目时数 单位：小时"
+      ]
+    },
+    {
+      "id": "Custodian",
+      "label": "Custodian",
+      "description": "Represents a person responsible for daily custody of assets.",
+      "source_record_ids": [
+        "JCBX030314"
+      ],
+      "evidence": [
+        "保管人号 日常保管人工号"
+      ]
+    },
+    {
+      "id": "EquipmentDisposal",
+      "label": "Equipment Disposal",
+      "description": "Represents the disposal process of equipment including dates, reasons, and results.",
+      "source_record_ids": [
+        "JCBX030401",
+        "JCBX030402",
+        "JCBX030403",
+        "JCBX030404"
+      ],
+      "evidence": [
+        "报损报废日期",
+        "报损报废原因",
+        "处理结果 指对仪器报损报废 处理的结果",
+        "损废说明 与仪器报损报废有 关的情况说明"
+      ]
+    },
+    {
+      "id": "Software",
+      "label": "Software",
+      "description": "Represents software assets including identification, classification, and licensing.",
+      "source_record_ids": [
+        "JCBX030501",
+        "JCBX030502",
+        "JCBX030503",
+        "JCBX030504",
+        "JCBX030505",
+        "JCBX030506",
+        "JCBX030507",
+        "JCBX030508",
+        "JCBX030509",
+        "JCBX030510"
+      ],
+      "evidence": [
+        "软件编号 学校自编",
+        "软件名称",
+        "软件分类码",
+        "版本号",
+        "介质类型",
+        "介质数量",
+        "授权范围 许可权证书数量或描 述",
+        "单价 软件（包括附件、专 用工具、数据库费、 备件及保险费用等） 购置的人民币价格 （原值），取二位小 数，进口仪器设备按 当时汇率折算人民币 价，单位：元",
+        "安装调试费 安装、调试与原系统 集成和验收费用",
+        "培训及技术支 持费 培训及质保期内服务 和技术支持费"
+      ]
+    },
+    {
+      "id": "Laboratory",
+      "label": "Laboratory",
+      "description": "Represents a laboratory including its identification, location, and management.",
+      "source_record_ids": [
+        "JCBX030701",
+        "JCBX030702",
+        "JCBX030703",
+        "JCBX030704",
+        "JCBX030705",
+        "JCBX030706",
+        "JCBX030707",
+        "JCBX030708",
+        "JCBX030709",
+        "JCBX030710"
+      ],
+      "evidence": [
+        "实验室号 校内实验室唯一编 号，建议与院系所单 位统一编号",
+        "实验室名称",
+        "建立日期",
+        "建筑面积 单位：平方米",
+        "使用面积 单位：平方米",
+        "实验室位置 指实验室所在的具体 楼号和房间号",
+        "负责人号",
+        "实验室类别码",
+        "实验室电话",
+        "实验室介绍 实验室的情况介绍"
+      ]
+    },
+    {
+      "id": "Experiment",
+      "label": "Experiment",
+      "description": "Represents an experiment conducted in a laboratory.",
+      "source_record_ids": [
+        "JCBX030801",
+        "JCBX030802"
+      ],
+      "evidence": [
+        "实验序号 学校自编",
+        "实验名称"
+      ]
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "teachingHours",
+      "label": "Teaching Hours",
+      "domain": "TeachingActivity",
+      "range": "string",
+      "description": "Number of hours for teaching activities.",
+      "source_record_ids": [
+        "JCBX030311"
+      ],
+      "evidence": [
+        "教学时数 单位：小时"
+      ]
+    },
+    {
+      "id": "researchHours",
+      "label": "Research Hours",
+      "domain": "ResearchActivity",
+      "range": "string",
+      "description": "Number of hours for research activities.",
+      "source_record_ids": [
+        "JCBX030312"
+      ],
+      "evidence": [
+        "科研时数 单位：小时"
+      ]
+    },
+    {
+      "id": "socialProjectHours",
+      "label": "Social Project Hours",
+      "domain": "SocialProjectActivity",
+      "range": "string",
+      "description": "Number of hours for social project activities.",
+      "source_record_ids": [
+        "JCBX030313"
+      ],
+      "evidence": [
+        "社会项目时数 单位：小时"
+      ]
+    },
+    {
+      "id": "custodianId",
+      "label": "Custodian ID",
+      "domain": "Custodian",
+      "range": "string",
+      "description": "Employee ID of the daily custodian.",
+      "source_record_ids": [
+        "JCBX030314"
+      ],
+      "evidence": [
+        "保管人号 日常保管人工号"
+      ]
+    },
+    {
+      "id": "disposalDate",
+      "label": "Disposal Date",
+      "domain": "EquipmentDisposal",
+      "range": "string",
+      "description": "Date of equipment disposal.",
+      "source_record_ids": [
+        "JCBX030401"
+      ],
+      "evidence": [
+        "报损报废日期"
+      ]
+    },
+    {
+      "id": "disposalReason",
+      "label": "Disposal Reason",
+      "domain": "EquipmentDisposal",
+      "range": "string",
+      "description": "Reason for equipment disposal.",
+      "source_record_ids": [
+        "JCBX030402"
+      ],
+      "evidence": [
+        "报损报废原因"
+      ]
+    },
+    {
+      "id": "disposalResult",
+      "label": "Disposal Result",
+      "domain": "EquipmentDisposal",
+      "range": "string",
+      "description": "Result of equipment disposal processing.",
+      "source_record_ids": [
+        "JCBX030403"
+      ],
+      "evidence": [
+        "处理结果 指对仪器报损报废 处理的结果"
+      ]
+    },
+    {
+      "id": "disposalNote",
+      "label": "Disposal Note",
+      "domain": "EquipmentDisposal",
+      "range": "string",
+      "description": "Notes related to equipment disposal.",
+      "source_record_ids": [
+        "JCBX030404"
+      ],
+      "evidence": [
+        "损废说明 与仪器报损报废有 关的情况说明"
+      ]
+    },
+    {
+      "id": "softwareId",
+      "label": "Software ID",
+      "domain": "Software",
+      "range": "string",
+      "description": "School-defined software identifier.",
+      "source_record_ids": [
+        "JCBX030501"
+      ],
+      "evidence": [
+        "软件编号 学校自编"
+      ]
+    },
+    {
+      "id": "softwareName",
+      "label": "Software Name",
+      "domain": "Software",
+      "range": "string",
+      "description": "Name of the software.",
+      "source_record_ids": [
+        "JCBX030502"
+      ],
+      "evidence": [
+        "软件名称"
+      ]
+    },
+    {
+      "id": "softwareCategoryCode",
+      "label": "Software Category Code",
+      "domain": "Software",
+      "range": "string",
+      "description": "Category code of the software.",
+      "source_record_ids": [
+        "JCBX030503"
+      ],
+      "evidence": [
+        "软件分类码"
+      ]
+    },
+    {
+      "id": "versionNumber",
+      "label": "Version Number",
+      "domain": "Software",
+      "range": "string",
+      "description": "Version number of the software.",
+      "source_record_ids": [
+        "JCBX030504"
+      ],
+      "evidence": [
+        "版本号"
+      ]
+    },
+    {
+      "id": "mediaType",
+      "label": "Media Type",
+      "domain": "Software",
+      "range": "string",
+      "description": "Type of media for the software.",
+      "source_record_ids": [
+        "JCBX030505"
+      ],
+      "evidence": [
+        "介质类型"
+      ]
+    },
+    {
+      "id": "mediaQuantity",
+      "label": "Media Quantity",
+      "domain": "Software",
+      "range": "string",
+      "description": "Quantity of media.",
+      "source_record_ids": [
+        "JCBX030506"
+      ],
+      "evidence": [
+        "介质数量"
+      ]
+    },
+    {
+      "id": "licenseScope",
+      "label": "License Scope",
+      "domain": "Software",
+      "range": "string",
+      "description": "License certificate quantity or description.",
+      "source_record_ids": [
+        "JCBX030507"
+      ],
+      "evidence": [
+        "授权范围 许可权证书数量或描 述"
+      ]
+    },
+    {
+      "id": "unitPrice",
+      "label": "Unit Price",
+      "domain": "Software",
+      "range": "string",
+      "description": "Purchase price in RMB including attachments, tools, databases, spare parts, and insurance.",
+      "source_record_ids": [
+        "JCBX030508"
+      ],
+      "evidence": [
+        "单价 软件（包括附件、专 用工具、数据库费、 备件及保险费用等） 购置的人民币价格 （原值），取二位小 数，进口仪器设备按 当时汇率折算人民币 价，单位：元"
+      ]
+    },
+    {
+      "id": "installationFee",
+      "label": "Installation Fee",
+      "domain": "Software",
+      "range": "string",
+      "description": "Installation, debugging, system integration, and acceptance costs.",
+      "source_record_ids": [
+        "JCBX030509"
+      ],
+      "evidence": [
+        "安装调试费 安装、调试与原系统 集成和验收费用"
+      ]
+    },
+    {
+      "id": "trainingFee",
+      "label": "Training Fee",
+      "domain": "Software",
+      "range": "string",
+      "description": "Training and technical support fees during warranty period.",
+      "source_record_ids": [
+        "JCBX030510"
+      ],
+      "evidence": [
+        "培训及技术支 持费 培训及质保期内服务 和技术支持费"
+      ]
+    },
+    {
+      "id": "labId",
+      "label": "Lab ID",
+      "domain": "Laboratory",
+      "range": "string",
+      "description": "Unique school laboratory identifier.",
+      "source_record_ids": [
+        "JCBX030701"
+      ],
+      "evidence": [
+        "实验室号 校内实验室唯一编 号，建议与院系所单 位统一编号"
+      ]
+    },
+    {
+      "id": "labName",
+      "label": "Lab Name",
+      "domain": "Laboratory",
+      "range": "string",
+      "description": "Name of the laboratory.",
+      "source_record_ids": [
+        "JCBX030702"
+      ],
+      "evidence": [
+        "实验室名称"
+      ]
+    },
+    {
+      "id": "establishmentDate",
+      "label": "Establishment Date",
+      "domain": "Laboratory",
+      "range": "string",
+      "description": "Date the laboratory was established.",
+      "source_record_ids": [
+        "JCBX030703"
+      ],
+      "evidence": [
+        "建立日期"
+      ]
+    },
+    {
+      "id": "buildingArea",
+      "label": "Building Area",
+      "domain": "Laboratory",
+      "range": "string",
+      "description": "Building area in square meters.",
+      "source_record_ids": [
+        "JCBX030704"
+      ],
+      "evidence": [
+        "建筑面积 单位：平方米"
+      ]
+    },
+    {
+      "id": "usableArea",
+      "label": "Usable Area",
+      "domain": "Laboratory",
+      "range": "string",
+      "description": "Usable area in square meters.",
+      "source_record_ids": [
+        "JCBX030705"
+      ],
+      "evidence": [
+        "使用面积 单位：平方米"
+      ]
+    },
+    {
+      "id": "labLocation",
+      "label": "Lab Location",
+      "domain": "Laboratory",
+      "range": "string",
+      "description": "Specific building and room number of the laboratory.",
+      "source_record_ids": [
+        "JCBX030706"
+      ],
+      "evidence": [
+        "实验室位置 指实验室所在的具体 楼号和房间号"
+      ]
+    },
+    {
+      "id": "labManagerId",
+      "label": "Lab Manager ID",
+      "domain": "Laboratory",
+      "range": "string",
+      "description": "ID of the laboratory manager.",
+      "source_record_ids": [
+        "JCBX030707"
+      ],
+      "evidence": [
+        "负责人号"
+      ]
+    },
+    {
+      "id": "labCategoryCode",
+      "label": "Lab Category Code",
+      "domain": "Laboratory",
+      "range": "string",
+      "description": "Category code of the laboratory.",
+      "source_record_ids": [
+        "JCBX030708"
+      ],
+      "evidence": [
+        "实验室类别码"
+      ]
+    },
+    {
+      "id": "labPhone",
+      "label": "Lab Phone",
+      "domain": "Laboratory",
+      "range": "string",
+      "description": "Phone number of the laboratory.",
+      "source_record_ids": [
+        "JCBX030709"
+      ],
+      "evidence": [
+        "实验室电话"
+      ]
+    },
+    {
+      "id": "labDescription",
+      "label": "Lab Description",
+      "domain": "Laboratory",
+      "range": "string",
+      "description": "Introduction and description of the laboratory.",
+      "source_record_ids": [
+        "JCBX030710"
+      ],
+      "evidence": [
+        "实验室介绍 实验室的情况介绍"
+      ]
+    },
+    {
+      "id": "experimentId",
+      "label": "Experiment ID",
+      "domain": "Experiment",
+      "range": "string",
+      "description": "School-defined experiment identifier.",
+      "source_record_ids": [
+        "JCBX030801"
+      ],
+      "evidence": [
+        "实验序号 学校自编"
+      ]
+    },
+    {
+      "id": "experimentName",
+      "label": "Experiment Name",
+      "domain": "Experiment",
+      "range": "string",
+      "description": "Name of the experiment.",
+      "source_record_ids": [
+        "JCBX030802"
+      ],
+      "evidence": [
+        "实验名称"
+      ]
+    }
+  ],
+  "object_properties": [
+    {
+      "id": "hasCustodian",
+      "label": "has Custodian",
+      "domain": "EquipmentDisposal",
+      "range": "Custodian",
+      "description": "Links equipment disposal to the custodian responsible.",
+      "source_record_ids": [
+        "JCBX030314"
+      ],
+      "evidence": [
+        "保管人号 日常保管人工号"
+      ]
+    },
+    {
+      "id": "hasManager",
+      "label": "has Manager",
+      "domain": "Laboratory",
+      "range": "Custodian",
+      "description": "Links laboratory to its manager.",
+      "source_record_ids": [
+        "JCBX030707"
+      ],
+      "evidence": [
+        "负责人号"
+      ]
+    },
+    {
+      "id": "conductedInLab",
+      "label": "conducted in Lab",
+      "domain": "Experiment",
+      "range": "Laboratory",
+      "description": "Links experiment to the laboratory where it is conducted.",
+      "source_record_ids": [
+        "JCBX030801"
+      ],
+      "evidence": [
+        "实验序号 学校自编"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "subject": "EquipmentDisposal",
+      "predicate": "hasCustodian",
+      "object": "Custodian",
+      "source_record_ids": [
+        "JCBX030314"
+      ],
+      "evidence": [
+        "保管人号 日常保管人工号"
+      ]
+    },
+    {
+      "subject": "Laboratory",
+      "predicate": "hasManager",
+      "object": "Custodian",
+      "source_record_ids": [
+        "JCBX030707"
+      ],
+      "evidence": [
+        "负责人号"
+      ]
+    },
+    {
+      "subject": "Experiment",
+      "predicate": "conductedInLab",
+      "object": "Laboratory",
+      "source_record_ids": [
+        "JCBX030801"
+      ],
+      "evidence": [
+        "实验序号 学校自编"
+      ]
+    }
+  ],
+  "class_hierarchy": []
+}

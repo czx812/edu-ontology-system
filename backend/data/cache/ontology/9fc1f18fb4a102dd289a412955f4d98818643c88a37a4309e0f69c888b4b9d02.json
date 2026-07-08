@@ -1,0 +1,407 @@
+{
+  "classes": [
+    {
+      "id": "ProjectRequirement",
+      "label": "Project Requirement",
+      "evidence": "Section 1: 总体把握项目要求，熟悉所分配任务。",
+      "name": "ProjectRequirement"
+    },
+    {
+      "id": "TaskAllocation",
+      "label": "Task Allocation",
+      "evidence": "Section 1: 总体把握项目要求，熟悉所分配任务。",
+      "name": "TaskAllocation"
+    },
+    {
+      "id": "ResearchActivity",
+      "label": "Research Activity",
+      "evidence": "Section 2: 查阅资料，根据各自任务提出设计方案并讨论。",
+      "name": "ResearchActivity"
+    },
+    {
+      "id": "DesignProposal",
+      "label": "Design Proposal",
+      "evidence": "Section 2: 查阅资料，根据各自任务提出设计方案并讨论。",
+      "name": "DesignProposal"
+    },
+    {
+      "id": "Discussion",
+      "label": "Discussion",
+      "evidence": "Section 2: 查阅资料，根据各自任务提出设计方案并讨论。",
+      "name": "Discussion"
+    },
+    {
+      "id": "Compilation",
+      "label": "Compilation",
+      "evidence": "Section 3: 进行编译并调试程序。",
+      "name": "Compilation"
+    },
+    {
+      "id": "Debugging",
+      "label": "Debugging",
+      "evidence": "Section 3: 进行编译并调试程序。",
+      "name": "Debugging"
+    },
+    {
+      "id": "Program",
+      "label": "Program",
+      "evidence": "Section 3: 进行编译并调试程序。",
+      "name": "Program"
+    },
+    {
+      "id": "Improvement",
+      "label": "Improvement",
+      "evidence": "Section 4: 调试程序、改进。",
+      "name": "Improvement"
+    },
+    {
+      "id": "SystemIntegration",
+      "label": "System Integration",
+      "evidence": "Section 5: 系统程序整合，调试以及改进，文档撰写。",
+      "name": "SystemIntegration"
+    },
+    {
+      "id": "Documentation",
+      "label": "Documentation",
+      "evidence": "Section 5: 系统程序整合，调试以及改进，文档撰写。",
+      "name": "Documentation"
+    },
+    {
+      "id": "Defense",
+      "label": "Defense",
+      "evidence": "Section 6: 评分答辩。",
+      "name": "Defense"
+    },
+    {
+      "id": "Evaluation",
+      "label": "Evaluation",
+      "evidence": "Section 6: 评分答辩。",
+      "name": "Evaluation"
+    }
+  ],
+  "properties": [],
+  "datatype_properties": [],
+  "object_properties": [
+    {
+      "id": "hastask",
+      "label": "has Task",
+      "domain": "ProjectRequirement",
+      "range": "TaskAllocation",
+      "evidence": "Section 1: 总体把握项目要求，熟悉所分配任务。",
+      "name": "hastask"
+    },
+    {
+      "id": "involvesresearch",
+      "label": "involves Research",
+      "domain": "TaskAllocation",
+      "range": "ResearchActivity",
+      "evidence": "Section 2: 查阅资料，根据各自任务提出设计方案并讨论。",
+      "name": "involvesresearch"
+    },
+    {
+      "id": "producesdesign",
+      "label": "produces Design",
+      "domain": "ResearchActivity",
+      "range": "DesignProposal",
+      "evidence": "Section 2: 查阅资料，根据各自任务提出设计方案并讨论。",
+      "name": "producesdesign"
+    },
+    {
+      "id": "includesdiscussion",
+      "label": "includes Discussion",
+      "domain": "ResearchActivity",
+      "range": "Discussion",
+      "evidence": "Section 2: 查阅资料，根据各自任务提出设计方案并讨论。",
+      "name": "includesdiscussion"
+    },
+    {
+      "id": "compilesprogram",
+      "label": "compiles Program",
+      "domain": "Compilation",
+      "range": "Program",
+      "evidence": "Section 3: 进行编译并调试程序。",
+      "name": "compilesprogram"
+    },
+    {
+      "id": "debugsprogram",
+      "label": "debugs Program",
+      "domain": "Debugging",
+      "range": "Program",
+      "evidence": "Section 3: 进行编译并调试程序。",
+      "name": "debugsprogram"
+    },
+    {
+      "id": "improvesprogram",
+      "label": "improves Program",
+      "domain": "Improvement",
+      "range": "Program",
+      "evidence": "Section 4: 调试程序、改进。",
+      "name": "improvesprogram"
+    },
+    {
+      "id": "integratessystem",
+      "label": "integrates System",
+      "domain": "SystemIntegration",
+      "range": "Program",
+      "evidence": "Section 5: 系统程序整合，调试以及改进，文档撰写。",
+      "name": "integratessystem"
+    },
+    {
+      "id": "producesdocumentation",
+      "label": "produces Documentation",
+      "domain": "SystemIntegration",
+      "range": "Documentation",
+      "evidence": "Section 5: 系统程序整合，调试以及改进，文档撰写。",
+      "name": "producesdocumentation"
+    },
+    {
+      "id": "evaluatedby",
+      "label": "evaluated By",
+      "domain": "Program",
+      "range": "Evaluation",
+      "evidence": "Section 6: 评分答辩。",
+      "name": "evaluatedby"
+    },
+    {
+      "id": "defendedin",
+      "label": "defended In",
+      "domain": "Program",
+      "range": "Defense",
+      "evidence": "Section 6: 评分答辩。",
+      "name": "defendedin"
+    }
+  ],
+  "relations": [
+    {
+      "subject": "ProjectRequirement",
+      "predicate": "hastask",
+      "object": "TaskAllocation",
+      "evidence": "Section 1",
+      "source": "ProjectRequirement",
+      "type": "hastask",
+      "target": "TaskAllocation"
+    },
+    {
+      "subject": "TaskAllocation",
+      "predicate": "involvesresearch",
+      "object": "ResearchActivity",
+      "evidence": "Section 2",
+      "source": "TaskAllocation",
+      "type": "involvesresearch",
+      "target": "ResearchActivity"
+    },
+    {
+      "subject": "ResearchActivity",
+      "predicate": "producesdesign",
+      "object": "DesignProposal",
+      "evidence": "Section 2",
+      "source": "ResearchActivity",
+      "type": "producesdesign",
+      "target": "DesignProposal"
+    },
+    {
+      "subject": "ResearchActivity",
+      "predicate": "includesdiscussion",
+      "object": "Discussion",
+      "evidence": "Section 2",
+      "source": "ResearchActivity",
+      "type": "includesdiscussion",
+      "target": "Discussion"
+    },
+    {
+      "subject": "Compilation",
+      "predicate": "compilesprogram",
+      "object": "Program",
+      "evidence": "Section 3",
+      "source": "Compilation",
+      "type": "compilesprogram",
+      "target": "Program"
+    },
+    {
+      "subject": "Debugging",
+      "predicate": "debugsprogram",
+      "object": "Program",
+      "evidence": "Section 3",
+      "source": "Debugging",
+      "type": "debugsprogram",
+      "target": "Program"
+    },
+    {
+      "subject": "Improvement",
+      "predicate": "improvesprogram",
+      "object": "Program",
+      "evidence": "Section 4",
+      "source": "Improvement",
+      "type": "improvesprogram",
+      "target": "Program"
+    },
+    {
+      "subject": "SystemIntegration",
+      "predicate": "integratessystem",
+      "object": "Program",
+      "evidence": "Section 5",
+      "source": "SystemIntegration",
+      "type": "integratessystem",
+      "target": "Program"
+    },
+    {
+      "subject": "SystemIntegration",
+      "predicate": "producesdocumentation",
+      "object": "Documentation",
+      "evidence": "Section 5",
+      "source": "SystemIntegration",
+      "type": "producesdocumentation",
+      "target": "Documentation"
+    },
+    {
+      "subject": "Program",
+      "predicate": "evaluatedby",
+      "object": "Evaluation",
+      "evidence": "Section 6",
+      "source": "Program",
+      "type": "evaluatedby",
+      "target": "Evaluation"
+    },
+    {
+      "subject": "Program",
+      "predicate": "defendedin",
+      "object": "Defense",
+      "evidence": "Section 6",
+      "source": "Program",
+      "type": "defendedin",
+      "target": "Defense"
+    }
+  ],
+  "class_hierarchy": [],
+  "alignment_hints": [
+    {
+      "source_label": "ProjectRequirement",
+      "target_label": "ProjectPhase",
+      "mapping_type": "closeMatch",
+      "confidence": 0.85,
+      "evidence": "Both represent stages in a project lifecycle"
+    },
+    {
+      "source_label": "TaskAllocation",
+      "target_label": "TaskAssignment",
+      "mapping_type": "exactMatch",
+      "confidence": 0.9,
+      "evidence": "Synonymous terms"
+    },
+    {
+      "source_label": "ResearchActivity",
+      "target_label": "ResearchPhase",
+      "mapping_type": "closeMatch",
+      "confidence": 0.85,
+      "evidence": "Both represent research stages"
+    },
+    {
+      "source_label": "DesignProposal",
+      "target_label": "DesignDocument",
+      "mapping_type": "closeMatch",
+      "confidence": 0.8,
+      "evidence": "Both represent design outputs"
+    },
+    {
+      "source_label": "Compilation",
+      "target_label": "BuildProcess",
+      "mapping_type": "closeMatch",
+      "confidence": 0.85,
+      "evidence": "Both represent code compilation"
+    },
+    {
+      "source_label": "Debugging",
+      "target_label": "Testing",
+      "mapping_type": "relatedMatch",
+      "confidence": 0.75,
+      "evidence": "Debugging is a subset of testing"
+    },
+    {
+      "source_label": "SystemIntegration",
+      "target_label": "IntegrationTesting",
+      "mapping_type": "closeMatch",
+      "confidence": 0.8,
+      "evidence": "Both involve combining components"
+    },
+    {
+      "source_label": "Documentation",
+      "target_label": "TechnicalWriting",
+      "mapping_type": "closeMatch",
+      "confidence": 0.85,
+      "evidence": "Both involve creating documents"
+    },
+    {
+      "source_label": "Defense",
+      "target_label": "Presentation",
+      "mapping_type": "closeMatch",
+      "confidence": 0.8,
+      "evidence": "Both involve presenting work"
+    },
+    {
+      "source_label": "Evaluation",
+      "target_label": "Assessment",
+      "mapping_type": "exactMatch",
+      "confidence": 0.9,
+      "evidence": "Synonymous terms"
+    }
+  ],
+  "source_mappings": [],
+  "alignment_mappings": [],
+  "metadata": {
+    "generation_mode": "llm_blueprint",
+    "generation_strategy": "llm_blueprint_plus_rule_expansion",
+    "llm_provider": "longcat",
+    "llm_model": "LongCat-2.0",
+    "mode": "llm_blueprint",
+    "cache_hit": false,
+    "created_at": "2026-07-08T15:25:08",
+    "prompt_version": "llm_blueprint_v1",
+    "source_docs": [
+      "B:\\Code\\A\\edu-ontology-system\\backend\\data\\uploads\\4\\52bc457db1994a4d91806bb1cbadea45.pdf"
+    ],
+    "alignment_strategy": "rule_alignment_with_blueprint_hints"
+  },
+  "stats": {
+    "total_records": 0,
+    "record_groups": 0,
+    "llm_group_total": 0,
+    "llm_group_success": 0,
+    "llm_group_failed": 0,
+    "llm_global_merge_success": false,
+    "generation_mode": "llm_blueprint",
+    "generation_strategy": "llm_blueprint_plus_rule_expansion",
+    "llm_blueprint_success": true,
+    "llm_review_success": false,
+    "llm_calls": 1,
+    "classes": 13,
+    "datatype_properties": 0,
+    "object_properties": 11,
+    "relations": 11,
+    "datatype_properties_by_llm_rules": 0,
+    "aligned_ontology_count": 1,
+    "alignment_mappings": 0,
+    "source_mappings": 0,
+    "rule_completed_properties": 0,
+    "source_mapped_elements": 0,
+    "cache_hit": false,
+    "blueprint_cache_hit": false,
+    "group_cache_hits": 0,
+    "group_cache_misses": 0,
+    "duration_ms": 70916.08,
+    "llm_duration_ms": 70909.13,
+    "validation_duration_ms": 0,
+    "llm_error_type": "",
+    "content_extract_ok": true,
+    "timeout_reached": false,
+    "warnings": [],
+    "stopped_early": false,
+    "stopped_reason": "",
+    "llm_total_batches": 1,
+    "llm_success_batches": 0,
+    "llm_failed_batches": 0
+  },
+  "warnings": [
+    "Removed class hierarchy with unknown parent/child: ->",
+    "datatype_properties is empty after validation."
+  ]
+}

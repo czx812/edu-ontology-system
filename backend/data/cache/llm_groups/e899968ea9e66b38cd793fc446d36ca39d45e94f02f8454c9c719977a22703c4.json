@@ -1,0 +1,652 @@
+{
+  "classes": [
+    {
+      "id": "Person",
+      "label": "Person",
+      "description": "A human individual, such as a student or staff member.",
+      "source_record_ids": [
+        "JCTB020101",
+        "JCTB020120"
+      ],
+      "evidence": [
+        "姓名",
+        "人员号"
+      ]
+    },
+    {
+      "id": "Course",
+      "label": "Course",
+      "description": "An educational course or subject.",
+      "source_record_ids": [
+        "JCTB010403",
+        "JCTB010404"
+      ],
+      "evidence": [
+        "课程号",
+        "课程名称"
+      ]
+    },
+    {
+      "id": "Major",
+      "label": "Major",
+      "description": "An academic major or field of study.",
+      "source_record_ids": [
+        "JCTB010407",
+        "JCTB010408"
+      ],
+      "evidence": [
+        "专业码",
+        "专业名称"
+      ]
+    },
+    {
+      "id": "Ethnicity",
+      "label": "Ethnicity",
+      "description": "An ethnic group classification.",
+      "source_record_ids": [
+        "JCTB020109"
+      ],
+      "evidence": [
+        "民族码"
+      ]
+    },
+    {
+      "id": "ApprovalUnit",
+      "label": "Approval Unit",
+      "description": "A superior department that approves overseas travel and issues approval documents.",
+      "source_record_ids": [
+        "JCJG040209"
+      ],
+      "evidence": [
+        "审批单位"
+      ]
+    },
+    {
+      "id": "Book",
+      "label": "Book",
+      "description": "A library book.",
+      "source_record_ids": [
+        "JCBX040102"
+      ],
+      "evidence": [
+        "图书条形码"
+      ]
+    },
+    {
+      "id": "Journal",
+      "label": "Journal",
+      "description": "A periodical journal.",
+      "source_record_ids": [
+        "JCBX040202"
+      ],
+      "evidence": [
+        "期刊条形码"
+      ]
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "hasName",
+      "label": "has name",
+      "domain": "Person",
+      "range": "string",
+      "description": "The full name of a person.",
+      "source_record_ids": [
+        "JCTB020101"
+      ],
+      "evidence": [
+        "姓名"
+      ]
+    },
+    {
+      "id": "hasEnglishName",
+      "label": "has English name",
+      "domain": "Person",
+      "range": "string",
+      "description": "The English name of a person.",
+      "source_record_ids": [
+        "JCTB020102"
+      ],
+      "evidence": [
+        "英文姓名"
+      ]
+    },
+    {
+      "id": "hasNamePinyin",
+      "label": "has name pinyin",
+      "domain": "Person",
+      "range": "string",
+      "description": "The pinyin representation of a person's name.",
+      "source_record_ids": [
+        "JCTB020103"
+      ],
+      "evidence": [
+        "姓名拼音"
+      ]
+    },
+    {
+      "id": "hasFormerName",
+      "label": "has former name",
+      "domain": "Person",
+      "range": "string",
+      "description": "A name previously formally used by a person.",
+      "source_record_ids": [
+        "JCTB020104"
+      ],
+      "evidence": [
+        "曾用名"
+      ]
+    },
+    {
+      "id": "hasGenderCode",
+      "label": "has gender code",
+      "domain": "Person",
+      "range": "string",
+      "description": "The gender code of a person.",
+      "source_record_ids": [
+        "JCTB020105"
+      ],
+      "evidence": [
+        "性别码"
+      ]
+    },
+    {
+      "id": "hasBirthDate",
+      "label": "has birth date",
+      "domain": "Person",
+      "range": "string",
+      "description": "The birth date of a person.",
+      "source_record_ids": [
+        "JCTB020106"
+      ],
+      "evidence": [
+        "出生日期"
+      ]
+    },
+    {
+      "id": "hasBirthPlaceCode",
+      "label": "has birth place code",
+      "domain": "Person",
+      "range": "string",
+      "description": "The code for the birth place of a person.",
+      "source_record_ids": [
+        "JCTB020107"
+      ],
+      "evidence": [
+        "出生地码"
+      ]
+    },
+    {
+      "id": "hasNativePlace",
+      "label": "has native place",
+      "domain": "Person",
+      "range": "string",
+      "description": "The native place or ancestral home of a person.",
+      "source_record_ids": [
+        "JCTB020108"
+      ],
+      "evidence": [
+        "籍贯"
+      ]
+    },
+    {
+      "id": "hasNationalityCode",
+      "label": "has nationality code",
+      "domain": "Person",
+      "range": "string",
+      "description": "The nationality or region code of a person.",
+      "source_record_ids": [
+        "JCTB020110"
+      ],
+      "evidence": [
+        "国籍/地区 码"
+      ]
+    },
+    {
+      "id": "hasIdTypeCode",
+      "label": "has ID type code",
+      "domain": "Person",
+      "range": "string",
+      "description": "The type code of a person's identity document.",
+      "source_record_ids": [
+        "JCTB020111"
+      ],
+      "evidence": [
+        "身份证件类 型码"
+      ]
+    },
+    {
+      "id": "hasIdNumber",
+      "label": "has ID number",
+      "domain": "Person",
+      "range": "string",
+      "description": "The number of a person's identity document.",
+      "source_record_ids": [
+        "JCTB020112"
+      ],
+      "evidence": [
+        "身份证件号"
+      ]
+    },
+    {
+      "id": "hasMaritalStatusCode",
+      "label": "has marital status code",
+      "domain": "Person",
+      "range": "string",
+      "description": "The marital status code of a person.",
+      "source_record_ids": [
+        "JCTB020113"
+      ],
+      "evidence": [
+        "婚姻状况码"
+      ]
+    },
+    {
+      "id": "hasHMTCode",
+      "label": "has HMT code",
+      "domain": "Person",
+      "range": "string",
+      "description": "The code indicating if a person is from Hong Kong, Macau, Taiwan, or overseas.",
+      "source_record_ids": [
+        "JCTB020114"
+      ],
+      "evidence": [
+        "港澳台侨外 码"
+      ]
+    },
+    {
+      "id": "hasPoliticalStatusCode",
+      "label": "has political status code",
+      "domain": "Person",
+      "range": "string",
+      "description": "The political affiliation or status code of a person.",
+      "source_record_ids": [
+        "JCTB020115"
+      ],
+      "evidence": [
+        "政治面貌码"
+      ]
+    },
+    {
+      "id": "hasHealthStatusCode",
+      "label": "has health status code",
+      "domain": "Person",
+      "range": "string",
+      "description": "The health status code of a person.",
+      "source_record_ids": [
+        "JCTB020116"
+      ],
+      "evidence": [
+        "健康状况码"
+      ]
+    },
+    {
+      "id": "hasReligionCode",
+      "label": "has religion code",
+      "domain": "Person",
+      "range": "string",
+      "description": "The religious belief code of a person.",
+      "source_record_ids": [
+        "JCTB020117"
+      ],
+      "evidence": [
+        "信仰宗教码"
+      ]
+    },
+    {
+      "id": "hasBloodTypeCode",
+      "label": "has blood type code",
+      "domain": "Person",
+      "range": "string",
+      "description": "The blood type code of a person.",
+      "source_record_ids": [
+        "JCTB020118"
+      ],
+      "evidence": [
+        "血型码"
+      ]
+    },
+    {
+      "id": "hasPhoto",
+      "label": "has photo",
+      "domain": "Person",
+      "range": "string",
+      "description": "A recent正面免冠证件照片 of a person.",
+      "source_record_ids": [
+        "JCTB020119"
+      ],
+      "evidence": [
+        "照片"
+      ]
+    },
+    {
+      "id": "hasPersonNumber",
+      "label": "has person number",
+      "domain": "Person",
+      "range": "string",
+      "description": "The student or staff number of a person.",
+      "source_record_ids": [
+        "JCTB020120"
+      ],
+      "evidence": [
+        "人员号"
+      ]
+    },
+    {
+      "id": "hasIdExpiryDate",
+      "label": "has ID expiry date",
+      "domain": "Person",
+      "range": "string",
+      "description": "The expiry date of a person's identity document.",
+      "source_record_ids": [
+        "JCTB020121"
+      ],
+      "evidence": [
+        "身份证件有 效期"
+      ]
+    },
+    {
+      "id": "isOnlyChild",
+      "label": "is only child",
+      "domain": "Person",
+      "range": "string",
+      "description": "Indicates if a person is an only child (1 for yes, 0 for no).",
+      "source_record_ids": [
+        "JCTB020122"
+      ],
+      "evidence": [
+        "是否独生子 女"
+      ]
+    },
+    {
+      "id": "hasGrade",
+      "label": "has grade",
+      "domain": "Person",
+      "range": "string",
+      "description": "The grade level of a student.",
+      "source_record_ids": [
+        "JCTB010401"
+      ],
+      "evidence": [
+        "年级"
+      ]
+    },
+    {
+      "id": "hasSchoolingYears",
+      "label": "has schooling years",
+      "domain": "Person",
+      "range": "string",
+      "description": "The duration of schooling in years.",
+      "source_record_ids": [
+        "JCTB010402"
+      ],
+      "evidence": [
+        "学制"
+      ]
+    },
+    {
+      "id": "hasCourseNumber",
+      "label": "has course number",
+      "domain": "Course",
+      "range": "string",
+      "description": "The school-compiled number of a course.",
+      "source_record_ids": [
+        "JCTB010403"
+      ],
+      "evidence": [
+        "课程号"
+      ]
+    },
+    {
+      "id": "hasCourseName",
+      "label": "has course name",
+      "domain": "Course",
+      "range": "string",
+      "description": "The name of a course.",
+      "source_record_ids": [
+        "JCTB010404"
+      ],
+      "evidence": [
+        "课程名称"
+      ]
+    },
+    {
+      "id": "hasCourseEnglishName",
+      "label": "has course English name",
+      "domain": "Course",
+      "range": "string",
+      "description": "The English name of a course.",
+      "source_record_ids": [
+        "JCTB010405"
+      ],
+      "evidence": [
+        "课程英文名称"
+      ]
+    },
+    {
+      "id": "hasExamMethodCode",
+      "label": "has exam method code",
+      "domain": "Course",
+      "range": "string",
+      "description": "The code for the examination method of a course.",
+      "source_record_ids": [
+        "JCTB010406"
+      ],
+      "evidence": [
+        "考试方式码"
+      ]
+    },
+    {
+      "id": "hasMajorCode",
+      "label": "has major code",
+      "domain": "Major",
+      "range": "string",
+      "description": "The code for an academic major.",
+      "source_record_ids": [
+        "JCTB010407"
+      ],
+      "evidence": [
+        "专业码"
+      ]
+    },
+    {
+      "id": "hasMajorName",
+      "label": "has major name",
+      "domain": "Major",
+      "range": "string",
+      "description": "The name of an academic major.",
+      "source_record_ids": [
+        "JCTB010408"
+      ],
+      "evidence": [
+        "专业名称"
+      ]
+    },
+    {
+      "id": "hasEthnicityCode",
+      "label": "has ethnicity code",
+      "domain": "Ethnicity",
+      "range": "string",
+      "description": "The 2-digit code for an ethnicity.",
+      "source_record_ids": [
+        "JCTB020109"
+      ],
+      "evidence": [
+        "民族码"
+      ]
+    },
+    {
+      "id": "hasPositionOrder",
+      "label": "has position order",
+      "domain": "Person",
+      "range": "string",
+      "description": "The order number of a leading cadre within a leadership group.",
+      "source_record_ids": [
+        "JCJG020514"
+      ],
+      "evidence": [
+        "职务排序"
+      ]
+    },
+    {
+      "id": "hasApprovalUnitName",
+      "label": "has approval unit name",
+      "domain": "ApprovalUnit",
+      "range": "string",
+      "description": "The name of the superior department that approved overseas travel.",
+      "source_record_ids": [
+        "JCJG040209"
+      ],
+      "evidence": [
+        "审批单位"
+      ]
+    },
+    {
+      "id": "hasBookBarcode",
+      "label": "has book barcode",
+      "domain": "Book",
+      "range": "string",
+      "description": "The barcode corresponding to a book.",
+      "source_record_ids": [
+        "JCBX040102"
+      ],
+      "evidence": [
+        "图书条形码"
+      ]
+    },
+    {
+      "id": "hasJournalBarcode",
+      "label": "has journal barcode",
+      "domain": "Journal",
+      "range": "string",
+      "description": "The barcode corresponding to a journal.",
+      "source_record_ids": [
+        "JCBX040202"
+      ],
+      "evidence": [
+        "期刊条形码"
+      ]
+    },
+    {
+      "id": "hasEmail",
+      "label": "has email",
+      "domain": "Person",
+      "range": "string",
+      "description": "The email address of a person.",
+      "source_record_ids": [
+        "JCTB010106",
+        "JCXX010120"
+      ],
+      "evidence": [
+        "电子信箱"
+      ]
+    },
+    {
+      "id": "hasFamilyEmail",
+      "label": "has family email",
+      "domain": "Person",
+      "range": "string",
+      "description": "The family email address of a person.",
+      "source_record_ids": [
+        "JCTB020604"
+      ],
+      "evidence": [
+        "家庭电子信 箱"
+      ]
+    },
+    {
+      "id": "hasRelationshipCode",
+      "label": "has relationship code",
+      "domain": "Person",
+      "range": "string",
+      "description": "The code for a person's relationship.",
+      "source_record_ids": [
+        "JCTB020701"
+      ],
+      "evidence": [
+        "关系码"
+      ]
+    }
+  ],
+  "object_properties": [
+    {
+      "id": "belongsToEthnicity",
+      "label": "belongs to ethnicity",
+      "domain": "Person",
+      "range": "Ethnicity",
+      "description": "A person belongs to a specific ethnicity.",
+      "source_record_ids": [
+        "JCTB020109"
+      ],
+      "evidence": [
+        "民族码"
+      ]
+    },
+    {
+      "id": "enrolledInMajor",
+      "label": "enrolled in major",
+      "domain": "Person",
+      "range": "Major",
+      "description": "A person is enrolled in a specific major.",
+      "source_record_ids": [
+        "JCTB010407",
+        "JCTB010408"
+      ],
+      "evidence": [
+        "专业码",
+        "专业名称"
+      ]
+    },
+    {
+      "id": "approvedBy",
+      "label": "approved by",
+      "domain": "Person",
+      "range": "ApprovalUnit",
+      "description": "A person's overseas travel is approved by a specific unit.",
+      "source_record_ids": [
+        "JCJG040209"
+      ],
+      "evidence": [
+        "审批单位"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "subject": "Person",
+      "predicate": "belongsToEthnicity",
+      "object": "Ethnicity",
+      "source_record_ids": [
+        "JCTB020109"
+      ],
+      "evidence": [
+        "民族码"
+      ]
+    },
+    {
+      "subject": "Person",
+      "predicate": "enrolledInMajor",
+      "object": "Major",
+      "source_record_ids": [
+        "JCTB010407",
+        "JCTB010408"
+      ],
+      "evidence": [
+        "专业码",
+        "专业名称"
+      ]
+    },
+    {
+      "subject": "Person",
+      "predicate": "approvedBy",
+      "object": "ApprovalUnit",
+      "source_record_ids": [
+        "JCJG040209"
+      ],
+      "evidence": [
+        "审批单位"
+      ]
+    }
+  ],
+  "class_hierarchy": []
+}

@@ -1,0 +1,495 @@
+{
+  "classes": [
+    {
+      "id": "StudentReward",
+      "label": "Student Reward",
+      "description": "Represents a reward or award given to a student.",
+      "source_record_ids": [
+        "JCXS020410",
+        "JCXS020411"
+      ],
+      "evidence": [
+        "奖励类型码",
+        "奖励方式码"
+      ]
+    },
+    {
+      "id": "StudentDiscipline",
+      "label": "Student Discipline",
+      "description": "Represents a disciplinary action or violation record for a student.",
+      "source_record_ids": [
+        "JCXS020501",
+        "JCXS020502",
+        "JCXS020503",
+        "JCXS020504",
+        "JCXS020505",
+        "JCXS020506",
+        "JCXS020507",
+        "JCXS020508",
+        "JCXS020509"
+      ],
+      "evidence": [
+        "违纪日期",
+        "违纪简况",
+        "违纪类别码",
+        "处分名称码",
+        "处分原因",
+        "处分日期",
+        "处分文号",
+        "处分撤消日期",
+        "处分撤消文号"
+      ]
+    },
+    {
+      "id": "AcademicCompletion",
+      "label": "Academic Completion",
+      "description": "Represents the completion or termination of a student's studies, including certificates awarded.",
+      "source_record_ids": [
+        "JCXS030101",
+        "JCXS030102",
+        "JCXS030103",
+        "JCXS030104",
+        "JCXS030105",
+        "JCXS030106",
+        "JCXS030107",
+        "JCXS030108",
+        "JCXS030109"
+      ],
+      "evidence": [
+        "结束学业年月",
+        "结束学业码",
+        "结束学业原因说明",
+        "毕业证书号",
+        "学位证书号",
+        "结业证书号",
+        "获毕业证书日期",
+        "获学位证书日期",
+        "获结业证书日期"
+      ]
+    },
+    {
+      "id": "EmploymentAgreement",
+      "label": "Employment Agreement",
+      "description": "Represents the employment agreement and destination details for a graduating student.",
+      "source_record_ids": [
+        "JCXS030201",
+        "JCXS030202",
+        "JCXS030203",
+        "JCXS030204",
+        "JCXS030205",
+        "JCXS030206",
+        "JCXS030207",
+        "JCXS030208",
+        "JCXS030209",
+        "JCXS030210"
+      ],
+      "evidence": [
+        "协议书编号",
+        "协议签订日期",
+        "协议年限",
+        "报到日期",
+        "就业落实方式码",
+        "毕业去向码",
+        "接收单位",
+        "单位所在地区划码",
+        "单位主管部门",
+        "社会单位性质码"
+      ]
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "rewardTypeCode",
+      "label": "Reward Type Code",
+      "domain": "StudentReward",
+      "range": "string",
+      "description": "Code representing the type of reward.",
+      "source_record_ids": [
+        "JCXS020410"
+      ],
+      "evidence": [
+        "奖励类型码"
+      ]
+    },
+    {
+      "id": "rewardMethodCode",
+      "label": "Reward Method Code",
+      "domain": "StudentReward",
+      "range": "string",
+      "description": "Code representing the method of the reward.",
+      "source_record_ids": [
+        "JCXS020411"
+      ],
+      "evidence": [
+        "奖励方式码"
+      ]
+    },
+    {
+      "id": "disciplineDate",
+      "label": "Discipline Date",
+      "domain": "StudentDiscipline",
+      "range": "string",
+      "description": "Date of the disciplinary violation.",
+      "source_record_ids": [
+        "JCXS020501"
+      ],
+      "evidence": [
+        "违纪日期"
+      ]
+    },
+    {
+      "id": "disciplineSummary",
+      "label": "Discipline Summary",
+      "domain": "StudentDiscipline",
+      "range": "string",
+      "description": "Summary of the disciplinary violation.",
+      "source_record_ids": [
+        "JCXS020502"
+      ],
+      "evidence": [
+        "违纪简况"
+      ]
+    },
+    {
+      "id": "disciplineCategoryCode",
+      "label": "Discipline Category Code",
+      "domain": "StudentDiscipline",
+      "range": "string",
+      "description": "Code representing the category of the violation.",
+      "source_record_ids": [
+        "JCXS020503"
+      ],
+      "evidence": [
+        "违纪类别码"
+      ]
+    },
+    {
+      "id": "punishmentNameCode",
+      "label": "Punishment Name Code",
+      "domain": "StudentDiscipline",
+      "range": "string",
+      "description": "Code representing the name of the punishment.",
+      "source_record_ids": [
+        "JCXS020504"
+      ],
+      "evidence": [
+        "处分名称码"
+      ]
+    },
+    {
+      "id": "punishmentReason",
+      "label": "Punishment Reason",
+      "domain": "StudentDiscipline",
+      "range": "string",
+      "description": "Reason for the punishment.",
+      "source_record_ids": [
+        "JCXS020505"
+      ],
+      "evidence": [
+        "处分原因"
+      ]
+    },
+    {
+      "id": "punishmentDate",
+      "label": "Punishment Date",
+      "domain": "StudentDiscipline",
+      "range": "string",
+      "description": "Date the punishment was issued.",
+      "source_record_ids": [
+        "JCXS020506"
+      ],
+      "evidence": [
+        "处分日期"
+      ]
+    },
+    {
+      "id": "punishmentDocumentNumber",
+      "label": "Punishment Document Number",
+      "domain": "StudentDiscipline",
+      "range": "string",
+      "description": "Official document number of the punishment.",
+      "source_record_ids": [
+        "JCXS020507"
+      ],
+      "evidence": [
+        "处分的正式文号，无正式文号不填"
+      ]
+    },
+    {
+      "id": "punishmentRevocationDate",
+      "label": "Punishment Revocation Date",
+      "domain": "StudentDiscipline",
+      "range": "string",
+      "description": "Date the punishment was revoked.",
+      "source_record_ids": [
+        "JCXS020508"
+      ],
+      "evidence": [
+        "处分撤消日期"
+      ]
+    },
+    {
+      "id": "punishmentRevocationDocumentNumber",
+      "label": "Punishment Revocation Document Number",
+      "domain": "StudentDiscipline",
+      "range": "string",
+      "description": "Official document number of the revocation.",
+      "source_record_ids": [
+        "JCXS020509"
+      ],
+      "evidence": [
+        "撤消的正式文号，无正式文号不填"
+      ]
+    },
+    {
+      "id": "academicCompletionDate",
+      "label": "Academic Completion Date",
+      "domain": "AcademicCompletion",
+      "range": "string",
+      "description": "Year and month of completing or ending studies.",
+      "source_record_ids": [
+        "JCXS030101"
+      ],
+      "evidence": [
+        "结束学业年月"
+      ]
+    },
+    {
+      "id": "academicCompletionCode",
+      "label": "Academic Completion Code",
+      "domain": "AcademicCompletion",
+      "range": "string",
+      "description": "Code representing the completion status.",
+      "source_record_ids": [
+        "JCXS030102"
+      ],
+      "evidence": [
+        "结束学业码"
+      ]
+    },
+    {
+      "id": "academicCompletionReason",
+      "label": "Academic Completion Reason",
+      "domain": "AcademicCompletion",
+      "range": "string",
+      "description": "Explanation for the reason of ending studies.",
+      "source_record_ids": [
+        "JCXS030103"
+      ],
+      "evidence": [
+        "结束学业原因说明"
+      ]
+    },
+    {
+      "id": "graduationCertificateNumber",
+      "label": "Graduation Certificate Number",
+      "domain": "AcademicCompletion",
+      "range": "string",
+      "description": "Number of the graduation certificate.",
+      "source_record_ids": [
+        "JCXS030104"
+      ],
+      "evidence": [
+        "毕业证书号"
+      ]
+    },
+    {
+      "id": "degreeCertificateNumber",
+      "label": "Degree Certificate Number",
+      "domain": "AcademicCompletion",
+      "range": "string",
+      "description": "Number of the degree certificate.",
+      "source_record_ids": [
+        "JCXS030105"
+      ],
+      "evidence": [
+        "学位证书号"
+      ]
+    },
+    {
+      "id": "completionCertificateNumber",
+      "label": "Completion Certificate Number",
+      "domain": "AcademicCompletion",
+      "range": "string",
+      "description": "Number of the completion certificate.",
+      "source_record_ids": [
+        "JCXS030106"
+      ],
+      "evidence": [
+        "结业证书号"
+      ]
+    },
+    {
+      "id": "graduationCertificateDate",
+      "label": "Graduation Certificate Date",
+      "domain": "AcademicCompletion",
+      "range": "string",
+      "description": "Date the graduation certificate was received.",
+      "source_record_ids": [
+        "JCXS030107"
+      ],
+      "evidence": [
+        "获毕业证书日期"
+      ]
+    },
+    {
+      "id": "degreeCertificateDate",
+      "label": "Degree Certificate Date",
+      "domain": "AcademicCompletion",
+      "range": "string",
+      "description": "Date the degree certificate was received.",
+      "source_record_ids": [
+        "JCXS030108"
+      ],
+      "evidence": [
+        "获学位证书日期"
+      ]
+    },
+    {
+      "id": "completionCertificateDate",
+      "label": "Completion Certificate Date",
+      "domain": "AcademicCompletion",
+      "range": "string",
+      "description": "Date the completion certificate was received.",
+      "source_record_ids": [
+        "JCXS030109"
+      ],
+      "evidence": [
+        "获结业证书日期"
+      ]
+    },
+    {
+      "id": "agreementNumber",
+      "label": "Agreement Number",
+      "domain": "EmploymentAgreement",
+      "range": "string",
+      "description": "School-assigned number for the employment agreement.",
+      "source_record_ids": [
+        "JCXS030201"
+      ],
+      "evidence": [
+        "学校自编"
+      ]
+    },
+    {
+      "id": "agreementSigningDate",
+      "label": "Agreement Signing Date",
+      "domain": "EmploymentAgreement",
+      "range": "string",
+      "description": "Date the agreement was signed.",
+      "source_record_ids": [
+        "JCXS030202"
+      ],
+      "evidence": [
+        "协议签订日期"
+      ]
+    },
+    {
+      "id": "agreementDuration",
+      "label": "Agreement Duration",
+      "domain": "EmploymentAgreement",
+      "range": "string",
+      "description": "Duration of the agreement in years.",
+      "source_record_ids": [
+        "JCXS030203"
+      ],
+      "evidence": [
+        "协议年限"
+      ]
+    },
+    {
+      "id": "reportingDate",
+      "label": "Reporting Date",
+      "domain": "EmploymentAgreement",
+      "range": "string",
+      "description": "Date of reporting to the employer.",
+      "source_record_ids": [
+        "JCXS030204"
+      ],
+      "evidence": [
+        "报到日期"
+      ]
+    },
+    {
+      "id": "employmentMethodCode",
+      "label": "Employment Method Code",
+      "domain": "EmploymentAgreement",
+      "range": "string",
+      "description": "Code representing the method of employment settlement.",
+      "source_record_ids": [
+        "JCXS030205"
+      ],
+      "evidence": [
+        "就业落实方式码"
+      ]
+    },
+    {
+      "id": "graduationDestinationCode",
+      "label": "Graduation Destination Code",
+      "domain": "EmploymentAgreement",
+      "range": "string",
+      "description": "Code representing the destination after graduation.",
+      "source_record_ids": [
+        "JCXS030206"
+      ],
+      "evidence": [
+        "中小学、中职学生采用 BYQX 毕业去向代码，高校毕业生采用GXBYQX 高校毕业去向代码"
+      ]
+    },
+    {
+      "id": "receivingUnit",
+      "label": "Receiving Unit",
+      "domain": "EmploymentAgreement",
+      "range": "string",
+      "description": "Name of the receiving employer or unit.",
+      "source_record_ids": [
+        "JCXS030207"
+      ],
+      "evidence": [
+        "接收单位"
+      ]
+    },
+    {
+      "id": "unitLocationCode",
+      "label": "Unit Location Code",
+      "domain": "EmploymentAgreement",
+      "range": "string",
+      "description": "Administrative division code of the receiving unit's location.",
+      "source_record_ids": [
+        "JCXS030208"
+      ],
+      "evidence": [
+        "接收单位所在地区划码"
+      ]
+    },
+    {
+      "id": "unitSupervisoryDepartment",
+      "label": "Unit Supervisory Department",
+      "domain": "EmploymentAgreement",
+      "range": "string",
+      "description": "Supervisory department of the receiving unit.",
+      "source_record_ids": [
+        "JCXS030209"
+      ],
+      "evidence": [
+        "单位主管部门"
+      ]
+    },
+    {
+      "id": "unitNatureCode",
+      "label": "Unit Nature Code",
+      "domain": "EmploymentAgreement",
+      "range": "string",
+      "description": "Code representing the nature of the social unit.",
+      "source_record_ids": [
+        "JCXS030210"
+      ],
+      "evidence": [
+        "社会单位性质码"
+      ]
+    }
+  ],
+  "object_properties": [],
+  "relations": [],
+  "class_hierarchy": []
+}

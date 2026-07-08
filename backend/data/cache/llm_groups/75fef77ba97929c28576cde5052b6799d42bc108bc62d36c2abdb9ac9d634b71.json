@@ -1,0 +1,571 @@
+{
+  "classes": [
+    {
+      "id": "Facility",
+      "label": "设施",
+      "description": "学校设施，如建筑物、场地等",
+      "source_record_ids": [
+        "JCBX020501",
+        "JCBX020505"
+      ],
+      "evidence": [
+        "设施号 学校自编",
+        "设施名称"
+      ]
+    },
+    {
+      "id": "Equipment",
+      "label": "仪器设备",
+      "description": "学校拥有的仪器、设备、教具和玩具等",
+      "source_record_ids": [
+        "JCBX030101",
+        "JCBX030102"
+      ],
+      "evidence": [
+        "仪器号 学校自编",
+        "仪器名称 产品标牌上的汉字名称，进口产品用英译汉名称，包括仪器、设备、教具和玩具等"
+      ]
+    },
+    {
+      "id": "RepairRecord",
+      "label": "修缮记录",
+      "description": "设施修缮的相关记录",
+      "source_record_ids": [
+        "JCBX020402",
+        "JCBX020403",
+        "JCBX020404",
+        "JCBX020405",
+        "JCBX020406",
+        "JCBX020407"
+      ],
+      "evidence": [
+        "修缮结束日期",
+        "修缮内容 修缮的主要内容描述",
+        "修缮经费 指修缮涉及的经费总额，单位：元",
+        "修缮单位 承担修缮任务的单位名称",
+        "经办人号 办理修缮手续及相关事宜的人员的工号",
+        "修缮说明 与修缮相关的情况说明"
+      ]
+    },
+    {
+      "id": "Organization",
+      "label": "单位",
+      "description": "承担修缮任务或审批的相关单位",
+      "source_record_ids": [
+        "JCBX020405"
+      ],
+      "evidence": [
+        "修缮单位 承担修缮任务的单位名称"
+      ]
+    },
+    {
+      "id": "Person",
+      "label": "人员",
+      "description": "办理修缮手续的人员",
+      "source_record_ids": [
+        "JCBX020406"
+      ],
+      "evidence": [
+        "经办人号 办理修缮手续及相关事宜的人员的工号"
+      ]
+    },
+    {
+      "id": "Manufacturer",
+      "label": "生产厂家",
+      "description": "仪器设备的生产厂家",
+      "source_record_ids": [
+        "JCBX030112"
+      ],
+      "evidence": [
+        "生产厂家 指生产厂家的汉字名，进口产品用英译汉名或外文名"
+      ]
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "facilityId",
+      "label": "设施号",
+      "domain": "Facility",
+      "range": "string",
+      "description": "学校自编的设施编号",
+      "source_record_ids": [
+        "JCBX020501"
+      ],
+      "evidence": [
+        "设施号 学校自编"
+      ]
+    },
+    {
+      "id": "facilityName",
+      "label": "设施名称",
+      "domain": "Facility",
+      "range": "string",
+      "description": "设施的名称",
+      "source_record_ids": [
+        "JCBX020505"
+      ],
+      "evidence": [
+        "设施名称"
+      ]
+    },
+    {
+      "id": "facilityOwnershipCode",
+      "label": "设施产权码",
+      "domain": "Facility",
+      "range": "string",
+      "description": "设施的产权代码",
+      "source_record_ids": [
+        "JCBX020502"
+      ],
+      "evidence": [
+        "设施产权码"
+      ]
+    },
+    {
+      "id": "facilityUsageStatusCode",
+      "label": "设施使用状况码",
+      "domain": "Facility",
+      "range": "string",
+      "description": "设施的使用状况代码",
+      "source_record_ids": [
+        "JCBX020503"
+      ],
+      "evidence": [
+        "设施使用状况码"
+      ]
+    },
+    {
+      "id": "affiliatedSchoolLevelCode",
+      "label": "所属学校单位层次码",
+      "domain": "Facility",
+      "range": "string",
+      "description": "设施所属学校的单位层次代码",
+      "source_record_ids": [
+        "JCBX020504"
+      ],
+      "evidence": [
+        "所属学校单位层次码"
+      ]
+    },
+    {
+      "id": "constructionDate",
+      "label": "建设年月",
+      "domain": "Facility",
+      "range": "string",
+      "description": "设施的建设年月",
+      "source_record_ids": [
+        "JCBX020506"
+      ],
+      "evidence": [
+        "建设年月"
+      ]
+    },
+    {
+      "id": "constructionCost",
+      "label": "建设费用",
+      "domain": "Facility",
+      "range": "string",
+      "description": "建成设施的总经费，单位：元",
+      "source_record_ids": [
+        "JCBX020507"
+      ],
+      "evidence": [
+        "建设费用 指建成设施的总经费，单位：元"
+      ]
+    },
+    {
+      "id": "repairDate",
+      "label": "修缮年月",
+      "domain": "RepairRecord",
+      "range": "string",
+      "description": "修缮发生的年月",
+      "source_record_ids": [
+        "JCBX020508"
+      ],
+      "evidence": [
+        "修缮年月"
+      ]
+    },
+    {
+      "id": "repairCost",
+      "label": "修缮费用",
+      "domain": "RepairRecord",
+      "range": "string",
+      "description": "修缮设施的总经费，单位：元",
+      "source_record_ids": [
+        "JCBX020509"
+      ],
+      "evidence": [
+        "修缮费用 指修缮设施的总经费，单位：元"
+      ]
+    },
+    {
+      "id": "usageNormal",
+      "label": "使用是否正常",
+      "domain": "Facility",
+      "range": "string",
+      "description": "设施使用是否正常，0不正常1正常",
+      "source_record_ids": [
+        "JCBX020510"
+      ],
+      "evidence": [
+        "使用是否正常 0 不正常 1 正常"
+      ]
+    },
+    {
+      "id": "repairEndDate",
+      "label": "修缮结束日期",
+      "domain": "RepairRecord",
+      "range": "string",
+      "description": "修缮结束的日期",
+      "source_record_ids": [
+        "JCBX020402"
+      ],
+      "evidence": [
+        "修缮结束日期"
+      ]
+    },
+    {
+      "id": "repairContent",
+      "label": "修缮内容",
+      "domain": "RepairRecord",
+      "range": "string",
+      "description": "修缮的主要内容描述",
+      "source_record_ids": [
+        "JCBX020403"
+      ],
+      "evidence": [
+        "修缮内容 修缮的主要内容描述"
+      ]
+    },
+    {
+      "id": "repairFunds",
+      "label": "修缮经费",
+      "domain": "RepairRecord",
+      "range": "string",
+      "description": "修缮涉及的经费总额，单位：元",
+      "source_record_ids": [
+        "JCBX020404"
+      ],
+      "evidence": [
+        "修缮经费 指修缮涉及的经费总额，单位：元"
+      ]
+    },
+    {
+      "id": "repairDescription",
+      "label": "修缮说明",
+      "domain": "RepairRecord",
+      "range": "string",
+      "description": "与修缮相关的情况说明",
+      "source_record_ids": [
+        "JCBX020407"
+      ],
+      "evidence": [
+        "修缮说明 与修缮相关的情况说明"
+      ]
+    },
+    {
+      "id": "equipmentId",
+      "label": "仪器号",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "学校自编的仪器编号",
+      "source_record_ids": [
+        "JCBX030101"
+      ],
+      "evidence": [
+        "仪器号 学校自编"
+      ]
+    },
+    {
+      "id": "equipmentName",
+      "label": "仪器名称",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "产品标牌上的汉字名称，进口产品用英译汉名称，包括仪器、设备、教具和玩具等",
+      "source_record_ids": [
+        "JCBX030102"
+      ],
+      "evidence": [
+        "仪器名称 产品标牌上的汉字名称，进口产品用英译汉名称，包括仪器、设备、教具和玩具等"
+      ]
+    },
+    {
+      "id": "equipmentEnglishName",
+      "label": "仪器英文名称",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "仪器的英文名称",
+      "source_record_ids": [
+        "JCBX030103"
+      ],
+      "evidence": [
+        "仪器英文名称"
+      ]
+    },
+    {
+      "id": "schoolLevelCode",
+      "label": "学校单位层次码",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "仪器所属学校的单位层次代码",
+      "source_record_ids": [
+        "JCBX030104"
+      ],
+      "evidence": [
+        "学校单位层次码"
+      ]
+    },
+    {
+      "id": "ownershipCode",
+      "label": "产权码",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "仪器的产权代码",
+      "source_record_ids": [
+        "JCBX030105"
+      ],
+      "evidence": [
+        "产权码"
+      ]
+    },
+    {
+      "id": "classificationCode",
+      "label": "分类码",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "仪器分类代码，高等学校采用高等学校固定资产分类及编码，其他学校采用教学仪器设备产品（物资）分类与代码",
+      "source_record_ids": [
+        "JCBX030106"
+      ],
+      "evidence": [
+        "分类码 高等学校采用高等学校固定资产分类及编码，其他学校采用教学仪器设备产品（物资）分类与代码"
+      ]
+    },
+    {
+      "id": "equipmentModel",
+      "label": "仪器型号",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "仪器的型号",
+      "source_record_ids": [
+        "JCBX030107"
+      ],
+      "evidence": [
+        "仪器型号"
+      ]
+    },
+    {
+      "id": "productionDate",
+      "label": "出厂日期",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "仪器的出厂日期",
+      "source_record_ids": [
+        "JCBX030108"
+      ],
+      "evidence": [
+        "出厂日期"
+      ]
+    },
+    {
+      "id": "countryRegionCode",
+      "label": "生产国别/地区码",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "仪器的生产国，用三位字母代码",
+      "source_record_ids": [
+        "JCBX030109"
+      ],
+      "evidence": [
+        "生产国别/地区码 指仪器的生产国，用三位字母代码"
+      ]
+    },
+    {
+      "id": "fundSubjectCode",
+      "label": "经费科目码",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "仪器购置的经费科目代码",
+      "source_record_ids": [
+        "JCBX030110"
+      ],
+      "evidence": [
+        "经费科目码"
+      ]
+    },
+    {
+      "id": "purchaseDate",
+      "label": "购置日期",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "仪器的购置日期",
+      "source_record_ids": [
+        "JCBX030111"
+      ],
+      "evidence": [
+        "购置日期"
+      ]
+    },
+    {
+      "id": "manufacturerName",
+      "label": "生产厂家",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "生产厂家的汉字名，进口产品用英译汉名或外文名",
+      "source_record_ids": [
+        "JCBX030112"
+      ],
+      "evidence": [
+        "生产厂家 指生产厂家的汉字名，进口产品用英译汉名或外文名"
+      ]
+    },
+    {
+      "id": "factoryNumber",
+      "label": "出厂号",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "厂家标注在产品上的唯一号",
+      "source_record_ids": [
+        "JCBX030113"
+      ],
+      "evidence": [
+        "出厂号 厂家标注在产品上的唯一号"
+      ]
+    },
+    {
+      "id": "documentNumber",
+      "label": "单据号",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "采购凭证单据号或进口产品订货合同号",
+      "source_record_ids": [
+        "JCBX030114"
+      ],
+      "evidence": [
+        "单据号 采购凭证单据号或进口产品订货合同号"
+      ]
+    }
+  ],
+  "object_properties": [
+    {
+      "id": "hasRepairRecord",
+      "label": "有修缮记录",
+      "domain": "Facility",
+      "range": "RepairRecord",
+      "description": "设施关联的修缮记录",
+      "source_record_ids": [
+        "JCBX020402",
+        "JCBX020403",
+        "JCBX020404",
+        "JCBX020405",
+        "JCBX020406",
+        "JCBX020407"
+      ],
+      "evidence": [
+        "修缮结束日期",
+        "修缮内容",
+        "修缮经费",
+        "修缮单位",
+        "经办人号",
+        "修缮说明"
+      ]
+    },
+    {
+      "id": "repairedBy",
+      "label": "由单位修缮",
+      "domain": "RepairRecord",
+      "range": "Organization",
+      "description": "承担修缮任务的单位",
+      "source_record_ids": [
+        "JCBX020405"
+      ],
+      "evidence": [
+        "修缮单位 承担修缮任务的单位名称"
+      ]
+    },
+    {
+      "id": "handledBy",
+      "label": "由人员经办",
+      "domain": "RepairRecord",
+      "range": "Person",
+      "description": "办理修缮手续的人员",
+      "source_record_ids": [
+        "JCBX020406"
+      ],
+      "evidence": [
+        "经办人号 办理修缮手续及相关事宜的人员的工号"
+      ]
+    },
+    {
+      "id": "manufacturedBy",
+      "label": "由厂家生产",
+      "domain": "Equipment",
+      "range": "Manufacturer",
+      "description": "生产该仪器的厂家",
+      "source_record_ids": [
+        "JCBX030112"
+      ],
+      "evidence": [
+        "生产厂家 指生产厂家的汉字名，进口产品用英译汉名或外文名"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "subject": "Facility",
+      "predicate": "hasRepairRecord",
+      "object": "RepairRecord",
+      "source_record_ids": [
+        "JCBX020402",
+        "JCBX020403",
+        "JCBX020404",
+        "JCBX020405",
+        "JCBX020406",
+        "JCBX020407"
+      ],
+      "evidence": [
+        "修缮结束日期",
+        "修缮内容",
+        "修缮经费",
+        "修缮单位",
+        "经办人号",
+        "修缮说明"
+      ]
+    },
+    {
+      "subject": "RepairRecord",
+      "predicate": "repairedBy",
+      "object": "Organization",
+      "source_record_ids": [
+        "JCBX020405"
+      ],
+      "evidence": [
+        "修缮单位 承担修缮任务的单位名称"
+      ]
+    },
+    {
+      "subject": "RepairRecord",
+      "predicate": "handledBy",
+      "object": "Person",
+      "source_record_ids": [
+        "JCBX020406"
+      ],
+      "evidence": [
+        "经办人号 办理修缮手续及相关事宜的人员的工号"
+      ]
+    },
+    {
+      "subject": "Equipment",
+      "predicate": "manufacturedBy",
+      "object": "Manufacturer",
+      "source_record_ids": [
+        "JCBX030112"
+      ],
+      "evidence": [
+        "生产厂家 指生产厂家的汉字名，进口产品用英译汉名或外文名"
+      ]
+    }
+  ],
+  "class_hierarchy": []
+}

@@ -1,0 +1,503 @@
+{
+  "classes": [
+    {
+      "id": "EducationExperience",
+      "label": "Education Experience",
+      "description": "A record of a person's learning history, including dates, institution, content, major, and degree.",
+      "source_record_ids": [
+        "JCTB020201",
+        "JCTB020202",
+        "JCTB020203",
+        "JCTB020204",
+        "JCTB020205",
+        "JCTB020206",
+        "JCTB020207",
+        "JCTB020208"
+      ],
+      "evidence": [
+        "学习起始日 期",
+        "学习终止日 期",
+        "学习单位",
+        "学习内容",
+        "所学专业名 称",
+        "所获学位码",
+        "学习证明人",
+        "学习简历备 注"
+      ]
+    },
+    {
+      "id": "WorkExperience",
+      "label": "Work Experience",
+      "description": "A record of a person's employment history, including dates, employer, job content, and positions held.",
+      "source_record_ids": [
+        "JCTB020301",
+        "JCTB020302",
+        "JCTB020303",
+        "JCTB020304",
+        "JCTB020305",
+        "JCTB020306",
+        "JCTB020307",
+        "JCTB020308"
+      ],
+      "evidence": [
+        "工作起始日 期",
+        "工作终止日 期",
+        "工作单位",
+        "工作内容",
+        "曾任党政职 务",
+        "曾任专业技 术职务码",
+        "工作证明人",
+        "工作简历备 注"
+      ]
+    },
+    {
+      "id": "PartyMembership",
+      "label": "Party Membership",
+      "description": "Records related to an individual's participation in a political party, including joining dates, sponsors, and status changes.",
+      "source_record_ids": [
+        "JCTB020401",
+        "JCTB020402",
+        "JCTB020403",
+        "JCTB020404",
+        "JCTB020405",
+        "JCTB020406",
+        "JCTB020407",
+        "JCTB020408",
+        "JCTB020409",
+        "JCTB020410",
+        "JCTB020411"
+      ],
+      "evidence": [
+        "参加日期",
+        "参加所在单 位",
+        "介绍人",
+        "转正日期",
+        "异常类别码",
+        "异常原因",
+        "异常日期",
+        "转入日期",
+        "转入前单位",
+        "转出日期",
+        "转出单位"
+      ]
+    },
+    {
+      "id": "EnrollmentInfo",
+      "label": "Enrollment Information",
+      "description": "Specific details regarding the start of an educational period, including the date and method of study.",
+      "source_record_ids": [
+        "JCTB020501",
+        "JCTB020502",
+        "JCTB020503"
+      ],
+      "evidence": [
+        "入学年月",
+        "学习方式码",
+        "学习形式码"
+      ]
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "startDate",
+      "label": "Start Date",
+      "domain": "EducationExperience",
+      "range": "string",
+      "description": "The date when the learning period began.",
+      "source_record_ids": [
+        "JCTB020201"
+      ],
+      "evidence": [
+        "学习起始日 期"
+      ]
+    },
+    {
+      "id": "endDate",
+      "label": "End Date",
+      "domain": "EducationExperience",
+      "range": "string",
+      "description": "The date when the learning period ended.",
+      "source_record_ids": [
+        "JCTB020202"
+      ],
+      "evidence": [
+        "学习终止日 期"
+      ]
+    },
+    {
+      "id": "institutionName",
+      "label": "Institution Name",
+      "domain": "EducationExperience",
+      "range": "string",
+      "description": "The name of the school or learning institution.",
+      "source_record_ids": [
+        "JCTB020203"
+      ],
+      "evidence": [
+        "学习单位"
+      ]
+    },
+    {
+      "id": "studyContent",
+      "label": "Study Content",
+      "domain": "EducationExperience",
+      "range": "string",
+      "description": "Description of the content studied.",
+      "source_record_ids": [
+        "JCTB020204"
+      ],
+      "evidence": [
+        "学习内容"
+      ]
+    },
+    {
+      "id": "majorName",
+      "label": "Major Name",
+      "domain": "EducationExperience",
+      "range": "string",
+      "description": "The name of the major or field of study.",
+      "source_record_ids": [
+        "JCTB020205"
+      ],
+      "evidence": [
+        "所学专业名 称"
+      ]
+    },
+    {
+      "id": "degreeCode",
+      "label": "Degree Code",
+      "domain": "EducationExperience",
+      "range": "string",
+      "description": "Code representing the degree obtained.",
+      "source_record_ids": [
+        "JCTB020206"
+      ],
+      "evidence": [
+        "所获学位码"
+      ]
+    },
+    {
+      "id": "referenceName",
+      "label": "Reference Name",
+      "domain": "EducationExperience",
+      "range": "string",
+      "description": "Name of the person who can verify the learning experience.",
+      "source_record_ids": [
+        "JCTB020207"
+      ],
+      "evidence": [
+        "学习证明人"
+      ]
+    },
+    {
+      "id": "educationNote",
+      "label": "Education Note",
+      "domain": "EducationExperience",
+      "range": "string",
+      "description": "Supplementary notes regarding the education resume.",
+      "source_record_ids": [
+        "JCTB020208"
+      ],
+      "evidence": [
+        "学习简历备 注"
+      ]
+    },
+    {
+      "id": "jobStartDate",
+      "label": "Job Start Date",
+      "domain": "WorkExperience",
+      "range": "string",
+      "description": "The date when the work period began.",
+      "source_record_ids": [
+        "JCTB020301"
+      ],
+      "evidence": [
+        "工作起始日 期"
+      ]
+    },
+    {
+      "id": "jobEndDate",
+      "label": "Job End Date",
+      "domain": "WorkExperience",
+      "range": "string",
+      "description": "The date when the work period ended.",
+      "source_record_ids": [
+        "JCTB020302"
+      ],
+      "evidence": [
+        "工作终止日 期"
+      ]
+    },
+    {
+      "id": "employerName",
+      "label": "Employer Name",
+      "domain": "WorkExperience",
+      "range": "string",
+      "description": "The name of the company or work unit.",
+      "source_record_ids": [
+        "JCTB020303"
+      ],
+      "evidence": [
+        "工作单位"
+      ]
+    },
+    {
+      "id": "jobDescription",
+      "label": "Job Description",
+      "domain": "WorkExperience",
+      "range": "string",
+      "description": "Description of the work content.",
+      "source_record_ids": [
+        "JCTB020304"
+      ],
+      "evidence": [
+        "工作内容"
+      ]
+    },
+    {
+      "id": "politicalPosition",
+      "label": "Political Position",
+      "domain": "WorkExperience",
+      "range": "string",
+      "description": "Previously held party or government position.",
+      "source_record_ids": [
+        "JCTB020305"
+      ],
+      "evidence": [
+        "曾任党政职 务"
+      ]
+    },
+    {
+      "id": "technicalPositionCode",
+      "label": "Technical Position Code",
+      "domain": "WorkExperience",
+      "range": "string",
+      "description": "Code for previously held professional technical positions.",
+      "source_record_ids": [
+        "JCTB020306"
+      ],
+      "evidence": [
+        "曾任专业技 术职务码"
+      ]
+    },
+    {
+      "id": "workReferenceName",
+      "label": "Work Reference Name",
+      "domain": "WorkExperience",
+      "range": "string",
+      "description": "Name of the person who can verify the work experience.",
+      "source_record_ids": [
+        "JCTB020307"
+      ],
+      "evidence": [
+        "工作证明人"
+      ]
+    },
+    {
+      "id": "workNote",
+      "label": "Work Note",
+      "domain": "WorkExperience",
+      "range": "string",
+      "description": "Supplementary notes regarding the work resume.",
+      "source_record_ids": [
+        "JCTB020308"
+      ],
+      "evidence": [
+        "工作简历备 注"
+      ]
+    },
+    {
+      "id": "joinDate",
+      "label": "Join Date",
+      "domain": "PartyMembership",
+      "range": "string",
+      "description": "Date of joining the party.",
+      "source_record_ids": [
+        "JCTB020401"
+      ],
+      "evidence": [
+        "参加日期"
+      ]
+    },
+    {
+      "id": "joiningUnit",
+      "label": "Joining Unit",
+      "domain": "PartyMembership",
+      "range": "string",
+      "description": "The unit the individual belonged to when joining the party.",
+      "source_record_ids": [
+        "JCTB020402"
+      ],
+      "evidence": [
+        "参加所在单 位"
+      ]
+    },
+    {
+      "id": "sponsorName",
+      "label": "Sponsor Name",
+      "domain": "PartyMembership",
+      "range": "string",
+      "description": "Name of the person who introduced the individual to the party.",
+      "source_record_ids": [
+        "JCTB020403"
+      ],
+      "evidence": [
+        "介绍人"
+      ]
+    },
+    {
+      "id": "regularizationDate",
+      "label": "Regularization Date",
+      "domain": "PartyMembership",
+      "range": "string",
+      "description": "Date when the individual became a full member according to party rules.",
+      "source_record_ids": [
+        "JCTB020404"
+      ],
+      "evidence": [
+        "转正日期"
+      ]
+    },
+    {
+      "id": "abnormalCategoryCode",
+      "label": "Abnormal Category Code",
+      "domain": "PartyMembership",
+      "range": "string",
+      "description": "Code for the category of abnormality in party membership.",
+      "source_record_ids": [
+        "JCTB020405"
+      ],
+      "evidence": [
+        "异常类别码"
+      ]
+    },
+    {
+      "id": "abnormalReason",
+      "label": "Abnormal Reason",
+      "domain": "PartyMembership",
+      "range": "string",
+      "description": "Explanation for the abnormality.",
+      "source_record_ids": [
+        "JCTB020406"
+      ],
+      "evidence": [
+        "异常原因"
+      ]
+    },
+    {
+      "id": "abnormalDate",
+      "label": "Abnormal Date",
+      "domain": "PartyMembership",
+      "range": "string",
+      "description": "Date of the abnormal event.",
+      "source_record_ids": [
+        "JCTB020407"
+      ],
+      "evidence": [
+        "异常日期"
+      ]
+    },
+    {
+      "id": "transferInDate",
+      "label": "Transfer In Date",
+      "domain": "PartyMembership",
+      "range": "string",
+      "description": "Date of transferring into the current party unit.",
+      "source_record_ids": [
+        "JCTB020408"
+      ],
+      "evidence": [
+        "转入日期"
+      ]
+    },
+    {
+      "id": "previousUnit",
+      "label": "Previous Unit",
+      "domain": "PartyMembership",
+      "range": "string",
+      "description": "The unit before the transfer.",
+      "source_record_ids": [
+        "JCTB020409"
+      ],
+      "evidence": [
+        "转入前单位"
+      ]
+    },
+    {
+      "id": "transferOutDate",
+      "label": "Transfer Out Date",
+      "domain": "PartyMembership",
+      "range": "string",
+      "description": "Date of transferring out of a party unit.",
+      "source_record_ids": [
+        "JCTB020410"
+      ],
+      "evidence": [
+        "转出日期"
+      ]
+    },
+    {
+      "id": "destinationUnit",
+      "label": "Destination Unit",
+      "domain": "PartyMembership",
+      "range": "string",
+      "description": "The unit after the transfer.",
+      "source_record_ids": [
+        "JCTB020411"
+      ],
+      "evidence": [
+        "转出单位"
+      ]
+    },
+    {
+      "id": "enrollmentDate",
+      "label": "Enrollment Date",
+      "domain": "EnrollmentInfo",
+      "range": "string",
+      "description": "Date of enrollment.",
+      "source_record_ids": [
+        "JCTB020501"
+      ],
+      "evidence": [
+        "入学年月"
+      ]
+    },
+    {
+      "id": "studyMethodCode",
+      "label": "Study Method Code",
+      "domain": "EnrollmentInfo",
+      "range": "string",
+      "description": "Code representing the method of study.",
+      "source_record_ids": [
+        "JCTB020502"
+      ],
+      "evidence": [
+        "学习方式码"
+      ]
+    },
+    {
+      "id": "studyFormCode",
+      "label": "Study Form Code",
+      "domain": "EnrollmentInfo",
+      "range": "string",
+      "description": "Code representing the form of study.",
+      "source_record_ids": [
+        "JCTB020503"
+      ],
+      "evidence": [
+        "学习形式码"
+      ]
+    }
+  ],
+  "object_properties": [],
+  "relations": [],
+  "class_hierarchy": [
+    {
+      "parent": "EducationExperience",
+      "child": "EnrollmentInfo",
+      "evidence": [
+        "EnrollmentInfo contains specific start-of-study details relevant to an EducationExperience."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,407 @@
+{
+  "classes": [
+    {
+      "id": "Student",
+      "label": "学生",
+      "description": "学生实体，包含学籍、成绩、奖惩等信息",
+      "source_record_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "Course",
+      "label": "课程",
+      "description": "课程实体，包含课程成绩相关信息",
+      "source_record_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "Reward",
+      "label": "奖励",
+      "description": "奖励记录实体",
+      "source_record_ids": [
+        "JCXS020401",
+        "JCXS020402",
+        "JCXS020403",
+        "JCXS020404",
+        "JCXS020405",
+        "JCXS020406",
+        "JCXS020407",
+        "JCXS020408",
+        "JCXS020409"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "Exam",
+      "label": "考试",
+      "description": "考试记录实体",
+      "source_record_ids": [
+        "JCXS020301",
+        "JCXS020302",
+        "JCXS020303",
+        "JCXS020304",
+        "JCXS020305",
+        "JCXS020306",
+        "JCXS020307",
+        "JCXS020308",
+        "JCXS020309",
+        "JCXS020310",
+        "JCXS020311",
+        "JCXS020312"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "AcademicHistory",
+      "label": "学籍历史",
+      "description": "学籍历史记录实体，包含原专业、原班号等信息",
+      "source_record_ids": [
+        "JCXS020210",
+        "JCXS020211",
+        "JCXS020212",
+        "JCXS020213",
+        "JCXS020214",
+        "JCXS020215",
+        "JCXS020216",
+        "JCXS020217",
+        "JCXS020218"
+      ],
+      "evidence": []
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "originalMajorCode",
+      "label": "原专业码",
+      "domain": "AcademicHistory",
+      "range": "string",
+      "description": "原专业码",
+      "source_record_ids": [
+        "JCXS020210"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "originalClassNumber",
+      "label": "原班号",
+      "domain": "AcademicHistory",
+      "range": "string",
+      "description": "原班号",
+      "source_record_ids": [
+        "JCXS020211"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "originalGrade",
+      "label": "原年级",
+      "domain": "AcademicHistory",
+      "range": "string",
+      "description": "原年级",
+      "source_record_ids": [
+        "JCXS020212"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "originalSchoolSystem",
+      "label": "原学制",
+      "domain": "AcademicHistory",
+      "range": "string",
+      "description": "原学制",
+      "source_record_ids": [
+        "JCXS020213"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "currentDepartmentCode",
+      "label": "现院系所号",
+      "domain": "AcademicHistory",
+      "range": "string",
+      "description": "现院系所号",
+      "source_record_ids": [
+        "JCXS020214"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "currentMajorCode",
+      "label": "现专业码",
+      "domain": "AcademicHistory",
+      "range": "string",
+      "description": "现专业码",
+      "source_record_ids": [
+        "JCXS020215"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "currentClassNumber",
+      "label": "现班号",
+      "domain": "AcademicHistory",
+      "range": "string",
+      "description": "现班号",
+      "source_record_ids": [
+        "JCXS020216"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "currentGrade",
+      "label": "现年级",
+      "domain": "AcademicHistory",
+      "range": "string",
+      "description": "现年级",
+      "source_record_ids": [
+        "JCXS020217"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "currentSchoolSystem",
+      "label": "现学制",
+      "domain": "AcademicHistory",
+      "range": "string",
+      "description": "现学制",
+      "source_record_ids": [
+        "JCXS020218"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "examDate",
+      "label": "考试日期",
+      "domain": "Exam",
+      "range": "string",
+      "description": "考试日期",
+      "source_record_ids": [
+        "JCXS020301"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "regularScore",
+      "label": "平时成绩",
+      "domain": "Exam",
+      "range": "string",
+      "description": "平时成绩",
+      "source_record_ids": [
+        "JCXS020302"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "examNatureCode",
+      "label": "考试性质码",
+      "domain": "Exam",
+      "range": "string",
+      "description": "考试性质码",
+      "source_record_ids": [
+        "JCXS020303"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "examFormCode",
+      "label": "考试形式码",
+      "domain": "Exam",
+      "range": "string",
+      "description": "考试形式码",
+      "source_record_ids": [
+        "JCXS020304"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "numericExamScore",
+      "label": "分数类考试成绩",
+      "domain": "Exam",
+      "range": "string",
+      "description": "分数类考试成绩",
+      "source_record_ids": [
+        "JCXS020305"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "gradeExamScore",
+      "label": "等级类考试成绩",
+      "domain": "Exam",
+      "range": "string",
+      "description": "等级类考试成绩，学校自编",
+      "source_record_ids": [
+        "JCXS020306"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "courseScore",
+      "label": "课程成绩",
+      "domain": "Exam",
+      "range": "string",
+      "description": "指课程综合成绩",
+      "source_record_ids": [
+        "JCXS020307"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "courseGradeCode",
+      "label": "课程等级成绩码",
+      "domain": "Exam",
+      "range": "string",
+      "description": "课程等级成绩码，学校自编",
+      "source_record_ids": [
+        "JCXS020308"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "instructorEmployeeId",
+      "label": "任课教师工号",
+      "domain": "Exam",
+      "range": "string",
+      "description": "任课教师工号",
+      "source_record_ids": [
+        "JCXS020309"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "scoreRecorderId",
+      "label": "成绩录入人号",
+      "domain": "Exam",
+      "range": "string",
+      "description": "录入人的工号",
+      "source_record_ids": [
+        "JCXS020310"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "scoreRecordDate",
+      "label": "成绩录入日期",
+      "domain": "Exam",
+      "range": "string",
+      "description": "成绩录入日期",
+      "source_record_ids": [
+        "JCXS020311"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "scoreRecordTime",
+      "label": "成绩录入时间",
+      "domain": "Exam",
+      "range": "string",
+      "description": "成绩录入时间",
+      "source_record_ids": [
+        "JCXS020312"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "rewardName",
+      "label": "奖励名称",
+      "domain": "Reward",
+      "range": "string",
+      "description": "奖励名称",
+      "source_record_ids": [
+        "JCXS020401"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "rewardLevelCode",
+      "label": "奖励级别码",
+      "domain": "Reward",
+      "range": "string",
+      "description": "奖励级别码",
+      "source_record_ids": [
+        "JCXS020402"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "rewardGradeCode",
+      "label": "奖励等级码",
+      "domain": "Reward",
+      "range": "string",
+      "description": "奖励等级码",
+      "source_record_ids": [
+        "JCXS020403"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "rewardCategoryCode",
+      "label": "获奖类别码",
+      "domain": "Reward",
+      "range": "string",
+      "description": "获奖类别码",
+      "source_record_ids": [
+        "JCXS020404"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "rewardReason",
+      "label": "奖励原因",
+      "domain": "Reward",
+      "range": "string",
+      "description": "奖励原因",
+      "source_record_ids": [
+        "JCXS020405"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "rewardAmount",
+      "label": "奖励金额",
+      "domain": "Reward",
+      "range": "string",
+      "description": "奖励金额，单位：元",
+      "source_record_ids": [
+        "JCXS020406"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "rewardDocumentNumber",
+      "label": "奖励文号",
+      "domain": "Reward",
+      "range": "string",
+      "description": "指获奖的正式文号，无正式文号不填",
+      "source_record_ids": [
+        "JCXS020407"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "rewardAcademicYear",
+      "label": "奖励学年度",
+      "domain": "Reward",
+      "range": "string",
+      "description": "奖励学年度",
+      "source_record_ids": [
+        "JCXS020408"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "rewardIssuer",
+      "label": "颁奖单位",
+      "domain": "Reward",
+      "range": "string",
+      "description": "授予奖励的单位名称",
+      "source_record_ids": [
+        "JCXS020409"
+      ],
+      "evidence": []
+    }
+  ],
+  "object_properties": [],
+  "relations": [],
+  "class_hierarchy": []
+}

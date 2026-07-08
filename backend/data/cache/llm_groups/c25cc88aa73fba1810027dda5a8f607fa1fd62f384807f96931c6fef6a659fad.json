@@ -1,0 +1,1219 @@
+{
+  "classes": [
+    {
+      "id": "EmploymentUnit",
+      "label": "Employment Unit",
+      "description": "Organization or unit providing employment and related benefits.",
+      "source_record_ids": [
+        "JCXS030211",
+        "JCXS030212",
+        "JCXS030213",
+        "JCXS030214",
+        "JCXS030215",
+        "JCXS030216",
+        "JCXS030217",
+        "JCXS030218",
+        "JCXS030219"
+      ],
+      "evidence": [
+        "Main fields: 单位经济性 质码、单位提供的 待遇、档案接收地 址、接收地邮政 编码、工作岗位性 质码、单位行业码、报到证号、用人单位用 人形式码、派遣费"
+      ]
+    },
+    {
+      "id": "Award",
+      "label": "Award",
+      "description": "Honor or prize received by an individual.",
+      "source_record_ids": [
+        "JCJG011001",
+        "JCJG011002",
+        "JCJG011003",
+        "JCJG011004",
+        "JCJG011005",
+        "JCJG011006",
+        "JCJG011007",
+        "JCJG011008",
+        "JCJG011009",
+        "JCJG011010",
+        "JCJG011011",
+        "JCJG011012",
+        "JCJG011013"
+      ],
+      "evidence": [
+        "Main fields: 获奖项目、奖励级别码、奖励等级码、获奖类别码、奖励方式码、奖励名称、奖励名称码、获奖原因、奖励内容、颁奖单位、获奖日期、荣誉称号码、获奖角色码"
+      ]
+    },
+    {
+      "id": "DisciplinaryAction",
+      "label": "Disciplinary Action",
+      "description": "Punishment or sanction imposed by an organization or judicial department.",
+      "source_record_ids": [
+        "JCJG011101",
+        "JCJG011102",
+        "JCJG011103",
+        "JCJG011104",
+        "JCJG011105",
+        "JCJG011106",
+        "JCJG011107",
+        "JCJG011108",
+        "JCJG011109",
+        "JCJG011110"
+      ],
+      "evidence": [
+        "Main fields: 惩处名称、纪律处分码、惩处原因、惩处内容、惩处单位、惩处文号、惩处日期、惩处撤销日期、惩处撤消文号、惩处撤消原因"
+      ]
+    },
+    {
+      "id": "LanguageSkill",
+      "label": "Language Skill",
+      "description": "Proficiency in a foreign or Chinese language.",
+      "source_record_ids": [
+        "JCJG020101",
+        "JCJG020102",
+        "JCJG020103",
+        "JCJG020104",
+        "JCJG020105"
+      ],
+      "evidence": [
+        "Main fields: 外国语种码、外国语种熟练 程度码、中国语种码、中国语种熟练 程度码、普通话水平等 级码"
+      ]
+    },
+    {
+      "id": "ProfessionalQualification",
+      "label": "Professional Qualification",
+      "description": "Technical title or professional qualification obtained through evaluation or examination.",
+      "source_record_ids": [
+        "JCJG020201",
+        "JCJG020202",
+        "JCJG020203",
+        "JCJG020204",
+        "JCJG020205",
+        "JCJG020206",
+        "JCJG020207",
+        "JCJG020208",
+        "JCJG020209",
+        "JCJG020210",
+        "JCJG020211"
+      ],
+      "evidence": [
+        "Main fields: 任职资格名 称码、取得资格途 径码、评审单位、评定日期、聘任职务码、聘任单位、聘任起始日 期、聘任终止日 期、聘任情况码、解聘日期、解聘原因"
+      ]
+    },
+    {
+      "id": "PostCertificate",
+      "label": "Post Certificate",
+      "description": "Certificate for a specific post or job role.",
+      "source_record_ids": [
+        "JCJG020301",
+        "JCJG020302",
+        "JCJG020303",
+        "JCJG020304"
+      ],
+      "evidence": [
+        "Main fields: 岗位证书名 称、岗位证书编 号、颁发单位、颁发日期"
+      ]
+    },
+    {
+      "id": "WorkerTechGrade",
+      "label": "Worker Tech Grade",
+      "description": "Technical grade or job title for workers.",
+      "source_record_ids": [
+        "JCJG020401",
+        "JCJG020402",
+        "JCJG020403",
+        "JCJG020404",
+        "JCJG020405"
+      ],
+      "evidence": [
+        "Main fields: 工人技术等 级码、工人技术职 务码、工人工种码、等级发证机 关、等级评定日 期"
+      ]
+    },
+    {
+      "id": "Position",
+      "label": "Position",
+      "description": "Job position or post held by an individual.",
+      "source_record_ids": [
+        "JCJG020501",
+        "JCJG020502",
+        "JCJG020503",
+        "JCJG020504",
+        "JCJG020505",
+        "JCJG020506",
+        "JCJG020507",
+        "JCJG020508",
+        "JCJG020509",
+        "JCJG020510",
+        "JCJG020511",
+        "JCJG020512",
+        "JCJG020513",
+        "JCJG020514",
+        "JCJG020515",
+        "JCJG020516",
+        "JCJG020517",
+        "JCJG020518",
+        "JCJG020519",
+        "JCJG020520"
+      ],
+      "evidence": [
+        "Main fields: 职务名称、职务名称码、职务类别码、职位分类码、职务级别码、任职日期、任职部门、任职方式码、任职原因、任职文号、任职批准单 位、职务变动类 别码、当前任职状 况、职务排序、主管或从事 的工作、免职日期、免职方式码、免职原因码、免职文号、免职批准单 位"
+      ]
+    },
+    {
+      "id": "SocialPartTimeJob",
+      "label": "Social Part-time Job",
+      "description": "Part-time social duties in organizations like the People's Congress, CPPCC, etc.",
+      "source_record_ids": [
+        "JCJG030101",
+        "JCJG030102",
+        "JCJG030103"
+      ],
+      "evidence": [
+        "Main fields: 社会兼职码、社会兼职起 始日期、社会兼职终 止日期"
+      ]
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "unitEconomicNatureCode",
+      "label": "Unit Economic Nature Code",
+      "domain": "EmploymentUnit",
+      "range": "string",
+      "description": "Code representing the economic nature of the unit.",
+      "source_record_ids": [
+        "JCXS030211"
+      ],
+      "evidence": [
+        "单位经济性 质码"
+      ]
+    },
+    {
+      "id": "unitProvidedBenefits",
+      "label": "Unit Provided Benefits",
+      "domain": "EmploymentUnit",
+      "range": "string",
+      "description": "Benefits provided by the unit.",
+      "source_record_ids": [
+        "JCXS030212"
+      ],
+      "evidence": [
+        "单位提供的 待遇"
+      ]
+    },
+    {
+      "id": "fileReceiveAddress",
+      "label": "File Receive Address",
+      "domain": "EmploymentUnit",
+      "range": "string",
+      "description": "Address where files are received.",
+      "source_record_ids": [
+        "JCXS030213"
+      ],
+      "evidence": [
+        "档案接收地 址"
+      ]
+    },
+    {
+      "id": "receivePostalCode",
+      "label": "Receive Postal Code",
+      "domain": "EmploymentUnit",
+      "range": "string",
+      "description": "Postal code of the receiving location.",
+      "source_record_ids": [
+        "JCXS030214"
+      ],
+      "evidence": [
+        "接收地邮政 编码"
+      ]
+    },
+    {
+      "id": "jobNatureCode",
+      "label": "Job Nature Code",
+      "domain": "EmploymentUnit",
+      "range": "string",
+      "description": "Code representing the nature of the job position.",
+      "source_record_ids": [
+        "JCXS030215"
+      ],
+      "evidence": [
+        "工作岗位性 质码"
+      ]
+    },
+    {
+      "id": "unitIndustryCode",
+      "label": "Unit Industry Code",
+      "domain": "EmploymentUnit",
+      "range": "string",
+      "description": "Code representing the industry of the unit.",
+      "source_record_ids": [
+        "JCXS030216"
+      ],
+      "evidence": [
+        "单位行业码"
+      ]
+    },
+    {
+      "id": "registrationCardNumber",
+      "label": "Registration Card Number",
+      "domain": "EmploymentUnit",
+      "range": "string",
+      "description": "Number of the registration card.",
+      "source_record_ids": [
+        "JCXS030217"
+      ],
+      "evidence": [
+        "报到证号"
+      ]
+    },
+    {
+      "id": "employerEmploymentFormCode",
+      "label": "Employer Employment Form Code",
+      "domain": "EmploymentUnit",
+      "range": "string",
+      "description": "Code representing the employment form of the employer.",
+      "source_record_ids": [
+        "JCXS030218"
+      ],
+      "evidence": [
+        "用人单位用 人形式码"
+      ]
+    },
+    {
+      "id": "dispatchFee",
+      "label": "Dispatch Fee",
+      "domain": "EmploymentUnit",
+      "range": "string",
+      "description": "Fee for dispatch.",
+      "source_record_ids": [
+        "JCXS030219"
+      ],
+      "evidence": [
+        "派遣费"
+      ]
+    },
+    {
+      "id": "awardProjectName",
+      "label": "Award Project Name",
+      "domain": "Award",
+      "range": "string",
+      "description": "Name of the project that received the award.",
+      "source_record_ids": [
+        "JCJG011001"
+      ],
+      "evidence": [
+        "获得奖励的项目名称"
+      ]
+    },
+    {
+      "id": "awardLevelCode",
+      "label": "Award Level Code",
+      "domain": "Award",
+      "range": "string",
+      "description": "Code representing the level of the award.",
+      "source_record_ids": [
+        "JCJG011002"
+      ],
+      "evidence": [
+        "奖励级别码"
+      ]
+    },
+    {
+      "id": "awardGradeCode",
+      "label": "Award Grade Code",
+      "domain": "Award",
+      "range": "string",
+      "description": "Code representing the grade of the award.",
+      "source_record_ids": [
+        "JCJG011003"
+      ],
+      "evidence": [
+        "奖励等级码"
+      ]
+    },
+    {
+      "id": "awardCategoryCode",
+      "label": "Award Category Code",
+      "domain": "Award",
+      "range": "string",
+      "description": "Code representing the category of the award.",
+      "source_record_ids": [
+        "JCJG011004"
+      ],
+      "evidence": [
+        "获奖类别码"
+      ]
+    },
+    {
+      "id": "awardMethodCode",
+      "label": "Award Method Code",
+      "domain": "Award",
+      "range": "string",
+      "description": "Form of the award, either honorary or material.",
+      "source_record_ids": [
+        "JCJG011005"
+      ],
+      "evidence": [
+        "给予荣誉或物质奖励 的形式"
+      ]
+    },
+    {
+      "id": "awardName",
+      "label": "Award Name",
+      "domain": "Award",
+      "range": "string",
+      "description": "Name of the award.",
+      "source_record_ids": [
+        "JCJG011006"
+      ],
+      "evidence": [
+        "奖励名称"
+      ]
+    },
+    {
+      "id": "awardNameCode",
+      "label": "Award Name Code",
+      "domain": "Award",
+      "range": "string",
+      "description": "Code representing the name of the award.",
+      "source_record_ids": [
+        "JCJG011007"
+      ],
+      "evidence": [
+        "奖励名称码"
+      ]
+    },
+    {
+      "id": "awardReason",
+      "label": "Award Reason",
+      "domain": "Award",
+      "range": "string",
+      "description": "Reason for receiving the award.",
+      "source_record_ids": [
+        "JCJG011008"
+      ],
+      "evidence": [
+        "获奖原因"
+      ]
+    },
+    {
+      "id": "awardContent",
+      "label": "Award Content",
+      "domain": "Award",
+      "range": "string",
+      "description": "Specific content description of the award.",
+      "source_record_ids": [
+        "JCJG011009"
+      ],
+      "evidence": [
+        "获得奖励的具体内容 描述"
+      ]
+    },
+    {
+      "id": "awardUnit",
+      "label": "Award Unit",
+      "domain": "Award",
+      "range": "string",
+      "description": "Name of the unit that granted the award.",
+      "source_record_ids": [
+        "JCJG011010"
+      ],
+      "evidence": [
+        "授予奖励的单位名称"
+      ]
+    },
+    {
+      "id": "awardDate",
+      "label": "Award Date",
+      "domain": "Award",
+      "range": "string",
+      "description": "Date when the award was issued.",
+      "source_record_ids": [
+        "JCJG011011"
+      ],
+      "evidence": [
+        "颁布奖励的日期"
+      ]
+    },
+    {
+      "id": "honoraryTitleCode",
+      "label": "Honorary Title Code",
+      "domain": "Award",
+      "range": "string",
+      "description": "Code representing the honorary title.",
+      "source_record_ids": [
+        "JCJG011012"
+      ],
+      "evidence": [
+        "荣誉称号码"
+      ]
+    },
+    {
+      "id": "awardRoleCode",
+      "label": "Award Role Code",
+      "domain": "Award",
+      "range": "string",
+      "description": "Role of the individual in the awarded project.",
+      "source_record_ids": [
+        "JCJG011013"
+      ],
+      "evidence": [
+        "本人在获奖项目中的 角色"
+      ]
+    },
+    {
+      "id": "punishmentName",
+      "label": "Punishment Name",
+      "domain": "DisciplinaryAction",
+      "range": "string",
+      "description": "Name of the punishment given by a party organization or judicial department.",
+      "source_record_ids": [
+        "JCJG011101"
+      ],
+      "evidence": [
+        "指受到党和国家某级组 织或司法行政部门给予 处分的名称"
+      ]
+    },
+    {
+      "id": "disciplinaryCode",
+      "label": "Disciplinary Code",
+      "domain": "DisciplinaryAction",
+      "range": "string",
+      "description": "Code representing the type of disciplinary action.",
+      "source_record_ids": [
+        "JCJG011102"
+      ],
+      "evidence": [
+        "纪律处分码"
+      ]
+    },
+    {
+      "id": "punishmentReason",
+      "label": "Punishment Reason",
+      "domain": "DisciplinaryAction",
+      "range": "string",
+      "description": "Reason for the punishment.",
+      "source_record_ids": [
+        "JCJG011103"
+      ],
+      "evidence": [
+        "惩处原因"
+      ]
+    },
+    {
+      "id": "punishmentContent",
+      "label": "Punishment Content",
+      "domain": "DisciplinaryAction",
+      "range": "string",
+      "description": "Specific content included in the punishment.",
+      "source_record_ids": [
+        "JCJG011104"
+      ],
+      "evidence": [
+        "处分包括的具体内容"
+      ]
+    },
+    {
+      "id": "punishmentUnit",
+      "label": "Punishment Unit",
+      "domain": "DisciplinaryAction",
+      "range": "string",
+      "description": "Name of the organization that imposed the punishment.",
+      "source_record_ids": [
+        "JCJG011105"
+      ],
+      "evidence": [
+        "给予处分的组织机构名 称"
+      ]
+    },
+    {
+      "id": "punishmentDocumentNumber",
+      "label": "Punishment Document Number",
+      "domain": "DisciplinaryAction",
+      "range": "string",
+      "description": "Document number of the punishment issuance.",
+      "source_record_ids": [
+        "JCJG011106"
+      ],
+      "evidence": [
+        "给予处分的发文文号"
+      ]
+    },
+    {
+      "id": "punishmentDate",
+      "label": "Punishment Date",
+      "domain": "DisciplinaryAction",
+      "range": "string",
+      "description": "Date when the punishment was given.",
+      "source_record_ids": [
+        "JCJG011107"
+      ],
+      "evidence": [
+        "给予处分的日期"
+      ]
+    },
+    {
+      "id": "punishmentRevocationDate",
+      "label": "Punishment Revocation Date",
+      "domain": "DisciplinaryAction",
+      "range": "string",
+      "description": "Date when the punishment was revoked.",
+      "source_record_ids": [
+        "JCJG011108"
+      ],
+      "evidence": [
+        "处分的撤消日期"
+      ]
+    },
+    {
+      "id": "punishmentRevocationDocumentNumber",
+      "label": "Punishment Revocation Document Number",
+      "domain": "DisciplinaryAction",
+      "range": "string",
+      "description": "Document number of the revocation of the punishment.",
+      "source_record_ids": [
+        "JCJG011109"
+      ],
+      "evidence": [
+        "撤消处分的发文文号"
+      ]
+    },
+    {
+      "id": "punishmentRevocationReason",
+      "label": "Punishment Revocation Reason",
+      "domain": "DisciplinaryAction",
+      "range": "string",
+      "description": "Reason for the revocation of the punishment.",
+      "source_record_ids": [
+        "JCJG011110"
+      ],
+      "evidence": [
+        "惩处撤消原因"
+      ]
+    },
+    {
+      "id": "foreignLanguageCode",
+      "label": "Foreign Language Code",
+      "domain": "LanguageSkill",
+      "range": "string",
+      "description": "Code representing the foreign language, e.g., en for English, de for German.",
+      "source_record_ids": [
+        "JCJG020101"
+      ],
+      "evidence": [
+        "例：en 英语，de 德语"
+      ]
+    },
+    {
+      "id": "foreignLanguageProficiencyCode",
+      "label": "Foreign Language Proficiency Code",
+      "domain": "LanguageSkill",
+      "range": "string",
+      "description": "Code representing the proficiency level in the foreign language.",
+      "source_record_ids": [
+        "JCJG020102"
+      ],
+      "evidence": [
+        "外国语种熟练 程度码"
+      ]
+    },
+    {
+      "id": "chineseLanguageCode",
+      "label": "Chinese Language Code",
+      "domain": "LanguageSkill",
+      "range": "string",
+      "description": "Three-digit code representing the Chinese language or dialect.",
+      "source_record_ids": [
+        "JCJG020103"
+      ],
+      "evidence": [
+        "用三位数字代码"
+      ]
+    },
+    {
+      "id": "chineseLanguageProficiencyCode",
+      "label": "Chinese Language Proficiency Code",
+      "domain": "LanguageSkill",
+      "range": "string",
+      "description": "Code representing the proficiency level in the Chinese language.",
+      "source_record_ids": [
+        "JCJG020104"
+      ],
+      "evidence": [
+        "中国语种熟练 程度码"
+      ]
+    },
+    {
+      "id": "putonghuaLevelCode",
+      "label": "Putonghua Level Code",
+      "domain": "LanguageSkill",
+      "range": "string",
+      "description": "Level achieved in the Putonghua proficiency test.",
+      "source_record_ids": [
+        "JCJG020105"
+      ],
+      "evidence": [
+        "参加普通话水平测试所 达到的等级"
+      ]
+    },
+    {
+      "id": "qualificationNameCode",
+      "label": "Qualification Name Code",
+      "domain": "ProfessionalQualification",
+      "range": "string",
+      "description": "Code representing the professional qualification title, e.g., 011 for Professor.",
+      "source_record_ids": [
+        "JCJG020201"
+      ],
+      "evidence": [
+        "例：011 教授"
+      ]
+    },
+    {
+      "id": "qualificationObtainMethodCode",
+      "label": "Qualification Obtain Method Code",
+      "domain": "ProfessionalQualification",
+      "range": "string",
+      "description": "Method of obtaining the qualification, either through evaluation or national exam.",
+      "source_record_ids": [
+        "JCJG020202"
+      ],
+      "evidence": [
+        "指通过专业技术职务任 职资格评审委员会评审 或参加国家统一专业技 术资格考试"
+      ]
+    },
+    {
+      "id": "evaluationUnit",
+      "label": "Evaluation Unit",
+      "domain": "ProfessionalQualification",
+      "range": "string",
+      "description": "Name of the evaluation committee or authorized organization.",
+      "source_record_ids": [
+        "JCJG020203"
+      ],
+      "evidence": [
+        "专业技术职务任职资格 评审委员会或其授权的 组织机构名称"
+      ]
+    },
+    {
+      "id": "evaluationDate",
+      "label": "Evaluation Date",
+      "domain": "ProfessionalQualification",
+      "range": "string",
+      "description": "Date when the professional qualification was obtained.",
+      "source_record_ids": [
+        "JCJG020204"
+      ],
+      "evidence": [
+        "经专业技术职务任职资 格评审委员会评审或参 加国家统一专业技术资 格考试合格而取得的专 业技术资格的日期"
+      ]
+    },
+    {
+      "id": "appointedPositionCode",
+      "label": "Appointed Position Code",
+      "domain": "ProfessionalQualification",
+      "range": "string",
+      "description": "Code representing the appointed professional technical position.",
+      "source_record_ids": [
+        "JCJG020205"
+      ],
+      "evidence": [
+        "空白为未任任何专业技 术职务"
+      ]
+    },
+    {
+      "id": "appointmentUnit",
+      "label": "Appointment Unit",
+      "domain": "ProfessionalQualification",
+      "range": "string",
+      "description": "Name of the specific unit that appointed the professional technical position.",
+      "source_record_ids": [
+        "JCJG020206"
+      ],
+      "evidence": [
+        "聘任专业技术职务的具 体单位名称"
+      ]
+    },
+    {
+      "id": "appointmentStartDate",
+      "label": "Appointment Start Date",
+      "domain": "ProfessionalQualification",
+      "range": "string",
+      "description": "Start date of the professional technical position appointment.",
+      "source_record_ids": [
+        "JCJG020207"
+      ],
+      "evidence": [
+        "专业技术职务聘任通知 和聘书所认定的聘任开 始日期"
+      ]
+    },
+    {
+      "id": "appointmentEndDate",
+      "label": "Appointment End Date",
+      "domain": "ProfessionalQualification",
+      "range": "string",
+      "description": "End date of the professional technical position appointment.",
+      "source_record_ids": [
+        "JCJG020208"
+      ],
+      "evidence": [
+        "专业技术职务聘任通知 和聘书所认定的聘任终 止日期"
+      ]
+    },
+    {
+      "id": "appointmentStatusCode",
+      "label": "Appointment Status Code",
+      "domain": "ProfessionalQualification",
+      "range": "string",
+      "description": "Current appointment status of the professional technical position.",
+      "source_record_ids": [
+        "JCJG020209"
+      ],
+      "evidence": [
+        "当前专业技术职务的聘 任情况"
+      ]
+    },
+    {
+      "id": "dismissalDate",
+      "label": "Dismissal Date",
+      "domain": "ProfessionalQualification",
+      "range": "string",
+      "description": "Date when the appointment was terminated under abnormal circumstances.",
+      "source_record_ids": [
+        "JCJG020210"
+      ],
+      "evidence": [
+        "指非正常情况终止聘任 的日期"
+      ]
+    },
+    {
+      "id": "dismissalReason",
+      "label": "Dismissal Reason",
+      "domain": "ProfessionalQualification",
+      "range": "string",
+      "description": "Reason for dismissing the professional technical position.",
+      "source_record_ids": [
+        "JCJG020211"
+      ],
+      "evidence": [
+        "解除聘任专业技术职务 的原因"
+      ]
+    },
+    {
+      "id": "postCertificateName",
+      "label": "Post Certificate Name",
+      "domain": "PostCertificate",
+      "range": "string",
+      "description": "Name of the post certificate approved by a qualified unit.",
+      "source_record_ids": [
+        "JCJG020301"
+      ],
+      "evidence": [
+        "由具有岗位评定资格单 位考核并批准的岗位证 书名称"
+      ]
+    },
+    {
+      "id": "postCertificateNumber",
+      "label": "Post Certificate Number",
+      "domain": "PostCertificate",
+      "range": "string",
+      "description": "Number of the post certificate.",
+      "source_record_ids": [
+        "JCJG020302"
+      ],
+      "evidence": [
+        "岗位证书编 号"
+      ]
+    },
+    {
+      "id": "certificateIssuingUnit",
+      "label": "Certificate Issuing Unit",
+      "domain": "PostCertificate",
+      "range": "string",
+      "description": "Name of the organization that approved and issued the post certificate.",
+      "source_record_ids": [
+        "JCJG020303"
+      ],
+      "evidence": [
+        "批准并签发岗位证书的 组织机构名称"
+      ]
+    },
+    {
+      "id": "certificateIssuingDate",
+      "label": "Certificate Issuing Date",
+      "domain": "PostCertificate",
+      "range": "string",
+      "description": "Date when the post certificate was approved and issued.",
+      "source_record_ids": [
+        "JCJG020304"
+      ],
+      "evidence": [
+        "批准并签发岗位证书的 日期"
+      ]
+    },
+    {
+      "id": "workerTechGradeCode",
+      "label": "Worker Tech Grade Code",
+      "domain": "WorkerTechGrade",
+      "range": "string",
+      "description": "Technical grade name obtained through evaluation or national vocational appraisal.",
+      "source_record_ids": [
+        "JCJG020401"
+      ],
+      "evidence": [
+        "指经工人技术考评组织 评审并正式批准或经国 家统一的职业技能鉴定 机构考核合格取得的技 术等级名称"
+      ]
+    },
+    {
+      "id": "workerTechPositionCode",
+      "label": "Worker Tech Position Code",
+      "domain": "WorkerTechGrade",
+      "range": "string",
+      "description": "Officially appointed worker technical position name.",
+      "source_record_ids": [
+        "JCJG020402"
+      ],
+      "evidence": [
+        "指正式聘任的工人技术 职务名称"
+      ]
+    },
+    {
+      "id": "workerJobCode",
+      "label": "Worker Job Code",
+      "domain": "WorkerTechGrade",
+      "range": "string",
+      "description": "Code representing the worker's job type.",
+      "source_record_ids": [
+        "JCJG020403"
+      ],
+      "evidence": [
+        "工人工种码"
+      ]
+    },
+    {
+      "id": "gradeIssuingAuthority",
+      "label": "Grade Issuing Authority",
+      "domain": "WorkerTechGrade",
+      "range": "string",
+      "description": "Authority that issued the technical grade.",
+      "source_record_ids": [
+        "JCJG020404"
+      ],
+      "evidence": [
+        "等级发证机 关"
+      ]
+    },
+    {
+      "id": "gradeEvaluationDate",
+      "label": "Grade Evaluation Date",
+      "domain": "WorkerTechGrade",
+      "range": "string",
+      "description": "Date when the technical grade was evaluated.",
+      "source_record_ids": [
+        "JCJG020405"
+      ],
+      "evidence": [
+        "等级评定日 期"
+      ]
+    },
+    {
+      "id": "positionName",
+      "label": "Position Name",
+      "domain": "Position",
+      "range": "string",
+      "description": "Name of the position or post.",
+      "source_record_ids": [
+        "JCJG020501"
+      ],
+      "evidence": [
+        "职务名称"
+      ]
+    },
+    {
+      "id": "positionNameCode",
+      "label": "Position Name Code",
+      "domain": "Position",
+      "range": "string",
+      "description": "Code representing the position name.",
+      "source_record_ids": [
+        "JCJG020502"
+      ],
+      "evidence": [
+        "职务名称码"
+      ]
+    },
+    {
+      "id": "positionCategoryCode",
+      "label": "Position Category Code",
+      "domain": "Position",
+      "range": "string",
+      "description": "Code representing the category of the position.",
+      "source_record_ids": [
+        "JCJG020503"
+      ],
+      "evidence": [
+        "职务类别码"
+      ]
+    },
+    {
+      "id": "jobClassificationCode",
+      "label": "Job Classification Code",
+      "domain": "Position",
+      "range": "string",
+      "description": "Code representing the job classification.",
+      "source_record_ids": [
+        "JCJG020504"
+      ],
+      "evidence": [
+        "职位分类码"
+      ]
+    },
+    {
+      "id": "positionLevelCode",
+      "label": "Position Level Code",
+      "domain": "Position",
+      "range": "string",
+      "description": "Code representing the level of the position.",
+      "source_record_ids": [
+        "JCJG020505"
+      ],
+      "evidence": [
+        "职务级别码"
+      ]
+    },
+    {
+      "id": "appointmentDate",
+      "label": "Appointment Date",
+      "domain": "Position",
+      "range": "string",
+      "description": "Effective date of the appointment by a party committee, administrative organ, or election.",
+      "source_record_ids": [
+        "JCJG020506"
+      ],
+      "evidence": [
+        "由某级党委、国家行政 机关及其组织、人事管 理部门正式任命通知时 间，或由某级人民代表 大会（或人大常委会）、 某级政协及人民团体会 议选举通过及决定职务 的生效日期"
+      ]
+    },
+    {
+      "id": "appointmentDepartment",
+      "label": "Appointment Department",
+      "domain": "Position",
+      "range": "string",
+      "description": "Department where the individual is appointed.",
+      "source_record_ids": [
+        "JCJG020507"
+      ],
+      "evidence": [
+        "任职部门"
+      ]
+    },
+    {
+      "id": "appointmentMethodCode",
+      "label": "Appointment Method Code",
+      "domain": "Position",
+      "range": "string",
+      "description": "Code representing the method of appointment.",
+      "source_record_ids": [
+        "JCJG020508"
+      ],
+      "evidence": [
+        "任职方式码"
+      ]
+    },
+    {
+      "id": "appointmentReason",
+      "label": "Appointment Reason",
+      "domain": "Position",
+      "range": "string",
+      "description": "Reason for the appointment.",
+      "source_record_ids": [
+        "JCJG020509"
+      ],
+      "evidence": [
+        "任职原因"
+      ]
+    },
+    {
+      "id": "appointmentDocumentNumber",
+      "label": "Appointment Document Number",
+      "domain": "Position",
+      "range": "string",
+      "description": "Document number of the appointment notice or announcement.",
+      "source_record_ids": [
+        "JCJG020510"
+      ],
+      "evidence": [
+        "按干部管理权限，由某 级党委、国家行政机关 及其组织、人事管理部 门、人大常委会或人民 团体会议决定颁发的职 务任命书或公告的文件 编号"
+      ]
+    },
+    {
+      "id": "appointmentApprovingUnit",
+      "label": "Appointment Approving Unit",
+      "domain": "Position",
+      "range": "string",
+      "description": "Name of the organization that approved the appointment and issued the notice.",
+      "source_record_ids": [
+        "JCJG020511"
+      ],
+      "evidence": [
+        "批准任职并签发任职通 知的组织机构名称"
+      ]
+    },
+    {
+      "id": "positionChangeCategoryCode",
+      "label": "Position Change Category Code",
+      "domain": "Position",
+      "range": "string",
+      "description": "Code representing the category of position change.",
+      "source_record_ids": [
+        "JCJG020512"
+      ],
+      "evidence": [
+        "职务变动类 别码"
+      ]
+    },
+    {
+      "id": "currentPositionStatus",
+      "label": "Current Position Status",
+      "domain": "Position",
+      "range": "string",
+      "description": "Current status of the position.",
+      "source_record_ids": [
+        "JCJG020513"
+      ],
+      "evidence": [
+        "当前任职状 况"
+      ]
+    },
+    {
+      "id": "positionSortOrder",
+      "label": "Position Sort Order",
+      "domain": "Position",
+      "range": "string",
+      "description": "Order number of a leading cadre within the leadership group.",
+      "source_record_ids": [
+        "JCJG020514"
+      ],
+      "evidence": [
+        "指领导干部在领导班子 内排列的顺序号"
+      ]
+    },
+    {
+      "id": "supervisedOrEngagedWork",
+      "label": "Supervised or Engaged Work",
+      "domain": "Position",
+      "range": "string",
+      "description": "Work supervised or engaged in.",
+      "source_record_ids": [
+        "JCJG020515"
+      ],
+      "evidence": [
+        "主管或从事 的工作"
+      ]
+    },
+    {
+      "id": "removalDate",
+      "label": "Removal Date",
+      "domain": "Position",
+      "range": "string",
+      "description": "Effective date of the removal from position.",
+      "source_record_ids": [
+        "JCJG020516"
+      ],
+      "evidence": [
+        "按干部管理权限，由某 级党委、国家行政机关 及其组织、人事管理部 门、人大常委会或人民 团体会议批准免去职务 生效日期"
+      ]
+    },
+    {
+      "id": "removalMethodCode",
+      "label": "Removal Method Code",
+      "domain": "Position",
+      "range": "string",
+      "description": "Code representing the method of removal.",
+      "source_record_ids": [
+        "JCJG020517"
+      ],
+      "evidence": [
+        "免职方式码"
+      ]
+    },
+    {
+      "id": "removalReasonCode",
+      "label": "Removal Reason Code",
+      "domain": "Position",
+      "range": "string",
+      "description": "Code representing the reason for removal.",
+      "source_record_ids": [
+        "JCJG020518"
+      ],
+      "evidence": [
+        "免职原因码"
+      ]
+    },
+    {
+      "id": "removalDocumentNumber",
+      "label": "Removal Document Number",
+      "domain": "Position",
+      "range": "string",
+      "description": "Document number of the removal notice or announcement.",
+      "source_record_ids": [
+        "JCJG020519"
+      ],
+      "evidence": [
+        "按干部管理权限，由某 级党委、国家行政机关 及其组织、人事管理部 门、人大常委会或人民 团体会议决定颁发的职 务免职书或公告的文件 编号"
+      ]
+    },
+    {
+      "id": "removalApprovingUnit",
+      "label": "Removal Approving Unit",
+      "domain": "Position",
+      "range": "string",
+      "description": "Name of the organization that approved the removal and issued the notice.",
+      "source_record_ids": [
+        "JCJG020520"
+      ],
+      "evidence": [
+        "批准免职并签发免职通 知的组织机构名称"
+      ]
+    },
+    {
+      "id": "socialPartTimeJobCode",
+      "label": "Social Part-time Job Code",
+      "domain": "SocialPartTimeJob",
+      "range": "string",
+      "description": "Code representing the social part-time job in organizations like the People's Congress, CPPCC, etc.",
+      "source_record_ids": [
+        "JCJG030101"
+      ],
+      "evidence": [
+        "指县级以上人大、政协、 民主党派、工会、共青 团、妇联、侨联、科协， 中国科学院和中国工程 院院士的兼职职务"
+      ]
+    },
+    {
+      "id": "socialPartTimeJobStartDate",
+      "label": "Social Part-time Job Start Date",
+      "domain": "SocialPartTimeJob",
+      "range": "string",
+      "description": "Approval date of the part-time social duty appointment.",
+      "source_record_ids": [
+        "JCJG030102"
+      ],
+      "evidence": [
+        "兼职职务任命的批准日 期"
+      ]
+    },
+    {
+      "id": "socialPartTimeJobEndDate",
+      "label": "Social Part-time Job End Date",
+      "domain": "SocialPartTimeJob",
+      "range": "string",
+      "description": "End date of the part-time social duty.",
+      "source_record_ids": [
+        "JCJG030103"
+      ],
+      "evidence": [
+        "兼职职务的终止日期"
+      ]
+    }
+  ],
+  "object_properties": [],
+  "relations": [],
+  "class_hierarchy": []
+}

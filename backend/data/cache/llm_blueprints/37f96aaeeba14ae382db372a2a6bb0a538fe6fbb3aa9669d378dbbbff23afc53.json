@@ -1,0 +1,496 @@
+{
+  "classes": [
+    {
+      "id": "ProjectRequirement",
+      "label": "Project Requirement",
+      "evidence": "Section 1: 总体把握项目要求，熟悉所分配任务。"
+    },
+    {
+      "id": "TaskAllocation",
+      "label": "Task Allocation",
+      "evidence": "Section 1: 总体把握项目要求，熟悉所分配任务。"
+    },
+    {
+      "id": "ResearchActivity",
+      "label": "Research Activity",
+      "evidence": "Section 2: 查阅资料，根据各自任务提出设计方案并讨论。"
+    },
+    {
+      "id": "DesignProposal",
+      "label": "Design Proposal",
+      "evidence": "Section 2: 查阅资料，根据各自任务提出设计方案并讨论。"
+    },
+    {
+      "id": "Discussion",
+      "label": "Discussion",
+      "evidence": "Section 2: 查阅资料，根据各自任务提出设计方案并讨论。"
+    },
+    {
+      "id": "Compilation",
+      "label": "Compilation",
+      "evidence": "Section 3: 进行编译并调试程序。"
+    },
+    {
+      "id": "Debugging",
+      "label": "Debugging",
+      "evidence": "Section 3: 进行编译并调试程序。"
+    },
+    {
+      "id": "Program",
+      "label": "Program",
+      "evidence": "Section 3: 进行编译并调试程序。"
+    },
+    {
+      "id": "Improvement",
+      "label": "Improvement",
+      "evidence": "Section 4: 调试程序、改进。"
+    },
+    {
+      "id": "SystemIntegration",
+      "label": "System Integration",
+      "evidence": "Section 5: 系统程序整合，调试以及改进，文档撰写。"
+    },
+    {
+      "id": "Documentation",
+      "label": "Documentation",
+      "evidence": "Section 5: 系统程序整合，调试以及改进，文档撰写。"
+    },
+    {
+      "id": "Defense",
+      "label": "Defense",
+      "evidence": "Section 6: 评分答辩。"
+    },
+    {
+      "id": "Evaluation",
+      "label": "Evaluation",
+      "evidence": "Section 6: 评分答辩。"
+    }
+  ],
+  "class_hierarchy": [
+    {
+      "subclass": "ResearchActivity",
+      "superclass": "ProjectRequirement",
+      "evidence": "Section 2 follows Section 1"
+    },
+    {
+      "subclass": "DesignProposal",
+      "superclass": "ResearchActivity",
+      "evidence": "Section 2: 查阅资料，根据各自任务提出设计方案并讨论。"
+    },
+    {
+      "subclass": "Discussion",
+      "superclass": "ResearchActivity",
+      "evidence": "Section 2: 查阅资料，根据各自任务提出设计方案并讨论。"
+    },
+    {
+      "subclass": "Compilation",
+      "superclass": "Program",
+      "evidence": "Section 3: 进行编译并调试程序。"
+    },
+    {
+      "subclass": "Debugging",
+      "superclass": "Program",
+      "evidence": "Section 3: 进行编译并调试程序。"
+    },
+    {
+      "subclass": "Improvement",
+      "superclass": "Debugging",
+      "evidence": "Section 4: 调试程序、改进。"
+    },
+    {
+      "subclass": "SystemIntegration",
+      "superclass": "Program",
+      "evidence": "Section 5: 系统程序整合，调试以及改进，文档撰写。"
+    },
+    {
+      "subclass": "Documentation",
+      "superclass": "SystemIntegration",
+      "evidence": "Section 5: 系统程序整合，调试以及改进，文档撰写。"
+    },
+    {
+      "subclass": "Defense",
+      "superclass": "Evaluation",
+      "evidence": "Section 6: 评分答辩。"
+    }
+  ],
+  "object_properties": [
+    {
+      "id": "hasTask",
+      "label": "has Task",
+      "domain": "ProjectRequirement",
+      "range": "TaskAllocation",
+      "evidence": "Section 1: 总体把握项目要求，熟悉所分配任务。"
+    },
+    {
+      "id": "involvesResearch",
+      "label": "involves Research",
+      "domain": "TaskAllocation",
+      "range": "ResearchActivity",
+      "evidence": "Section 2: 查阅资料，根据各自任务提出设计方案并讨论。"
+    },
+    {
+      "id": "producesDesign",
+      "label": "produces Design",
+      "domain": "ResearchActivity",
+      "range": "DesignProposal",
+      "evidence": "Section 2: 查阅资料，根据各自任务提出设计方案并讨论。"
+    },
+    {
+      "id": "includesDiscussion",
+      "label": "includes Discussion",
+      "domain": "ResearchActivity",
+      "range": "Discussion",
+      "evidence": "Section 2: 查阅资料，根据各自任务提出设计方案并讨论。"
+    },
+    {
+      "id": "compilesProgram",
+      "label": "compiles Program",
+      "domain": "Compilation",
+      "range": "Program",
+      "evidence": "Section 3: 进行编译并调试程序。"
+    },
+    {
+      "id": "debugsProgram",
+      "label": "debugs Program",
+      "domain": "Debugging",
+      "range": "Program",
+      "evidence": "Section 3: 进行编译并调试程序。"
+    },
+    {
+      "id": "improvesProgram",
+      "label": "improves Program",
+      "domain": "Improvement",
+      "range": "Program",
+      "evidence": "Section 4: 调试程序、改进。"
+    },
+    {
+      "id": "integratesSystem",
+      "label": "integrates System",
+      "domain": "SystemIntegration",
+      "range": "Program",
+      "evidence": "Section 5: 系统程序整合，调试以及改进，文档撰写。"
+    },
+    {
+      "id": "producesDocumentation",
+      "label": "produces Documentation",
+      "domain": "SystemIntegration",
+      "range": "Documentation",
+      "evidence": "Section 5: 系统程序整合，调试以及改进，文档撰写。"
+    },
+    {
+      "id": "evaluatedBy",
+      "label": "evaluated By",
+      "domain": "Program",
+      "range": "Evaluation",
+      "evidence": "Section 6: 评分答辩。"
+    },
+    {
+      "id": "defendedIn",
+      "label": "defended In",
+      "domain": "Program",
+      "range": "Defense",
+      "evidence": "Section 6: 评分答辩。"
+    }
+  ],
+  "relations": [
+    {
+      "subject": "ProjectRequirement",
+      "predicate": "hasTask",
+      "object": "TaskAllocation",
+      "evidence": "Section 1"
+    },
+    {
+      "subject": "TaskAllocation",
+      "predicate": "involvesResearch",
+      "object": "ResearchActivity",
+      "evidence": "Section 2"
+    },
+    {
+      "subject": "ResearchActivity",
+      "predicate": "producesDesign",
+      "object": "DesignProposal",
+      "evidence": "Section 2"
+    },
+    {
+      "subject": "ResearchActivity",
+      "predicate": "includesDiscussion",
+      "object": "Discussion",
+      "evidence": "Section 2"
+    },
+    {
+      "subject": "Compilation",
+      "predicate": "compilesProgram",
+      "object": "Program",
+      "evidence": "Section 3"
+    },
+    {
+      "subject": "Debugging",
+      "predicate": "debugsProgram",
+      "object": "Program",
+      "evidence": "Section 3"
+    },
+    {
+      "subject": "Improvement",
+      "predicate": "improvesProgram",
+      "object": "Program",
+      "evidence": "Section 4"
+    },
+    {
+      "subject": "SystemIntegration",
+      "predicate": "integratesSystem",
+      "object": "Program",
+      "evidence": "Section 5"
+    },
+    {
+      "subject": "SystemIntegration",
+      "predicate": "producesDocumentation",
+      "object": "Documentation",
+      "evidence": "Section 5"
+    },
+    {
+      "subject": "Program",
+      "predicate": "evaluatedBy",
+      "object": "Evaluation",
+      "evidence": "Section 6"
+    },
+    {
+      "subject": "Program",
+      "predicate": "defendedIn",
+      "object": "Defense",
+      "evidence": "Section 6"
+    }
+  ],
+  "datatype_property_mapping_rules": [
+    {
+      "pattern": "section_title",
+      "domain": "ProjectRequirement",
+      "range": "string",
+      "confidence": 0.9,
+      "evidence": "Section titles describe project phases"
+    },
+    {
+      "pattern": "section_level",
+      "domain": "ProjectRequirement",
+      "range": "integer",
+      "confidence": 0.95,
+      "evidence": "Section levels indicate hierarchy depth"
+    },
+    {
+      "pattern": "section_id",
+      "domain": "ProjectRequirement",
+      "range": "string",
+      "confidence": 0.95,
+      "evidence": "Section IDs provide unique identifiers"
+    },
+    {
+      "pattern": "document_title",
+      "domain": "ProjectRequirement",
+      "range": "string",
+      "confidence": 0.85,
+      "evidence": "Document title provides context"
+    },
+    {
+      "pattern": "total_records",
+      "domain": "ProjectRequirement",
+      "range": "integer",
+      "confidence": 0.8,
+      "evidence": "Total records count for the document"
+    }
+  ],
+  "domain_inference_rules": [
+    {
+      "pattern": "section_title contains '项目要求'",
+      "domain": "ProjectRequirement",
+      "confidence": 0.9,
+      "evidence": "Section 1 title"
+    },
+    {
+      "pattern": "section_title contains '查阅资料'",
+      "domain": "ResearchActivity",
+      "confidence": 0.9,
+      "evidence": "Section 2 title"
+    },
+    {
+      "pattern": "section_title contains '编译'",
+      "domain": "Compilation",
+      "confidence": 0.9,
+      "evidence": "Section 3 title"
+    },
+    {
+      "pattern": "section_title contains '调试'",
+      "domain": "Debugging",
+      "confidence": 0.9,
+      "evidence": "Section 3 and 4 titles"
+    },
+    {
+      "pattern": "section_title contains '改进'",
+      "domain": "Improvement",
+      "confidence": 0.9,
+      "evidence": "Section 4 and 5 titles"
+    },
+    {
+      "pattern": "section_title contains '整合'",
+      "domain": "SystemIntegration",
+      "confidence": 0.9,
+      "evidence": "Section 5 title"
+    },
+    {
+      "pattern": "section_title contains '文档'",
+      "domain": "Documentation",
+      "confidence": 0.9,
+      "evidence": "Section 5 title"
+    },
+    {
+      "pattern": "section_title contains '答辩'",
+      "domain": "Defense",
+      "confidence": 0.9,
+      "evidence": "Section 6 title"
+    },
+    {
+      "pattern": "section_title contains '评分'",
+      "domain": "Evaluation",
+      "confidence": 0.9,
+      "evidence": "Section 6 title"
+    }
+  ],
+  "range_inference_rules": [
+    {
+      "pattern": "hasTask",
+      "range": "TaskAllocation",
+      "confidence": 0.9,
+      "evidence": "Section 1"
+    },
+    {
+      "pattern": "involvesResearch",
+      "range": "ResearchActivity",
+      "confidence": 0.9,
+      "evidence": "Section 2"
+    },
+    {
+      "pattern": "producesDesign",
+      "range": "DesignProposal",
+      "confidence": 0.9,
+      "evidence": "Section 2"
+    },
+    {
+      "pattern": "includesDiscussion",
+      "range": "Discussion",
+      "confidence": 0.9,
+      "evidence": "Section 2"
+    },
+    {
+      "pattern": "compilesProgram",
+      "range": "Program",
+      "confidence": 0.9,
+      "evidence": "Section 3"
+    },
+    {
+      "pattern": "debugsProgram",
+      "range": "Program",
+      "confidence": 0.9,
+      "evidence": "Section 3"
+    },
+    {
+      "pattern": "improvesProgram",
+      "range": "Program",
+      "confidence": 0.9,
+      "evidence": "Section 4"
+    },
+    {
+      "pattern": "integratesSystem",
+      "range": "Program",
+      "confidence": 0.9,
+      "evidence": "Section 5"
+    },
+    {
+      "pattern": "producesDocumentation",
+      "range": "Documentation",
+      "confidence": 0.9,
+      "evidence": "Section 5"
+    },
+    {
+      "pattern": "evaluatedBy",
+      "range": "Evaluation",
+      "confidence": 0.9,
+      "evidence": "Section 6"
+    },
+    {
+      "pattern": "defendedIn",
+      "range": "Defense",
+      "confidence": 0.9,
+      "evidence": "Section 6"
+    }
+  ],
+  "alignment_hints": [
+    {
+      "source_label": "ProjectRequirement",
+      "target_label": "ProjectPhase",
+      "mapping_type": "closeMatch",
+      "confidence": 0.85,
+      "evidence": "Both represent stages in a project lifecycle"
+    },
+    {
+      "source_label": "TaskAllocation",
+      "target_label": "TaskAssignment",
+      "mapping_type": "exactMatch",
+      "confidence": 0.9,
+      "evidence": "Synonymous terms"
+    },
+    {
+      "source_label": "ResearchActivity",
+      "target_label": "ResearchPhase",
+      "mapping_type": "closeMatch",
+      "confidence": 0.85,
+      "evidence": "Both represent research stages"
+    },
+    {
+      "source_label": "DesignProposal",
+      "target_label": "DesignDocument",
+      "mapping_type": "closeMatch",
+      "confidence": 0.8,
+      "evidence": "Both represent design outputs"
+    },
+    {
+      "source_label": "Compilation",
+      "target_label": "BuildProcess",
+      "mapping_type": "closeMatch",
+      "confidence": 0.85,
+      "evidence": "Both represent code compilation"
+    },
+    {
+      "source_label": "Debugging",
+      "target_label": "Testing",
+      "mapping_type": "relatedMatch",
+      "confidence": 0.75,
+      "evidence": "Debugging is a subset of testing"
+    },
+    {
+      "source_label": "SystemIntegration",
+      "target_label": "IntegrationTesting",
+      "mapping_type": "closeMatch",
+      "confidence": 0.8,
+      "evidence": "Both involve combining components"
+    },
+    {
+      "source_label": "Documentation",
+      "target_label": "TechnicalWriting",
+      "mapping_type": "closeMatch",
+      "confidence": 0.85,
+      "evidence": "Both involve creating documents"
+    },
+    {
+      "source_label": "Defense",
+      "target_label": "Presentation",
+      "mapping_type": "closeMatch",
+      "confidence": 0.8,
+      "evidence": "Both involve presenting work"
+    },
+    {
+      "source_label": "Evaluation",
+      "target_label": "Assessment",
+      "mapping_type": "exactMatch",
+      "confidence": 0.9,
+      "evidence": "Synonymous terms"
+    }
+  ]
+}

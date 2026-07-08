@@ -1,0 +1,504 @@
+{
+  "classes": [
+    {
+      "id": "Publication",
+      "label": "Publication",
+      "description": "A published work such as a book or journal.",
+      "source_record_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "Book",
+      "label": "Book",
+      "description": "A published book.",
+      "source_record_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "Journal",
+      "label": "Journal",
+      "description": "A published journal.",
+      "source_record_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "Publisher",
+      "label": "Publisher",
+      "description": "An organization that publishes works.",
+      "source_record_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "EditorialDepartment",
+      "label": "Editorial Department",
+      "description": "The department that edits a journal.",
+      "source_record_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "Person",
+      "label": "Person",
+      "description": "A person such as an editor or chief editor.",
+      "source_record_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "Series",
+      "label": "Series",
+      "description": "A series of books.",
+      "source_record_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "Barcode",
+      "label": "Barcode",
+      "description": "A barcode associated with a publication.",
+      "source_record_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "Code",
+      "label": "Code",
+      "description": "A coded value such as a status code or category code.",
+      "source_record_ids": [],
+      "evidence": []
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "seriesName",
+      "label": "Series Name",
+      "domain": "Series",
+      "range": "string",
+      "description": "Name of the book series.",
+      "source_record_ids": [
+        "JCBX040120"
+      ],
+      "evidence": [
+        "指系列丛书的名称"
+      ]
+    },
+    {
+      "id": "seriesEditor",
+      "label": "Series Editor",
+      "domain": "Series",
+      "range": "string",
+      "description": "Editor of the book series.",
+      "source_record_ids": [
+        "JCBX040121"
+      ],
+      "evidence": [
+        "指系列丛书的编者名称"
+      ]
+    },
+    {
+      "id": "publisherName",
+      "label": "Publisher Name",
+      "domain": "Publisher",
+      "range": "string",
+      "description": "Name of the publisher.",
+      "source_record_ids": [
+        "JCBX040122"
+      ],
+      "evidence": [
+        "出版社名称，多个出版社可并列"
+      ]
+    },
+    {
+      "id": "publisherLevelCode",
+      "label": "Publisher Level Code",
+      "domain": "Publisher",
+      "range": "string",
+      "description": "Level code of the publisher.",
+      "source_record_ids": [
+        "JCBX040123"
+      ],
+      "evidence": [
+        "多个出版社以第一个出版社为准"
+      ]
+    },
+    {
+      "id": "placeOfPublication",
+      "label": "Place of Publication",
+      "domain": "Publication",
+      "range": "string",
+      "description": "Place where the publication is published.",
+      "source_record_ids": [
+        "JCBX040124"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "publicationDate",
+      "label": "Publication Date",
+      "domain": "Publication",
+      "range": "string",
+      "description": "Date of publication.",
+      "source_record_ids": [
+        "JCBX040125"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "distributor",
+      "label": "Distributor",
+      "domain": "Publication",
+      "range": "string",
+      "description": "Distributor of the publication.",
+      "source_record_ids": [
+        "JCBX040126"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "remarks",
+      "label": "Remarks",
+      "domain": "Publication",
+      "range": "string",
+      "description": "Additional notes about the publication.",
+      "source_record_ids": [
+        "JCBX040127"
+      ],
+      "evidence": [
+        "与图书相关的其他情况说明"
+      ]
+    },
+    {
+      "id": "bookStatusCode",
+      "label": "Book Status Code",
+      "domain": "Book",
+      "range": "string",
+      "description": "Status code of the book.",
+      "source_record_ids": [
+        "JCBX040128"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "journalNumber",
+      "label": "Journal Number",
+      "domain": "Journal",
+      "range": "string",
+      "description": "Internal number of the journal.",
+      "source_record_ids": [
+        "JCBX040201"
+      ],
+      "evidence": [
+        "指校内期刊的编号，学校自编"
+      ]
+    },
+    {
+      "id": "journalBarcode",
+      "label": "Journal Barcode",
+      "domain": "Journal",
+      "range": "string",
+      "description": "Barcode of the journal.",
+      "source_record_ids": [
+        "JCBX040202"
+      ],
+      "evidence": [
+        "期刊对应的条形码"
+      ]
+    },
+    {
+      "id": "journalChineseName",
+      "label": "Journal Chinese Name",
+      "domain": "Journal",
+      "range": "string",
+      "description": "Chinese name of the journal.",
+      "source_record_ids": [
+        "JCBX040203"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "journalEnglishName",
+      "label": "Journal English Name",
+      "domain": "Journal",
+      "range": "string",
+      "description": "English name of the journal.",
+      "source_record_ids": [
+        "JCBX040204"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "journalPublicationNumber",
+      "label": "Journal Publication Number",
+      "domain": "Journal",
+      "range": "string",
+      "description": "ISSN or other standard publication number of the journal.",
+      "source_record_ids": [
+        "JCBX040205"
+      ],
+      "evidence": [
+        "期刊相应的ISSN等标准出版号"
+      ]
+    },
+    {
+      "id": "editorialDepartmentName",
+      "label": "Editorial Department Name",
+      "domain": "EditorialDepartment",
+      "range": "string",
+      "description": "Name of the editorial department.",
+      "source_record_ids": [
+        "JCBX040206"
+      ],
+      "evidence": [
+        "编辑期刊的编辑部名称"
+      ]
+    },
+    {
+      "id": "chiefEditorName",
+      "label": "Chief Editor Name",
+      "domain": "Person",
+      "range": "string",
+      "description": "Name of the chief editor.",
+      "source_record_ids": [
+        "JCBX040207"
+      ],
+      "evidence": [
+        "期刊主编姓名"
+      ]
+    },
+    {
+      "id": "pricePerIssue",
+      "label": "Price per Issue",
+      "domain": "Journal",
+      "range": "string",
+      "description": "Price per issue of the journal.",
+      "source_record_ids": [
+        "JCBX040208"
+      ],
+      "evidence": [
+        "每期期刊的单价，外币按汇价折算成人民币，取一位小数，单位：元"
+      ]
+    },
+    {
+      "id": "foundingDate",
+      "label": "Founding Date",
+      "domain": "Journal",
+      "range": "string",
+      "description": "Date the journal was founded.",
+      "source_record_ids": [
+        "JCBX040209"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "yearNumber",
+      "label": "Year Number",
+      "domain": "Journal",
+      "range": "string",
+      "description": "Year number of the journal.",
+      "source_record_ids": [
+        "JCBX040210"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "volumeNumber",
+      "label": "Volume Number",
+      "domain": "Journal",
+      "range": "string",
+      "description": "Volume number of the journal.",
+      "source_record_ids": [
+        "JCBX040211"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "issueNumber",
+      "label": "Issue Number",
+      "domain": "Journal",
+      "range": "string",
+      "description": "Issue number of the journal.",
+      "source_record_ids": [
+        "JCBX040212"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "totalIssueNumber",
+      "label": "Total Issue Number",
+      "domain": "Journal",
+      "range": "string",
+      "description": "Total issue number of the journal.",
+      "source_record_ids": [
+        "JCBX040213"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "journalCategoryCode",
+      "label": "Journal Category Code",
+      "domain": "Journal",
+      "range": "string",
+      "description": "Category code of the journal.",
+      "source_record_ids": [
+        "JCBX040214"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "journalStatusCode",
+      "label": "Journal Status Code",
+      "domain": "Journal",
+      "range": "string",
+      "description": "Status code of the journal.",
+      "source_record_ids": [
+        "JCBX040215"
+      ],
+      "evidence": []
+    }
+  ],
+  "object_properties": [
+    {
+      "id": "publishedBy",
+      "label": "published by",
+      "domain": "Publication",
+      "range": "Publisher",
+      "description": "The publisher that publishes the publication.",
+      "source_record_ids": [
+        "JCBX040122"
+      ],
+      "evidence": [
+        "出版社名称"
+      ]
+    },
+    {
+      "id": "editedByDepartment",
+      "label": "edited by department",
+      "domain": "Journal",
+      "range": "EditorialDepartment",
+      "description": "The department that edits the journal.",
+      "source_record_ids": [
+        "JCBX040206"
+      ],
+      "evidence": [
+        "编辑期刊的编辑部名称"
+      ]
+    },
+    {
+      "id": "hasChiefEditor",
+      "label": "has chief editor",
+      "domain": "Journal",
+      "range": "Person",
+      "description": "The chief editor of the journal.",
+      "source_record_ids": [
+        "JCBX040207"
+      ],
+      "evidence": [
+        "期刊主编姓名"
+      ]
+    },
+    {
+      "id": "hasBarcode",
+      "label": "has barcode",
+      "domain": "Publication",
+      "range": "Barcode",
+      "description": "The barcode associated with the publication.",
+      "source_record_ids": [
+        "JCBX040102",
+        "JCBX040202"
+      ],
+      "evidence": [
+        "图书对应的条形码",
+        "期刊对应的条形码"
+      ]
+    },
+    {
+      "id": "belongsToSeries",
+      "label": "belongs to series",
+      "domain": "Book",
+      "range": "Series",
+      "description": "The series to which the book belongs.",
+      "source_record_ids": [
+        "JCBX040120"
+      ],
+      "evidence": [
+        "指系列丛书的名称"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "subject": "Book",
+      "predicate": "belongsToSeries",
+      "object": "Series",
+      "source_record_ids": [
+        "JCBX040120"
+      ],
+      "evidence": [
+        "指系列丛书的名称"
+      ]
+    },
+    {
+      "subject": "Journal",
+      "predicate": "editedByDepartment",
+      "object": "EditorialDepartment",
+      "source_record_ids": [
+        "JCBX040206"
+      ],
+      "evidence": [
+        "编辑期刊的编辑部名称"
+      ]
+    },
+    {
+      "subject": "Journal",
+      "predicate": "hasChiefEditor",
+      "object": "Person",
+      "source_record_ids": [
+        "JCBX040207"
+      ],
+      "evidence": [
+        "期刊主编姓名"
+      ]
+    },
+    {
+      "subject": "Book",
+      "predicate": "hasBarcode",
+      "object": "Barcode",
+      "source_record_ids": [
+        "JCBX040102"
+      ],
+      "evidence": [
+        "图书对应的条形码"
+      ]
+    },
+    {
+      "subject": "Journal",
+      "predicate": "hasBarcode",
+      "object": "Barcode",
+      "source_record_ids": [
+        "JCBX040202"
+      ],
+      "evidence": [
+        "期刊对应的条形码"
+      ]
+    },
+    {
+      "subject": "Book",
+      "predicate": "publishedBy",
+      "object": "Publisher",
+      "source_record_ids": [
+        "JCBX040122"
+      ],
+      "evidence": [
+        "出版社名称"
+      ]
+    }
+  ],
+  "class_hierarchy": [
+    {
+      "parent": "Publication",
+      "child": "Book",
+      "evidence": []
+    },
+    {
+      "parent": "Publication",
+      "child": "Journal",
+      "evidence": []
+    }
+  ]
+}

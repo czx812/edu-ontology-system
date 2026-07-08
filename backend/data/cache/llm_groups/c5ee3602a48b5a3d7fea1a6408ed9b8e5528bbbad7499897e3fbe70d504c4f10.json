@@ -1,0 +1,649 @@
+{
+  "classes": [
+    {
+      "id": "Campus",
+      "label": "Campus",
+      "description": "A campus of a school, with contact details and a responsible person.",
+      "source_record_ids": [
+        "JCXX010205",
+        "JCXX010206",
+        "JCXX010207"
+      ],
+      "evidence": [
+        "校区联系电话",
+        "校区传真电话",
+        "校区负责人号"
+      ]
+    },
+    {
+      "id": "Class",
+      "label": "Class",
+      "description": "A class within a school, identified by a school-assigned code and name.",
+      "source_record_ids": [
+        "JCXX020001",
+        "JCXX020002",
+        "JCXX020003",
+        "JCXX020004",
+        "JCXX020005",
+        "JCXX020006"
+      ],
+      "evidence": [
+        "班号",
+        "班级名称",
+        "建班年月",
+        "所属年级",
+        "班主任工号",
+        "班长学号"
+      ]
+    },
+    {
+      "id": "Student",
+      "label": "Student",
+      "description": "A student, identified by a school-assigned student number.",
+      "source_record_ids": [
+        "JCXS010101",
+        "JCXS011001",
+        "JCXS011002",
+        "JCXS011003",
+        "JCXS011004",
+        "JCXS011005",
+        "JCXS011006",
+        "JCXS020101",
+        "JCXS020102",
+        "JCXS020103",
+        "JCXS020104",
+        "JCXS020105"
+      ],
+      "evidence": [
+        "学号",
+        "原学校名称",
+        "原学号",
+        "入学方式码",
+        "来源地区码",
+        "学生来源码",
+        "就读方式码",
+        "入学年月",
+        "学生类别码",
+        "所在班号",
+        "所在年级",
+        "学生当前状态码"
+      ]
+    },
+    {
+      "id": "StudentStatusChange",
+      "label": "Student Status Change",
+      "description": "A record of a change in a student's status, such as a transfer or withdrawal.",
+      "source_record_ids": [
+        "JCXS020201",
+        "JCXS020202",
+        "JCXS020203",
+        "JCXS020204",
+        "JCXS020205",
+        "JCXS020206",
+        "JCXS020207",
+        "JCXS020208",
+        "JCXS020209"
+      ],
+      "evidence": [
+        "异动类别码",
+        "异动日期",
+        "异动原因码",
+        "审批日期",
+        "审批文号",
+        "异动来源学校码",
+        "异动去向学校码",
+        "异动说明",
+        "原院系所号"
+      ]
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "campusContactPhone",
+      "label": "Campus Contact Phone",
+      "domain": "Campus",
+      "range": "string",
+      "description": "The contact phone number for the campus.",
+      "source_record_ids": [
+        "JCXX010205"
+      ],
+      "evidence": [
+        "校区联系电话"
+      ]
+    },
+    {
+      "id": "campusFaxPhone",
+      "label": "Campus Fax Phone",
+      "domain": "Campus",
+      "range": "string",
+      "description": "The fax phone number for the campus.",
+      "source_record_ids": [
+        "JCXX010206"
+      ],
+      "evidence": [
+        "校区传真电话"
+      ]
+    },
+    {
+      "id": "campusHeadId",
+      "label": "Campus Head ID",
+      "domain": "Campus",
+      "range": "string",
+      "description": "The employee ID of the person responsible for the campus.",
+      "source_record_ids": [
+        "JCXX010207"
+      ],
+      "evidence": [
+        "校区负责人号"
+      ]
+    },
+    {
+      "id": "classCode",
+      "label": "Class Code",
+      "domain": "Class",
+      "range": "string",
+      "description": "The school-assigned code for the class.",
+      "source_record_ids": [
+        "JCXX020001"
+      ],
+      "evidence": [
+        "班号"
+      ]
+    },
+    {
+      "id": "className",
+      "label": "Class Name",
+      "domain": "Class",
+      "range": "string",
+      "description": "The school-assigned name for the class.",
+      "source_record_ids": [
+        "JCXX020002"
+      ],
+      "evidence": [
+        "班级名称"
+      ]
+    },
+    {
+      "id": "classEstablishmentDate",
+      "label": "Class Establishment Date",
+      "domain": "Class",
+      "range": "string",
+      "description": "The year and month the class was established.",
+      "source_record_ids": [
+        "JCXX020003"
+      ],
+      "evidence": [
+        "建班年月"
+      ]
+    },
+    {
+      "id": "classGrade",
+      "label": "Class Grade",
+      "domain": "Class",
+      "range": "string",
+      "description": "The grade level of the class.",
+      "source_record_ids": [
+        "JCXX020004"
+      ],
+      "evidence": [
+        "所属年级"
+      ]
+    },
+    {
+      "id": "classTeacherId",
+      "label": "Class Teacher ID",
+      "domain": "Class",
+      "range": "string",
+      "description": "The employee ID of the class teacher.",
+      "source_record_ids": [
+        "JCXX020005"
+      ],
+      "evidence": [
+        "班主任工号"
+      ]
+    },
+    {
+      "id": "classMonitorStudentId",
+      "label": "Class Monitor Student ID",
+      "domain": "Class",
+      "range": "string",
+      "description": "The student ID of the class monitor.",
+      "source_record_ids": [
+        "JCXX020006"
+      ],
+      "evidence": [
+        "班长学号"
+      ]
+    },
+    {
+      "id": "studentId",
+      "label": "Student ID",
+      "domain": "Student",
+      "range": "string",
+      "description": "The school-assigned student number.",
+      "source_record_ids": [
+        "JCXS010101"
+      ],
+      "evidence": [
+        "学号"
+      ]
+    },
+    {
+      "id": "previousSchoolName",
+      "label": "Previous School Name",
+      "domain": "Student",
+      "range": "string",
+      "description": "The name of the school the student attended before enrollment.",
+      "source_record_ids": [
+        "JCXS011001"
+      ],
+      "evidence": [
+        "原学校名称"
+      ]
+    },
+    {
+      "id": "previousStudentId",
+      "label": "Previous Student ID",
+      "domain": "Student",
+      "range": "string",
+      "description": "The student's ID at their previous school.",
+      "source_record_ids": [
+        "JCXS011002"
+      ],
+      "evidence": [
+        "原学号"
+      ]
+    },
+    {
+      "id": "enrollmentMethodCode",
+      "label": "Enrollment Method Code",
+      "domain": "Student",
+      "range": "string",
+      "description": "A code representing the method of enrollment.",
+      "source_record_ids": [
+        "JCXS011003"
+      ],
+      "evidence": [
+        "入学方式码"
+      ]
+    },
+    {
+      "id": "sourceRegionCode",
+      "label": "Source Region Code",
+      "domain": "Student",
+      "range": "string",
+      "description": "A code representing the student's region of origin.",
+      "source_record_ids": [
+        "JCXS011004"
+      ],
+      "evidence": [
+        "来源地区码"
+      ]
+    },
+    {
+      "id": "studentSourceCode",
+      "label": "Student Source Code",
+      "domain": "Student",
+      "range": "string",
+      "description": "A code representing the source of the student.",
+      "source_record_ids": [
+        "JCXS011005"
+      ],
+      "evidence": [
+        "学生来源码"
+      ]
+    },
+    {
+      "id": "studyModeCode",
+      "label": "Study Mode Code",
+      "domain": "Student",
+      "range": "string",
+      "description": "A code representing the student's mode of study.",
+      "source_record_ids": [
+        "JCXS011006"
+      ],
+      "evidence": [
+        "就读方式码"
+      ]
+    },
+    {
+      "id": "enrollmentDate",
+      "label": "Enrollment Date",
+      "domain": "Student",
+      "range": "string",
+      "description": "The year and month the student enrolled.",
+      "source_record_ids": [
+        "JCXS020101"
+      ],
+      "evidence": [
+        "入学年月"
+      ]
+    },
+    {
+      "id": "studentCategoryCode",
+      "label": "Student Category Code",
+      "domain": "Student",
+      "range": "string",
+      "description": "A code representing the category of the student.",
+      "source_record_ids": [
+        "JCXS020102"
+      ],
+      "evidence": [
+        "学生类别码"
+      ]
+    },
+    {
+      "id": "currentClassCode",
+      "label": "Current Class Code",
+      "domain": "Student",
+      "range": "string",
+      "description": "The code of the class the student is currently in.",
+      "source_record_ids": [
+        "JCXS020103"
+      ],
+      "evidence": [
+        "所在班号"
+      ]
+    },
+    {
+      "id": "currentGrade",
+      "label": "Current Grade",
+      "domain": "Student",
+      "range": "string",
+      "description": "The current grade level of the student.",
+      "source_record_ids": [
+        "JCXS020104"
+      ],
+      "evidence": [
+        "所在年级"
+      ]
+    },
+    {
+      "id": "currentStatusCode",
+      "label": "Current Status Code",
+      "domain": "Student",
+      "range": "string",
+      "description": "A code representing the student's current status.",
+      "source_record_ids": [
+        "JCXS020105"
+      ],
+      "evidence": [
+        "学生当前状态码"
+      ]
+    },
+    {
+      "id": "changeCategoryCode",
+      "label": "Change Category Code",
+      "domain": "StudentStatusChange",
+      "range": "string",
+      "description": "A code representing the category of the status change.",
+      "source_record_ids": [
+        "JCXS020201"
+      ],
+      "evidence": [
+        "异动类别码"
+      ]
+    },
+    {
+      "id": "changeDate",
+      "label": "Change Date",
+      "domain": "StudentStatusChange",
+      "range": "string",
+      "description": "The date of the status change.",
+      "source_record_ids": [
+        "JCXS020202"
+      ],
+      "evidence": [
+        "异动日期"
+      ]
+    },
+    {
+      "id": "changeReasonCode",
+      "label": "Change Reason Code",
+      "domain": "StudentStatusChange",
+      "range": "string",
+      "description": "A code representing the reason for the status change.",
+      "source_record_ids": [
+        "JCXS020203"
+      ],
+      "evidence": [
+        "异动原因码"
+      ]
+    },
+    {
+      "id": "approvalDate",
+      "label": "Approval Date",
+      "domain": "StudentStatusChange",
+      "range": "string",
+      "description": "The date the status change was approved.",
+      "source_record_ids": [
+        "JCXS020204"
+      ],
+      "evidence": [
+        "审批日期"
+      ]
+    },
+    {
+      "id": "approvalDocumentNumber",
+      "label": "Approval Document Number",
+      "domain": "StudentStatusChange",
+      "range": "string",
+      "description": "The official document number for the approval.",
+      "source_record_ids": [
+        "JCXS020205"
+      ],
+      "evidence": [
+        "审批文号"
+      ]
+    },
+    {
+      "id": "sourceSchoolCode",
+      "label": "Source School Code",
+      "domain": "StudentStatusChange",
+      "range": "string",
+      "description": "The code of the school the student is coming from.",
+      "source_record_ids": [
+        "JCXS020206"
+      ],
+      "evidence": [
+        "异动来源学校码"
+      ]
+    },
+    {
+      "id": "destinationSchoolCode",
+      "label": "Destination School Code",
+      "domain": "StudentStatusChange",
+      "range": "string",
+      "description": "The code of the school the student is going to.",
+      "source_record_ids": [
+        "JCXS020207"
+      ],
+      "evidence": [
+        "异动去向学校码"
+      ]
+    },
+    {
+      "id": "changeDescription",
+      "label": "Change Description",
+      "domain": "StudentStatusChange",
+      "range": "string",
+      "description": "A description of the status change.",
+      "source_record_ids": [
+        "JCXS020208"
+      ],
+      "evidence": [
+        "异动说明"
+      ]
+    },
+    {
+      "id": "previousDepartmentCode",
+      "label": "Previous Department Code",
+      "domain": "StudentStatusChange",
+      "range": "string",
+      "description": "The code of the student's previous department.",
+      "source_record_ids": [
+        "JCXS020209"
+      ],
+      "evidence": [
+        "原院系所号"
+      ]
+    }
+  ],
+  "object_properties": [
+    {
+      "id": "hasHead",
+      "label": "has Head",
+      "domain": "Campus",
+      "range": "Teacher",
+      "description": "The person responsible for the campus.",
+      "source_record_ids": [
+        "JCXX010207"
+      ],
+      "evidence": [
+        "校区负责人号"
+      ]
+    },
+    {
+      "id": "hasTeacher",
+      "label": "has Teacher",
+      "domain": "Class",
+      "range": "Teacher",
+      "description": "The teacher responsible for the class.",
+      "source_record_ids": [
+        "JCXX020005"
+      ],
+      "evidence": [
+        "班主任工号"
+      ]
+    },
+    {
+      "id": "hasMonitor",
+      "label": "has Monitor",
+      "domain": "Class",
+      "range": "Student",
+      "description": "The student who is the monitor of the class.",
+      "source_record_ids": [
+        "JCXX020006"
+      ],
+      "evidence": [
+        "班长学号"
+      ]
+    },
+    {
+      "id": "enrolledIn",
+      "label": "enrolled In",
+      "domain": "Student",
+      "range": "Class",
+      "description": "The class the student is currently enrolled in.",
+      "source_record_ids": [
+        "JCXS020103"
+      ],
+      "evidence": [
+        "所在班号"
+      ]
+    },
+    {
+      "id": "hasStatusChange",
+      "label": "has Status Change",
+      "domain": "Student",
+      "range": "StudentStatusChange",
+      "description": "A record of a change in the student's status.",
+      "source_record_ids": [
+        "JCXS020201",
+        "JCXS020202",
+        "JCXS020203",
+        "JCXS020204",
+        "JCXS020205",
+        "JCXS020206",
+        "JCXS020207",
+        "JCXS020208",
+        "JCXS020209"
+      ],
+      "evidence": [
+        "异动类别码",
+        "异动日期",
+        "异动原因码",
+        "审批日期",
+        "审批文号",
+        "异动来源学校码",
+        "异动去向学校码",
+        "异动说明",
+        "原院系所号"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "subject": "Campus",
+      "predicate": "hasHead",
+      "object": "Teacher",
+      "source_record_ids": [
+        "JCXX010207"
+      ],
+      "evidence": [
+        "校区负责人号"
+      ]
+    },
+    {
+      "subject": "Class",
+      "predicate": "hasTeacher",
+      "object": "Teacher",
+      "source_record_ids": [
+        "JCXX020005"
+      ],
+      "evidence": [
+        "班主任工号"
+      ]
+    },
+    {
+      "subject": "Class",
+      "predicate": "hasMonitor",
+      "object": "Student",
+      "source_record_ids": [
+        "JCXX020006"
+      ],
+      "evidence": [
+        "班长学号"
+      ]
+    },
+    {
+      "subject": "Student",
+      "predicate": "enrolledIn",
+      "object": "Class",
+      "source_record_ids": [
+        "JCXS020103"
+      ],
+      "evidence": [
+        "所在班号"
+      ]
+    },
+    {
+      "subject": "Student",
+      "predicate": "hasStatusChange",
+      "object": "StudentStatusChange",
+      "source_record_ids": [
+        "JCXS020201",
+        "JCXS020202",
+        "JCXS020203",
+        "JCXS020204",
+        "JCXS020205",
+        "JCXS020206",
+        "JCXS020207",
+        "JCXS020208",
+        "JCXS020209"
+      ],
+      "evidence": [
+        "异动类别码",
+        "异动日期",
+        "异动原因码",
+        "审批日期",
+        "审批文号",
+        "异动来源学校码",
+        "异动去向学校码",
+        "异动说明",
+        "原院系所号"
+      ]
+    }
+  ],
+  "class_hierarchy": []
+}

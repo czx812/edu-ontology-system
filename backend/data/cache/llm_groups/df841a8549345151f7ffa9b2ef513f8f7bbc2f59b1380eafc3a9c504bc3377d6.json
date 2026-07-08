@@ -1,0 +1,506 @@
+{
+  "classes": [
+    {
+      "id": "Equipment",
+      "label": "Equipment",
+      "description": "仪器设备",
+      "source_record_ids": [
+        "JCBX030115",
+        "JCBX030116",
+        "JCBX030117",
+        "JCBX030118",
+        "JCBX030119",
+        "JCBX030120",
+        "JCBX030121",
+        "JCBX030122",
+        "JCBX030123",
+        "JCBX030124",
+        "JCBX030125",
+        "JCBX030126",
+        "JCBX030127"
+      ],
+      "evidence": [
+        "指仪器设备的图片",
+        "设备负责人的工号",
+        "供货商的名称",
+        "指校内财务帐号",
+        "如：盘盈、外购、调入、转入、捐赠、自制自建、其他"
+      ]
+    },
+    {
+      "id": "EquipmentAccessory",
+      "label": "Equipment Accessory",
+      "description": "仪器设备附件",
+      "source_record_ids": [
+        "JCBX030201",
+        "JCBX030202",
+        "JCBX030203",
+        "JCBX030204",
+        "JCBX030205",
+        "JCBX030206",
+        "JCBX030207"
+      ],
+      "evidence": [
+        "学校自编",
+        "某仪器设备附件的总数量，单位：个",
+        "汉字全称或汉字缩写"
+      ]
+    },
+    {
+      "id": "EquipmentUsage",
+      "label": "Equipment Usage",
+      "description": "仪器设备使用记录",
+      "source_record_ids": [
+        "JCBX030301",
+        "JCBX030302",
+        "JCBX030303",
+        "JCBX030304",
+        "JCBX030305",
+        "JCBX030306",
+        "JCBX030307",
+        "JCBX030308",
+        "JCBX030309",
+        "JCBX030310"
+      ],
+      "evidence": [
+        "学校自编",
+        "校内首次办理使用手续人的工号",
+        "仪器设备校内调动后，新使用单位名称",
+        "仪器设备校内调动后，新使用单位办理领用手续人的工号",
+        "仪器设备专职操作维护人员数量，兼职按工作量折算为全时人员数时只取整数，单位：人",
+        "单位：人时",
+        "单位：个",
+        "单位：小时"
+      ]
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "equipmentImage",
+      "label": "图片",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "指仪器设备的图片",
+      "source_record_ids": [
+        "JCBX030115"
+      ],
+      "evidence": [
+        "指仪器设备的图片"
+      ]
+    },
+    {
+      "id": "equipmentLocation",
+      "label": "仪器地点",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "",
+      "source_record_ids": [
+        "JCBX030116"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "equipmentManagerId",
+      "label": "设备负责人号",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "设备负责人的工号",
+      "source_record_ids": [
+        "JCBX030117"
+      ],
+      "evidence": [
+        "设备负责人的工号"
+      ]
+    },
+    {
+      "id": "technicalSpec",
+      "label": "技术指标",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "",
+      "source_record_ids": [
+        "JCBX030118"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "equipmentConfig",
+      "label": "仪器配置",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "",
+      "source_record_ids": [
+        "JCBX030119"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "priceCurrency",
+      "label": "价格币种",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "",
+      "source_record_ids": [
+        "JCBX030120"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "equipmentPrice",
+      "label": "仪器价格",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "",
+      "source_record_ids": [
+        "JCBX030121"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "equipmentDescription",
+      "label": "仪器说明",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "",
+      "source_record_ids": [
+        "JCBX030122"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "financialAccountId",
+      "label": "财务帐号",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "指校内财务帐号",
+      "source_record_ids": [
+        "JCBX030123"
+      ],
+      "evidence": [
+        "指校内财务帐号"
+      ]
+    },
+    {
+      "id": "supplierName",
+      "label": "供货商",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "供货商的名称",
+      "source_record_ids": [
+        "JCBX030124"
+      ],
+      "evidence": [
+        "供货商的名称"
+      ]
+    },
+    {
+      "id": "warrantyEndDate",
+      "label": "保修截止日期",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "",
+      "source_record_ids": [
+        "JCBX030125"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "equipmentSource",
+      "label": "设备来源",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "如：盘盈、外购、调入、转入、捐赠、自制自建、其他",
+      "source_record_ids": [
+        "JCBX030126"
+      ],
+      "evidence": [
+        "如：盘盈、外购、调入、转入、捐赠、自制自建、其他"
+      ]
+    },
+    {
+      "id": "isPreciousEquipment",
+      "label": "是否精密贵重仪器",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "",
+      "source_record_ids": [
+        "JCBX030127"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "accessoryId",
+      "label": "附件编号",
+      "domain": "EquipmentAccessory",
+      "range": "string",
+      "description": "学校自编",
+      "source_record_ids": [
+        "JCBX030201"
+      ],
+      "evidence": [
+        "学校自编"
+      ]
+    },
+    {
+      "id": "accessoryQuantity",
+      "label": "附件数量",
+      "domain": "EquipmentAccessory",
+      "range": "string",
+      "description": "某仪器设备附件的总数量，单位：个",
+      "source_record_ids": [
+        "JCBX030202"
+      ],
+      "evidence": [
+        "某仪器设备附件的总数量，单位：个"
+      ]
+    },
+    {
+      "id": "accessoryName",
+      "label": "附件名称",
+      "domain": "EquipmentAccessory",
+      "range": "string",
+      "description": "汉字全称或汉字缩写",
+      "source_record_ids": [
+        "JCBX030203"
+      ],
+      "evidence": [
+        "汉字全称或汉字缩写"
+      ]
+    },
+    {
+      "id": "accessoryModelSpec",
+      "label": "附件型号规格",
+      "domain": "EquipmentAccessory",
+      "range": "string",
+      "description": "",
+      "source_record_ids": [
+        "JCBX030204"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "accessoryPrice",
+      "label": "附件价格",
+      "domain": "EquipmentAccessory",
+      "range": "string",
+      "description": "",
+      "source_record_ids": [
+        "JCBX030205"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "accessoryEnglishName",
+      "label": "附件英文名称",
+      "domain": "EquipmentAccessory",
+      "range": "string",
+      "description": "",
+      "source_record_ids": [
+        "JCBX030206"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "totalPriceRMB",
+      "label": "人民币总价",
+      "domain": "EquipmentAccessory",
+      "range": "string",
+      "description": "",
+      "source_record_ids": [
+        "JCBX030207"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "statusCode",
+      "label": "现状码",
+      "domain": "EquipmentUsage",
+      "range": "string",
+      "description": "",
+      "source_record_ids": [
+        "JCBX030301"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "usageDirectionCode",
+      "label": "使用方向码",
+      "domain": "EquipmentUsage",
+      "range": "string",
+      "description": "",
+      "source_record_ids": [
+        "JCBX030302"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "usageUnitId",
+      "label": "使用单位号",
+      "domain": "EquipmentUsage",
+      "range": "string",
+      "description": "学校自编",
+      "source_record_ids": [
+        "JCBX030303"
+      ],
+      "evidence": [
+        "学校自编"
+      ]
+    },
+    {
+      "id": "handlerId",
+      "label": "经手人号",
+      "domain": "EquipmentUsage",
+      "range": "string",
+      "description": "校内首次办理使用手续人的工号",
+      "source_record_ids": [
+        "JCBX030304"
+      ],
+      "evidence": [
+        "校内首次办理使用手续人的工号"
+      ]
+    },
+    {
+      "id": "recipientUnit",
+      "label": "领用单位",
+      "domain": "EquipmentUsage",
+      "range": "string",
+      "description": "仪器设备校内调动后，新使用单位名称",
+      "source_record_ids": [
+        "JCBX030305"
+      ],
+      "evidence": [
+        "仪器设备校内调动后，新使用单位名称"
+      ]
+    },
+    {
+      "id": "recipientId",
+      "label": "领用人号",
+      "domain": "EquipmentUsage",
+      "range": "string",
+      "description": "仪器设备校内调动后，新使用单位办理领用手续人的工号",
+      "source_record_ids": [
+        "JCBX030306"
+      ],
+      "evidence": [
+        "仪器设备校内调动后，新使用单位办理领用手续人的工号"
+      ]
+    },
+    {
+      "id": "maintenanceStaffCount",
+      "label": "维护人数",
+      "domain": "EquipmentUsage",
+      "range": "string",
+      "description": "仪器设备专职操作维护人员数量，兼职按工作量折算为全时人员数时只取整数，单位：人",
+      "source_record_ids": [
+        "JCBX030307"
+      ],
+      "evidence": [
+        "仪器设备专职操作维护人员数量，兼职按工作量折算为全时人员数时只取整数，单位：人"
+      ]
+    },
+    {
+      "id": "usagePersonHours",
+      "label": "使用人时数",
+      "domain": "EquipmentUsage",
+      "range": "string",
+      "description": "单位：人时",
+      "source_record_ids": [
+        "JCBX030308"
+      ],
+      "evidence": [
+        "单位：人时"
+      ]
+    },
+    {
+      "id": "experimentCount",
+      "label": "开设实验个数",
+      "domain": "EquipmentUsage",
+      "range": "string",
+      "description": "单位：个",
+      "source_record_ids": [
+        "JCBX030309"
+      ],
+      "evidence": [
+        "单位：个"
+      ]
+    },
+    {
+      "id": "experimentHours",
+      "label": "开设实验时数",
+      "domain": "EquipmentUsage",
+      "range": "string",
+      "description": "单位：小时",
+      "source_record_ids": [
+        "JCBX030310"
+      ],
+      "evidence": [
+        "单位：小时"
+      ]
+    }
+  ],
+  "object_properties": [
+    {
+      "id": "hasAccessory",
+      "label": "has accessory",
+      "domain": "Equipment",
+      "range": "EquipmentAccessory",
+      "description": "设备拥有附件",
+      "source_record_ids": [
+        "JCBX030201",
+        "JCBX030202",
+        "JCBX030203"
+      ],
+      "evidence": [
+        "学校自编",
+        "某仪器设备附件的总数量，单位：个",
+        "汉字全称或汉字缩写"
+      ]
+    },
+    {
+      "id": "hasUsageRecord",
+      "label": "has usage record",
+      "domain": "Equipment",
+      "range": "EquipmentUsage",
+      "description": "设备拥有使用记录",
+      "source_record_ids": [
+        "JCBX030301",
+        "JCBX030302",
+        "JCBX030303"
+      ],
+      "evidence": [
+        "学校自编"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "subject": "Equipment",
+      "predicate": "hasAccessory",
+      "object": "EquipmentAccessory",
+      "source_record_ids": [
+        "JCBX030201",
+        "JCBX030202",
+        "JCBX030203"
+      ],
+      "evidence": [
+        "学校自编",
+        "某仪器设备附件的总数量，单位：个",
+        "汉字全称或汉字缩写"
+      ]
+    },
+    {
+      "subject": "Equipment",
+      "predicate": "hasUsageRecord",
+      "object": "EquipmentUsage",
+      "source_record_ids": [
+        "JCBX030301",
+        "JCBX030302",
+        "JCBX030303"
+      ],
+      "evidence": [
+        "学校自编"
+      ]
+    }
+  ],
+  "class_hierarchy": []
+}

@@ -1,0 +1,391 @@
+{
+  "classes": [
+    {
+      "id": "Assessment",
+      "label": "Assessment",
+      "description": "A formal evaluation or appraisal of an individual's performance, conduct, or qualifications, typically conducted by an organization.",
+      "source_record_ids": [
+        "JCJG050103",
+        "JCJG050104",
+        "JCJG050105",
+        "JCJG050201",
+        "JCJG050202",
+        "JCJG050203",
+        "JCJG050204",
+        "JCJG050205",
+        "JCJG050206",
+        "JCJG050207"
+      ],
+      "evidence": [
+        "考察（考核） 意见",
+        "考察（考核） 结果码",
+        "考察（考核） 组织及考察 人",
+        "考核类别码",
+        "考核日期",
+        "考核内容",
+        "考核结果码",
+        "考核负责人 工号",
+        "考核评语",
+        "考核部门"
+      ]
+    },
+    {
+      "id": "SkillAssessment",
+      "label": "Skill Assessment",
+      "description": "An evaluation specifically focused on technical skills, trade proficiency, or vocational qualifications.",
+      "source_record_ids": [
+        "JCJG050301",
+        "JCJG050302",
+        "JCJG050303",
+        "JCJG050304",
+        "JCJG050305",
+        "JCJG050306",
+        "JCJG050307"
+      ],
+      "evidence": [
+        "考工年月",
+        "考核工种码",
+        "考工部门",
+        "技术级别",
+        "考工证书号",
+        "考工评语",
+        "考工成绩"
+      ]
+    },
+    {
+      "id": "EmploymentRecord",
+      "label": "Employment Record",
+      "description": "Data related to an individual's entry into an organization, including their start date, origin, and previous employment details.",
+      "source_record_ids": [
+        "JCJG060101",
+        "JCJG060102",
+        "JCJG060103",
+        "JCJG060104",
+        "JCJG060105",
+        "JCJG060106",
+        "JCJG060107",
+        "JCJG060108",
+        "JCJG060109",
+        "JCJG060110"
+      ],
+      "evidence": [
+        "来单位日期",
+        "来源码",
+        "来源地区码",
+        "来单位原因",
+        "原单位名称",
+        "原党政职务 码",
+        "原技术职务 码",
+        "原从事学科 码",
+        "原工资总额",
+        "原教护龄津 贴"
+      ]
+    },
+    {
+      "id": "InternalTransfer",
+      "label": "Internal Transfer",
+      "description": "Records pertaining to the movement of an employee between different departments or units within the same organization.",
+      "source_record_ids": [
+        "JCJG060201",
+        "JCJG060202",
+        "JCJG060203"
+      ],
+      "evidence": [
+        "部门调动日 期",
+        "部门调动原 因",
+        "组织内调出 部门号"
+      ]
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "assessmentOpinion",
+      "label": "Assessment Opinion",
+      "domain": "Assessment",
+      "range": "string",
+      "description": "The evaluation comments provided by the assessment group regarding an individual's virtue, talent, diligence, and performance.",
+      "source_record_ids": [
+        "JCJG050103"
+      ],
+      "evidence": [
+        "组织、干部、人事部门 组派的考察组对德、才、 勤、绩诸方面的评价意 见"
+      ]
+    },
+    {
+      "id": "assessmentResultCode",
+      "label": "Assessment Result Code",
+      "domain": "Assessment",
+      "range": "string",
+      "description": "The conclusion of the assessment as determined by the department head after review.",
+      "source_record_ids": [
+        "JCJG050104"
+      ],
+      "evidence": [
+        "经考核委员会或考察小 组审核后，由部门负责 人确定的考核结论"
+      ]
+    },
+    {
+      "id": "assessmentDate",
+      "label": "Assessment Date",
+      "domain": "Assessment",
+      "range": "string",
+      "description": "The specific date on which the business assessment took place.",
+      "source_record_ids": [
+        "JCJG050202"
+      ],
+      "evidence": [
+        "业务考核的具体日期"
+      ]
+    },
+    {
+      "id": "assessmentContent",
+      "label": "Assessment Content",
+      "domain": "Assessment",
+      "range": "string",
+      "description": "The main subject matter or topics covered during the business assessment.",
+      "source_record_ids": [
+        "JCJG050203"
+      ],
+      "evidence": [
+        "业务考核的主要内容"
+      ]
+    },
+    {
+      "id": "assessmentComment",
+      "label": "Assessment Comment",
+      "domain": "Assessment",
+      "range": "string",
+      "description": "The concluding remarks and evaluation provided for a business assessment.",
+      "source_record_ids": [
+        "JCJG050206"
+      ],
+      "evidence": [
+        "业务考核的结论和评语"
+      ]
+    },
+    {
+      "id": "skillAssessmentDate",
+      "label": "Skill Assessment Date",
+      "domain": "SkillAssessment",
+      "range": "string",
+      "description": "The year and month of participation in a recruitment or technical level examination.",
+      "source_record_ids": [
+        "JCJG050301"
+      ],
+      "evidence": [
+        "参加招工或技术级别考 试的年月"
+      ]
+    },
+    {
+      "id": "technicalLevel",
+      "label": "Technical Level",
+      "domain": "SkillAssessment",
+      "range": "string",
+      "description": "The technical level for which an individual applied or was tested.",
+      "source_record_ids": [
+        "JCJG050304"
+      ],
+      "evidence": [
+        "报考的技术级别"
+      ]
+    },
+    {
+      "id": "skillCertificateNumber",
+      "label": "Skill Certificate Number",
+      "domain": "SkillAssessment",
+      "range": "string",
+      "description": "The certificate number obtained through technical or skill assessments.",
+      "source_record_ids": [
+        "JCJG050305"
+      ],
+      "evidence": [
+        "考工考技获得的证书号"
+      ]
+    },
+    {
+      "id": "skillAssessmentScore",
+      "label": "Skill Assessment Score",
+      "domain": "SkillAssessment",
+      "range": "string",
+      "description": "The result of the assessment, which may be a numerical score or a grade.",
+      "source_record_ids": [
+        "JCJG050307"
+      ],
+      "evidence": [
+        "分数类或等级类成绩"
+      ]
+    },
+    {
+      "id": "joinDate",
+      "label": "Join Date",
+      "domain": "EmploymentRecord",
+      "range": "string",
+      "description": "The actual year and month of reporting for work at the organization, as recorded by the personnel department.",
+      "source_record_ids": [
+        "JCJG060101"
+      ],
+      "evidence": [
+        "来单位工作的实际报到 年月，以人事部门记载 为准"
+      ]
+    },
+    {
+      "id": "previousUnitName",
+      "label": "Previous Unit Name",
+      "domain": "EmploymentRecord",
+      "range": "string",
+      "description": "The name of the organization the individual worked for prior to joining the current unit.",
+      "source_record_ids": [
+        "JCJG060105"
+      ],
+      "evidence": [
+        "原单位名称"
+      ]
+    },
+    {
+      "id": "originalSalaryTotal",
+      "label": "Original Salary Total",
+      "domain": "EmploymentRecord",
+      "range": "string",
+      "description": "The total salary amount from the previous employment.",
+      "source_record_ids": [
+        "JCJG060109"
+      ],
+      "evidence": [
+        "原工资总额"
+      ]
+    },
+    {
+      "id": "transferDate",
+      "label": "Transfer Date",
+      "domain": "InternalTransfer",
+      "range": "string",
+      "description": "The date on which an internal departmental transfer occurred.",
+      "source_record_ids": [
+        "JCJG060201"
+      ],
+      "evidence": [
+        "部门调动日 期"
+      ]
+    },
+    {
+      "id": "transferReason",
+      "label": "Transfer Reason",
+      "domain": "InternalTransfer",
+      "range": "string",
+      "description": "The reason provided for an internal departmental transfer.",
+      "source_record_ids": [
+        "JCJG060202"
+      ],
+      "evidence": [
+        "部门调动原 因"
+      ]
+    }
+  ],
+  "object_properties": [
+    {
+      "id": "hasAssessmentResult",
+      "label": "has Assessment Result",
+      "domain": "Assessment",
+      "range": "AssessmentResult",
+      "description": "Links an assessment to its specific result or conclusion.",
+      "source_record_ids": [
+        "JCJG050104"
+      ],
+      "evidence": [
+        "考察（考核） 结果码"
+      ]
+    },
+    {
+      "id": "conductedByDepartment",
+      "label": "conducted By Department",
+      "domain": "Assessment",
+      "range": "Department",
+      "description": "Identifies the department responsible for conducting the assessment.",
+      "source_record_ids": [
+        "JCJG050207"
+      ],
+      "evidence": [
+        "负责考核的部门名称"
+      ]
+    },
+    {
+      "id": "conductedByPerson",
+      "label": "conducted By Person",
+      "domain": "Assessment",
+      "range": "Person",
+      "description": "Identifies the specific person in charge of the assessment.",
+      "source_record_ids": [
+        "JCJG050205"
+      ],
+      "evidence": [
+        "考核负责人 工号"
+      ]
+    },
+    {
+      "id": "previousEmployment",
+      "label": "previous Employment",
+      "domain": "EmploymentRecord",
+      "range": "Organization",
+      "description": "Links an employment record to the previous organization the individual worked for.",
+      "source_record_ids": [
+        "JCJG060105"
+      ],
+      "evidence": [
+        "原单位名称"
+      ]
+    },
+    {
+      "id": "transferredFromDepartment",
+      "label": "transferred From Department",
+      "domain": "InternalTransfer",
+      "range": "Department",
+      "description": "Identifies the department from which the employee was transferred.",
+      "source_record_ids": [
+        "JCJG060203"
+      ],
+      "evidence": [
+        "组织内调出 部门号"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "subject": "SkillAssessment",
+      "predicate": "subClassOf",
+      "object": "Assessment",
+      "source_record_ids": [
+        "JCJG050301",
+        "JCJG050302",
+        "JCJG050303",
+        "JCJG050304",
+        "JCJG050305",
+        "JCJG050306",
+        "JCJG050307"
+      ],
+      "evidence": [
+        "考工年月",
+        "考核工种码",
+        "考工部门",
+        "技术级别",
+        "考工证书号",
+        "考工评语",
+        "考工成绩"
+      ]
+    }
+  ],
+  "class_hierarchy": [
+    {
+      "parent": "Assessment",
+      "child": "SkillAssessment",
+      "evidence": [
+        "考工年月",
+        "考核工种码",
+        "考工部门",
+        "技术级别",
+        "考工证书号",
+        "考工评语",
+        "考工成绩"
+      ]
+    }
+  ]
+}

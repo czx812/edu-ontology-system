@@ -1,0 +1,256 @@
+{
+  "classes": [
+    {
+      "id": "Journal",
+      "label": "期刊",
+      "description": "A periodical publication containing articles on a particular subject.",
+      "source_record_ids": [
+        "JCBX040202",
+        "JCBX040203",
+        "JCBX040204",
+        "JCBX040205",
+        "JCBX040206",
+        "JCBX040207",
+        "JCBX040208",
+        "JCBX040209",
+        "JCBX040210",
+        "JCBX040211",
+        "JCBX040212",
+        "JCBX040213",
+        "JCBX040214",
+        "JCBX040215"
+      ],
+      "evidence": [
+        "Main fields: 期刊条形码、期刊中文名 称、期刊英文名 称、期刊出版号、编辑部、主编、每期单价、创刊年月、年号、卷号、期号、总期号."
+      ]
+    },
+    {
+      "id": "EditorialDepartment",
+      "label": "编辑部",
+      "description": "The editorial department that edits the journal.",
+      "source_record_ids": [
+        "JCBX040206"
+      ],
+      "evidence": [
+        "编辑期刊的编辑部名 称"
+      ]
+    },
+    {
+      "id": "Person",
+      "label": "Person",
+      "description": "A person, such as a journal editor-in-chief.",
+      "source_record_ids": [
+        "JCBX040207"
+      ],
+      "evidence": [
+        "期刊主编姓名"
+      ]
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "journalBarcode",
+      "label": "期刊条形码",
+      "domain": "Journal",
+      "range": "string",
+      "description": "The barcode corresponding to the journal.",
+      "source_record_ids": [
+        "JCBX040202"
+      ],
+      "evidence": [
+        "期刊对应的条形码"
+      ]
+    },
+    {
+      "id": "journalChineseName",
+      "label": "期刊中文名 称",
+      "domain": "Journal",
+      "range": "string",
+      "description": "The Chinese name of the journal.",
+      "source_record_ids": [
+        "JCBX040203"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "journalEnglishName",
+      "label": "期刊英文名 称",
+      "domain": "Journal",
+      "range": "string",
+      "description": "The English name of the journal.",
+      "source_record_ids": [
+        "JCBX040204"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "journalPublicationNumber",
+      "label": "期刊出版号",
+      "domain": "Journal",
+      "range": "string",
+      "description": "The ISSN or other standard publication number of the journal.",
+      "source_record_ids": [
+        "JCBX040205"
+      ],
+      "evidence": [
+        "期刊相应的ISSN等标 准出版号"
+      ]
+    },
+    {
+      "id": "editorInChiefName",
+      "label": "主编",
+      "domain": "Person",
+      "range": "string",
+      "description": "The name of the journal editor-in-chief.",
+      "source_record_ids": [
+        "JCBX040207"
+      ],
+      "evidence": [
+        "期刊主编姓名"
+      ]
+    },
+    {
+      "id": "pricePerIssue",
+      "label": "每期单价",
+      "domain": "Journal",
+      "range": "string",
+      "description": "The price per issue of the journal, converted to RMB with one decimal place.",
+      "source_record_ids": [
+        "JCBX040208"
+      ],
+      "evidence": [
+        "每期期刊的单价，外币 按汇价折算成人民币， 取一位小数，单位：元"
+      ]
+    },
+    {
+      "id": "foundingDate",
+      "label": "创刊年月",
+      "domain": "Journal",
+      "range": "string",
+      "description": "The year and month the journal was founded.",
+      "source_record_ids": [
+        "JCBX040209"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "yearNumber",
+      "label": "年号",
+      "domain": "Journal",
+      "range": "string",
+      "description": "The year number of the journal.",
+      "source_record_ids": [
+        "JCBX040210"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "volumeNumber",
+      "label": "卷号",
+      "domain": "Journal",
+      "range": "string",
+      "description": "The volume number of the journal.",
+      "source_record_ids": [
+        "JCBX040211"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "issueNumber",
+      "label": "期号",
+      "domain": "Journal",
+      "range": "string",
+      "description": "The issue number of the journal.",
+      "source_record_ids": [
+        "JCBX040212"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "totalIssueNumber",
+      "label": "总期号",
+      "domain": "Journal",
+      "range": "string",
+      "description": "The total issue number of the journal.",
+      "source_record_ids": [
+        "JCBX040213"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "journalCategoryCode",
+      "label": "期刊类别码",
+      "domain": "Journal",
+      "range": "string",
+      "description": "The category code of the journal.",
+      "source_record_ids": [
+        "JCBX040214"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "journalStatusCode",
+      "label": "期刊状态码",
+      "domain": "Journal",
+      "range": "string",
+      "description": "The status code of the journal.",
+      "source_record_ids": [
+        "JCBX040215"
+      ],
+      "evidence": []
+    }
+  ],
+  "object_properties": [
+    {
+      "id": "hasEditorialDepartment",
+      "label": "has editorial department",
+      "domain": "Journal",
+      "range": "EditorialDepartment",
+      "description": "The editorial department that edits the journal.",
+      "source_record_ids": [
+        "JCBX040206"
+      ],
+      "evidence": [
+        "编辑期刊的编辑部名 称"
+      ]
+    },
+    {
+      "id": "hasEditorInChief",
+      "label": "has editor in chief",
+      "domain": "Journal",
+      "range": "Person",
+      "description": "The editor-in-chief of the journal.",
+      "source_record_ids": [
+        "JCBX040207"
+      ],
+      "evidence": [
+        "期刊主编姓名"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "subject": "Journal",
+      "predicate": "hasEditorialDepartment",
+      "object": "EditorialDepartment",
+      "source_record_ids": [
+        "JCBX040206"
+      ],
+      "evidence": [
+        "编辑期刊的编辑部名 称"
+      ]
+    },
+    {
+      "subject": "Journal",
+      "predicate": "hasEditorInChief",
+      "object": "Person",
+      "source_record_ids": [
+        "JCBX040207"
+      ],
+      "evidence": [
+        "期刊主编姓名"
+      ]
+    }
+  ],
+  "class_hierarchy": []
+}

@@ -1,0 +1,1124 @@
+{
+  "classes": [
+    {
+      "id": "Land",
+      "label": "Land",
+      "description": "A piece of land associated with an educational institution.",
+      "source_record_ids": [
+        "JCBX020106",
+        "JCBX020107"
+      ],
+      "evidence": [
+        "用地地址",
+        "土地证号"
+      ]
+    },
+    {
+      "id": "Building",
+      "label": "Building",
+      "description": "A structure or building within the institution.",
+      "source_record_ids": [
+        "JCBX020201",
+        "JCBX020202",
+        "JCBX020215"
+      ],
+      "evidence": [
+        "建筑物号",
+        "建筑物名称",
+        "建筑物地址"
+      ]
+    },
+    {
+      "id": "Room",
+      "label": "Room",
+      "description": "A room located within a building.",
+      "source_record_ids": [
+        "JCBX020301",
+        "JCBX020302"
+      ],
+      "evidence": [
+        "房间号",
+        "房间名称"
+      ]
+    },
+    {
+      "id": "BuildingRenovation",
+      "label": "Building Renovation",
+      "description": "A record of renovation or repair work performed on a building.",
+      "source_record_ids": [
+        "JCBX020401",
+        "JCBX020402",
+        "JCBX020403"
+      ],
+      "evidence": [
+        "修缮开始日期",
+        "修缮结束日期",
+        "修缮内容"
+      ]
+    },
+    {
+      "id": "Facility",
+      "label": "Facility",
+      "description": "A facility or infrastructure asset of the institution.",
+      "source_record_ids": [
+        "JCBX020501",
+        "JCBX020505"
+      ],
+      "evidence": [
+        "设施号",
+        "设施名称"
+      ]
+    },
+    {
+      "id": "Equipment",
+      "label": "Equipment",
+      "description": "An instrument, device, or piece of equipment.",
+      "source_record_ids": [
+        "JCBX030101",
+        "JCBX030102"
+      ],
+      "evidence": [
+        "仪器号",
+        "仪器名称"
+      ]
+    },
+    {
+      "id": "EquipmentAttachment",
+      "label": "Equipment Attachment",
+      "description": "An accessory or attachment belonging to a piece of equipment.",
+      "source_record_ids": [
+        "JCBX030201",
+        "JCBX030203"
+      ],
+      "evidence": [
+        "附件编号",
+        "附件名称"
+      ]
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "landAddress",
+      "label": "Land Address",
+      "domain": "Land",
+      "range": "string",
+      "description": "The address of the land.",
+      "source_record_ids": [
+        "JCBX020106"
+      ],
+      "evidence": [
+        "对用地地址等的说明"
+      ]
+    },
+    {
+      "id": "landCertificateNumber",
+      "label": "Land Certificate Number",
+      "domain": "Land",
+      "range": "string",
+      "description": "The certificate number for the land.",
+      "source_record_ids": [
+        "JCBX020107"
+      ],
+      "evidence": [
+        "土地证号"
+      ]
+    },
+    {
+      "id": "buildingOwnershipCode",
+      "label": "Building Ownership Code",
+      "domain": "Building",
+      "range": "string",
+      "description": "Code representing the ownership of the building.",
+      "source_record_ids": [
+        "JCBX020203"
+      ],
+      "evidence": [
+        "房屋产权码"
+      ]
+    },
+    {
+      "id": "buildingUsageStatusCode",
+      "label": "Building Usage Status Code",
+      "domain": "Building",
+      "range": "string",
+      "description": "Code representing the usage status of the building.",
+      "source_record_ids": [
+        "JCBX020204"
+      ],
+      "evidence": [
+        "使用状况码"
+      ]
+    },
+    {
+      "id": "buildingCategoryCode",
+      "label": "Building Category Code",
+      "domain": "Building",
+      "range": "string",
+      "description": "Code representing the category of the building.",
+      "source_record_ids": [
+        "JCBX020205"
+      ],
+      "evidence": [
+        "建筑物分类码"
+      ]
+    },
+    {
+      "id": "buildingStructureCode",
+      "label": "Building Structure Code",
+      "domain": "Building",
+      "range": "string",
+      "description": "Code representing the structure type of the building.",
+      "source_record_ids": [
+        "JCBX020206"
+      ],
+      "evidence": [
+        "建筑物结构码"
+      ]
+    },
+    {
+      "id": "buildingFloors",
+      "label": "Building Floors",
+      "domain": "Building",
+      "range": "string",
+      "description": "Number of floors in the building, including basement.",
+      "source_record_ids": [
+        "JCBX020207"
+      ],
+      "evidence": [
+        "含地下室，单位：层"
+      ]
+    },
+    {
+      "id": "buildingCompletionDate",
+      "label": "Building Completion Date",
+      "domain": "Building",
+      "range": "string",
+      "description": "The year and month the building was completed.",
+      "source_record_ids": [
+        "JCBX020208"
+      ],
+      "evidence": [
+        "建成年月"
+      ]
+    },
+    {
+      "id": "buildingTotalInvestment",
+      "label": "Building Total Investment",
+      "domain": "Building",
+      "range": "string",
+      "description": "Total investment amount for the building in Yuan.",
+      "source_record_ids": [
+        "JCBX020209"
+      ],
+      "evidence": [
+        "单位：元"
+      ]
+    },
+    {
+      "id": "buildingFundingSourceCode",
+      "label": "Building Funding Source Code",
+      "domain": "Building",
+      "range": "string",
+      "description": "Code representing the source of funding for the building.",
+      "source_record_ids": [
+        "JCBX020210"
+      ],
+      "evidence": [
+        "经费来源码"
+      ]
+    },
+    {
+      "id": "buildingTotalFloorArea",
+      "label": "Building Total Floor Area",
+      "domain": "Building",
+      "range": "string",
+      "description": "Total floor area of the building in square meters.",
+      "source_record_ids": [
+        "JCBX020211"
+      ],
+      "evidence": [
+        "单位：平方米"
+      ]
+    },
+    {
+      "id": "buildingTotalUsableArea",
+      "label": "Building Total Usable Area",
+      "domain": "Building",
+      "range": "string",
+      "description": "Total usable area of the building in square meters.",
+      "source_record_ids": [
+        "JCBX020212"
+      ],
+      "evidence": [
+        "单位：平方米"
+      ]
+    },
+    {
+      "id": "buildingSeismicIntensityCode",
+      "label": "Building Seismic Intensity Code",
+      "domain": "Building",
+      "range": "string",
+      "description": "Code for seismic fortification intensity.",
+      "source_record_ids": [
+        "JCBX020213"
+      ],
+      "evidence": [
+        "抗震设防烈度码"
+      ]
+    },
+    {
+      "id": "buildingSeismicStandardCode",
+      "label": "Building Seismic Standard Code",
+      "domain": "Building",
+      "range": "string",
+      "description": "Code for seismic fortification standard.",
+      "source_record_ids": [
+        "JCBX020214"
+      ],
+      "evidence": [
+        "抗震设防标准码"
+      ]
+    },
+    {
+      "id": "buildingConditionCode",
+      "label": "Building Condition Code",
+      "domain": "Building",
+      "range": "string",
+      "description": "Code representing the condition of the building.",
+      "source_record_ids": [
+        "JCBX020216"
+      ],
+      "evidence": [
+        "建筑物状况码"
+      ]
+    },
+    {
+      "id": "buildingPhoto",
+      "label": "Building Photo",
+      "domain": "Building",
+      "range": "string",
+      "description": "Photo of the building.",
+      "source_record_ids": [
+        "JCBX020217"
+      ],
+      "evidence": [
+        "指建筑物的照片"
+      ]
+    },
+    {
+      "id": "buildingFloorPlan",
+      "label": "Building Floor Plan",
+      "domain": "Building",
+      "range": "string",
+      "description": "Architectural floor plan of the building.",
+      "source_record_ids": [
+        "JCBX020218"
+      ],
+      "evidence": [
+        "指建筑物的建筑平面图"
+      ]
+    },
+    {
+      "id": "buildingOwnershipCertificateNumber",
+      "label": "Building Ownership Certificate Number",
+      "domain": "Building",
+      "range": "string",
+      "description": "Ownership certificate number for the building.",
+      "source_record_ids": [
+        "JCBX020219"
+      ],
+      "evidence": [
+        "权属证号"
+      ]
+    },
+    {
+      "id": "buildingFootprintArea",
+      "label": "Building Footprint Area",
+      "domain": "Building",
+      "range": "string",
+      "description": "Land area occupied by the building in square meters.",
+      "source_record_ids": [
+        "JCBX020220"
+      ],
+      "evidence": [
+        "单位：平方米"
+      ]
+    },
+    {
+      "id": "buildingDesignLife",
+      "label": "Building Design Life",
+      "domain": "Building",
+      "range": "string",
+      "description": "Design service life of the building in years.",
+      "source_record_ids": [
+        "JCBX020221"
+      ],
+      "evidence": [
+        "单位：年"
+      ]
+    },
+    {
+      "id": "roomUsageCode",
+      "label": "Room Usage Code",
+      "domain": "Room",
+      "range": "string",
+      "description": "Code representing the usage of the room.",
+      "source_record_ids": [
+        "JCBX020303"
+      ],
+      "evidence": [
+        "房间用途码"
+      ]
+    },
+    {
+      "id": "roomFloor",
+      "label": "Room Floor",
+      "domain": "Room",
+      "range": "string",
+      "description": "Floor where the room is located.",
+      "source_record_ids": [
+        "JCBX020304"
+      ],
+      "evidence": [
+        "指房间所在的楼层"
+      ]
+    },
+    {
+      "id": "roomBuildingArea",
+      "label": "Room Building Area",
+      "domain": "Room",
+      "range": "string",
+      "description": "Building area of the room in square meters.",
+      "source_record_ids": [
+        "JCBX020305"
+      ],
+      "evidence": [
+        "单位：平方米"
+      ]
+    },
+    {
+      "id": "roomUsableArea",
+      "label": "Room Usable Area",
+      "domain": "Room",
+      "range": "string",
+      "description": "Usable area of the room in square meters.",
+      "source_record_ids": [
+        "JCBX020306"
+      ],
+      "evidence": [
+        "单位：平方米"
+      ]
+    },
+    {
+      "id": "renovationStartDate",
+      "label": "Renovation Start Date",
+      "domain": "BuildingRenovation",
+      "range": "string",
+      "description": "Start date of the renovation.",
+      "source_record_ids": [
+        "JCBX020401"
+      ],
+      "evidence": [
+        "修缮开始日期"
+      ]
+    },
+    {
+      "id": "renovationEndDate",
+      "label": "Renovation End Date",
+      "domain": "BuildingRenovation",
+      "range": "string",
+      "description": "End date of the renovation.",
+      "source_record_ids": [
+        "JCBX020402"
+      ],
+      "evidence": [
+        "修缮结束日期"
+      ]
+    },
+    {
+      "id": "renovationContent",
+      "label": "Renovation Content",
+      "domain": "BuildingRenovation",
+      "range": "string",
+      "description": "Description of the renovation content.",
+      "source_record_ids": [
+        "JCBX020403"
+      ],
+      "evidence": [
+        "修缮的主要内容描述"
+      ]
+    },
+    {
+      "id": "renovationCost",
+      "label": "Renovation Cost",
+      "domain": "BuildingRenovation",
+      "range": "string",
+      "description": "Total cost of the renovation in Yuan.",
+      "source_record_ids": [
+        "JCBX020404"
+      ],
+      "evidence": [
+        "指修缮涉及的经费总额，单位：元"
+      ]
+    },
+    {
+      "id": "renovationUnit",
+      "label": "Renovation Unit",
+      "domain": "BuildingRenovation",
+      "range": "string",
+      "description": "Name of the unit undertaking the renovation.",
+      "source_record_ids": [
+        "JCBX020405"
+      ],
+      "evidence": [
+        "承担修缮任务的单位名称"
+      ]
+    },
+    {
+      "id": "renovationHandlerId",
+      "label": "Renovation Handler ID",
+      "domain": "BuildingRenovation",
+      "range": "string",
+      "description": "Employee ID of the person handling the renovation.",
+      "source_record_ids": [
+        "JCBX020406"
+      ],
+      "evidence": [
+        "办理修缮手续及相关事宜的人员的工号"
+      ]
+    },
+    {
+      "id": "renovationNote",
+      "label": "Renovation Note",
+      "domain": "BuildingRenovation",
+      "range": "string",
+      "description": "Notes related to the renovation.",
+      "source_record_ids": [
+        "JCBX020407"
+      ],
+      "evidence": [
+        "与修缮相关的情况说明"
+      ]
+    },
+    {
+      "id": "facilityOwnershipCode",
+      "label": "Facility Ownership Code",
+      "domain": "Facility",
+      "range": "string",
+      "description": "Ownership code of the facility.",
+      "source_record_ids": [
+        "JCBX020502"
+      ],
+      "evidence": [
+        "设施产权码"
+      ]
+    },
+    {
+      "id": "facilityUsageStatusCode",
+      "label": "Facility Usage Status Code",
+      "domain": "Facility",
+      "range": "string",
+      "description": "Usage status code of the facility.",
+      "source_record_ids": [
+        "JCBX020503"
+      ],
+      "evidence": [
+        "设施使用状况码"
+      ]
+    },
+    {
+      "id": "facilityUnitHierarchyCode",
+      "label": "Facility Unit Hierarchy Code",
+      "domain": "Facility",
+      "range": "string",
+      "description": "Hierarchy code of the school unit the facility belongs to.",
+      "source_record_ids": [
+        "JCBX020504"
+      ],
+      "evidence": [
+        "所属学校单位层次码"
+      ]
+    },
+    {
+      "id": "facilityConstructionDate",
+      "label": "Facility Construction Date",
+      "domain": "Facility",
+      "range": "string",
+      "description": "Year and month the facility was constructed.",
+      "source_record_ids": [
+        "JCBX020506"
+      ],
+      "evidence": [
+        "建设年月"
+      ]
+    },
+    {
+      "id": "facilityConstructionCost",
+      "label": "Facility Construction Cost",
+      "domain": "Facility",
+      "range": "string",
+      "description": "Total construction cost of the facility in Yuan.",
+      "source_record_ids": [
+        "JCBX020507"
+      ],
+      "evidence": [
+        "指建成设施的总经费，单位：元"
+      ]
+    },
+    {
+      "id": "facilityRepairDate",
+      "label": "Facility Repair Date",
+      "domain": "Facility",
+      "range": "string",
+      "description": "Year and month the facility was repaired.",
+      "source_record_ids": [
+        "JCBX020508"
+      ],
+      "evidence": [
+        "修缮年月"
+      ]
+    },
+    {
+      "id": "facilityRepairCost",
+      "label": "Facility Repair Cost",
+      "domain": "Facility",
+      "range": "string",
+      "description": "Total repair cost of the facility in Yuan.",
+      "source_record_ids": [
+        "JCBX020509"
+      ],
+      "evidence": [
+        "指修缮设施的总经费，单位：元"
+      ]
+    },
+    {
+      "id": "facilityUsageNormal",
+      "label": "Facility Usage Normal",
+      "domain": "Facility",
+      "range": "string",
+      "description": "Whether the facility is in normal usage (1=Normal, 0=Abnormal).",
+      "source_record_ids": [
+        "JCBX020510"
+      ],
+      "evidence": [
+        "0 不正常 1 正常"
+      ]
+    },
+    {
+      "id": "equipmentEnglishName",
+      "label": "Equipment English Name",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "English name of the equipment.",
+      "source_record_ids": [
+        "JCBX030103"
+      ],
+      "evidence": [
+        "仪器英文名称"
+      ]
+    },
+    {
+      "id": "equipmentUnitHierarchyCode",
+      "label": "Equipment Unit Hierarchy Code",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Hierarchy code of the school unit the equipment belongs to.",
+      "source_record_ids": [
+        "JCBX030104"
+      ],
+      "evidence": [
+        "学校单位层次码"
+      ]
+    },
+    {
+      "id": "equipmentOwnershipCode",
+      "label": "Equipment Ownership Code",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Ownership code of the equipment.",
+      "source_record_ids": [
+        "JCBX030105"
+      ],
+      "evidence": [
+        "产权码"
+      ]
+    },
+    {
+      "id": "equipmentCategoryCode",
+      "label": "Equipment Category Code",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Classification code of the equipment.",
+      "source_record_ids": [
+        "JCBX030106"
+      ],
+      "evidence": [
+        "分类码"
+      ]
+    },
+    {
+      "id": "equipmentModel",
+      "label": "Equipment Model",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Model of the equipment.",
+      "source_record_ids": [
+        "JCBX030107"
+      ],
+      "evidence": [
+        "仪器型号"
+      ]
+    },
+    {
+      "id": "equipmentManufactureDate",
+      "label": "Equipment Manufacture Date",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Date the equipment was manufactured.",
+      "source_record_ids": [
+        "JCBX030108"
+      ],
+      "evidence": [
+        "出厂日期"
+      ]
+    },
+    {
+      "id": "equipmentCountryRegionCode",
+      "label": "Equipment Country/Region Code",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Three-letter code of the country where the equipment was produced.",
+      "source_record_ids": [
+        "JCBX030109"
+      ],
+      "evidence": [
+        "指仪器的生产国，用三位字母代码"
+      ]
+    },
+    {
+      "id": "equipmentFundingCategoryCode",
+      "label": "Equipment Funding Category Code",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Code for the funding category of the equipment.",
+      "source_record_ids": [
+        "JCBX030110"
+      ],
+      "evidence": [
+        "经费科目码"
+      ]
+    },
+    {
+      "id": "equipmentPurchaseDate",
+      "label": "Equipment Purchase Date",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Date the equipment was purchased.",
+      "source_record_ids": [
+        "JCBX030111"
+      ],
+      "evidence": [
+        "购置日期"
+      ]
+    },
+    {
+      "id": "equipmentManufacturer",
+      "label": "Equipment Manufacturer",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Name of the manufacturer.",
+      "source_record_ids": [
+        "JCBX030112"
+      ],
+      "evidence": [
+        "指生产厂家的汉字名"
+      ]
+    },
+    {
+      "id": "equipmentFactoryNumber",
+      "label": "Equipment Factory Number",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Unique factory number of the equipment.",
+      "source_record_ids": [
+        "JCBX030113"
+      ],
+      "evidence": [
+        "厂家标注在产品上的唯一号"
+      ]
+    },
+    {
+      "id": "equipmentDocumentNumber",
+      "label": "Equipment Document Number",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Purchase document or contract number.",
+      "source_record_ids": [
+        "JCBX030114"
+      ],
+      "evidence": [
+        "采购凭证单据号或进口产品订货合同号"
+      ]
+    },
+    {
+      "id": "equipmentPhoto",
+      "label": "Equipment Photo",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Photo of the equipment.",
+      "source_record_ids": [
+        "JCBX030115"
+      ],
+      "evidence": [
+        "指仪器设备的图片"
+      ]
+    },
+    {
+      "id": "equipmentLocation",
+      "label": "Equipment Location",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Location of the equipment.",
+      "source_record_ids": [
+        "JCBX030116"
+      ],
+      "evidence": [
+        "仪器地点"
+      ]
+    },
+    {
+      "id": "equipmentManagerId",
+      "label": "Equipment Manager ID",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Employee ID of the equipment manager.",
+      "source_record_ids": [
+        "JCBX030117"
+      ],
+      "evidence": [
+        "设备负责人的工号"
+      ]
+    },
+    {
+      "id": "equipmentTechnicalSpecs",
+      "label": "Equipment Technical Specs",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Technical specifications of the equipment.",
+      "source_record_ids": [
+        "JCBX030118"
+      ],
+      "evidence": [
+        "技术指标"
+      ]
+    },
+    {
+      "id": "equipmentConfiguration",
+      "label": "Equipment Configuration",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Configuration details of the equipment.",
+      "source_record_ids": [
+        "JCBX030119"
+      ],
+      "evidence": [
+        "仪器配置"
+      ]
+    },
+    {
+      "id": "equipmentPriceCurrency",
+      "label": "Equipment Price Currency",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Currency of the equipment price.",
+      "source_record_ids": [
+        "JCBX030120"
+      ],
+      "evidence": [
+        "价格币种"
+      ]
+    },
+    {
+      "id": "equipmentPrice",
+      "label": "Equipment Price",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Price of the equipment.",
+      "source_record_ids": [
+        "JCBX030121"
+      ],
+      "evidence": [
+        "仪器价格"
+      ]
+    },
+    {
+      "id": "equipmentNote",
+      "label": "Equipment Note",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Notes about the equipment.",
+      "source_record_ids": [
+        "JCBX030122"
+      ],
+      "evidence": [
+        "仪器说明"
+      ]
+    },
+    {
+      "id": "equipmentFinancialAccountId",
+      "label": "Equipment Financial Account ID",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Internal financial account ID.",
+      "source_record_ids": [
+        "JCBX030123"
+      ],
+      "evidence": [
+        "指校内财务帐号"
+      ]
+    },
+    {
+      "id": "equipmentSupplier",
+      "label": "Equipment Supplier",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Name of the supplier.",
+      "source_record_ids": [
+        "JCBX030124"
+      ],
+      "evidence": [
+        "供货商的名称"
+      ]
+    },
+    {
+      "id": "equipmentWarrantyExpiryDate",
+      "label": "Equipment Warranty Expiry Date",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Warranty expiration date.",
+      "source_record_ids": [
+        "JCBX030125"
+      ],
+      "evidence": [
+        "保修截止日期"
+      ]
+    },
+    {
+      "id": "equipmentSource",
+      "label": "Equipment Source",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Source of the equipment (e.g., purchase, donation).",
+      "source_record_ids": [
+        "JCBX030126"
+      ],
+      "evidence": [
+        "如：盘盈、外购、调入、转入、捐赠、自制自建、其他"
+      ]
+    },
+    {
+      "id": "equipmentIsPrecious",
+      "label": "Equipment Is Precious",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Whether the equipment is a precious/valuable instrument.",
+      "source_record_ids": [
+        "JCBX030127"
+      ],
+      "evidence": [
+        "是否精密贵重仪器"
+      ]
+    },
+    {
+      "id": "attachmentQuantity",
+      "label": "Attachment Quantity",
+      "domain": "EquipmentAttachment",
+      "range": "string",
+      "description": "Total quantity of the attachment.",
+      "source_record_ids": [
+        "JCBX030202"
+      ],
+      "evidence": [
+        "某仪器设备附件的总数量，单位：个"
+      ]
+    },
+    {
+      "id": "attachmentModelSpec",
+      "label": "Attachment Model/Spec",
+      "domain": "EquipmentAttachment",
+      "range": "string",
+      "description": "Model and specification of the attachment.",
+      "source_record_ids": [
+        "JCBX030204"
+      ],
+      "evidence": [
+        "附件型号规格"
+      ]
+    },
+    {
+      "id": "attachmentPrice",
+      "label": "Attachment Price",
+      "domain": "EquipmentAttachment",
+      "range": "string",
+      "description": "Price of the attachment.",
+      "source_record_ids": [
+        "JCBX030205"
+      ],
+      "evidence": [
+        "附件价格"
+      ]
+    },
+    {
+      "id": "attachmentEnglishName",
+      "label": "Attachment English Name",
+      "domain": "EquipmentAttachment",
+      "range": "string",
+      "description": "English name of the attachment.",
+      "source_record_ids": [
+        "JCBX030206"
+      ],
+      "evidence": [
+        "附件英文名称"
+      ]
+    },
+    {
+      "id": "attachmentTotalPriceRMB",
+      "label": "Attachment Total Price (RMB)",
+      "domain": "EquipmentAttachment",
+      "range": "string",
+      "description": "Total price in RMB.",
+      "source_record_ids": [
+        "JCBX030207"
+      ],
+      "evidence": [
+        "人民币总价"
+      ]
+    }
+  ],
+  "object_properties": [
+    {
+      "id": "locatedOn",
+      "label": "located on",
+      "domain": "Building",
+      "range": "Land",
+      "description": "Indicates the land on which a building is located.",
+      "source_record_ids": [
+        "JCBX020106",
+        "JCBX020215"
+      ],
+      "evidence": [
+        "用地地址",
+        "建筑物地址"
+      ]
+    },
+    {
+      "id": "containsRoom",
+      "label": "contains room",
+      "domain": "Building",
+      "range": "Room",
+      "description": "Indicates that a building contains a room.",
+      "source_record_ids": [
+        "JCBX020301"
+      ],
+      "evidence": [
+        "建议前6位为建筑物编号"
+      ]
+    },
+    {
+      "id": "hasRenovation",
+      "label": "has renovation",
+      "domain": "Building",
+      "range": "BuildingRenovation",
+      "description": "Indicates renovation records associated with a building.",
+      "source_record_ids": [
+        "JCBX020401",
+        "JCBX020405"
+      ],
+      "evidence": [
+        "修缮开始日期",
+        "修缮单位"
+      ]
+    },
+    {
+      "id": "hasAttachment",
+      "label": "has attachment",
+      "domain": "Equipment",
+      "range": "EquipmentAttachment",
+      "description": "Indicates attachments belonging to a piece of equipment.",
+      "source_record_ids": [
+        "JCBX030201"
+      ],
+      "evidence": [
+        "附件编号"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "subject": "Building",
+      "predicate": "locatedOn",
+      "object": "Land",
+      "source_record_ids": [
+        "JCBX020106",
+        "JCBX020215"
+      ],
+      "evidence": [
+        "用地地址",
+        "建筑物地址"
+      ]
+    },
+    {
+      "subject": "Building",
+      "predicate": "containsRoom",
+      "object": "Room",
+      "source_record_ids": [
+        "JCBX020301"
+      ],
+      "evidence": [
+        "建议前6位为建筑物编号"
+      ]
+    },
+    {
+      "subject": "Building",
+      "predicate": "hasRenovation",
+      "object": "BuildingRenovation",
+      "source_record_ids": [
+        "JCBX020401",
+        "JCBX020405"
+      ],
+      "evidence": [
+        "修缮开始日期",
+        "修缮单位"
+      ]
+    },
+    {
+      "subject": "Equipment",
+      "predicate": "hasAttachment",
+      "object": "EquipmentAttachment",
+      "source_record_ids": [
+        "JCBX030201"
+      ],
+      "evidence": [
+        "附件编号"
+      ]
+    }
+  ],
+  "class_hierarchy": [
+    {
+      "parent": "Facility",
+      "child": "Building",
+      "evidence": [
+        "设施号",
+        "建筑物号"
+      ]
+    },
+    {
+      "parent": "Facility",
+      "child": "Equipment",
+      "evidence": [
+        "设施号",
+        "仪器号"
+      ]
+    }
+  ]
+}

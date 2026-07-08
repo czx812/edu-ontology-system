@@ -1,0 +1,513 @@
+{
+  "classes": [
+    {
+      "id": "DisciplinaryAction",
+      "label": "Disciplinary Action",
+      "description": "Records related to disciplinary actions and their revocation.",
+      "source_record_ids": [
+        "JCJG011109",
+        "JCJG011110"
+      ],
+      "evidence": [
+        "惩处撤消文号: 撤消处分的发文文号",
+        "惩处撤消原因"
+      ]
+    },
+    {
+      "id": "LanguageProficiency",
+      "label": "Language Proficiency",
+      "description": "Records of language skills, including foreign and Chinese languages, and Mandarin proficiency.",
+      "source_record_ids": [
+        "JCJG020101",
+        "JCJG020102",
+        "JCJG020103",
+        "JCJG020104",
+        "JCJG020105"
+      ],
+      "evidence": [
+        "外国语种码: 例：en 英语，de 德语",
+        "外国语种熟练程度码",
+        "中国语种码: 用三位数字代码",
+        "中国语种熟练程度码",
+        "普通话水平等级码: 参加普通话水平测试所达到的等级"
+      ]
+    },
+    {
+      "id": "ProfessionalQualification",
+      "label": "Professional Qualification",
+      "description": "Records of professional and technical qualifications, including titles, evaluation, and appointment details.",
+      "source_record_ids": [
+        "JCJG020201",
+        "JCJG020202",
+        "JCJG020203",
+        "JCJG020204",
+        "JCJG020205",
+        "JCJG020206",
+        "JCJG020207",
+        "JCJG020208",
+        "JCJG020209",
+        "JCJG020210",
+        "JCJG020211"
+      ],
+      "evidence": [
+        "任职资格名称码: 例：011 教授",
+        "取得资格途径码: 指通过专业技术职务任职资格评审委员会评审或参加国家统一专业技术资格考试",
+        "评审单位: 专业技术职务任职资格评审委员会或其授权的组织机构名称",
+        "评定日期",
+        "聘任职务码",
+        "聘任单位",
+        "聘任起始日期",
+        "聘任终止日期",
+        "聘任情况码",
+        "解聘日期",
+        "解聘原因"
+      ]
+    },
+    {
+      "id": "PostQualification",
+      "label": "Post Qualification",
+      "description": "Records of post-specific qualifications and certificates.",
+      "source_record_ids": [
+        "JCJG020301",
+        "JCJG020302",
+        "JCJG020303",
+        "JCJG020304"
+      ],
+      "evidence": [
+        "岗位证书名称: 由具有岗位评定资格单位考核并批准的岗位证书名称",
+        "岗位证书编号",
+        "颁发单位: 批准并签发岗位证书的组织机构名称",
+        "颁发日期"
+      ]
+    },
+    {
+      "id": "WorkerTechGrade",
+      "label": "Worker Technical Grade",
+      "description": "Records of worker technical grades and appointments.",
+      "source_record_ids": [
+        "JCJG020401",
+        "JCJG020402",
+        "JCJG020403",
+        "JCJG020404",
+        "JCJG020405"
+      ],
+      "evidence": [
+        "工人技术等级码: 指经工人技术考评组织评审并正式批准或经国家统一的职业技能鉴定机构考核合格取得的技术等级名称",
+        "工人技术职务码: 指正式聘任的工人技术职务名称",
+        "工人工种码",
+        "等级发证机关",
+        "等级评定日期"
+      ]
+    },
+    {
+      "id": "LeadershipPosition",
+      "label": "Leadership Position",
+      "description": "Records of leadership positions and roles.",
+      "source_record_ids": [
+        "JCJG020501",
+        "JCJG020502",
+        "JCJG020503"
+      ],
+      "evidence": [
+        "职务名称",
+        "职务名称码",
+        "职务类别码"
+      ]
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "disciplinaryRevocationDocNumber",
+      "label": "Disciplinary Revocation Document Number",
+      "domain": "DisciplinaryAction",
+      "range": "string",
+      "description": "The document number for the revocation of a disciplinary action.",
+      "source_record_ids": [
+        "JCJG011109"
+      ],
+      "evidence": [
+        "惩处撤消文号: 撤消处分的发文文号"
+      ]
+    },
+    {
+      "id": "disciplinaryRevocationReason",
+      "label": "Disciplinary Revocation Reason",
+      "domain": "DisciplinaryAction",
+      "range": "string",
+      "description": "The reason for revoking a disciplinary action.",
+      "source_record_ids": [
+        "JCJG011110"
+      ],
+      "evidence": [
+        "惩处撤消原因"
+      ]
+    },
+    {
+      "id": "foreignLanguageCode",
+      "label": "Foreign Language Code",
+      "domain": "LanguageProficiency",
+      "range": "string",
+      "description": "Code representing a foreign language, e.g., en for English, de for German.",
+      "source_record_ids": [
+        "JCJG020101"
+      ],
+      "evidence": [
+        "外国语种码: 例：en 英语，de 德语"
+      ]
+    },
+    {
+      "id": "foreignLanguageProficiencyCode",
+      "label": "Foreign Language Proficiency Code",
+      "domain": "LanguageProficiency",
+      "range": "string",
+      "description": "Code representing the proficiency level in a foreign language.",
+      "source_record_ids": [
+        "JCJG020102"
+      ],
+      "evidence": [
+        "外国语种熟练程度码"
+      ]
+    },
+    {
+      "id": "chineseLanguageCode",
+      "label": "Chinese Language Code",
+      "domain": "LanguageProficiency",
+      "range": "string",
+      "description": "Three-digit code representing a Chinese language or dialect.",
+      "source_record_ids": [
+        "JCJG020103"
+      ],
+      "evidence": [
+        "中国语种码: 用三位数字代码"
+      ]
+    },
+    {
+      "id": "chineseLanguageProficiencyCode",
+      "label": "Chinese Language Proficiency Code",
+      "domain": "LanguageProficiency",
+      "range": "string",
+      "description": "Code representing the proficiency level in a Chinese language.",
+      "source_record_ids": [
+        "JCJG020104"
+      ],
+      "evidence": [
+        "中国语种熟练程度码"
+      ]
+    },
+    {
+      "id": "mandarinProficiencyLevelCode",
+      "label": "Mandarin Proficiency Level Code",
+      "domain": "LanguageProficiency",
+      "range": "string",
+      "description": "The level achieved in the Mandarin proficiency test.",
+      "source_record_ids": [
+        "JCJG020105"
+      ],
+      "evidence": [
+        "普通话水平等级码: 参加普通话水平测试所达到的等级"
+      ]
+    },
+    {
+      "id": "qualificationTitleCode",
+      "label": "Qualification Title Code",
+      "domain": "ProfessionalQualification",
+      "range": "string",
+      "description": "Code for the professional qualification title, e.g., 011 for Professor.",
+      "source_record_ids": [
+        "JCJG020201"
+      ],
+      "evidence": [
+        "任职资格名称码: 例：011 教授"
+      ]
+    },
+    {
+      "id": "qualificationAcquisitionMethodCode",
+      "label": "Qualification Acquisition Method Code",
+      "domain": "ProfessionalQualification",
+      "range": "string",
+      "description": "Code indicating how the qualification was acquired, either through evaluation or national exam.",
+      "source_record_ids": [
+        "JCJG020202"
+      ],
+      "evidence": [
+        "取得资格途径码: 指通过专业技术职务任职资格评审委员会评审或参加国家统一专业技术资格考试"
+      ]
+    },
+    {
+      "id": "evaluationUnit",
+      "label": "Evaluation Unit",
+      "domain": "ProfessionalQualification",
+      "range": "string",
+      "description": "Name of the evaluation committee or its authorized organization.",
+      "source_record_ids": [
+        "JCJG020203"
+      ],
+      "evidence": [
+        "评审单位: 专业技术职务任职资格评审委员会或其授权的组织机构名称"
+      ]
+    },
+    {
+      "id": "evaluationDate",
+      "label": "Evaluation Date",
+      "domain": "ProfessionalQualification",
+      "range": "date",
+      "description": "The date the professional qualification was obtained through evaluation or exam.",
+      "source_record_ids": [
+        "JCJG020204"
+      ],
+      "evidence": [
+        "评定日期: 经专业技术职务任职资格评审委员会评审或参加国家统一专业技术资格考试合格而取得的专业技术资格的日期"
+      ]
+    },
+    {
+      "id": "appointedPositionCode",
+      "label": "Appointed Position Code",
+      "domain": "ProfessionalQualification",
+      "range": "string",
+      "description": "Code for the appointed professional and technical position.",
+      "source_record_ids": [
+        "JCJG020205"
+      ],
+      "evidence": [
+        "聘任职务码: 空白为未任任何专业技术职务"
+      ]
+    },
+    {
+      "id": "appointingUnit",
+      "label": "Appointing Unit",
+      "domain": "ProfessionalQualification",
+      "range": "string",
+      "description": "Name of the specific unit that appointed the professional position.",
+      "source_record_ids": [
+        "JCJG020206"
+      ],
+      "evidence": [
+        "聘任单位: 聘任专业技术职务的具体单位名称"
+      ]
+    },
+    {
+      "id": "appointmentStartDate",
+      "label": "Appointment Start Date",
+      "domain": "ProfessionalQualification",
+      "range": "date",
+      "description": "The start date of the professional appointment as recognized by the appointment notice and letter.",
+      "source_record_ids": [
+        "JCJG020207"
+      ],
+      "evidence": [
+        "聘任起始日期: 专业技术职务聘任通知和聘书所认定的聘任开始日期"
+      ]
+    },
+    {
+      "id": "appointmentEndDate",
+      "label": "Appointment End Date",
+      "domain": "ProfessionalQualification",
+      "range": "date",
+      "description": "The end date of the professional appointment as recognized by the appointment notice and letter.",
+      "source_record_ids": [
+        "JCJG020208"
+      ],
+      "evidence": [
+        "聘任终止日期: 专业技术职务聘任通知和聘书所认定的聘任终止日期"
+      ]
+    },
+    {
+      "id": "appointmentStatusCode",
+      "label": "Appointment Status Code",
+      "domain": "ProfessionalQualification",
+      "range": "string",
+      "description": "Code representing the current appointment status of the professional position.",
+      "source_record_ids": [
+        "JCJG020209"
+      ],
+      "evidence": [
+        "聘任情况码: 当前专业技术职务的聘任情况"
+      ]
+    },
+    {
+      "id": "dismissalDate",
+      "label": "Dismissal Date",
+      "domain": "ProfessionalQualification",
+      "range": "date",
+      "description": "The date of non-termination of the appointment under abnormal circumstances.",
+      "source_record_ids": [
+        "JCJG020210"
+      ],
+      "evidence": [
+        "解聘日期: 指非正常情况终止聘任的日期"
+      ]
+    },
+    {
+      "id": "dismissalReason",
+      "label": "Dismissal Reason",
+      "domain": "ProfessionalQualification",
+      "range": "string",
+      "description": "The reason for dismissing the appointed professional position.",
+      "source_record_ids": [
+        "JCJG020211"
+      ],
+      "evidence": [
+        "解聘原因: 解除聘任专业技术职务的原因"
+      ]
+    },
+    {
+      "id": "postCertificateName",
+      "label": "Post Certificate Name",
+      "domain": "PostQualification",
+      "range": "string",
+      "description": "Name of the post certificate approved and issued by a qualified unit.",
+      "source_record_ids": [
+        "JCJG020301"
+      ],
+      "evidence": [
+        "岗位证书名称: 由具有岗位评定资格单位考核并批准的岗位证书名称"
+      ]
+    },
+    {
+      "id": "postCertificateNumber",
+      "label": "Post Certificate Number",
+      "domain": "PostQualification",
+      "range": "string",
+      "description": "The number of the post certificate.",
+      "source_record_ids": [
+        "JCJG020302"
+      ],
+      "evidence": [
+        "岗位证书编号"
+      ]
+    },
+    {
+      "id": "certificateIssuingUnit",
+      "label": "Certificate Issuing Unit",
+      "domain": "PostQualification",
+      "range": "string",
+      "description": "Name of the organization that approved and issued the post certificate.",
+      "source_record_ids": [
+        "JCJG020303"
+      ],
+      "evidence": [
+        "颁发单位: 批准并签发岗位证书的组织机构名称"
+      ]
+    },
+    {
+      "id": "certificateIssuingDate",
+      "label": "Certificate Issuing Date",
+      "domain": "PostQualification",
+      "range": "date",
+      "description": "The date the post certificate was approved and issued.",
+      "source_record_ids": [
+        "JCJG020304"
+      ],
+      "evidence": [
+        "颁发日期: 批准并签发岗位证书的日期"
+      ]
+    },
+    {
+      "id": "workerTechGradeCode",
+      "label": "Worker Technical Grade Code",
+      "domain": "WorkerTechGrade",
+      "range": "string",
+      "description": "Code for the technical grade obtained through evaluation or national vocational assessment.",
+      "source_record_ids": [
+        "JCJG020401"
+      ],
+      "evidence": [
+        "工人技术等级码: 指经工人技术考评组织评审并正式批准或经国家统一的职业技能鉴定机构考核合格取得的技术等级名称"
+      ]
+    },
+    {
+      "id": "workerTechPositionCode",
+      "label": "Worker Technical Position Code",
+      "domain": "WorkerTechGrade",
+      "range": "string",
+      "description": "Code for the formally appointed worker technical position.",
+      "source_record_ids": [
+        "JCJG020402"
+      ],
+      "evidence": [
+        "工人技术职务码: 指正式聘任的工人技术职务名称"
+      ]
+    },
+    {
+      "id": "workerJobCode",
+      "label": "Worker Job Code",
+      "domain": "WorkerTechGrade",
+      "range": "string",
+      "description": "Code representing the worker's job type.",
+      "source_record_ids": [
+        "JCJG020403"
+      ],
+      "evidence": [
+        "工人工种码"
+      ]
+    },
+    {
+      "id": "gradeIssuingAuthority",
+      "label": "Grade Issuing Authority",
+      "domain": "WorkerTechGrade",
+      "range": "string",
+      "description": "The authority that issued the technical grade.",
+      "source_record_ids": [
+        "JCJG020404"
+      ],
+      "evidence": [
+        "等级发证机关"
+      ]
+    },
+    {
+      "id": "gradeEvaluationDate",
+      "label": "Grade Evaluation Date",
+      "domain": "WorkerTechGrade",
+      "range": "date",
+      "description": "The date the technical grade was evaluated.",
+      "source_record_ids": [
+        "JCJG020405"
+      ],
+      "evidence": [
+        "等级评定日期"
+      ]
+    },
+    {
+      "id": "positionName",
+      "label": "Position Name",
+      "domain": "LeadershipPosition",
+      "range": "string",
+      "description": "The name of the leadership position.",
+      "source_record_ids": [
+        "JCJG020501"
+      ],
+      "evidence": [
+        "职务名称"
+      ]
+    },
+    {
+      "id": "positionNameCode",
+      "label": "Position Name Code",
+      "domain": "LeadershipPosition",
+      "range": "string",
+      "description": "Code for the leadership position name.",
+      "source_record_ids": [
+        "JCJG020502"
+      ],
+      "evidence": [
+        "职务名称码"
+      ]
+    },
+    {
+      "id": "positionCategoryCode",
+      "label": "Position Category Code",
+      "domain": "LeadershipPosition",
+      "range": "string",
+      "description": "Code for the category of the leadership position.",
+      "source_record_ids": [
+        "JCJG020503"
+      ],
+      "evidence": [
+        "职务类别码"
+      ]
+    }
+  ],
+  "object_properties": [],
+  "relations": [],
+  "class_hierarchy": []
+}

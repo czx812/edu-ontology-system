@@ -1,0 +1,564 @@
+{
+  "classes": [
+    {
+      "id": "Position",
+      "label": "Position",
+      "description": "A job or post held by a person in an organization.",
+      "source_record_ids": [
+        "JCJG020504",
+        "JCJG020505",
+        "JCJG020506",
+        "JCJG020507",
+        "JCJG020508",
+        "JCJG020509",
+        "JCJG020510",
+        "JCJG020511",
+        "JCJG020512",
+        "JCJG020513",
+        "JCJG020514",
+        "JCJG020515",
+        "JCJG020516",
+        "JCJG020517",
+        "JCJG020518",
+        "JCJG020519",
+        "JCJG020520"
+      ],
+      "evidence": [
+        "JCJG020504 职位分类码",
+        "JCJG020505 职务级别码",
+        "JCJG020506 任职日期",
+        "JCJG020507 任职部门",
+        "JCJG020508 任职方式码",
+        "JCJG020509 任职原因",
+        "JCJG020510 任职文号",
+        "JCJG020511 任职批准单位",
+        "JCJG020512 职务变动类别码",
+        "JCJG020513 当前任职状况",
+        "JCJG020514 职务排序",
+        "JCJG020515 主管或从事的工作",
+        "JCJG020516 免职日期",
+        "JCJG020517 免职方式码",
+        "JCJG020518 免职原因码",
+        "JCJG020519 免职文号",
+        "JCJG020520 免职批准单位"
+      ]
+    },
+    {
+      "id": "SocialPartTimeJob",
+      "label": "Social Part-time Job",
+      "description": "A part-time role held in social or political organizations such as the People's Congress, CPPCC, or democratic parties.",
+      "source_record_ids": [
+        "JCJG030101",
+        "JCJG030102",
+        "JCJG030103",
+        "JCJG030104"
+      ],
+      "evidence": [
+        "JCJG030101 社会兼职码",
+        "JCJG030102 社会兼职起始日期",
+        "JCJG030103 社会兼职终止日期",
+        "JCJG030104 社会兼职辞职原因码"
+      ]
+    },
+    {
+      "id": "AcademicGroup",
+      "label": "Academic Group",
+      "description": "An academic society or association where a person holds a part-time role.",
+      "source_record_ids": [
+        "JCJG030201",
+        "JCJG030202",
+        "JCJG030203",
+        "JCJG030204",
+        "JCJG030205",
+        "JCJG030206",
+        "JCJG030207"
+      ],
+      "evidence": [
+        "JCJG030201 学术团体名称",
+        "JCJG030202 学术团体级别码",
+        "JCJG030203 学术团体隶属或主管单位",
+        "JCJG030204 学术兼职职务",
+        "JCJG030205 学术兼职起始日期",
+        "JCJG030206 学术兼职终止日期",
+        "JCJG030207 学术兼职辞职原因码"
+      ]
+    },
+    {
+      "id": "AdvancedStudy",
+      "label": "Advanced Study",
+      "description": "Further education or training activities undertaken by a person.",
+      "source_record_ids": [
+        "JCJG040101",
+        "JCJG040102"
+      ],
+      "evidence": [
+        "JCJG040101 进修性质码",
+        "JCJG040102 学习方式码"
+      ]
+    },
+    {
+      "id": "Organization",
+      "label": "Organization",
+      "description": "An organizational entity such as an employer, approving authority, or supervising unit.",
+      "source_record_ids": [
+        "JCJG020507",
+        "JCJG020511",
+        "JCJG020520",
+        "JCJG030203",
+        "JCJG040209"
+      ],
+      "evidence": [
+        "JCJG020507 任职部门",
+        "JCJG020511 任职批准单位",
+        "JCJG020520 免职批准单位",
+        "JCJG030203 学术团体隶属或主管单位",
+        "JCJG040209 审批单位"
+      ]
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "positionCategoryCode",
+      "label": "Position Category Code",
+      "domain": "Position",
+      "range": "string",
+      "description": "Code indicating the category of the position.",
+      "source_record_ids": [
+        "JCJG020504"
+      ],
+      "evidence": [
+        "JCJG020504 职位分类码"
+      ]
+    },
+    {
+      "id": "positionLevelCode",
+      "label": "Position Level Code",
+      "domain": "Position",
+      "range": "string",
+      "description": "Code indicating the level of the position.",
+      "source_record_ids": [
+        "JCJG020505"
+      ],
+      "evidence": [
+        "JCJG020505 职务级别码"
+      ]
+    },
+    {
+      "id": "appointmentDate",
+      "label": "Appointment Date",
+      "domain": "Position",
+      "range": "string",
+      "description": "Date when the appointment takes effect, as officially notified.",
+      "source_record_ids": [
+        "JCJG020506"
+      ],
+      "evidence": [
+        "JCJG020506 任职日期"
+      ]
+    },
+    {
+      "id": "appointmentMethodCode",
+      "label": "Appointment Method Code",
+      "domain": "Position",
+      "range": "string",
+      "description": "Code indicating the method of appointment.",
+      "source_record_ids": [
+        "JCJG020508"
+      ],
+      "evidence": [
+        "JCJG020508 任职方式码"
+      ]
+    },
+    {
+      "id": "appointmentReason",
+      "label": "Appointment Reason",
+      "domain": "Position",
+      "range": "string",
+      "description": "Reason for the appointment.",
+      "source_record_ids": [
+        "JCJG020509"
+      ],
+      "evidence": [
+        "JCJG020509 任职原因"
+      ]
+    },
+    {
+      "id": "appointmentDocumentNumber",
+      "label": "Appointment Document Number",
+      "domain": "Position",
+      "range": "string",
+      "description": "Document number of the appointment notice or announcement.",
+      "source_record_ids": [
+        "JCJG020510"
+      ],
+      "evidence": [
+        "JCJG020510 任职文号"
+      ]
+    },
+    {
+      "id": "positionChangeCategoryCode",
+      "label": "Position Change Category Code",
+      "domain": "Position",
+      "range": "string",
+      "description": "Code indicating the category of position change.",
+      "source_record_ids": [
+        "JCJG020512"
+      ],
+      "evidence": [
+        "JCJG020512 职务变动类别码"
+      ]
+    },
+    {
+      "id": "currentPositionStatus",
+      "label": "Current Position Status",
+      "domain": "Position",
+      "range": "string",
+      "description": "Current status of the position.",
+      "source_record_ids": [
+        "JCJG020513"
+      ],
+      "evidence": [
+        "JCJG020513 当前任职状况"
+      ]
+    },
+    {
+      "id": "positionSortOrder",
+      "label": "Position Sort Order",
+      "domain": "Position",
+      "range": "string",
+      "description": "Order number of a leading cadre within the leadership group.",
+      "source_record_ids": [
+        "JCJG020514"
+      ],
+      "evidence": [
+        "JCJG020514 职务排序"
+      ]
+    },
+    {
+      "id": "supervisedOrEngagedWork",
+      "label": "Supervised or Engaged Work",
+      "domain": "Position",
+      "range": "string",
+      "description": "Work supervised or engaged in.",
+      "source_record_ids": [
+        "JCJG020515"
+      ],
+      "evidence": [
+        "JCJG020515 主管或从事的工作"
+      ]
+    },
+    {
+      "id": "removalDate",
+      "label": "Removal Date",
+      "domain": "Position",
+      "range": "string",
+      "description": "Effective date when the removal from the position is approved.",
+      "source_record_ids": [
+        "JCJG020516"
+      ],
+      "evidence": [
+        "JCJG020516 免职日期"
+      ]
+    },
+    {
+      "id": "removalMethodCode",
+      "label": "Removal Method Code",
+      "domain": "Position",
+      "range": "string",
+      "description": "Code indicating the method of removal.",
+      "source_record_ids": [
+        "JCJG020517"
+      ],
+      "evidence": [
+        "JCJG020517 免职方式码"
+      ]
+    },
+    {
+      "id": "removalReasonCode",
+      "label": "Removal Reason Code",
+      "domain": "Position",
+      "range": "string",
+      "description": "Code indicating the reason for removal.",
+      "source_record_ids": [
+        "JCJG020518"
+      ],
+      "evidence": [
+        "JCJG020518 免职原因码"
+      ]
+    },
+    {
+      "id": "removalDocumentNumber",
+      "label": "Removal Document Number",
+      "domain": "Position",
+      "range": "string",
+      "description": "Document number of the removal notice or announcement.",
+      "source_record_ids": [
+        "JCJG020519"
+      ],
+      "evidence": [
+        "JCJG020519 免职文号"
+      ]
+    },
+    {
+      "id": "socialPartTimeJobCode",
+      "label": "Social Part-time Job Code",
+      "domain": "SocialPartTimeJob",
+      "range": "string",
+      "description": "Code for the social part-time job held in organizations such as the People's Congress or CPPCC.",
+      "source_record_ids": [
+        "JCJG030101"
+      ],
+      "evidence": [
+        "JCJG030101 社会兼职码"
+      ]
+    },
+    {
+      "id": "socialPartTimeStartDate",
+      "label": "Social Part-time Start Date",
+      "domain": "SocialPartTimeJob",
+      "range": "string",
+      "description": "Approval date of the social part-time job appointment.",
+      "source_record_ids": [
+        "JCJG030102"
+      ],
+      "evidence": [
+        "JCJG030102 社会兼职起始日期"
+      ]
+    },
+    {
+      "id": "socialPartTimeEndDate",
+      "label": "Social Part-time End Date",
+      "domain": "SocialPartTimeJob",
+      "range": "string",
+      "description": "End date of the social part-time job.",
+      "source_record_ids": [
+        "JCJG030103"
+      ],
+      "evidence": [
+        "JCJG030103 社会兼职终止日期"
+      ]
+    },
+    {
+      "id": "socialPartTimeResignationReasonCode",
+      "label": "Social Part-time Resignation Reason Code",
+      "domain": "SocialPartTimeJob",
+      "range": "string",
+      "description": "Code indicating the reason for resigning from the social part-time job.",
+      "source_record_ids": [
+        "JCJG030104"
+      ],
+      "evidence": [
+        "JCJG030104 社会兼职辞职原因码"
+      ]
+    },
+    {
+      "id": "academicGroupName",
+      "label": "Academic Group Name",
+      "domain": "AcademicGroup",
+      "range": "string",
+      "description": "Name of the academic society or association.",
+      "source_record_ids": [
+        "JCJG030201"
+      ],
+      "evidence": [
+        "JCJG030201 学术团体名称"
+      ]
+    },
+    {
+      "id": "academicGroupLevelCode",
+      "label": "Academic Group Level Code",
+      "domain": "AcademicGroup",
+      "range": "string",
+      "description": "Code indicating the level of the academic group.",
+      "source_record_ids": [
+        "JCJG030202"
+      ],
+      "evidence": [
+        "JCJG030202 学术团体级别码"
+      ]
+    },
+    {
+      "id": "academicPartTimePosition",
+      "label": "Academic Part-time Position",
+      "domain": "AcademicGroup",
+      "range": "string",
+      "description": "Part-time position held in the academic group.",
+      "source_record_ids": [
+        "JCJG030204"
+      ],
+      "evidence": [
+        "JCJG030204 学术兼职职务"
+      ]
+    },
+    {
+      "id": "academicPartTimeStartDate",
+      "label": "Academic Part-time Start Date",
+      "domain": "AcademicGroup",
+      "range": "string",
+      "description": "Approval date of the academic part-time position.",
+      "source_record_ids": [
+        "JCJG030205"
+      ],
+      "evidence": [
+        "JCJG030205 学术兼职起始日期"
+      ]
+    },
+    {
+      "id": "academicPartTimeEndDate",
+      "label": "Academic Part-time End Date",
+      "domain": "AcademicGroup",
+      "range": "string",
+      "description": "End date of the academic part-time position.",
+      "source_record_ids": [
+        "JCJG030206"
+      ],
+      "evidence": [
+        "JCJG030206 学术兼职终止日期"
+      ]
+    },
+    {
+      "id": "academicPartTimeResignationReasonCode",
+      "label": "Academic Part-time Resignation Reason Code",
+      "domain": "AcademicGroup",
+      "range": "string",
+      "description": "Code indicating the reason for resigning from the academic part-time position.",
+      "source_record_ids": [
+        "JCJG030207"
+      ],
+      "evidence": [
+        "JCJG030207 学术兼职辞职原因码"
+      ]
+    },
+    {
+      "id": "advancedStudyNatureCode",
+      "label": "Advanced Study Nature Code",
+      "domain": "AdvancedStudy",
+      "range": "string",
+      "description": "Code indicating the nature of the advanced study.",
+      "source_record_ids": [
+        "JCJG040101"
+      ],
+      "evidence": [
+        "JCJG040101 进修性质码"
+      ]
+    },
+    {
+      "id": "studyMethodCode",
+      "label": "Study Method Code",
+      "domain": "AdvancedStudy",
+      "range": "string",
+      "description": "Code indicating the method of study.",
+      "source_record_ids": [
+        "JCJG040102"
+      ],
+      "evidence": [
+        "JCJG040102 学习方式码"
+      ]
+    }
+  ],
+  "object_properties": [
+    {
+      "id": "hasAppointmentOrganization",
+      "label": "has appointment organization",
+      "domain": "Position",
+      "range": "Organization",
+      "description": "The organization where the position is held or that approved the appointment.",
+      "source_record_ids": [
+        "JCJG020507",
+        "JCJG020511"
+      ],
+      "evidence": [
+        "JCJG020507 任职部门",
+        "JCJG020511 任职批准单位"
+      ]
+    },
+    {
+      "id": "hasRemovalOrganization",
+      "label": "has removal organization",
+      "domain": "Position",
+      "range": "Organization",
+      "description": "The organization that approved the removal from the position.",
+      "source_record_ids": [
+        "JCJG020520"
+      ],
+      "evidence": [
+        "JCJG020520 免职批准单位"
+      ]
+    },
+    {
+      "id": "hasSupervisingOrganization",
+      "label": "has supervising organization",
+      "domain": "AcademicGroup",
+      "range": "Organization",
+      "description": "The organization that the academic group is affiliated with or supervised by.",
+      "source_record_ids": [
+        "JCJG030203"
+      ],
+      "evidence": [
+        "JCJG030203 学术团体隶属或主管单位"
+      ]
+    },
+    {
+      "id": "hasApprovalOrganization",
+      "label": "has approval organization",
+      "domain": "AdvancedStudy",
+      "range": "Organization",
+      "description": "The superior department that approved the overseas trip and issued the approval document.",
+      "source_record_ids": [
+        "JCJG040209"
+      ],
+      "evidence": [
+        "JCJG040209 审批单位"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "subject": "Position",
+      "predicate": "hasAppointmentOrganization",
+      "object": "Organization",
+      "source_record_ids": [
+        "JCJG020507",
+        "JCJG020511"
+      ],
+      "evidence": [
+        "JCJG020507 任职部门",
+        "JCJG020511 任职批准单位"
+      ]
+    },
+    {
+      "subject": "Position",
+      "predicate": "hasRemovalOrganization",
+      "object": "Organization",
+      "source_record_ids": [
+        "JCJG020520"
+      ],
+      "evidence": [
+        "JCJG020520 免职批准单位"
+      ]
+    },
+    {
+      "subject": "AcademicGroup",
+      "predicate": "hasSupervisingOrganization",
+      "object": "Organization",
+      "source_record_ids": [
+        "JCJG030203"
+      ],
+      "evidence": [
+        "JCJG030203 学术团体隶属或主管单位"
+      ]
+    },
+    {
+      "subject": "AdvancedStudy",
+      "predicate": "hasApprovalOrganization",
+      "object": "Organization",
+      "source_record_ids": [
+        "JCJG040209"
+      ],
+      "evidence": [
+        "JCJG040209 审批单位"
+      ]
+    }
+  ],
+  "class_hierarchy": []
+}

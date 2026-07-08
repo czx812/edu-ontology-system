@@ -1,0 +1,486 @@
+{
+  "classes": [
+    {
+      "id": "StudyActivity",
+      "label": "Study Activity",
+      "description": "A record of an individual's study or training activity, including details like duration, content, and host organization.",
+      "source_record_ids": [
+        "JCJG040103",
+        "JCJG040104",
+        "JCJG040105",
+        "JCJG040106",
+        "JCJG040107",
+        "JCJG040108",
+        "JCJG040109",
+        "JCJG040110",
+        "JCJG040111",
+        "JCJG040112"
+      ],
+      "evidence": [
+        "学习起始年 月",
+        "学习终止年 月",
+        "总学时",
+        "学习内容",
+        "进修班名称",
+        "主办单位",
+        "主办单位性 质码",
+        "在学单位",
+        "在学单位类 别码",
+        "进修结果码"
+      ]
+    },
+    {
+      "id": "OverseasActivity",
+      "label": "Overseas Activity",
+      "description": "A record of an individual's travel or work/study abroad, including purpose, destination, and approval details.",
+      "source_record_ids": [
+        "JCJG040201",
+        "JCJG040202",
+        "JCJG040203",
+        "JCJG040204",
+        "JCJG040205",
+        "JCJG040206",
+        "JCJG040207",
+        "JCJG040208",
+        "JCJG040209",
+        "JCJG040210",
+        "JCJG040211",
+        "JCJG040212",
+        "JCJG040213",
+        "JCJG040214",
+        "JCJG040215",
+        "JCJG040216",
+        "JCJG040217",
+        "JCJG040218"
+      ],
+      "evidence": [
+        "出国（境）日 期",
+        "出国（境）目 的码",
+        "出国（境）国 别码",
+        "所去单位英 文名称",
+        "所去单位中 文名称",
+        "派出单位",
+        "团组名称",
+        "出国（境）经 费来源码",
+        "审批单位",
+        "审批日期",
+        "审批文号",
+        "批准期限",
+        "学习工作内 容",
+        "学习工作成 绩",
+        "应回国日期",
+        "实回国日期",
+        "护照号/通行 证号",
+        "证件有效期"
+      ]
+    },
+    {
+      "id": "InspectionActivity",
+      "label": "Inspection Activity",
+      "description": "A record of an inspection or assessment activity conducted by organizational or personnel departments.",
+      "source_record_ids": [
+        "JCJG050101",
+        "JCJG050102"
+      ],
+      "evidence": [
+        "考察（考核） 类别码",
+        "考察（考核） 日期"
+      ]
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "studyStartDate",
+      "label": "Study Start Date",
+      "domain": "StudyActivity",
+      "range": "string",
+      "description": "The start date of the study activity.",
+      "source_record_ids": [
+        "JCJG040103"
+      ],
+      "evidence": [
+        "学习起始年 月"
+      ]
+    },
+    {
+      "id": "studyEndDate",
+      "label": "Study End Date",
+      "domain": "StudyActivity",
+      "range": "string",
+      "description": "The end date of the study activity.",
+      "source_record_ids": [
+        "JCJG040104"
+      ],
+      "evidence": [
+        "学习终止年 月"
+      ]
+    },
+    {
+      "id": "totalHours",
+      "label": "Total Hours",
+      "domain": "StudyActivity",
+      "range": "string",
+      "description": "The cumulative actual learning time.",
+      "source_record_ids": [
+        "JCJG040105"
+      ],
+      "evidence": [
+        "指实际学习的累计时 间"
+      ]
+    },
+    {
+      "id": "studyContent",
+      "label": "Study Content",
+      "domain": "StudyActivity",
+      "range": "string",
+      "description": "The content of the study.",
+      "source_record_ids": [
+        "JCJG040106"
+      ],
+      "evidence": [
+        "学习内容"
+      ]
+    },
+    {
+      "id": "trainingClassName",
+      "label": "Training Class Name",
+      "domain": "StudyActivity",
+      "range": "string",
+      "description": "The name of the training class.",
+      "source_record_ids": [
+        "JCJG040107"
+      ],
+      "evidence": [
+        "进修班名称"
+      ]
+    },
+    {
+      "id": "hostOrganization",
+      "label": "Host Organization",
+      "domain": "StudyActivity",
+      "range": "string",
+      "description": "The name of the unit that hosts and organizes the study.",
+      "source_record_ids": [
+        "JCJG040108"
+      ],
+      "evidence": [
+        "主办和组织学习的单 位名称"
+      ]
+    },
+    {
+      "id": "hostOrgTypeCode",
+      "label": "Host Organization Type Code",
+      "domain": "StudyActivity",
+      "range": "string",
+      "description": "The type code of the host organization.",
+      "source_record_ids": [
+        "JCJG040109"
+      ],
+      "evidence": [
+        "主办单位性 质码"
+      ]
+    },
+    {
+      "id": "studyInstitution",
+      "label": "Study Institution",
+      "domain": "StudyActivity",
+      "range": "string",
+      "description": "The institution where the individual is studying.",
+      "source_record_ids": [
+        "JCJG040110"
+      ],
+      "evidence": [
+        "在学单位"
+      ]
+    },
+    {
+      "id": "studyInstCategoryCode",
+      "label": "Study Institution Category Code",
+      "domain": "StudyActivity",
+      "range": "string",
+      "description": "The category code of the study institution.",
+      "source_record_ids": [
+        "JCJG040111"
+      ],
+      "evidence": [
+        "在学单位类 别码"
+      ]
+    },
+    {
+      "id": "studyResultCode",
+      "label": "Study Result Code",
+      "domain": "StudyActivity",
+      "range": "string",
+      "description": "The result code of the study activity.",
+      "source_record_ids": [
+        "JCJG040112"
+      ],
+      "evidence": [
+        "进修结果码"
+      ]
+    },
+    {
+      "id": "departureDate",
+      "label": "Departure Date",
+      "domain": "OverseasActivity",
+      "range": "string",
+      "description": "The date of departure abroad.",
+      "source_record_ids": [
+        "JCJG040201"
+      ],
+      "evidence": [
+        "出国（境）日期"
+      ]
+    },
+    {
+      "id": "purposeCode",
+      "label": "Purpose Code",
+      "domain": "OverseasActivity",
+      "range": "string",
+      "description": "The purpose code of the overseas activity.",
+      "source_record_ids": [
+        "JCJG040202"
+      ],
+      "evidence": [
+        "出国（境）目 的码"
+      ]
+    },
+    {
+      "id": "destinationCountryCode",
+      "label": "Destination Country Code",
+      "domain": "OverseasActivity",
+      "range": "string",
+      "description": "The three-letter country code of the destination.",
+      "source_record_ids": [
+        "JCJG040203"
+      ],
+      "evidence": [
+        "用三字母国别代码，如 CHN 中国"
+      ]
+    },
+    {
+      "id": "destinationUnitEnglishName",
+      "label": "Destination Unit English Name",
+      "domain": "OverseasActivity",
+      "range": "string",
+      "description": "The English name of the unit being visited.",
+      "source_record_ids": [
+        "JCJG040204"
+      ],
+      "evidence": [
+        "所去单位英 文名称"
+      ]
+    },
+    {
+      "id": "destinationUnitChineseName",
+      "label": "Destination Unit Chinese Name",
+      "domain": "OverseasActivity",
+      "range": "string",
+      "description": "The Chinese name of the unit being visited.",
+      "source_record_ids": [
+        "JCJG040205"
+      ],
+      "evidence": [
+        "所去单位中 文名称"
+      ]
+    },
+    {
+      "id": "dispatchingUnit",
+      "label": "Dispatching Unit",
+      "domain": "OverseasActivity",
+      "range": "string",
+      "description": "The name of the unit that dispatched the individual abroad.",
+      "source_record_ids": [
+        "JCJG040206"
+      ],
+      "evidence": [
+        "派遣本人出国（境）学 习、工作的单位名称"
+      ]
+    },
+    {
+      "id": "groupName",
+      "label": "Group Name",
+      "domain": "OverseasActivity",
+      "range": "string",
+      "description": "The specific name of the dispatched group for work or study abroad.",
+      "source_record_ids": [
+        "JCJG040207"
+      ],
+      "evidence": [
+        "出国（境）工作或学习 派出团组的具体名称"
+      ]
+    },
+    {
+      "id": "fundingSourceCode",
+      "label": "Funding Source Code",
+      "domain": "OverseasActivity",
+      "range": "string",
+      "description": "The code for the source of funding for the overseas activity.",
+      "source_record_ids": [
+        "JCJG040208"
+      ],
+      "evidence": [
+        "出国（境）经 费来源码"
+      ]
+    },
+    {
+      "id": "approvalUnit",
+      "label": "Approval Unit",
+      "domain": "OverseasActivity",
+      "range": "string",
+      "description": "The name of the superior authority that approved the overseas activity and issued the approval document.",
+      "source_record_ids": [
+        "JCJG040209"
+      ],
+      "evidence": [
+        "批准出国（境）并签发 审批文件的上级主管部 门名称"
+      ]
+    },
+    {
+      "id": "approvalDate",
+      "label": "Approval Date",
+      "domain": "OverseasActivity",
+      "range": "string",
+      "description": "The specific date the approval document was issued.",
+      "source_record_ids": [
+        "JCJG040210"
+      ],
+      "evidence": [
+        "批准出国（境）并签发 审批文件的具体日期"
+      ]
+    },
+    {
+      "id": "approvalDocumentNumber",
+      "label": "Approval Document Number",
+      "domain": "OverseasActivity",
+      "range": "string",
+      "description": "The document number of the approval issued by the dispatching unit.",
+      "source_record_ids": [
+        "JCJG040211"
+      ],
+      "evidence": [
+        "批准出国（境）学习工 作的单位签发的批准文 件编号"
+      ]
+    },
+    {
+      "id": "approvedDuration",
+      "label": "Approved Duration",
+      "domain": "OverseasActivity",
+      "range": "string",
+      "description": "The approved duration of stay abroad, in months.",
+      "source_record_ids": [
+        "JCJG040212"
+      ],
+      "evidence": [
+        "批准在国（境）外滞留 的期限，单位：月"
+      ]
+    },
+    {
+      "id": "workStudyContent",
+      "label": "Work/Study Content",
+      "domain": "OverseasActivity",
+      "range": "string",
+      "description": "The main content of the work or study abroad.",
+      "source_record_ids": [
+        "JCJG040213"
+      ],
+      "evidence": [
+        "出国（境）学习工作的 主要内容"
+      ]
+    },
+    {
+      "id": "workStudyAchievement",
+      "label": "Work/Study Achievement",
+      "domain": "OverseasActivity",
+      "range": "string",
+      "description": "The completion status and main achievements of the work or study abroad.",
+      "source_record_ids": [
+        "JCJG040214"
+      ],
+      "evidence": [
+        "出国（境）学习工作的 完成情况和主要成绩"
+      ]
+    },
+    {
+      "id": "expectedReturnDate",
+      "label": "Expected Return Date",
+      "domain": "OverseasActivity",
+      "range": "string",
+      "description": "The expected date of return.",
+      "source_record_ids": [
+        "JCJG040215"
+      ],
+      "evidence": [
+        "应回国日期"
+      ]
+    },
+    {
+      "id": "actualReturnDate",
+      "label": "Actual Return Date",
+      "domain": "OverseasActivity",
+      "range": "string",
+      "description": "The actual date of return.",
+      "source_record_ids": [
+        "JCJG040216"
+      ],
+      "evidence": [
+        "实回国日期"
+      ]
+    },
+    {
+      "id": "passportOrPermitNumber",
+      "label": "Passport/Permit Number",
+      "domain": "OverseasActivity",
+      "range": "string",
+      "description": "The passport number or permit number (e.g., for travel to Hong Kong/Macau).",
+      "source_record_ids": [
+        "JCJG040217"
+      ],
+      "evidence": [
+        "通行证即“往来港澳通 行证”"
+      ]
+    },
+    {
+      "id": "documentValidityPeriod",
+      "label": "Document Validity Period",
+      "domain": "OverseasActivity",
+      "range": "string",
+      "description": "The validity period of the document.",
+      "source_record_ids": [
+        "JCJG040218"
+      ],
+      "evidence": [
+        "证件有效期"
+      ]
+    },
+    {
+      "id": "inspectionCategoryCode",
+      "label": "Inspection Category Code",
+      "domain": "InspectionActivity",
+      "range": "string",
+      "description": "The category code of the inspection or assessment.",
+      "source_record_ids": [
+        "JCJG050101"
+      ],
+      "evidence": [
+        "考察（考核） 类别码"
+      ]
+    },
+    {
+      "id": "inspectionDate",
+      "label": "Inspection Date",
+      "domain": "InspectionActivity",
+      "range": "string",
+      "description": "The date of the inspection or assessment conducted by the organizational/personnel department.",
+      "source_record_ids": [
+        "JCJG050102"
+      ],
+      "evidence": [
+        "组织、干部、人事部门 组派的考察组进行考察 （考核）的日期"
+      ]
+    }
+  ],
+  "object_properties": [],
+  "relations": [],
+  "class_hierarchy": []
+}

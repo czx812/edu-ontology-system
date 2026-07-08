@@ -1,0 +1,766 @@
+{
+  "classes": [
+    {
+      "id": "Staff",
+      "label": "Staff",
+      "description": "A person employed by the organization.",
+      "source_record_ids": [
+        "JCJG060204",
+        "JCJG060205",
+        "JCJG060206",
+        "JCJG060301",
+        "JCJG060302",
+        "JCJG060303",
+        "JCJG060401",
+        "JCJG060404",
+        "JCJG070101",
+        "JCJG070102",
+        "JCJG070103",
+        "JCJG070201",
+        "JCJG070202",
+        "JCJG070203",
+        "JCJG070204",
+        "JCJG070205",
+        "JCJG070206",
+        "JCJG070301",
+        "JCJG070302",
+        "JCJG070303",
+        "JCJG070304",
+        "JCJG070305",
+        "JCJG070306",
+        "JCJG070307"
+      ],
+      "evidence": [
+        "Records describe staff movements, leaves, retirements, and re-employment."
+      ]
+    },
+    {
+      "id": "Department",
+      "label": "Department",
+      "description": "An organizational unit within the institution.",
+      "source_record_ids": [
+        "JCJG060204"
+      ],
+      "evidence": [
+        "组织内调入 部门号: 组织内部调动后现院系所部中心号"
+      ]
+    },
+    {
+      "id": "SickLeave",
+      "label": "Sick Leave",
+      "description": "A period of absence due to illness.",
+      "source_record_ids": [
+        "JCJG060401",
+        "JCJG060402",
+        "JCJG060403",
+        "JCJG060404",
+        "JCJG060405",
+        "JCJG060406"
+      ],
+      "evidence": [
+        "Records track sick leave start, diagnosis, recovery, and related hospitals."
+      ]
+    },
+    {
+      "id": "Hospital",
+      "label": "Hospital",
+      "description": "A medical institution providing diagnosis or treatment.",
+      "source_record_ids": [
+        "JCJG060402",
+        "JCJG060405"
+      ],
+      "evidence": [
+        "病休诊断医院: 病休诊断的医院名称",
+        "康复诊断医院: 进行康复诊断的医院名称"
+      ]
+    },
+    {
+      "id": "MedicalCertificate",
+      "label": "Medical Certificate",
+      "description": "An official document issued by a hospital confirming a medical condition.",
+      "source_record_ids": [
+        "JCJG060403",
+        "JCJG060406"
+      ],
+      "evidence": [
+        "病休诊断证明: 医院开据的病休诊断证明",
+        "康复诊断证明: 医院开具的康复诊断证明"
+      ]
+    },
+    {
+      "id": "Retirement",
+      "label": "Retirement",
+      "description": "The status or process of leaving employment due to age or service.",
+      "source_record_ids": [
+        "JCJG070201",
+        "JCJG070202",
+        "JCJG070203",
+        "JCJG070204",
+        "JCJG070205",
+        "JCJG070206"
+      ],
+      "evidence": [
+        "Records describe retirement dates, benefits, and management units."
+      ]
+    },
+    {
+      "id": "ReEmployment",
+      "label": "Re-employment",
+      "description": "Employment after retirement.",
+      "source_record_ids": [
+        "JCJG070301",
+        "JCJG070302",
+        "JCJG070303",
+        "JCJG070304",
+        "JCJG070305",
+        "JCJG070306",
+        "JCJG070307"
+      ],
+      "evidence": [
+        "返聘起始日期: 离退休后被重新聘任工作的起始日期"
+      ]
+    },
+    {
+      "id": "Funding",
+      "label": "Funding",
+      "description": "Financial allocations or funds received by the organization.",
+      "source_record_ids": [
+        "JCBX010101",
+        "JCBX010102"
+      ],
+      "evidence": [
+        "教育事业费拨款: 单位：元",
+        "其他拨款: 单位：元"
+      ]
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "transferDepartmentId",
+      "label": "Transfer Department ID",
+      "domain": "Staff",
+      "range": "string",
+      "description": "The department number after an internal transfer.",
+      "source_record_ids": [
+        "JCJG060204"
+      ],
+      "evidence": [
+        "组织内调入 部门号: 组织内部调动后现院系所部中心号"
+      ]
+    },
+    {
+      "id": "salaryTransferDate",
+      "label": "Salary Transfer Date",
+      "domain": "Staff",
+      "range": "string",
+      "description": "The date of personal salary and labor transfer.",
+      "source_record_ids": [
+        "JCJG060205"
+      ],
+      "evidence": [
+        "工资转移日期: 个人劳资转移日期"
+      ]
+    },
+    {
+      "id": "documentFileNumber",
+      "label": "Document File Number",
+      "domain": "Staff",
+      "range": "string",
+      "description": "The file number related to personal changes.",
+      "source_record_ids": [
+        "JCJG060206"
+      ],
+      "evidence": [
+        "文书档案号: 跟个人变动有关的文件档案编号"
+      ]
+    },
+    {
+      "id": "leaveDate",
+      "label": "Leave Date",
+      "domain": "Staff",
+      "range": "string",
+      "description": "The date of leaving the post.",
+      "source_record_ids": [
+        "JCJG060301"
+      ],
+      "evidence": [
+        "离岗日期"
+      ]
+    },
+    {
+      "id": "leaveReasonCode",
+      "label": "Leave Reason Code",
+      "domain": "Staff",
+      "range": "string",
+      "description": "Code for the reason of leaving the post.",
+      "source_record_ids": [
+        "JCJG060302"
+      ],
+      "evidence": [
+        "离岗原因码"
+      ]
+    },
+    {
+      "id": "returnToWorkDate",
+      "label": "Return to Work Date",
+      "domain": "Staff",
+      "range": "string",
+      "description": "The date of returning to the job position.",
+      "source_record_ids": [
+        "JCJG060303"
+      ],
+      "evidence": [
+        "返岗日期: 返回工作岗位的日期"
+      ]
+    },
+    {
+      "id": "sickLeaveStartDate",
+      "label": "Sick Leave Start Date",
+      "domain": "SickLeave",
+      "range": "string",
+      "description": "The start date of sick leave.",
+      "source_record_ids": [
+        "JCJG060401"
+      ],
+      "evidence": [
+        "病休起始日期: 因病休假的起始日期"
+      ]
+    },
+    {
+      "id": "sickLeaveDiagnosisHospital",
+      "label": "Sick Leave Diagnosis Hospital",
+      "domain": "SickLeave",
+      "range": "string",
+      "description": "Name of the hospital that diagnosed the sick leave.",
+      "source_record_ids": [
+        "JCJG060402"
+      ],
+      "evidence": [
+        "病休诊断医院: 病休诊断的医院名称"
+      ]
+    },
+    {
+      "id": "sickLeaveCertificate",
+      "label": "Sick Leave Certificate",
+      "domain": "SickLeave",
+      "range": "string",
+      "description": "The sick leave diagnosis certificate issued by the hospital.",
+      "source_record_ids": [
+        "JCJG060403"
+      ],
+      "evidence": [
+        "病休诊断证明: 医院开据的病休诊断证明"
+      ]
+    },
+    {
+      "id": "recoveryDate",
+      "label": "Recovery Date",
+      "domain": "SickLeave",
+      "range": "string",
+      "description": "The date of returning to work after sick leave.",
+      "source_record_ids": [
+        "JCJG060404"
+      ],
+      "evidence": [
+        "恢复工作日期: 病休恢复工作的日期"
+      ]
+    },
+    {
+      "id": "recoveryDiagnosisHospital",
+      "label": "Recovery Diagnosis Hospital",
+      "domain": "SickLeave",
+      "range": "string",
+      "description": "Name of the hospital that performed the recovery diagnosis.",
+      "source_record_ids": [
+        "JCJG060405"
+      ],
+      "evidence": [
+        "康复诊断医院: 进行康复诊断的医院名称"
+      ]
+    },
+    {
+      "id": "recoveryCertificate",
+      "label": "Recovery Certificate",
+      "domain": "SickLeave",
+      "range": "string",
+      "description": "The recovery diagnosis certificate issued by the hospital.",
+      "source_record_ids": [
+        "JCJG060406"
+      ],
+      "evidence": [
+        "康复诊断证明: 医院开具的康复诊断证明"
+      ]
+    },
+    {
+      "id": "resignationDate",
+      "label": "Resignation Date",
+      "domain": "Staff",
+      "range": "string",
+      "description": "The date of leaving the organization.",
+      "source_record_ids": [
+        "JCJG070101"
+      ],
+      "evidence": [
+        "离职日期: 离开本单位的日期"
+      ]
+    },
+    {
+      "id": "resignationReasonCode",
+      "label": "Resignation Reason Code",
+      "domain": "Staff",
+      "range": "string",
+      "description": "Code for the reason of resignation.",
+      "source_record_ids": [
+        "JCJG070102"
+      ],
+      "evidence": [
+        "离职原因码"
+      ]
+    },
+    {
+      "id": "resignationDestination",
+      "label": "Resignation Destination",
+      "domain": "Staff",
+      "range": "string",
+      "description": "The destination after leaving the organization.",
+      "source_record_ids": [
+        "JCJG070103"
+      ],
+      "evidence": [
+        "离职去向: 离开本单位工作岗位后的去向"
+      ]
+    },
+    {
+      "id": "retirementCategoryCode",
+      "label": "Retirement Category Code",
+      "domain": "Retirement",
+      "range": "string",
+      "description": "Code for the category of retirement.",
+      "source_record_ids": [
+        "JCJG070201"
+      ],
+      "evidence": [
+        "离退类别码"
+      ]
+    },
+    {
+      "id": "retirementStartDate",
+      "label": "Retirement Start Date",
+      "domain": "Retirement",
+      "range": "string",
+      "description": "The retirement date approved by the organization or HR department.",
+      "source_record_ids": [
+        "JCJG070202"
+      ],
+      "evidence": [
+        "离退起始日期: 由组织、人事部门批准的离退休日期"
+      ]
+    },
+    {
+      "id": "postRetirementLevelCode",
+      "label": "Post Retirement Level Code",
+      "domain": "Retirement",
+      "range": "string",
+      "description": "Code for the level enjoyed after retirement.",
+      "source_record_ids": [
+        "JCJG070203"
+      ],
+      "evidence": [
+        "离退后享受级别码"
+      ]
+    },
+    {
+      "id": "pensionPaymentUnit",
+      "label": "Pension Payment Unit",
+      "domain": "Retirement",
+      "range": "string",
+      "description": "Name of the unit that pays the retirement pension.",
+      "source_record_ids": [
+        "JCJG070204"
+      ],
+      "evidence": [
+        "离退休费支付单位: 离退休后，支付离退休费的单位名称"
+      ]
+    },
+    {
+      "id": "postRetirementManagementUnit",
+      "label": "Post Retirement Management Unit",
+      "domain": "Retirement",
+      "range": "string",
+      "description": "Name of the specific management unit after retirement.",
+      "source_record_ids": [
+        "JCJG070205"
+      ],
+      "evidence": [
+        "离退后管理单位: 离退后的具体管理单位名称"
+      ]
+    },
+    {
+      "id": "remoteSettlementLocation",
+      "label": "Remote Settlement Location",
+      "domain": "Retirement",
+      "range": "string",
+      "description": "The location where the retiree is settled for living.",
+      "source_record_ids": [
+        "JCJG070206"
+      ],
+      "evidence": [
+        "异地安置地点: 离退后安置到异地生活的地点"
+      ]
+    },
+    {
+      "id": "reEmploymentStartDate",
+      "label": "Re-employment Start Date",
+      "domain": "ReEmployment",
+      "range": "string",
+      "description": "The start date of re-employment after retirement.",
+      "source_record_ids": [
+        "JCJG070301"
+      ],
+      "evidence": [
+        "返聘起始日期: 离退休后被重新聘任工作的起始日期"
+      ]
+    },
+    {
+      "id": "reEmploymentEndDate",
+      "label": "Re-employment End Date",
+      "domain": "ReEmployment",
+      "range": "string",
+      "description": "The end date of re-employment after retirement.",
+      "source_record_ids": [
+        "JCJG070302"
+      ],
+      "evidence": [
+        "返聘终止日期: 离退休后被重新聘任工作的终止日期"
+      ]
+    },
+    {
+      "id": "reEmploymentUnitId",
+      "label": "Re-employment Unit ID",
+      "domain": "ReEmployment",
+      "range": "string",
+      "description": "The ID of the re-employment work unit, self-compiled by the school.",
+      "source_record_ids": [
+        "JCJG070303"
+      ],
+      "evidence": [
+        "返聘单位号: 重新聘任的工作单位号，学校自编"
+      ]
+    },
+    {
+      "id": "reEmploymentPosition",
+      "label": "Re-employment Position",
+      "domain": "ReEmployment",
+      "range": "string",
+      "description": "The re-employment work position.",
+      "source_record_ids": [
+        "JCJG070304"
+      ],
+      "evidence": [
+        "返聘岗位: 重新聘任的工作岗位"
+      ]
+    },
+    {
+      "id": "reEmploymentRemuneration",
+      "label": "Re-employment Remuneration",
+      "domain": "ReEmployment",
+      "range": "string",
+      "description": "The labor remuneration for re-employment, unit: Yuan/month.",
+      "source_record_ids": [
+        "JCJG070305"
+      ],
+      "evidence": [
+        "返聘酬金: 重新聘任工作的劳动报酬，单位：元/月"
+      ]
+    },
+    {
+      "id": "reEmploymentFundingSource",
+      "label": "Re-employment Funding Source",
+      "domain": "ReEmployment",
+      "range": "string",
+      "description": "The funding source for re-employment.",
+      "source_record_ids": [
+        "JCJG070306"
+      ],
+      "evidence": [
+        "返聘金来源: 返聘资金的经费来源"
+      ]
+    },
+    {
+      "id": "reEmploymentWorkload",
+      "label": "Re-employment Workload",
+      "domain": "ReEmployment",
+      "range": "string",
+      "description": "The workload for re-employment, unit: hours/month.",
+      "source_record_ids": [
+        "JCJG070307"
+      ],
+      "evidence": [
+        "返聘工作量: 单位：小时/月"
+      ]
+    },
+    {
+      "id": "educationFundAppropriation",
+      "label": "Education Fund Appropriation",
+      "domain": "Funding",
+      "range": "string",
+      "description": "Education fund appropriation, unit: Yuan.",
+      "source_record_ids": [
+        "JCBX010101"
+      ],
+      "evidence": [
+        "教育事业费拨款: 单位：元"
+      ]
+    },
+    {
+      "id": "otherAppropriation",
+      "label": "Other Appropriation",
+      "domain": "Funding",
+      "range": "string",
+      "description": "Other appropriations, unit: Yuan.",
+      "source_record_ids": [
+        "JCBX010102"
+      ],
+      "evidence": [
+        "其他拨款: 单位：元"
+      ]
+    }
+  ],
+  "object_properties": [
+    {
+      "id": "transferredToDepartment",
+      "label": "transferred to department",
+      "domain": "Staff",
+      "range": "Department",
+      "description": "The department a staff member is transferred to.",
+      "source_record_ids": [
+        "JCJG060204"
+      ],
+      "evidence": [
+        "组织内调入 部门号: 组织内部调动后现院系所部中心号"
+      ]
+    },
+    {
+      "id": "hasSickLeave",
+      "label": "has sick leave",
+      "domain": "Staff",
+      "range": "SickLeave",
+      "description": "The sick leave record associated with a staff member.",
+      "source_record_ids": [
+        "JCJG060401",
+        "JCJG060402",
+        "JCJG060403",
+        "JCJG060404",
+        "JCJG060405",
+        "JCJG060406"
+      ],
+      "evidence": [
+        "Records track sick leave start, diagnosis, recovery, and related hospitals."
+      ]
+    },
+    {
+      "id": "diagnosedByHospital",
+      "label": "diagnosed by hospital",
+      "domain": "SickLeave",
+      "range": "Hospital",
+      "description": "The hospital that provided the diagnosis for the sick leave.",
+      "source_record_ids": [
+        "JCJG060402",
+        "JCJG060405"
+      ],
+      "evidence": [
+        "病休诊断医院: 病休诊断的医院名称",
+        "康复诊断医院: 进行康复诊断的医院名称"
+      ]
+    },
+    {
+      "id": "hasCertificate",
+      "label": "has certificate",
+      "domain": "SickLeave",
+      "range": "MedicalCertificate",
+      "description": "The medical certificate associated with the sick leave.",
+      "source_record_ids": [
+        "JCJG060403",
+        "JCJG060406"
+      ],
+      "evidence": [
+        "病休诊断证明: 医院开据的病休诊断证明",
+        "康复诊断证明: 医院开具的康复诊断证明"
+      ]
+    },
+    {
+      "id": "hasRetirement",
+      "label": "has retirement",
+      "domain": "Staff",
+      "range": "Retirement",
+      "description": "The retirement record associated with a staff member.",
+      "source_record_ids": [
+        "JCJG070201",
+        "JCJG070202",
+        "JCJG070203",
+        "JCJG070204",
+        "JCJG070205",
+        "JCJG070206"
+      ],
+      "evidence": [
+        "Records describe retirement dates, benefits, and management units."
+      ]
+    },
+    {
+      "id": "managedByUnit",
+      "label": "managed by unit",
+      "domain": "Retirement",
+      "range": "Department",
+      "description": "The unit responsible for managing the retiree.",
+      "source_record_ids": [
+        "JCJG070205"
+      ],
+      "evidence": [
+        "离退后管理单位: 离退后的具体管理单位名称"
+      ]
+    },
+    {
+      "id": "hasReEmployment",
+      "label": "has re-employment",
+      "domain": "Staff",
+      "range": "ReEmployment",
+      "description": "The re-employment record associated with a staff member.",
+      "source_record_ids": [
+        "JCJG070301",
+        "JCJG070302",
+        "JCJG070303",
+        "JCJG070304",
+        "JCJG070305",
+        "JCJG070306",
+        "JCJG070307"
+      ],
+      "evidence": [
+        "返聘起始日期: 离退休后被重新聘任工作的起始日期"
+      ]
+    },
+    {
+      "id": "reEmployedByUnit",
+      "label": "re-employed by unit",
+      "domain": "ReEmployment",
+      "range": "Department",
+      "description": "The unit that re-employed the staff member.",
+      "source_record_ids": [
+        "JCJG070303"
+      ],
+      "evidence": [
+        "返聘单位号: 重新聘任的工作单位号，学校自编"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "subject": "Staff",
+      "predicate": "transferredToDepartment",
+      "object": "Department",
+      "source_record_ids": [
+        "JCJG060204"
+      ],
+      "evidence": [
+        "组织内调入 部门号: 组织内部调动后现院系所部中心号"
+      ]
+    },
+    {
+      "subject": "Staff",
+      "predicate": "hasSickLeave",
+      "object": "SickLeave",
+      "source_record_ids": [
+        "JCJG060401",
+        "JCJG060402",
+        "JCJG060403",
+        "JCJG060404",
+        "JCJG060405",
+        "JCJG060406"
+      ],
+      "evidence": [
+        "Records track sick leave start, diagnosis, recovery, and related hospitals."
+      ]
+    },
+    {
+      "subject": "SickLeave",
+      "predicate": "diagnosedByHospital",
+      "object": "Hospital",
+      "source_record_ids": [
+        "JCJG060402",
+        "JCJG060405"
+      ],
+      "evidence": [
+        "病休诊断医院: 病休诊断的医院名称",
+        "康复诊断医院: 进行康复诊断的医院名称"
+      ]
+    },
+    {
+      "subject": "SickLeave",
+      "predicate": "hasCertificate",
+      "object": "MedicalCertificate",
+      "source_record_ids": [
+        "JCJG060403",
+        "JCJG060406"
+      ],
+      "evidence": [
+        "病休诊断证明: 医院开据的病休诊断证明",
+        "康复诊断证明: 医院开具的康复诊断证明"
+      ]
+    },
+    {
+      "subject": "Staff",
+      "predicate": "hasRetirement",
+      "object": "Retirement",
+      "source_record_ids": [
+        "JCJG070201",
+        "JCJG070202",
+        "JCJG070203",
+        "JCJG070204",
+        "JCJG070205",
+        "JCJG070206"
+      ],
+      "evidence": [
+        "Records describe retirement dates, benefits, and management units."
+      ]
+    },
+    {
+      "subject": "Retirement",
+      "predicate": "managedByUnit",
+      "object": "Department",
+      "source_record_ids": [
+        "JCJG070205"
+      ],
+      "evidence": [
+        "离退后管理单位: 离退后的具体管理单位名称"
+      ]
+    },
+    {
+      "subject": "Staff",
+      "predicate": "hasReEmployment",
+      "object": "ReEmployment",
+      "source_record_ids": [
+        "JCJG070301",
+        "JCJG070302",
+        "JCJG070303",
+        "JCJG070304",
+        "JCJG070305",
+        "JCJG070306",
+        "JCJG070307"
+      ],
+      "evidence": [
+        "返聘起始日期: 离退休后被重新聘任工作的起始日期"
+      ]
+    },
+    {
+      "subject": "ReEmployment",
+      "predicate": "reEmployedByUnit",
+      "object": "Department",
+      "source_record_ids": [
+        "JCJG070303"
+      ],
+      "evidence": [
+        "返聘单位号: 重新聘任的工作单位号，学校自编"
+      ]
+    }
+  ],
+  "class_hierarchy": []
+}

@@ -1,0 +1,690 @@
+{
+  "classes": [
+    {
+      "id": "School",
+      "label": "School",
+      "description": "An educational institution with associated administrative and contact information.",
+      "source_record_ids": [
+        "JCXX010101",
+        "JCXX010102",
+        "JCXX010103",
+        "JCXX010104",
+        "JCXX010105",
+        "JCXX010106",
+        "JCXX010107",
+        "JCXX010108",
+        "JCXX010109",
+        "JCXX010110",
+        "JCXX010111",
+        "JCXX010112",
+        "JCXX010113",
+        "JCXX010114",
+        "JCXX010115",
+        "JCXX010116",
+        "JCXX010117",
+        "JCXX010118",
+        "JCXX010119",
+        "JCXX010120",
+        "JCXX010121",
+        "JCXX010122"
+      ],
+      "evidence": [
+        "JCXX010101 学校代码",
+        "JCXX010102 学校名称",
+        "JCXX010103 学校英文名称",
+        "JCXX010104 学校地址",
+        "JCXX010105 学校邮政编码",
+        "JCXX010106 行政区划码",
+        "JCXX010107 建校年月",
+        "JCXX010108 校庆日",
+        "JCXX010109 学校办学类型码",
+        "JCXX010110 学校举办者码",
+        "JCXX010111 学校主管部门码",
+        "JCXX010112 法定代表人号",
+        "JCXX010113 法人证书号",
+        "JCXX010114 校长工号",
+        "JCXX010115 校长姓名",
+        "JCXX010116 党委负责人号",
+        "JCXX010117 组织机构码",
+        "JCXX010118 联系电话",
+        "JCXX010119 传真电话",
+        "JCXX010120 电子信箱",
+        "JCXX010121 主页地址",
+        "JCXX010122 历史沿革"
+      ]
+    },
+    {
+      "id": "SchoolCampus",
+      "label": "School Campus",
+      "description": "A specific campus belonging to a school.",
+      "source_record_ids": [
+        "JCXX010201",
+        "JCXX010202",
+        "JCXX010203",
+        "JCXX010204"
+      ],
+      "evidence": [
+        "JCXX010201 校区号",
+        "JCXX010202 校区名称",
+        "JCXX010203 校区地址",
+        "JCXX010204 校区邮政编码"
+      ]
+    },
+    {
+      "id": "Student",
+      "label": "Student",
+      "description": "An individual enrolled in an educational institution.",
+      "source_record_ids": [
+        "JCTB020908",
+        "JCTB020909",
+        "JCTB020910",
+        "JCTB020911"
+      ],
+      "evidence": [
+        "JCTB020908 困难程度码",
+        "JCTB020909 是否低保",
+        "JCTB020910 入学前户口类别码",
+        "JCTB020911 就学地低保线"
+      ]
+    },
+    {
+      "id": "Person",
+      "label": "Person",
+      "description": "A generic individual, often used for staff or family members.",
+      "source_record_ids": [
+        "JCTB020109",
+        "JCTB020122",
+        "JCTB020604",
+        "JCTB020701"
+      ],
+      "evidence": [
+        "JCTB020109 民族码",
+        "JCTB020122 是否独生子女",
+        "JCTB020604 家庭电子信箱",
+        "JCTB020701 关系码"
+      ]
+    },
+    {
+      "id": "Staff",
+      "label": "Staff",
+      "description": "An employee or official within the educational system.",
+      "source_record_ids": [
+        "JCJG020514",
+        "JCJG040209"
+      ],
+      "evidence": [
+        "JCJG020514 职务排序",
+        "JCJG040209 审批单位"
+      ]
+    },
+    {
+      "id": "LibraryResource",
+      "label": "Library Resource",
+      "description": "A resource available in a library, such as books or periodicals.",
+      "source_record_ids": [
+        "JCBX040102",
+        "JCBX040202"
+      ],
+      "evidence": [
+        "JCBX040102 图书条形码",
+        "JCBX040202 期刊条形码"
+      ]
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "schoolCode",
+      "label": "School Code",
+      "domain": "School",
+      "range": "string",
+      "description": "Unique identifier for the school.",
+      "source_record_ids": [
+        "JCXX010101"
+      ],
+      "evidence": [
+        "JCXX010101 学校代码"
+      ]
+    },
+    {
+      "id": "schoolName",
+      "label": "School Name",
+      "domain": "School",
+      "range": "string",
+      "description": "Standard Chinese name of the school, consistent with the official seal.",
+      "source_record_ids": [
+        "JCXX010102"
+      ],
+      "evidence": [
+        "JCXX010102 学校名称"
+      ]
+    },
+    {
+      "id": "schoolEnglishName",
+      "label": "School English Name",
+      "domain": "School",
+      "range": "string",
+      "description": "English name of the school.",
+      "source_record_ids": [
+        "JCXX010103"
+      ],
+      "evidence": [
+        "JCXX010103 学校英文名称"
+      ]
+    },
+    {
+      "id": "schoolAddress",
+      "label": "School Address",
+      "domain": "School",
+      "range": "string",
+      "description": "Detailed address of the school, down to the house number.",
+      "source_record_ids": [
+        "JCXX010104"
+      ],
+      "evidence": [
+        "JCXX010104 学校地址"
+      ]
+    },
+    {
+      "id": "schoolPostalCode",
+      "label": "School Postal Code",
+      "domain": "School",
+      "range": "string",
+      "description": "Postal code of the school.",
+      "source_record_ids": [
+        "JCXX010105"
+      ],
+      "evidence": [
+        "JCXX010105 学校邮政编码"
+      ]
+    },
+    {
+      "id": "administrativeDivisionCode",
+      "label": "Administrative Division Code",
+      "domain": "School",
+      "range": "string",
+      "description": "Administrative division code of the school's location.",
+      "source_record_ids": [
+        "JCXX010106"
+      ],
+      "evidence": [
+        "JCXX010106 行政区划码"
+      ]
+    },
+    {
+      "id": "establishmentDate",
+      "label": "Establishment Date",
+      "domain": "School",
+      "range": "string",
+      "description": "Date the school was established.",
+      "source_record_ids": [
+        "JCXX010107"
+      ],
+      "evidence": [
+        "JCXX010107 建校年月"
+      ]
+    },
+    {
+      "id": "anniversaryDate",
+      "label": "Anniversary Date",
+      "domain": "School",
+      "range": "string",
+      "description": "School anniversary date or period.",
+      "source_record_ids": [
+        "JCXX010108"
+      ],
+      "evidence": [
+        "JCXX010108 校庆日"
+      ]
+    },
+    {
+      "id": "schoolTypeCode",
+      "label": "School Type Code",
+      "domain": "School",
+      "range": "string",
+      "description": "Code representing the type of school operation.",
+      "source_record_ids": [
+        "JCXX010109"
+      ],
+      "evidence": [
+        "JCXX010109 学校办学类型码"
+      ]
+    },
+    {
+      "id": "schoolSponsorCode",
+      "label": "School Sponsor Code",
+      "domain": "School",
+      "range": "string",
+      "description": "Code representing the sponsor of the school.",
+      "source_record_ids": [
+        "JCXX010110"
+      ],
+      "evidence": [
+        "JCXX010110 学校举办者码"
+      ]
+    },
+    {
+      "id": "supervisoryDepartmentCode",
+      "label": "Supervisory Department Code",
+      "domain": "School",
+      "range": "string",
+      "description": "Code representing the supervisory department of the school.",
+      "source_record_ids": [
+        "JCXX010111"
+      ],
+      "evidence": [
+        "JCXX010111 学校主管部门码"
+      ]
+    },
+    {
+      "id": "legalRepresentativeId",
+      "label": "Legal Representative ID",
+      "domain": "School",
+      "range": "string",
+      "description": "Employee ID of the legal representative.",
+      "source_record_ids": [
+        "JCXX010112"
+      ],
+      "evidence": [
+        "JCXX010112 法定代表人号"
+      ]
+    },
+    {
+      "id": "legalCertificateNumber",
+      "label": "Legal Certificate Number",
+      "domain": "School",
+      "range": "string",
+      "description": "Certificate number of the legal entity.",
+      "source_record_ids": [
+        "JCXX010113"
+      ],
+      "evidence": [
+        "JCXX010113 法人证书号"
+      ]
+    },
+    {
+      "id": "principalId",
+      "label": "Principal ID",
+      "domain": "School",
+      "range": "string",
+      "description": "Employee ID of the principal.",
+      "source_record_ids": [
+        "JCXX010114"
+      ],
+      "evidence": [
+        "JCXX010114 校长工号"
+      ]
+    },
+    {
+      "id": "principalName",
+      "label": "Principal Name",
+      "domain": "School",
+      "range": "string",
+      "description": "Name of the principal.",
+      "source_record_ids": [
+        "JCXX010115"
+      ],
+      "evidence": [
+        "JCXX010115 校长姓名"
+      ]
+    },
+    {
+      "id": "partySecretaryId",
+      "label": "Party Secretary ID",
+      "domain": "School",
+      "range": "string",
+      "description": "Employee ID of the school's CPC organization head.",
+      "source_record_ids": [
+        "JCXX010116"
+      ],
+      "evidence": [
+        "JCXX010116 党委负责人号"
+      ]
+    },
+    {
+      "id": "organizationCode",
+      "label": "Organization Code",
+      "domain": "School",
+      "range": "string",
+      "description": "Organization code of the school (8-digit entity code + 1-digit check code).",
+      "source_record_ids": [
+        "JCXX010117"
+      ],
+      "evidence": [
+        "JCXX010117 组织机构码"
+      ]
+    },
+    {
+      "id": "contactPhone",
+      "label": "Contact Phone",
+      "domain": "School",
+      "range": "string",
+      "description": "Contact phone number of the school.",
+      "source_record_ids": [
+        "JCXX010118"
+      ],
+      "evidence": [
+        "JCXX010118 联系电话"
+      ]
+    },
+    {
+      "id": "faxNumber",
+      "label": "Fax Number",
+      "domain": "School",
+      "range": "string",
+      "description": "Fax number of the school.",
+      "source_record_ids": [
+        "JCXX010119"
+      ],
+      "evidence": [
+        "JCXX010119 传真电话"
+      ]
+    },
+    {
+      "id": "emailAddress",
+      "label": "Email Address",
+      "domain": "School",
+      "range": "string",
+      "description": "Email address of the school.",
+      "source_record_ids": [
+        "JCXX010120"
+      ],
+      "evidence": [
+        "JCXX010120 电子信箱"
+      ]
+    },
+    {
+      "id": "websiteURL",
+      "label": "Website URL",
+      "domain": "School",
+      "range": "string",
+      "description": "Homepage URL of the school.",
+      "source_record_ids": [
+        "JCXX010121"
+      ],
+      "evidence": [
+        "JCXX010121 主页地址"
+      ]
+    },
+    {
+      "id": "historicalEvolution",
+      "label": "Historical Evolution",
+      "domain": "School",
+      "range": "string",
+      "description": "Major changes or events in the school's development.",
+      "source_record_ids": [
+        "JCXX010122"
+      ],
+      "evidence": [
+        "JCXX010122 历史沿革"
+      ]
+    },
+    {
+      "id": "campusId",
+      "label": "Campus ID",
+      "domain": "SchoolCampus",
+      "range": "string",
+      "description": "School-assigned ID for the campus.",
+      "source_record_ids": [
+        "JCXX010201"
+      ],
+      "evidence": [
+        "JCXX010201 校区号"
+      ]
+    },
+    {
+      "id": "campusName",
+      "label": "Campus Name",
+      "domain": "SchoolCampus",
+      "range": "string",
+      "description": "Name of the campus.",
+      "source_record_ids": [
+        "JCXX010202"
+      ],
+      "evidence": [
+        "JCXX010202 校区名称"
+      ]
+    },
+    {
+      "id": "campusAddress",
+      "label": "Campus Address",
+      "domain": "SchoolCampus",
+      "range": "string",
+      "description": "Address of the campus.",
+      "source_record_ids": [
+        "JCXX010203"
+      ],
+      "evidence": [
+        "JCXX010203 校区地址"
+      ]
+    },
+    {
+      "id": "campusPostalCode",
+      "label": "Campus Postal Code",
+      "domain": "SchoolCampus",
+      "range": "string",
+      "description": "Postal code of the campus.",
+      "source_record_ids": [
+        "JCXX010204"
+      ],
+      "evidence": [
+        "JCXX010204 校区邮政编码"
+      ]
+    },
+    {
+      "id": "difficultyLevelCode",
+      "label": "Difficulty Level Code",
+      "domain": "Student",
+      "range": "string",
+      "description": "Code representing the level of difficulty.",
+      "source_record_ids": [
+        "JCTB020908"
+      ],
+      "evidence": [
+        "JCTB020908 困难程度码"
+      ]
+    },
+    {
+      "id": "isLowIncome",
+      "label": "Is Low Income",
+      "domain": "Student",
+      "range": "string",
+      "description": "Indicator of whether the student is from a low-income family.",
+      "source_record_ids": [
+        "JCTB020909"
+      ],
+      "evidence": [
+        "JCTB020909 是否低保"
+      ]
+    },
+    {
+      "id": "preEnrollmentHouseholdCategoryCode",
+      "label": "Pre-enrollment Household Category Code",
+      "domain": "Student",
+      "range": "string",
+      "description": "Code for the category of household registration before enrollment.",
+      "source_record_ids": [
+        "JCTB020910"
+      ],
+      "evidence": [
+        "JCTB020910 入学前户口类别码"
+      ]
+    },
+    {
+      "id": "localLowIncomeLine",
+      "label": "Local Low Income Line",
+      "domain": "Student",
+      "range": "string",
+      "description": "Low-income line at the place of study (unit: Yuan/month).",
+      "source_record_ids": [
+        "JCTB020911"
+      ],
+      "evidence": [
+        "JCTB020911 就学地低保线"
+      ]
+    },
+    {
+      "id": "ethnicityCode",
+      "label": "Ethnicity Code",
+      "domain": "Person",
+      "range": "string",
+      "description": "2-digit code for ethnicity (e.g., 01 Han, 02 Mongolian).",
+      "source_record_ids": [
+        "JCTB020109"
+      ],
+      "evidence": [
+        "JCTB020109 民族码"
+      ]
+    },
+    {
+      "id": "isOnlyChild",
+      "label": "Is Only Child",
+      "domain": "Person",
+      "range": "string",
+      "description": "Indicator of whether the person is an only child (1 Yes, 0 No).",
+      "source_record_ids": [
+        "JCTB020122"
+      ],
+      "evidence": [
+        "JCTB020122 是否独生子女"
+      ]
+    },
+    {
+      "id": "familyEmailAddress",
+      "label": "Family Email Address",
+      "domain": "Person",
+      "range": "string",
+      "description": "Email address of the family.",
+      "source_record_ids": [
+        "JCTB020604"
+      ],
+      "evidence": [
+        "JCTB020604 家庭电子信箱"
+      ]
+    },
+    {
+      "id": "relationshipCode",
+      "label": "Relationship Code",
+      "domain": "Person",
+      "range": "string",
+      "description": "Code representing the relationship.",
+      "source_record_ids": [
+        "JCTB020701"
+      ],
+      "evidence": [
+        "JCTB020701 关系码"
+      ]
+    },
+    {
+      "id": "positionSortOrder",
+      "label": "Position Sort Order",
+      "domain": "Staff",
+      "range": "string",
+      "description": "Sort order of a leading cadre within the leadership group.",
+      "source_record_ids": [
+        "JCJG020514"
+      ],
+      "evidence": [
+        "JCJG020514 职务排序"
+      ]
+    },
+    {
+      "id": "approvingUnit",
+      "label": "Approving Unit",
+      "domain": "Staff",
+      "range": "string",
+      "description": "Name of the superior department that approved the overseas trip and issued the approval document.",
+      "source_record_ids": [
+        "JCJG040209"
+      ],
+      "evidence": [
+        "JCJG040209 审批单位"
+      ]
+    },
+    {
+      "id": "bookBarcode",
+      "label": "Book Barcode",
+      "domain": "LibraryResource",
+      "range": "string",
+      "description": "Barcode corresponding to the book.",
+      "source_record_ids": [
+        "JCBX040102"
+      ],
+      "evidence": [
+        "JCBX040102 图书条形码"
+      ]
+    },
+    {
+      "id": "journalBarcode",
+      "label": "Journal Barcode",
+      "domain": "LibraryResource",
+      "range": "string",
+      "description": "Barcode corresponding to the journal.",
+      "source_record_ids": [
+        "JCBX040202"
+      ],
+      "evidence": [
+        "JCBX040202 期刊条形码"
+      ]
+    }
+  ],
+  "object_properties": [
+    {
+      "id": "hasCampus",
+      "label": "has Campus",
+      "domain": "School",
+      "range": "SchoolCampus",
+      "description": "A school has one or more campuses.",
+      "source_record_ids": [
+        "JCXX010201",
+        "JCXX010202",
+        "JCXX010203",
+        "JCXX010204"
+      ],
+      "evidence": [
+        "JCXX010201 校区号",
+        "JCXX010202 校区名称",
+        "JCXX010203 校区地址",
+        "JCXX010204 校区邮政编码"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "subject": "School",
+      "predicate": "hasCampus",
+      "object": "SchoolCampus",
+      "source_record_ids": [
+        "JCXX010201",
+        "JCXX010202",
+        "JCXX010203",
+        "JCXX010204"
+      ],
+      "evidence": [
+        "JCXX010201 校区号",
+        "JCXX010202 校区名称",
+        "JCXX010203 校区地址",
+        "JCXX010204 校区邮政编码"
+      ]
+    }
+  ],
+  "class_hierarchy": [
+    {
+      "parent": "Person",
+      "child": "Student",
+      "evidence": [
+        "JCTB020908 困难程度码",
+        "JCTB020909 是否低保",
+        "JCTB020910 入学前户口类别码",
+        "JCTB020911 就学地低保线"
+      ]
+    },
+    {
+      "parent": "Person",
+      "child": "Staff",
+      "evidence": [
+        "JCJG020514 职务排序",
+        "JCJG040209 审批单位"
+      ]
+    }
+  ]
+}

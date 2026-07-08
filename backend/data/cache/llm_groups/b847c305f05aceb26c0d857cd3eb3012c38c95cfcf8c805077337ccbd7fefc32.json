@@ -1,0 +1,1278 @@
+{
+  "classes": [
+    {
+      "id": "Equipment",
+      "label": "Equipment",
+      "description": "Instruments and equipment used in teaching, research, and social projects.",
+      "source_record_ids": [
+        "JCBX030301",
+        "JCBX030302",
+        "JCBX030303",
+        "JCBX030304",
+        "JCBX030305",
+        "JCBX030306",
+        "JCBX030307",
+        "JCBX030308",
+        "JCBX030309",
+        "JCBX030310",
+        "JCBX030311",
+        "JCBX030312",
+        "JCBX030313",
+        "JCBX030314",
+        "JCBX030401",
+        "JCBX030402",
+        "JCBX030403",
+        "JCBX030404"
+      ],
+      "evidence": [
+        "现状码",
+        "使用方向码",
+        "使用单位号",
+        "经手人号",
+        "领用单位",
+        "领用人号",
+        "维护人数",
+        "使用人时数",
+        "开设实验个数",
+        "开设实验时数",
+        "教学时数",
+        "科研时数",
+        "社会项目时数",
+        "保管人号",
+        "报损报废日期",
+        "报损报废原因",
+        "处理结果",
+        "损废说明"
+      ]
+    },
+    {
+      "id": "Software",
+      "label": "Software",
+      "description": "Software assets including licenses, media, and costs.",
+      "source_record_ids": [
+        "JCBX030501",
+        "JCBX030502",
+        "JCBX030503",
+        "JCBX030504",
+        "JCBX030505",
+        "JCBX030506",
+        "JCBX030507",
+        "JCBX030508",
+        "JCBX030509",
+        "JCBX030510"
+      ],
+      "evidence": [
+        "软件编号",
+        "软件名称",
+        "软件分类码",
+        "版本号",
+        "介质类型",
+        "介质数量",
+        "授权范围",
+        "单价",
+        "安装调试费",
+        "培训及技术支持费"
+      ]
+    },
+    {
+      "id": "Laboratory",
+      "label": "Laboratory",
+      "description": "Laboratory facilities and their attributes.",
+      "source_record_ids": [
+        "JCBX030701",
+        "JCBX030702",
+        "JCBX030703",
+        "JCBX030704",
+        "JCBX030705",
+        "JCBX030706",
+        "JCBX030707",
+        "JCBX030708",
+        "JCBX030709",
+        "JCBX030710"
+      ],
+      "evidence": [
+        "实验室号",
+        "实验室名称",
+        "建立日期",
+        "建筑面积",
+        "使用面积",
+        "实验室位置",
+        "负责人号",
+        "实验室类别码",
+        "实验室电话",
+        "实验室介绍"
+      ]
+    },
+    {
+      "id": "Experiment",
+      "label": "Experiment",
+      "description": "Experiment projects conducted in laboratories.",
+      "source_record_ids": [
+        "JCBX030801",
+        "JCBX030802",
+        "JCBX030803",
+        "JCBX030804",
+        "JCBX030805",
+        "JCBX030806",
+        "JCBX030807",
+        "JCBX030808",
+        "JCBX030809",
+        "JCBX030810",
+        "JCBX030811",
+        "JCBX030812",
+        "JCBX030813"
+      ],
+      "evidence": [
+        "实验序号",
+        "实验名称",
+        "隶属课程号",
+        "实验类别码",
+        "专业分类码",
+        "实验要求码",
+        "实验者类别码",
+        "实验者人数",
+        "每组人数",
+        "实验时数",
+        "获奖级别码",
+        "带课教师号",
+        "实验地点"
+      ]
+    },
+    {
+      "id": "Book",
+      "label": "Book",
+      "description": "Books and library materials.",
+      "source_record_ids": [
+        "JCBX040101",
+        "JCBX040102",
+        "JCBX040103",
+        "JCBX040104",
+        "JCBX040105",
+        "JCBX040106",
+        "JCBX040107",
+        "JCBX040108",
+        "JCBX040109",
+        "JCBX040110",
+        "JCBX040111",
+        "JCBX040112",
+        "JCBX040113",
+        "JCBX040114",
+        "JCBX040115",
+        "JCBX040116",
+        "JCBX040117",
+        "JCBX040118",
+        "JCBX040119",
+        "JCBX040120",
+        "JCBX040121",
+        "JCBX040122",
+        "JCBX040123",
+        "JCBX040124",
+        "JCBX040125",
+        "JCBX040126",
+        "JCBX040127",
+        "JCBX040128"
+      ],
+      "evidence": [
+        "图书编号",
+        "图书条形码",
+        "正标题",
+        "并列标题",
+        "副标题",
+        "检索关键字",
+        "图书出版号",
+        "第一作者",
+        "其他作者",
+        "价格",
+        "文献类型码",
+        "装订码",
+        "分类号",
+        "中国语种码",
+        "语种码",
+        "开本",
+        "页数",
+        "版次",
+        "图书附件名称",
+        "丛书名称",
+        "丛书编者",
+        "出版社",
+        "出版社级别码",
+        "出版地",
+        "出版日期",
+        "发行单位",
+        "备注",
+        "图书状态码"
+      ]
+    },
+    {
+      "id": "Journal",
+      "label": "Journal",
+      "description": "Journal publications.",
+      "source_record_ids": [
+        "JCBX040201",
+        "JCBX040202"
+      ],
+      "evidence": [
+        "期刊编号",
+        "期刊条形码"
+      ]
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "hasStatus",
+      "label": "has status",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Status code of the equipment.",
+      "source_record_ids": [
+        "JCBX030301"
+      ],
+      "evidence": [
+        "现状码"
+      ]
+    },
+    {
+      "id": "hasUsageDirection",
+      "label": "has usage direction",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Usage direction code of the equipment.",
+      "source_record_ids": [
+        "JCBX030302"
+      ],
+      "evidence": [
+        "使用方向码"
+      ]
+    },
+    {
+      "id": "hasUsageUnit",
+      "label": "has usage unit",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Unit number using the equipment.",
+      "source_record_ids": [
+        "JCBX030303"
+      ],
+      "evidence": [
+        "使用单位号"
+      ]
+    },
+    {
+      "id": "hasHandler",
+      "label": "has handler",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Person ID who first handled the usage procedure.",
+      "source_record_ids": [
+        "JCBX030304"
+      ],
+      "evidence": [
+        "经手人号"
+      ]
+    },
+    {
+      "id": "hasRecipientUnit",
+      "label": "has recipient unit",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "New unit name after internal transfer.",
+      "source_record_ids": [
+        "JCBX030305"
+      ],
+      "evidence": [
+        "领用单位"
+      ]
+    },
+    {
+      "id": "hasRecipient",
+      "label": "has recipient",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Person ID who handled the receipt procedure after transfer.",
+      "source_record_ids": [
+        "JCBX030306"
+      ],
+      "evidence": [
+        "领用人号"
+      ]
+    },
+    {
+      "id": "hasMaintenanceStaffCount",
+      "label": "has maintenance staff count",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Number of full-time equivalent maintenance staff.",
+      "source_record_ids": [
+        "JCBX030307"
+      ],
+      "evidence": [
+        "维护人数"
+      ]
+    },
+    {
+      "id": "hasUsagePersonHours",
+      "label": "has usage person hours",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Usage person-hours.",
+      "source_record_ids": [
+        "JCBX030308"
+      ],
+      "evidence": [
+        "使用人时数"
+      ]
+    },
+    {
+      "id": "hasExperimentCount",
+      "label": "has experiment count",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Number of experiments conducted.",
+      "source_record_ids": [
+        "JCBX030309"
+      ],
+      "evidence": [
+        "开设实验个数"
+      ]
+    },
+    {
+      "id": "hasExperimentHours",
+      "label": "has experiment hours",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Hours spent on experiments.",
+      "source_record_ids": [
+        "JCBX030310"
+      ],
+      "evidence": [
+        "开设实验时数"
+      ]
+    },
+    {
+      "id": "hasTeachingHours",
+      "label": "has teaching hours",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Hours spent on teaching.",
+      "source_record_ids": [
+        "JCBX030311"
+      ],
+      "evidence": [
+        "教学时数"
+      ]
+    },
+    {
+      "id": "hasResearchHours",
+      "label": "has research hours",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Hours spent on research.",
+      "source_record_ids": [
+        "JCBX030312"
+      ],
+      "evidence": [
+        "科研时数"
+      ]
+    },
+    {
+      "id": "hasSocialProjectHours",
+      "label": "has social project hours",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Hours spent on social projects.",
+      "source_record_ids": [
+        "JCBX030313"
+      ],
+      "evidence": [
+        "社会项目时数"
+      ]
+    },
+    {
+      "id": "hasCustodian",
+      "label": "has custodian",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Person ID of the daily custodian.",
+      "source_record_ids": [
+        "JCBX030314"
+      ],
+      "evidence": [
+        "保管人号"
+      ]
+    },
+    {
+      "id": "hasDisposalDate",
+      "label": "has disposal date",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Date of equipment loss or scrapping.",
+      "source_record_ids": [
+        "JCBX030401"
+      ],
+      "evidence": [
+        "报损报废日期"
+      ]
+    },
+    {
+      "id": "hasDisposalReason",
+      "label": "has disposal reason",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Reason for equipment loss or scrapping.",
+      "source_record_ids": [
+        "JCBX030402"
+      ],
+      "evidence": [
+        "报损报废原因"
+      ]
+    },
+    {
+      "id": "hasDisposalResult",
+      "label": "has disposal result",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Result of the disposal process.",
+      "source_record_ids": [
+        "JCBX030403"
+      ],
+      "evidence": [
+        "处理结果"
+      ]
+    },
+    {
+      "id": "hasDisposalNote",
+      "label": "has disposal note",
+      "domain": "Equipment",
+      "range": "string",
+      "description": "Notes related to equipment loss or scrapping.",
+      "source_record_ids": [
+        "JCBX030404"
+      ],
+      "evidence": [
+        "损废说明"
+      ]
+    },
+    {
+      "id": "hasSoftwareId",
+      "label": "has software id",
+      "domain": "Software",
+      "range": "string",
+      "description": "School-defined software number.",
+      "source_record_ids": [
+        "JCBX030501"
+      ],
+      "evidence": [
+        "软件编号"
+      ]
+    },
+    {
+      "id": "hasSoftwareName",
+      "label": "has software name",
+      "domain": "Software",
+      "range": "string",
+      "description": "Name of the software.",
+      "source_record_ids": [
+        "JCBX030502"
+      ],
+      "evidence": [
+        "软件名称"
+      ]
+    },
+    {
+      "id": "hasSoftwareCategory",
+      "label": "has software category",
+      "domain": "Software",
+      "range": "string",
+      "description": "Category code of the software.",
+      "source_record_ids": [
+        "JCBX030503"
+      ],
+      "evidence": [
+        "软件分类码"
+      ]
+    },
+    {
+      "id": "hasVersion",
+      "label": "has version",
+      "domain": "Software",
+      "range": "string",
+      "description": "Version number of the software.",
+      "source_record_ids": [
+        "JCBX030504"
+      ],
+      "evidence": [
+        "版本号"
+      ]
+    },
+    {
+      "id": "hasMediaType",
+      "label": "has media type",
+      "domain": "Software",
+      "range": "string",
+      "description": "Type of media for the software.",
+      "source_record_ids": [
+        "JCBX030505"
+      ],
+      "evidence": [
+        "介质类型"
+      ]
+    },
+    {
+      "id": "hasMediaCount",
+      "label": "has media count",
+      "domain": "Software",
+      "range": "string",
+      "description": "Quantity of media.",
+      "source_record_ids": [
+        "JCBX030506"
+      ],
+      "evidence": [
+        "介质数量"
+      ]
+    },
+    {
+      "id": "hasLicenseScope",
+      "label": "has license scope",
+      "domain": "Software",
+      "range": "string",
+      "description": "License scope or certificate count.",
+      "source_record_ids": [
+        "JCBX030507"
+      ],
+      "evidence": [
+        "授权范围"
+      ]
+    },
+    {
+      "id": "hasUnitPrice",
+      "label": "has unit price",
+      "domain": "Software",
+      "range": "string",
+      "description": "Purchase price in RMB.",
+      "source_record_ids": [
+        "JCBX030508"
+      ],
+      "evidence": [
+        "单价"
+      ]
+    },
+    {
+      "id": "hasInstallationFee",
+      "label": "has installation fee",
+      "domain": "Software",
+      "range": "string",
+      "description": "Installation and debugging fee.",
+      "source_record_ids": [
+        "JCBX030509"
+      ],
+      "evidence": [
+        "安装调试费"
+      ]
+    },
+    {
+      "id": "hasTrainingFee",
+      "label": "has training fee",
+      "domain": "Software",
+      "range": "string",
+      "description": "Training and technical support fee.",
+      "source_record_ids": [
+        "JCBX030510"
+      ],
+      "evidence": [
+        "培训及技术支持费"
+      ]
+    },
+    {
+      "id": "hasLabId",
+      "label": "has lab id",
+      "domain": "Laboratory",
+      "range": "string",
+      "description": "Unique laboratory number.",
+      "source_record_ids": [
+        "JCBX030701"
+      ],
+      "evidence": [
+        "实验室号"
+      ]
+    },
+    {
+      "id": "hasLabName",
+      "label": "has lab name",
+      "domain": "Laboratory",
+      "range": "string",
+      "description": "Name of the laboratory.",
+      "source_record_ids": [
+        "JCBX030702"
+      ],
+      "evidence": [
+        "实验室名称"
+      ]
+    },
+    {
+      "id": "hasEstablishmentDate",
+      "label": "has establishment date",
+      "domain": "Laboratory",
+      "range": "string",
+      "description": "Date the laboratory was established.",
+      "source_record_ids": [
+        "JCBX030703"
+      ],
+      "evidence": [
+        "建立日期"
+      ]
+    },
+    {
+      "id": "hasBuildingArea",
+      "label": "has building area",
+      "domain": "Laboratory",
+      "range": "string",
+      "description": "Building area in square meters.",
+      "source_record_ids": [
+        "JCBX030704"
+      ],
+      "evidence": [
+        "建筑面积"
+      ]
+    },
+    {
+      "id": "hasUsableArea",
+      "label": "has usable area",
+      "domain": "Laboratory",
+      "range": "string",
+      "description": "Usable area in square meters.",
+      "source_record_ids": [
+        "JCBX030705"
+      ],
+      "evidence": [
+        "使用面积"
+      ]
+    },
+    {
+      "id": "hasLabLocation",
+      "label": "has lab location",
+      "domain": "Laboratory",
+      "range": "string",
+      "description": "Specific building and room number.",
+      "source_record_ids": [
+        "JCBX030706"
+      ],
+      "evidence": [
+        "实验室位置"
+      ]
+    },
+    {
+      "id": "hasLabHead",
+      "label": "has lab head",
+      "domain": "Laboratory",
+      "range": "string",
+      "description": "Person ID of the lab head.",
+      "source_record_ids": [
+        "JCBX030707"
+      ],
+      "evidence": [
+        "负责人号"
+      ]
+    },
+    {
+      "id": "hasLabCategory",
+      "label": "has lab category",
+      "domain": "Laboratory",
+      "range": "string",
+      "description": "Category code of the laboratory.",
+      "source_record_ids": [
+        "JCBX030708"
+      ],
+      "evidence": [
+        "实验室类别码"
+      ]
+    },
+    {
+      "id": "hasLabPhone",
+      "label": "has lab phone",
+      "domain": "Laboratory",
+      "range": "string",
+      "description": "Phone number of the laboratory.",
+      "source_record_ids": [
+        "JCBX030709"
+      ],
+      "evidence": [
+        "实验室电话"
+      ]
+    },
+    {
+      "id": "hasLabDescription",
+      "label": "has lab description",
+      "domain": "Laboratory",
+      "range": "string",
+      "description": "Introduction or description of the laboratory.",
+      "source_record_ids": [
+        "JCBX030710"
+      ],
+      "evidence": [
+        "实验室介绍"
+      ]
+    },
+    {
+      "id": "hasExperimentId",
+      "label": "has experiment id",
+      "domain": "Experiment",
+      "range": "string",
+      "description": "School-defined experiment number.",
+      "source_record_ids": [
+        "JCBX030801"
+      ],
+      "evidence": [
+        "实验序号"
+      ]
+    },
+    {
+      "id": "hasExperimentName",
+      "label": "has experiment name",
+      "domain": "Experiment",
+      "range": "string",
+      "description": "Name of the experiment.",
+      "source_record_ids": [
+        "JCBX030802"
+      ],
+      "evidence": [
+        "实验名称"
+      ]
+    },
+    {
+      "id": "hasAffiliatedCourse",
+      "label": "has affiliated course",
+      "domain": "Experiment",
+      "range": "string",
+      "description": "Course number the experiment belongs to.",
+      "source_record_ids": [
+        "JCBX030803"
+      ],
+      "evidence": [
+        "隶属课程号"
+      ]
+    },
+    {
+      "id": "hasExperimentCategory",
+      "label": "has experiment category",
+      "domain": "Experiment",
+      "range": "string",
+      "description": "Category code of the experiment.",
+      "source_record_ids": [
+        "JCBX030804"
+      ],
+      "evidence": [
+        "实验类别码"
+      ]
+    },
+    {
+      "id": "hasMajorCategory",
+      "label": "has major category",
+      "domain": "Experiment",
+      "range": "string",
+      "description": "Major code the experiment belongs to.",
+      "source_record_ids": [
+        "JCBX030805"
+      ],
+      "evidence": [
+        "专业分类码"
+      ]
+    },
+    {
+      "id": "hasExperimentRequirement",
+      "label": "has experiment requirement",
+      "domain": "Experiment",
+      "range": "string",
+      "description": "Requirement code for the experiment.",
+      "source_record_ids": [
+        "JCBX030806"
+      ],
+      "evidence": [
+        "实验要求码"
+      ]
+    },
+    {
+      "id": "hasExperimenterCategory",
+      "label": "has experimenter category",
+      "domain": "Experiment",
+      "range": "string",
+      "description": "Category code of the experimenters.",
+      "source_record_ids": [
+        "JCBX030807"
+      ],
+      "evidence": [
+        "实验者类别码"
+      ]
+    },
+    {
+      "id": "hasExperimenterCount",
+      "label": "has experimenter count",
+      "domain": "Experiment",
+      "range": "string",
+      "description": "Total number of participants.",
+      "source_record_ids": [
+        "JCBX030808"
+      ],
+      "evidence": [
+        "实验者人数"
+      ]
+    },
+    {
+      "id": "hasGroupSize",
+      "label": "has group size",
+      "domain": "Experiment",
+      "range": "string",
+      "description": "Number of people per equipment set.",
+      "source_record_ids": [
+        "JCBX030809"
+      ],
+      "evidence": [
+        "每组人数"
+      ]
+    },
+    {
+      "id": "hasExperimentHoursExp",
+      "label": "has experiment hours",
+      "domain": "Experiment",
+      "range": "string",
+      "description": "Hours to complete the experiment.",
+      "source_record_ids": [
+        "JCBX030810"
+      ],
+      "evidence": [
+        "实验时数"
+      ]
+    },
+    {
+      "id": "hasAwardLevel",
+      "label": "has award level",
+      "domain": "Experiment",
+      "range": "string",
+      "description": "Award level code.",
+      "source_record_ids": [
+        "JCBX030811"
+      ],
+      "evidence": [
+        "获奖级别码"
+      ]
+    },
+    {
+      "id": "hasInstructor",
+      "label": "has instructor",
+      "domain": "Experiment",
+      "range": "string",
+      "description": "Person ID of the instructor.",
+      "source_record_ids": [
+        "JCBX030812"
+      ],
+      "evidence": [
+        "带课教师号"
+      ]
+    },
+    {
+      "id": "hasExperimentLocation",
+      "label": "has experiment location",
+      "domain": "Experiment",
+      "range": "string",
+      "description": "Location of the experiment.",
+      "source_record_ids": [
+        "JCBX030813"
+      ],
+      "evidence": [
+        "实验地点"
+      ]
+    },
+    {
+      "id": "hasBookId",
+      "label": "has book id",
+      "domain": "Book",
+      "range": "string",
+      "description": "School-defined book number.",
+      "source_record_ids": [
+        "JCBX040101"
+      ],
+      "evidence": [
+        "图书编号"
+      ]
+    },
+    {
+      "id": "hasBookBarcode",
+      "label": "has book barcode",
+      "domain": "Book",
+      "range": "string",
+      "description": "Barcode of the book.",
+      "source_record_ids": [
+        "JCBX040102"
+      ],
+      "evidence": [
+        "图书条形码"
+      ]
+    },
+    {
+      "id": "hasMainTitle",
+      "label": "has main title",
+      "domain": "Book",
+      "range": "string",
+      "description": "Main title of the book.",
+      "source_record_ids": [
+        "JCBX040103"
+      ],
+      "evidence": [
+        "正标题"
+      ]
+    },
+    {
+      "id": "hasParallelTitle",
+      "label": "has parallel title",
+      "domain": "Book",
+      "range": "string",
+      "description": "Parallel title of the book.",
+      "source_record_ids": [
+        "JCBX040104"
+      ],
+      "evidence": [
+        "并列标题"
+      ]
+    },
+    {
+      "id": "hasSubtitle",
+      "label": "has subtitle",
+      "domain": "Book",
+      "range": "string",
+      "description": "Subtitle of the book.",
+      "source_record_ids": [
+        "JCBX040105"
+      ],
+      "evidence": [
+        "副标题"
+      ]
+    },
+    {
+      "id": "hasKeywords",
+      "label": "has keywords",
+      "domain": "Book",
+      "range": "string",
+      "description": "Search keywords for the book.",
+      "source_record_ids": [
+        "JCBX040106"
+      ],
+      "evidence": [
+        "检索关键字"
+      ]
+    },
+    {
+      "id": "hasISBN",
+      "label": "has ISBN",
+      "domain": "Book",
+      "range": "string",
+      "description": "ISBN or standard publication number.",
+      "source_record_ids": [
+        "JCBX040107"
+      ],
+      "evidence": [
+        "图书出版号"
+      ]
+    },
+    {
+      "id": "hasFirstAuthor",
+      "label": "has first author",
+      "domain": "Book",
+      "range": "string",
+      "description": "Name of the first author.",
+      "source_record_ids": [
+        "JCBX040108"
+      ],
+      "evidence": [
+        "第一作者"
+      ]
+    },
+    {
+      "id": "hasOtherAuthors",
+      "label": "has other authors",
+      "domain": "Book",
+      "range": "string",
+      "description": "Names of other authors.",
+      "source_record_ids": [
+        "JCBX040109"
+      ],
+      "evidence": [
+        "其他作者"
+      ]
+    },
+    {
+      "id": "hasPrice",
+      "label": "has price",
+      "domain": "Book",
+      "range": "string",
+      "description": "Price of the book in RMB.",
+      "source_record_ids": [
+        "JCBX040110"
+      ],
+      "evidence": [
+        "价格"
+      ]
+    },
+    {
+      "id": "hasLiteratureType",
+      "label": "has literature type",
+      "domain": "Book",
+      "range": "string",
+      "description": "Literature type code.",
+      "source_record_ids": [
+        "JCBX040111"
+      ],
+      "evidence": [
+        "文献类型码"
+      ]
+    },
+    {
+      "id": "hasBindingType",
+      "label": "has binding type",
+      "domain": "Book",
+      "range": "string",
+      "description": "Binding code.",
+      "source_record_ids": [
+        "JCBX040112"
+      ],
+      "evidence": [
+        "装订码"
+      ]
+    },
+    {
+      "id": "hasClassificationNumber",
+      "label": "has classification number",
+      "domain": "Book",
+      "range": "string",
+      "description": "Classification number according to the Chinese Library Classification.",
+      "source_record_ids": [
+        "JCBX040113"
+      ],
+      "evidence": [
+        "分类号"
+      ]
+    },
+    {
+      "id": "hasChineseLanguageCode",
+      "label": "has Chinese language code",
+      "domain": "Book",
+      "range": "string",
+      "description": "Chinese language code.",
+      "source_record_ids": [
+        "JCBX040114"
+      ],
+      "evidence": [
+        "中国语种码"
+      ]
+    },
+    {
+      "id": "hasLanguageCode",
+      "label": "has language code",
+      "domain": "Book",
+      "range": "string",
+      "description": "Language code.",
+      "source_record_ids": [
+        "JCBX040115"
+      ],
+      "evidence": [
+        "语种码"
+      ]
+    },
+    {
+      "id": "hasFormat",
+      "label": "has format",
+      "domain": "Book",
+      "range": "string",
+      "description": "Format or size of the book.",
+      "source_record_ids": [
+        "JCBX040116"
+      ],
+      "evidence": [
+        "开本"
+      ]
+    },
+    {
+      "id": "hasPageCount",
+      "label": "has page count",
+      "domain": "Book",
+      "range": "string",
+      "description": "Total number of pages.",
+      "source_record_ids": [
+        "JCBX040117"
+      ],
+      "evidence": [
+        "页数"
+      ]
+    },
+    {
+      "id": "hasEdition",
+      "label": "has edition",
+      "domain": "Book",
+      "range": "string",
+      "description": "Edition number.",
+      "source_record_ids": [
+        "JCBX040118"
+      ],
+      "evidence": [
+        "版次"
+      ]
+    },
+    {
+      "id": "hasAttachmentName",
+      "label": "has attachment name",
+      "domain": "Book",
+      "range": "string",
+      "description": "Name of the book attachment.",
+      "source_record_ids": [
+        "JCBX040119"
+      ],
+      "evidence": [
+        "图书附件名称"
+      ]
+    },
+    {
+      "id": "hasSeriesName",
+      "label": "has series name",
+      "domain": "Book",
+      "range": "string",
+      "description": "Name of the series.",
+      "source_record_ids": [
+        "JCBX040120"
+      ],
+      "evidence": [
+        "丛书名称"
+      ]
+    },
+    {
+      "id": "hasSeriesEditor",
+      "label": "has series editor",
+      "domain": "Book",
+      "range": "string",
+      "description": "Editor of the series.",
+      "source_record_ids": [
+        "JCBX040121"
+      ],
+      "evidence": [
+        "丛书编者"
+      ]
+    },
+    {
+      "id": "hasPublisher",
+      "label": "has publisher",
+      "domain": "Book",
+      "range": "string",
+      "description": "Name of the publisher.",
+      "source_record_ids": [
+        "JCBX040122"
+      ],
+      "evidence": [
+        "出版社"
+      ]
+    },
+    {
+      "id": "hasPublisherLevel",
+      "label": "has publisher level",
+      "domain": "Book",
+      "range": "string",
+      "description": "Level code of the publisher.",
+      "source_record_ids": [
+        "JCBX040123"
+      ],
+      "evidence": [
+        "出版社级别码"
+      ]
+    },
+    {
+      "id": "hasPublicationPlace",
+      "label": "has publication place",
+      "domain": "Book",
+      "range": "string",
+      "description": "Place of publication.",
+      "source_record_ids": [
+        "JCBX040124"
+      ],
+      "evidence": [
+        "出版地"
+      ]
+    },
+    {
+      "id": "hasPublicationDate",
+      "label": "has publication date",
+      "domain": "Book",
+      "range": "string",
+      "description": "Date of publication.",
+      "source_record_ids": [
+        "JCBX040125"
+      ],
+      "evidence": [
+        "出版日期"
+      ]
+    },
+    {
+      "id": "hasDistributor",
+      "label": "has distributor",
+      "domain": "Book",
+      "range": "string",
+      "description": "Distributor of the book.",
+      "source_record_ids": [
+        "JCBX040126"
+      ],
+      "evidence": [
+        "发行单位"
+      ]
+    },
+    {
+      "id": "hasBookNote",
+      "label": "has book note",
+      "domain": "Book",
+      "range": "string",
+      "description": "Notes related to the book.",
+      "source_record_ids": [
+        "JCBX040127"
+      ],
+      "evidence": [
+        "备注"
+      ]
+    },
+    {
+      "id": "hasBookStatus",
+      "label": "has book status",
+      "domain": "Book",
+      "range": "string",
+      "description": "Status code of the book.",
+      "source_record_ids": [
+        "JCBX040128"
+      ],
+      "evidence": [
+        "图书状态码"
+      ]
+    },
+    {
+      "id": "hasJournalId",
+      "label": "has journal id",
+      "domain": "Journal",
+      "range": "string",
+      "description": "School-defined journal number.",
+      "source_record_ids": [
+        "JCBX040201"
+      ],
+      "evidence": [
+        "期刊编号"
+      ]
+    },
+    {
+      "id": "hasJournalBarcode",
+      "label": "has journal barcode",
+      "domain": "Journal",
+      "range": "string",
+      "description": "Barcode of the journal.",
+      "source_record_ids": [
+        "JCBX040202"
+      ],
+      "evidence": [
+        "期刊条形码"
+      ]
+    }
+  ],
+  "object_properties": [],
+  "relations": [],
+  "class_hierarchy": []
+}
