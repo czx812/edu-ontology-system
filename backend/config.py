@@ -1,4 +1,4 @@
-from pathlib import Path
+﻿from pathlib import Path
 
 from dotenv import load_dotenv
 
@@ -9,10 +9,12 @@ DATA_DIR = BASE_DIR / "data"
 UPLOAD_DIR = DATA_DIR / "uploads"
 EXPORT_DIR = DATA_DIR / "exports"
 STRUCTURED_DIR = DATA_DIR / "structured"
+TRACE_DIR = DATA_DIR / "traces"
 LOG_DIR = DATA_DIR / "logs"
 SYSTEM_LOG_FILE = LOG_DIR / "system.log"
 DB_FILE = DATA_DIR / "app.db"
 
+# 读取项目根目录下的 .env
 load_dotenv(PROJECT_DIR / ".env")
 
 
@@ -27,6 +29,7 @@ class Settings:
     UPLOAD_DIR = UPLOAD_DIR
     EXPORT_DIR = EXPORT_DIR
     STRUCTURED_DIR = STRUCTURED_DIR
+    TRACE_DIR = TRACE_DIR
     LOG_DIR = LOG_DIR
     SYSTEM_LOG_FILE = SYSTEM_LOG_FILE
     DB_FILE = DB_FILE
@@ -39,6 +42,7 @@ for directory in (
     settings.UPLOAD_DIR,
     settings.EXPORT_DIR,
     settings.STRUCTURED_DIR,
+    settings.TRACE_DIR,
     settings.LOG_DIR,
 ):
     directory.mkdir(parents=True, exist_ok=True)

@@ -4,3 +4,4 @@ python-dotenv
 pdfplumber
 camelot-py
 python-multipart
+requests

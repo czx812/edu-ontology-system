@@ -8,6 +8,8 @@ class OntologyState(TypedDict):
     entity_json: Dict[str, Any]
     semantic_model: Dict[str, Any]
     ontology: Dict[str, Any]
+    trace_map: Dict[str, Any]
+    trace_file: str
     owl_file: str
 
 
@@ -19,5 +21,7 @@ def create_state() -> OntologyState:
         "entity_json": {},
         "semantic_model": {},
         "ontology": {},
+        "trace_map": {},
+        "trace_file": "",
         "owl_file": "",
     }

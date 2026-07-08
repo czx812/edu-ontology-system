@@ -12,12 +12,14 @@ for path in (CURRENT_DIR, PROJECT_DIR):
 
 from api.admin_logs import router as admin_logs_router
 from api.auth import router as auth_router
+from api.debug import router as debug_router
 from api.export import router as export_router
 from api.generate import router as generate_router
 from api.logs import router as logs_router
 from api.upload import router as upload_router
 from config import settings
 from middleware.log_middleware import RequestLogMiddleware
+from services.llm_service import LLMService
 from services.log_service import init_log_tables, write_system_log
 
 
@@ -45,6 +47,7 @@ def create_app() -> FastAPI:
         auth_router,
         upload_router,
         generate_router,
+        debug_router,
         export_router,
         logs_router,
         admin_logs_router,
@@ -55,6 +58,7 @@ def create_app() -> FastAPI:
     def startup() -> None:
         init_log_tables()
         write_system_log("INFO", "后端服务启动")
+        LLMService().print_config()
         print("[系统] 日志管理模块已启用")
         print(f"[系统] 系统日志文件：{settings.SYSTEM_LOG_FILE}")
 

@@ -2,7 +2,7 @@
 
 const api = axios.create({
   baseURL: "/api",
-  timeout: 1800000,
+  timeout: 600000,
 });
 
 api.interceptors.request.use((config) => {
@@ -32,10 +32,44 @@ export function uploadPDF(file) {
   return api.post("/upload", formData);
 }
 
-export function generateOntology(filePath) {
+export function generateOntology(filePath, options = {}) {
   return api.post("/generate", {
     file_path: filePath,
+    mode: options.mode || "rule_draft_llm_enhance",
+    force_regenerate: Boolean(options.force_regenerate),
+    max_group_records: Number(options.max_group_records || 80),
+    enable_review: Boolean(options.enable_review),
+    enable_alignment: options.enable_alignment !== false,
+    enable_deep_alignment: Boolean(options.enable_deep_alignment),
+    enable_global_merge: Boolean(options.enable_global_merge),
+    enable_cache: options.enable_cache !== false,
+    max_generation_seconds: Number(options.max_generation_seconds || 180),
+    llm_single_call_timeout: Number(options.llm_single_call_timeout || 45),
   });
+}
+
+export function startGeneration(filePath, options = {}) {
+  return api.post("/generate/start", {
+    file_path: filePath,
+    mode: options.mode || "rule_draft_llm_enhance",
+    force_regenerate: Boolean(options.force_regenerate),
+    max_group_records: Number(options.max_group_records || 80),
+    enable_review: Boolean(options.enable_review),
+    enable_alignment: options.enable_alignment !== false,
+    enable_deep_alignment: Boolean(options.enable_deep_alignment),
+    enable_global_merge: Boolean(options.enable_global_merge),
+    enable_cache: options.enable_cache !== false,
+    max_generation_seconds: Number(options.max_generation_seconds || 180),
+    llm_single_call_timeout: Number(options.llm_single_call_timeout || 45),
+  });
+}
+
+export function getGenerationProgress(jobId) {
+  return api.get(`/generate/progress/${jobId}`);
+}
+
+export function getGenerationResult(jobId) {
+  return api.get(`/generate/result/${jobId}`);
 }
 
 export function exportOWL(filePath) {

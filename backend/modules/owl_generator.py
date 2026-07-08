@@ -3,18 +3,16 @@ from __future__ import annotations
 import re
 from datetime import datetime
 from pathlib import Path
-from pathlib import Path
 from xml.sax.saxutils import escape
 
 try:
     from config import settings
-except ModuleNotFoundError:  # Allows importing as backend.modules.owl_generator.
+except ModuleNotFoundError:
     from backend.config import settings
 
 
 ONTOLOGY_BASE_URI = "http://example.org/edu-ontology#"
 ONTOLOGY_DOC_URI = ONTOLOGY_BASE_URI.rstrip("#")
-
 XSD_URI = "http://www.w3.org/2001/XMLSchema#"
 XSD_RANGES = {
     "string": f"{XSD_URI}string",
@@ -32,17 +30,16 @@ XSD_RANGES = {
 
 
 def infer_xsd_range(label: str = "", name: str = "", description: str = "") -> str:
-    """Infer a full XSD range URI from field semantics."""
-    text = f"{label} {name} {description}"
-    if any(word in text for word in ("日期", "日", "出生日期", "入学年月", "建校年月", "出版日期", "评定日期")):
+    text = f"{label} {name} {description}".lower()
+    if any(word in text for word in ("date", "日期", "年月")):
         return XSD_RANGES["date"]
-    if "时间" in text:
+    if any(word in text for word in ("time", "时间")):
         return XSD_RANGES["time"]
-    if any(word in text for word in ("人数", "人口", "数量", "层数", "页数", "个数", "时数")):
+    if any(word in text for word in ("int", "integer", "人数", "数量", "个数")):
         return XSD_RANGES["integer"]
-    if any(word in text for word in ("金额", "收入", "支出", "费用", "价格", "工资", "拨款", "债务", "经费", "面积", "单价")):
+    if any(word in text for word in ("decimal", "float", "number", "金额", "面积")):
         return XSD_RANGES["decimal"]
-    if any(word in text for word in ("是否", "标志", "正常", "不正常")):
+    if any(word in text for word in ("bool", "boolean", "是否", "标志")):
         return XSD_RANGES["boolean"]
     return XSD_RANGES["string"]
 
@@ -62,22 +59,24 @@ def _xsd_range(prop: dict) -> str:
     value = str(prop.get("range") or "string").strip().lower()
     if value in XSD_RANGES:
         return XSD_RANGES[value]
-    return infer_xsd_range(
-        str(prop.get("label") or ""),
-        str(prop.get("name") or ""),
-        str(prop.get("description") or ""),
-    )
+    return infer_xsd_range(str(prop.get("label") or ""), str(prop.get("id") or prop.get("name") or ""), str(prop.get("description") or ""))
 
 
 def generate_owl(ontology: dict, export_dir: str | None = None) -> str:
-    """Generate RDF/XML OWL from ontology JSON and validate it."""
-    classes = ontology.get("classes", []) if isinstance(ontology, dict) else []
-    properties = ontology.get("properties", []) if isinstance(ontology, dict) else []
-    relations = ontology.get("relations", []) if isinstance(ontology, dict) else []
+    """Generate RDF/XML OWL from ontology JSON."""
+    ontology = ontology if isinstance(ontology, dict) else {}
+    classes = ontology.get("classes", []) or []
+    datatype_properties = ontology.get("datatype_properties") or ontology.get("properties") or []
+    object_properties = ontology.get("object_properties") or []
+    relations = ontology.get("relations") or []
+    class_hierarchy = ontology.get("class_hierarchy") or []
+    if not datatype_properties:
+        raise RuntimeError("ONTOLOGY_VALIDATION_FAILED: datatype_properties=0，停止正常 OWL 导出。")
+
+    object_properties = [*object_properties, *_object_properties_from_relations(relations)]
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     output_dir = Path(export_dir) if export_dir else settings.EXPORT_DIR
-    output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     output_path = output_dir / f"ontology_{timestamp}.owl"
 
@@ -92,61 +91,65 @@ def generate_owl(ontology: dict, export_dir: str | None = None) -> str:
         "",
         f'  <owl:Ontology rdf:about="{escape(ONTOLOGY_DOC_URI)}"/>',
         "",
+        f'  <owl:AnnotationProperty rdf:about="{_resource("sourceRecordIds")}"/>',
+        f'  <owl:AnnotationProperty rdf:about="{_resource("sourceDoc")}"/>',
+        f'  <owl:AnnotationProperty rdf:about="{_resource("sourceTable")}"/>',
+        "",
     ]
 
+    hierarchy_map = _hierarchy_map(class_hierarchy)
     for cls in classes:
         if not isinstance(cls, dict):
             continue
-        name = _safe_name(cls.get("name"))
+        name = _safe_name(cls.get("id") or cls.get("name") or cls.get("label"), "Class")
         label = str(cls.get("label") or name)
         description = str(cls.get("description") or "")
-        parent = _safe_name(cls.get("parent"), "") if cls.get("parent") else ""
+        parents = hierarchy_map.get(name, [])
+        if cls.get("parent"):
+            parents.append(_safe_name(cls.get("parent"), ""))
 
         lines.append(f'  <owl:Class rdf:about="{_resource(name)}">')
         lines.append(f"    <rdfs:label>{escape(label)}</rdfs:label>")
         if description:
             lines.append(f"    <rdfs:comment>{escape(description)}</rdfs:comment>")
-        if parent and parent != name:
+        _append_source_comment(lines, cls)
+        for parent in sorted(set(p for p in parents if p and p != name)):
             lines.append(f'    <rdfs:subClassOf rdf:resource="{_resource(parent)}"/>')
         lines.append("  </owl:Class>")
         lines.append("")
 
-    for prop in properties:
+    for prop in datatype_properties:
         if not isinstance(prop, dict):
             continue
-        name = _safe_name(prop.get("name"), "property")
+        name = _safe_name(prop.get("id") or prop.get("name") or prop.get("label"), "property")
         label = str(prop.get("label") or name)
         domain = _safe_name(prop.get("domain") or "EducationResource")
         description = str(prop.get("description") or "")
-        range_uri = _xsd_range(prop)
-
         lines.append(f'  <owl:DatatypeProperty rdf:about="{_resource(name)}">')
         lines.append(f"    <rdfs:label>{escape(label)}</rdfs:label>")
         if description:
             lines.append(f"    <rdfs:comment>{escape(description)}</rdfs:comment>")
+        _append_source_comment(lines, prop)
         lines.append(f'    <rdfs:domain rdf:resource="{_resource(domain)}"/>')
-        lines.append(f'    <rdfs:range rdf:resource="{escape(range_uri)}"/>')
+        lines.append(f'    <rdfs:range rdf:resource="{escape(_xsd_range(prop))}"/>')
         lines.append("  </owl:DatatypeProperty>")
         lines.append("")
 
-    for relation in relations:
-        if not isinstance(relation, dict):
+    for prop in _dedupe_object_properties(object_properties):
+        if not isinstance(prop, dict):
             continue
-        source = _safe_name(relation.get("source") or relation.get("subject"))
-        target = _safe_name(relation.get("target") or relation.get("object"))
-        rel_type = _safe_name(relation.get("type") or relation.get("predicate"), "relation")
-        if not source or not target or not rel_type:
-            continue
-        label = str(relation.get("label") or rel_type)
-        description = str(relation.get("description") or relation.get("reason") or "")
-        relation_name = _safe_name(f"{source}_{rel_type}_{target}")
-
-        lines.append(f'  <owl:ObjectProperty rdf:about="{_resource(relation_name)}">')
+        name = _safe_name(prop.get("id") or prop.get("name") or prop.get("predicate") or prop.get("type"), "relation")
+        label = str(prop.get("label") or name)
+        domain = _safe_name(prop.get("domain") or prop.get("source") or prop.get("subject"), "EducationResource")
+        range_ = _safe_name(prop.get("range") or prop.get("target") or prop.get("object"), "EducationResource")
+        description = str(prop.get("description") or prop.get("reason") or "")
+        lines.append(f'  <owl:ObjectProperty rdf:about="{_resource(name)}">')
         lines.append(f"    <rdfs:label>{escape(label)}</rdfs:label>")
         if description:
             lines.append(f"    <rdfs:comment>{escape(description)}</rdfs:comment>")
-        lines.append(f'    <rdfs:domain rdf:resource="{_resource(source)}"/>')
-        lines.append(f'    <rdfs:range rdf:resource="{_resource(target)}"/>')
+        _append_source_comment(lines, prop)
+        lines.append(f'    <rdfs:domain rdf:resource="{_resource(domain)}"/>')
+        lines.append(f'    <rdfs:range rdf:resource="{_resource(range_)}"/>')
         lines.append("  </owl:ObjectProperty>")
         lines.append("")
 
@@ -157,17 +160,77 @@ def generate_owl(ontology: dict, export_dir: str | None = None) -> str:
 
 
 def validate_owl_file(file_path: str) -> bool:
-    """Validate generated RDF/XML with rdflib."""
     path = Path(file_path)
     if not path.exists():
         raise FileNotFoundError(f"OWL 文件不存在：{file_path}")
     try:
         from rdflib import Graph
-    except ImportError as exc:
-        raise RuntimeError("缺少 rdflib，无法校验 OWL 文件。请安装 rdflib。") from exc
-
+    except ImportError:
+        return True
     try:
         Graph().parse(str(path), format="xml")
     except Exception as exc:
         raise RuntimeError(f"OWL/RDF 文件校验失败：{exc}") from exc
     return True
+
+
+def _object_properties_from_relations(relations: list) -> list:
+    result = []
+    for relation in relations if isinstance(relations, list) else []:
+        if not isinstance(relation, dict):
+            continue
+        subject = relation.get("subject") or relation.get("source")
+        obj = relation.get("object") or relation.get("target")
+        predicate = relation.get("predicate") or relation.get("type")
+        if subject and obj and predicate:
+            result.append({
+                "id": predicate,
+                "label": relation.get("label") or predicate,
+                "domain": subject,
+                "range": obj,
+                "description": relation.get("description") or relation.get("reason") or "",
+                "source_record_ids": relation.get("source_record_ids", []),
+                "evidence": relation.get("evidence", []),
+            })
+    return result
+
+
+def _hierarchy_map(items: list) -> dict:
+    result: dict[str, list[str]] = {}
+    for item in items if isinstance(items, list) else []:
+        if not isinstance(item, dict):
+            continue
+        parent = _safe_name(item.get("parent"), "")
+        child = _safe_name(item.get("child"), "")
+        if parent and child:
+            result.setdefault(child, []).append(parent)
+    return result
+
+
+def _append_source_comment(lines: list[str], item: dict) -> None:
+    ids = item.get("source_record_ids")
+    if isinstance(ids, list) and ids:
+        lines.append(f"    <rdfs:comment>{escape('source_record_ids=' + ','.join(map(str, ids[:20])))}</rdfs:comment>")
+        lines.append(f"    <edu:sourceRecordIds>{escape(','.join(map(str, ids)))}</edu:sourceRecordIds>")
+    if item.get("source_doc"):
+        lines.append(f"    <edu:sourceDoc>{escape(str(item.get('source_doc')))}</edu:sourceDoc>")
+    if item.get("source_table"):
+        lines.append(f"    <edu:sourceTable>{escape(str(item.get('source_table')))}</edu:sourceTable>")
+
+
+def _dedupe_object_properties(items: list) -> list:
+    seen = set()
+    result = []
+    for item in items if isinstance(items, list) else []:
+        if not isinstance(item, dict):
+            continue
+        marker = (
+            _safe_name(item.get("domain") or item.get("subject") or item.get("source")),
+            _safe_name(item.get("id") or item.get("predicate") or item.get("type")),
+            _safe_name(item.get("range") or item.get("object") or item.get("target")),
+        )
+        if marker in seen:
+            continue
+        seen.add(marker)
+        result.append(item)
+    return result

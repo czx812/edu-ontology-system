@@ -4,10 +4,11 @@ from __future__ import annotations
 
 import json
 import os
+import time
 from typing import Any, Dict, List, Optional, Set, Tuple, Union
 
 from backend.ai.entity_extractor import EntityExtractor
-from backend.ai.llm_service import LLMService
+from backend.ai.llm_service import LLMService, llm_batch_size
 from backend.ai.prompts import build_global_relation_prompt, build_ontology_prompt
 
 
@@ -27,12 +28,15 @@ class OntologyGenerator:
         self.last_raw_ontology: Optional[Dict[str, Any]] = None
         self.last_generation_mode = "llm"
         self.last_warnings: List[str] = []
+        self.last_llm_stats: Dict[str, Any] = self._empty_llm_stats()
 
     def generate(self, data: Any, use_llm: bool = True) -> Dict[str, Any]:
         if _is_empty(data):
+            self.last_llm_stats = self._empty_llm_stats()
             return self._empty_ontology()
 
         self.last_warnings = []
+        self.last_llm_stats = self._empty_llm_stats()
         if use_llm and self.llm_service.available and _should_batch_records(data):
             return self._generate_batched(data)
 
@@ -45,14 +49,17 @@ class OntologyGenerator:
             try:
                 ontology = self.llm_service.chat_json(self.last_ontology_prompt)
                 self.last_generation_mode = "llm"
+                self.last_llm_stats = self._single_llm_stats(success=True)
             except Exception as exc:
                 self.last_warnings.append(f"LLM 本体生成失败，已使用规则 fallback：{exc}")
                 ontology = self._rule_fallback(entity_json)
                 self.last_generation_mode = "rule_fallback"
+                self.last_llm_stats = self._single_llm_stats(success=False)
         else:
             self.last_warnings.append("LLM_API_KEY 未配置，已使用规则 fallback。")
             ontology = self._rule_fallback(entity_json)
             self.last_generation_mode = "rule_fallback"
+            self.last_llm_stats = self._single_llm_stats(success=False)
 
         if entity_json.get("metadata", {}).get("generation_mode") == "rule_fallback":
             self.last_generation_mode = "rule_fallback"
@@ -67,12 +74,15 @@ class OntologyGenerator:
 
     def _generate_batched(self, data: Dict[str, Any]) -> Dict[str, Any]:
         records = data.get("records", [])
-        batches = list(_record_batches(records, _batch_size()))
+        batch_size = _batch_size()
+        batches = list(_record_batches(records, batch_size))
         merged_entity: Dict[str, Any] = {"entities": [], "attributes": [], "relations": []}
         merged_ontology: Dict[str, Any] = {"classes": [], "properties": [], "relations": []}
-        fallback_batches = 0
+        success_batches = 0
+        failed_batches = 0
 
         for index, batch in enumerate(batches, start=1):
+            batch_start = time.perf_counter()
             chunk_data = _chunk_data(data, batch, index, len(batches))
             entity_json = self.extractor.extract(chunk_data, use_llm=True)
             self.last_warnings.extend(entity_json.get("warnings", []))
@@ -81,8 +91,16 @@ class OntologyGenerator:
             self.last_ontology_prompt = build_ontology_prompt(chunk_data, entity_json)
             try:
                 ontology = self.llm_service.chat_json(self.last_ontology_prompt)
+                success_batches += 1
+                duration_ms = round((time.perf_counter() - batch_start) * 1000, 2)
+                print(f"[LLM BATCH] batch={index}/{len(batches)} status=success duration_ms={duration_ms}")
             except Exception as exc:
-                fallback_batches += 1
+                failed_batches += 1
+                error_type = str(getattr(exc, "error_type", type(exc).__name__))
+                print(
+                    f"[LLM BATCH] batch={index}/{len(batches)} status=failed "
+                    f"error_type={error_type} retry={self.llm_service.max_retries}"
+                )
                 self.last_warnings.append(
                     f"LLM batch {index}/{len(batches)} ontology generation failed; used rule fallback: {exc}"
                 )
@@ -92,11 +110,24 @@ class OntologyGenerator:
 
         self.last_entity_json = merged_entity
         self.last_raw_ontology = merged_ontology
-        self.last_generation_mode = "llm_batched" if fallback_batches == 0 else "mixed_fallback"
+        if failed_batches == 0:
+            self.last_generation_mode = "group_llm"
+        elif success_batches == 0:
+            self.last_generation_mode = "llm_failed_fallback"
+        else:
+            self.last_generation_mode = "partial_llm"
+        self.last_llm_stats = {
+            **self._empty_llm_stats(),
+            "llm_batch_size": batch_size,
+            "llm_total_batches": len(batches),
+            "llm_success_batches": success_batches,
+            "llm_failed_batches": failed_batches,
+        }
         normalized = self._normalize(merged_ontology)
-        normalized = self._add_global_relations(normalized)
+        if success_batches > 0:
+            normalized = self._add_global_relations(normalized)
         self.last_warnings.append(
-            f"已分 {len(batches)} 批完整处理 {len(records)} 条 records，每批约 {_batch_size()} 条。"
+            f"已分 {len(batches)} 批完整处理 {len(records)} 条 records，每批约 {batch_size} 条。"
         )
         if not normalized["relations"]:
             self.last_warnings.append("当前大模型未识别出对象关系，OWL 中不会生成 owl:ObjectProperty。")
@@ -297,12 +328,27 @@ class OntologyGenerator:
     def _empty_ontology(self) -> Dict[str, Any]:
         return {"classes": [], "properties": [], "relations": []}
 
+    def _empty_llm_stats(self) -> Dict[str, Any]:
+        return {
+            "llm_provider": self.llm_service.provider,
+            "llm_model": self.llm_service.model,
+            "llm_batch_size": _batch_size(),
+            "llm_total_batches": 0,
+            "llm_success_batches": 0,
+            "llm_failed_batches": 0,
+        }
+
+    def _single_llm_stats(self, success: bool) -> Dict[str, Any]:
+        return {
+            **self._empty_llm_stats(),
+            "llm_total_batches": 1,
+            "llm_success_batches": 1 if success else 0,
+            "llm_failed_batches": 0 if success else 1,
+        }
+
 
 def _batch_size() -> int:
-    try:
-        return max(1, int(os.getenv("LLM_BATCH_RECORDS", os.getenv("LLM_MAX_PROMPT_RECORDS", "60"))))
-    except ValueError:
-        return 60
+    return llm_batch_size()
 
 
 def _should_batch_records(data: Any) -> bool:
@@ -338,7 +384,7 @@ def _merge_entity_json(left: Dict[str, Any], right: Dict[str, Any]) -> Dict[str,
         "entities": _dedupe_items([*left.get("entities", []), *right.get("entities", [])], "name"),
         "attributes": _dedupe_items([*left.get("attributes", []), *right.get("attributes", [])], ("entity", "name")),
         "relations": _dedupe_items([*left.get("relations", []), *right.get("relations", [])], ("source", "target", "type")),
-        "metadata": {"generation_mode": "llm_batched"},
+        "metadata": {"generation_mode": "group_llm"},
     }
 
 

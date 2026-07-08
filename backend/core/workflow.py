@@ -9,6 +9,14 @@ class ModuleNotReadyError(RuntimeError):
     pass
 
 
+class DataExtractionFailedError(RuntimeError):
+    pass
+
+
+class OntologyValidationFailedError(RuntimeError):
+    pass
+
+
 DEFAULT_STATE = {
     "file_path": "",
     "export_dir": "",
@@ -19,8 +27,11 @@ DEFAULT_STATE = {
     "entity_json": {},
     "semantic_model": {},
     "ontology": {},
+    "trace_map": {},
+    "trace_file": "",
     "owl_file": "",
     "errors": [],
+    "generate_options": {},
 }
 
 
@@ -92,8 +103,20 @@ def align_node(state: dict) -> dict:
     return state
 
 
+def provenance_node(state: dict) -> dict:
+    state = _merge_state(state)
+    build_trace_map = _load_function("modules.provenance", "build_trace_map")
+    state["trace_map"] = build_trace_map(state["clean_data"], state["ontology"])
+    state["trace_file"] = state["trace_map"].get("trace_file", "")
+    return state
+
+
 def owl_generate_node(state: dict) -> dict:
     state = _merge_state(state)
+    ontology = state.get("ontology", {}) if isinstance(state.get("ontology", {}), dict) else {}
+    datatype_properties = ontology.get("datatype_properties") or ontology.get("properties") or []
+    if not datatype_properties:
+        raise OntologyValidationFailedError("ONTOLOGY_VALIDATION_FAILED: records>0 但 datatype_properties=0，停止 OWL 导出。")
     generate_owl = _load_function("modules.owl_generator", "generate_owl")
     export_dir = state.get("export_dir") or str(settings.EXPORT_DIR)
     state["owl_file"] = generate_owl(state["ontology"], export_dir=export_dir)
@@ -101,7 +124,7 @@ def owl_generate_node(state: dict) -> dict:
 
 
 def run_workflow(state: dict) -> dict:
-    """Full flow: PDF -> parse -> clean -> schema match -> ontology -> align -> OWL."""
+    """Full flow: PDF -> parse -> clean -> schema match -> ontology -> align -> provenance -> OWL."""
     state = _merge_state(state)
     file_path = Path(state["file_path"])
     if not file_path.exists():
@@ -110,14 +133,31 @@ def run_workflow(state: dict) -> dict:
         raise FileNotFoundError(f"PDF文件不存在：{state['file_path']}")
     state["file_path"] = str(file_path)
 
-    for node in (
-        extract_node,
-        clean_node,
-        schema_match_node,
-        ontology_build_node,
-        align_node,
-        owl_generate_node,
-    ):
+    progress = state.get("progress_callback")
+    nodes = (
+        ("pdf_parse", "PDF 解析中", extract_node),
+        ("data_clean", "数据清洗中", clean_node),
+        ("schema_match", "模式匹配中", schema_match_node),
+        ("rule_draft", "规则生成初始本体中", ontology_build_node),
+        ("align", "多本体对齐中", align_node),
+        ("provenance", "数据溯源中", provenance_node),
+        ("owl_export", "OWL 导出中", owl_generate_node),
+    )
+    for step, label, node in nodes:
+        if callable(progress):
+            progress(step, label, message=label)
         state = node(state)
+        if step == "schema_match":
+            clean_data = state.get("clean_data", {}) if isinstance(state.get("clean_data", {}), dict) else {}
+            records = clean_data.get("records", []) if isinstance(clean_data.get("records", []), list) else []
+            if len(records) == 0:
+                if callable(progress):
+                    progress(
+                        "done",
+                        "完成",
+                        message="DATA_EXTRACTION_FAILED: 未从 PDF 中提取到结构化教育标准表格数据。",
+                        stats={"generation_mode": "data_extraction_failed", "total_records": 0},
+                    )
+                raise DataExtractionFailedError("DATA_EXTRACTION_FAILED: 未从 PDF 中提取到结构化教育标准表格数据。")
 
     return state
