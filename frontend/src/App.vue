@@ -9,6 +9,7 @@
       <nav class="nav-group">
         <router-link to="/dashboard">生成工作台</router-link>
         <router-link to="/sources">数据源检索</router-link>
+        <router-link to="/graph">本体图谱可视化</router-link>
         <router-link to="/audit">审计中心</router-link>
         <router-link to="/generations">本体文件记录</router-link>
         <router-link to="/profile">个人信息</router-link>
@@ -82,3 +83,5 @@ button, input, select { font: inherit; }
   .logout { margin-top: 0; }
 }
 </style>
+
+

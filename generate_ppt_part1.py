@@ -1,0 +1,20 @@
+# -*- coding: utf-8 -*-
+from pptx import Presentation
+from pptx.util import Inches, Pt
+from pptx.dml.color import RGBColor
+from pptx.enum.text import PP_ALIGN
+from pptx.enum.shapes import MSO_SHAPE
+import os, sys
+
+DARK_BLUE = RGBColor(0x10,0x18,0x28)
+MEDIUM_BLUE = RGBColor(0x1D,0x4E,0xD8)
+LIGHT_BLUE = RGBColor(0x3B,0x82,0xF6)
+ACCENT_BLUE = RGBColor(0x60,0xA5,0xFA)
+WHITE = RGBColor(0xFF,0xFF,0xFF)
+LIGHT_GRAY = RGBColor(0xF1,0xF5,0xF9)
+DARK_GRAY = RGBColor(0x33,0x40,0x55)
+MED_GRAY = RGBColor(0x64,0x74,0x8B)
+TEXT_DARK = RGBColor(0x0F,0x17,0x2A)
+GREEN = RGBColor(0x10,0xB9,0x81)
+ORANGE = RGBColor(0xF5,0x9E,0x0B)
+print('colors ok')

@@ -13,11 +13,13 @@ import AdminGenerationRecords from "./views/AdminGenerationRecords.vue";
 import DataSourceSearch from "./views/DataSourceSearch.vue";
 import AuditCenter from "./views/AuditCenter.vue";
 import UserManagement from "./views/UserManagement.vue";
+import Graph from "./views/Graph.vue";
 
 const routes = [
   { path: "/", component: Auth },
   { path: "/dashboard", component: Dashboard, meta: { requiresAuth: true } },
   { path: "/result", component: Result, meta: { requiresAuth: true } },
+  { path: "/graph", component: Graph, meta: { requiresAuth: true } },
   { path: "/sources", component: DataSourceSearch, meta: { requiresAuth: true } },
   { path: "/audit", component: AuditCenter, meta: { requiresAuth: true } },
   { path: "/profile", component: Profile, meta: { requiresAuth: true } },
@@ -61,3 +63,5 @@ router.beforeEach((to, from, next) => {
 });
 
 createApp(App).use(router).mount("#app");
+
+

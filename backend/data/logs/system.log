@@ -159,3 +159,7 @@
 [2026-07-09 08:39:55] [INFO] 本体生成成功：D:\基于大模型智能体的教育本体构建系统\edu-ontology-system\backend\data\uploads\3\f783076c082d4ff1a21e48bd14096865.pdf
 [2026-07-09 09:21:45] [INFO] 后端服务启动
 [2026-07-09 09:23:11] [INFO] Batch PDF upload success: count=2
+[2026-07-09 09:24:02] [INFO] Batch ontology generation success: count=2
+[2026-07-09 09:24:58] [INFO] Batch PDF upload success: count=4
+[2026-07-09 09:28:16] [INFO] Batch ontology generation success: count=4
+[2026-07-09 15:54:41] [INFO] 后端服务启动
