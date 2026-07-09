@@ -32,6 +32,14 @@ export function uploadPDF(file) {
   return api.post("/upload", formData);
 }
 
+
+export function uploadBatchPDF(files) {
+  const formData = new FormData();
+  Array.from(files || []).forEach((file) => formData.append("files", file));
+  return api.post("/upload/batch", formData, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
+}
 export function generateOntology(filePath, options = {}) {
   return api.post("/generate", {
     file_path: filePath,
@@ -114,3 +122,21 @@ export function searchDataSources(params = {}) {
 export function getAdminUsers() {
   return api.get("/admin/users");
 }
+
+export function generateBatchOntology(filePaths, options = {}) {
+  return api.post("/generate/batch", {
+    file_paths: filePaths,
+    mode: options.mode || "rule_draft_llm_enhance",
+    force_regenerate: Boolean(options.force_regenerate),
+    max_group_records: Number(options.max_group_records || 80),
+    enable_review: Boolean(options.enable_review),
+    enable_alignment: options.enable_alignment !== false,
+    enable_deep_alignment: Boolean(options.enable_deep_alignment),
+    enable_global_merge: Boolean(options.enable_global_merge),
+    enable_cache: options.enable_cache !== false,
+    enable_merge: options.enable_merge !== false,
+    max_generation_seconds: Number(options.max_generation_seconds || 180),
+    llm_single_call_timeout: Number(options.llm_single_call_timeout || 45),
+  });
+}
+

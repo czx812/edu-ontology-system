@@ -1,11 +1,11 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import hashlib
 import re
-from typing import Any, Dict, List, Set
+from typing import Any, Dict, List, Optional, Set
 
 
-def build_rule_draft_properties(records: list, classes: list | None = None, source_doc: str = "") -> List[dict]:
+def build_rule_draft_properties(records: list, classes: Optional[list] = None, source_doc: str = "") -> List[dict]:
     class_ids = {_class_id(item) for item in classes or [] if isinstance(item, dict) and _class_id(item)} or {"EducationDataElement", "EducationResource"}
     default_domain = _best_default_domain(class_ids)
     properties: List[dict] = []
@@ -18,6 +18,7 @@ def build_rule_draft_properties(records: list, classes: list | None = None, sour
         prop_id = _unique_id(_property_id_from_record(record, label, rid), used_ids)
         used_ids.add(prop_id)
         domain = _rule_domain(record, class_ids, default_domain)
+        source = record.get("source") if isinstance(record.get("source"), dict) else {}
         properties.append({
             "id": prop_id,
             "name": prop_id,
@@ -27,7 +28,11 @@ def build_rule_draft_properties(records: list, classes: list | None = None, sour
             "description": str(record.get("description") or record.get("comment") or "")[:500],
             "source_record_ids": [rid],
             "source_doc": source_doc,
-            "source_table": str(record.get("source_table") or record.get("source_section") or ""),
+            "source": source,
+            "sources": [source] if source else [],
+            "source_file": source.get("file_path") or source_doc,
+            "source_filename": source.get("filename") or "",
+            "source_table": str(record.get("source_table") or record.get("source_section") or source.get("table_index") or ""),
             "evidence": [_evidence(record, rid, label)],
             "generated_by": "rule_draft",
             "confidence": 0.78,
@@ -37,7 +42,7 @@ def build_rule_draft_properties(records: list, classes: list | None = None, sour
     return properties
 
 
-def expand_datatype_properties_by_llm_rules(records: list, llm_blueprint: dict, document_structure: dict | None = None, source_doc: str = "") -> List[dict]:
+def expand_datatype_properties_by_llm_rules(records: list, llm_blueprint: dict, document_structure: Optional[dict] = None, source_doc: str = "") -> List[dict]:
     classes = _normalize_classes(llm_blueprint.get("classes", []))
     class_ids = {_class_id(item) for item in classes if _class_id(item)} or {"EducationResource"}
     default_domain = _best_default_domain(class_ids)
@@ -59,6 +64,7 @@ def expand_datatype_properties_by_llm_rules(records: list, llm_blueprint: dict, 
         domain, domain_conf = _infer_domain(record, class_ids, domain_rules, mapping_rules, default_domain)
         range_, range_conf = _infer_range(record, range_rules)
         low_confidence = domain_conf < 0.7 or range_conf < 0.7
+        source = record.get("source") if isinstance(record.get("source"), dict) else {}
         properties.append({
             "id": prop_id,
             "name": prop_id,
@@ -68,7 +74,11 @@ def expand_datatype_properties_by_llm_rules(records: list, llm_blueprint: dict, 
             "description": str(record.get("description") or record.get("comment") or "")[:500],
             "source_record_ids": [rid],
             "source_doc": source_doc,
-            "source_table": str(record.get("source_table") or record.get("source_section") or ""),
+            "source": source,
+            "sources": [source] if source else [],
+            "source_file": source.get("file_path") or source_doc,
+            "source_filename": source.get("filename") or "",
+            "source_table": str(record.get("source_table") or record.get("source_section") or source.get("table_index") or ""),
             "evidence": [_evidence(record, rid, label)],
             "generated_by": "llm_rule_expansion" if has_blueprint else "rule_completion",
             "confidence": round(min(domain_conf, range_conf), 2),
@@ -78,7 +88,7 @@ def expand_datatype_properties_by_llm_rules(records: list, llm_blueprint: dict, 
     return properties
 
 
-def validate_and_complete_ontology(ontology: dict, records: list, document_structure: dict | None = None, source_doc: str = "") -> dict:
+def validate_and_complete_ontology(ontology: dict, records: list, document_structure: Optional[dict] = None, source_doc: str = "") -> dict:
     ontology = _normalize_shape(ontology)
     warnings = list(ontology.get("warnings", []) or [])
     classes = ontology["classes"]
@@ -200,6 +210,8 @@ def _normalize_datatype_properties(items: List[Any], class_ids: Set[str], source
         if domain not in class_ids:
             domain = fallback_domain
             item["low_confidence"] = True
+        source = item.get("source") if isinstance(item.get("source"), dict) else {}
+        sources = item.get("sources") if isinstance(item.get("sources"), list) else ([source] if source else [])
         prop = {
             **item,
             "id": pid,
@@ -209,7 +221,11 @@ def _normalize_datatype_properties(items: List[Any], class_ids: Set[str], source
             "range": _normalize_range(item.get("range") or item.get("data_type"), label, str(item.get("description") or "")),
             "source_record_ids": _as_list(item.get("source_record_ids")),
             "source_doc": item.get("source_doc") or source_doc,
-            "source_table": item.get("source_table") or "",
+            "source": source,
+            "sources": sources,
+            "source_file": item.get("source_file") or source.get("file_path") or item.get("source_doc") or source_doc,
+            "source_filename": item.get("source_filename") or source.get("filename") or "",
+            "source_table": item.get("source_table") or source.get("table_index") or "",
             "evidence": _as_list(item.get("evidence")) or [label or pid],
             "generated_by": item.get("generated_by") or "rule_completion",
             "confidence": float(item.get("confidence", 0.65) or 0.65),
@@ -459,3 +475,5 @@ def _dedupe_text(items: List[Any]) -> List[str]:
         seen.add(text)
         result.append(text)
     return result
+
+

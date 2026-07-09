@@ -1,4 +1,4 @@
-"""Ontology builder: rule draft first, then one LLM semantic enhancement."""
+﻿"""Ontology builder: rule draft first, then one LLM semantic enhancement."""
 
 from __future__ import annotations
 
@@ -7,7 +7,7 @@ import json
 import time
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, Iterable, List
+from typing import Any, Dict, Iterable, List, Optional
 
 from backend.ai.llm_service import LLMService, env_bool, llm_group_max_records, robust_json_parse
 from backend.config import settings
@@ -299,7 +299,7 @@ def _merge_by_id(left: list, right: list, generated_by: str) -> list:
     return result
 
 
-def _finalize(ontology: dict, generation_mode: str, warnings: List[str], stats: dict, service: LLMService, source_docs: List[str] | None = None) -> dict:
+def _finalize(ontology: dict, generation_mode: str, warnings: List[str], stats: dict, service: LLMService, source_docs: Optional[List[str]] = None) -> dict:
     validation = ontology.get("validation", {}) if isinstance(ontology, dict) else {}
     stats = {**_empty_stats(), **stats, **_count_stats(ontology)}
     stats["generation_mode"] = generation_mode
@@ -500,7 +500,7 @@ def _elapsed_ms(start: float) -> float:
     return round((time.perf_counter() - start) * 1000, 2)
 
 
-def _progress(callback: Any, step: str, label: str, message: str = "", stats: dict | None = None) -> None:
+def _progress(callback: Any, step: str, label: str, message: str = "", stats: Optional[dict] = None) -> None:
     if callable(callback):
         callback(step, label, message=message or label, stats=stats or {})
 
@@ -519,3 +519,4 @@ def _dedupe_text(items: Iterable[str]) -> List[str]:
 
 def _empty_ontology() -> Dict[str, Any]:
     return {"classes": [], "properties": [], "datatype_properties": [], "object_properties": [], "relations": [], "class_hierarchy": []}
+

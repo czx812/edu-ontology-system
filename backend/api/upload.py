@@ -1,7 +1,7 @@
-from pathlib import Path
+﻿from pathlib import Path
 from uuid import uuid4
 
-from fastapi import APIRouter, Depends, HTTPException, UploadFile
+from fastapi import APIRouter, Depends, File, HTTPException, UploadFile
 
 from api.auth import get_current_user
 from config import settings
@@ -47,3 +47,33 @@ def upload(file: UploadFile, user: dict = Depends(get_current_user)) -> dict:
         write_operation_log(user=user, action="UPLOAD_PDF", method="POST", path="/upload", status_code=500, detail=str(exc))
         write_system_log("ERROR", f"上传 PDF 失败：{exc}")
         raise HTTPException(status_code=500, detail=f"上传失败：{exc}") from exc
+
+
+@router.post("/upload/batch")
+def upload_batch(files: list[UploadFile] = File(...), user: dict = Depends(get_current_user)) -> dict:
+    if not files:
+        raise HTTPException(status_code=400, detail="No PDF files uploaded")
+    results = []
+    file_paths = []
+    try:
+        for file in files:
+            result = upload_pdf(file, user["id"])
+            path = Path(result["file_path"])
+            item = {
+                "filename": result.get("file_name") or file.filename or path.name,
+                "file_path": result["file_path"],
+                "size": path.stat().st_size if path.exists() else 0,
+            }
+            results.append(item)
+            file_paths.append(item["file_path"])
+        write_operation_log(user=user, action="BATCH_UPLOAD", method="POST", path="/upload/batch", status_code=200, detail=f"batch_upload count={len(results)}")
+        write_system_log("INFO", f"Batch PDF upload success: count={len(results)}")
+        return {"file_paths": file_paths, "files": results}
+    except HTTPException as exc:
+        write_operation_log(user=user, action="BATCH_UPLOAD", method="POST", path="/upload/batch", status_code=exc.status_code, detail=str(exc.detail))
+        raise
+    except Exception as exc:
+        write_operation_log(user=user, action="BATCH_UPLOAD", method="POST", path="/upload/batch", status_code=500, detail=str(exc))
+        write_system_log("ERROR", f"Batch PDF upload failed: {exc}")
+        raise HTTPException(status_code=500, detail=f"Batch upload failed: {exc}") from exc
+

@@ -1,7 +1,7 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import json
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 from backend.ai.llm_service import LLMService
 from backend.modules.ontology_aligner import align_multiple_ontologies
@@ -33,11 +33,11 @@ def merge_ontology_programmatically(partial_ontologies: list) -> dict:
     return merged
 
 
-def align_and_merge_ontologies(ontologies: list, source_docs: list | None = None) -> dict:
+def align_and_merge_ontologies(ontologies: list, source_docs: Optional[list] = None) -> dict:
     return align_multiple_ontologies(ontologies, source_docs=source_docs)
 
 
-def merge_ontology_with_llm(partial_ontologies: list, document_structure: dict, llm_service: LLMService | None = None) -> dict:
+def merge_ontology_with_llm(partial_ontologies: list, document_structure: dict, llm_service: Optional[LLMService] = None) -> dict:
     service = llm_service or LLMService()
     base = merge_ontology_programmatically(partial_ontologies)
     prompt = (
@@ -97,3 +97,4 @@ def _compact_structure(document_structure: dict) -> dict:
         "relation_clues": document_structure.get("relation_clues", [])[:80],
         "detected_patterns": document_structure.get("detected_patterns", []),
     }
+

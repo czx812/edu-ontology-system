@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import json
 import re
@@ -95,10 +95,13 @@ def _as_rows(table: Any) -> List[List[str]]:
     return cleaned
 
 
-def _table_source(table: Any, row_index: int) -> Dict[str, Any]:
+def _table_source(table: Any, row_index: int, file_path: str = "") -> Dict[str, Any]:
+    filename = Path(file_path).name if file_path else ""
     if not isinstance(table, dict):
-        return {"page": None, "table_index": None, "row_index": row_index}
+        return {"file_path": file_path, "filename": filename, "page": None, "table_index": None, "row_index": row_index}
     return {
+        "file_path": file_path,
+        "filename": filename,
         "page": table.get("page"),
         "table_index": table.get("table_index"),
         "row_index": row_index,
@@ -120,7 +123,7 @@ def _has_identity(record: Dict[str, Any]) -> bool:
     return any(_clean_text(record.get(key)) for key in ("name", "code", "field_name"))
 
 
-def _build_records_from_tables(tables: Iterable[Any]) -> List[Dict[str, Any]]:
+def _build_records_from_tables(tables: Iterable[Any], file_path: str = "") -> List[Dict[str, Any]]:
     records: List[Dict[str, Any]] = []
     seen = set()
 
@@ -150,7 +153,8 @@ def _build_records_from_tables(tables: Iterable[Any]) -> List[Dict[str, Any]]:
             if key in seen:
                 continue
             seen.add(key)
-            record["source"] = _table_source(table, row_index)
+            record["source"] = _table_source(table, row_index, file_path)
+            record["source_file"] = file_path
             records.append(record)
 
     return records
@@ -191,7 +195,8 @@ def clean_data(payload: Union[State, str]) -> Union[State, Dict[str, Any]]:
     raw_text = str(state.get("raw_text") or "")
     tables = state.get("tables") or []
 
-    records = _build_records_from_tables(tables)
+    file_path = str(state.get("file_path") or "")
+    records = _build_records_from_tables(tables, file_path)
     cleaned = {
         "source_file": str(state.get("file_path") or ""),
         "record_count": len(records),
@@ -207,3 +212,5 @@ def clean_data(payload: Union[State, str]) -> Union[State, Dict[str, Any]]:
     logger.info("Data cleaning completed, records=%s", len(records))
 
     return state if state_input else cleaned
+
+

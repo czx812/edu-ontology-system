@@ -1,8 +1,8 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import difflib
 import re
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
 
 NOISE_LABELS = {"目录", "前言", "范围", "编号", "中文简称", "数据项名", "解释/举例", "值空间", "引用编号"}
@@ -58,7 +58,7 @@ def align_ontology(ontology: Dict[str, Any]) -> Dict[str, Any]:
     return result
 
 
-def align_multiple_ontologies(ontologies: list, source_docs: list | None = None) -> dict:
+def align_multiple_ontologies(ontologies: list, source_docs: Optional[list] = None) -> dict:
     ontologies = [item for item in ontologies if isinstance(item, dict)] if isinstance(ontologies, list) else []
     source_docs = source_docs or []
     aligned = [align_ontology(item) for item in ontologies]
@@ -302,7 +302,7 @@ def infer_simple_range(label: str, name: str = "", description: str = "") -> str
     return "string"
 
 
-def _find_alignment(index: dict[str, dict], element: dict, element_type: str) -> Tuple[dict | None, dict | None]:
+def _find_alignment(index: dict[str, dict], element: dict, element_type: str) -> Tuple[Optional[dict], Optional[dict]]:
     key = _element_key(element, element_type)
     if key in index:
         return index[key], _mapping(element, index[key], "same_id_or_label", 0.98)
@@ -395,3 +395,4 @@ def _dedupe_dicts(items: list, keys: tuple[str, ...]) -> list:
         seen.add(marker)
         result.append(item)
     return result
+

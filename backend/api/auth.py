@@ -28,6 +28,23 @@ class AuthStore:
         self._users: Dict[str, Dict[str, Any]] = {}
         self._tokens: Dict[str, str] = {}
         self._load()
+        self._init_admin()  # 初始化默认管理员
+
+    def _init_admin(self) -> None:
+        """初始化默认管理员账户（如果不存在）"""
+        if "admin" not in self._users:
+            admin_password = "admin123"  # 默认密码
+            password_info = self._hash_password(admin_password)
+            self._users["admin"] = {
+                "id": "1",
+                "username": "admin",
+                "password_hash": password_info["hash"],
+                "password_salt": password_info["salt"],
+                "role": "admin",
+                "is_admin": True,
+            }
+            self._save()
+            print("✓ 默认管理员账户已创建: admin / admin123")
 
     def _load(self) -> None:
         if not self.storage_path.exists():

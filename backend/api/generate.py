@@ -1,19 +1,19 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import threading
 import time
 import uuid
 from pathlib import Path
-from typing import Any
+from typing import Any, Optional
 
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 
 from api.auth import get_current_user
 from config import settings
-from core.workflow import DataExtractionFailedError, ModuleNotReadyError, OntologyValidationFailedError, run_workflow
+from core.workflow import DataExtractionFailedError, ModuleNotReadyError, OntologyValidationFailedError, run_batch_workflow, run_workflow
 from services.llm_service import LLMService
-from services.log_service import write_generation_record, write_operation_log, write_system_log
+from services.log_service import write_generation_record, write_operation_log, write_question_record, write_system_log
 
 
 router = APIRouter(tags=["generate"])
@@ -37,6 +37,21 @@ STEP_LABEL = dict(GENERATION_STEPS)
 JOBS: dict[str, dict[str, Any]] = {}
 JOBS_LOCK = threading.Lock()
 
+
+
+class BatchGenerateRequest(BaseModel):
+    file_paths: list[str]
+    mode: str = "rule_draft_llm_enhance"
+    force_regenerate: bool = False
+    max_group_records: int = 80
+    enable_review: bool = False
+    enable_alignment: bool = True
+    enable_deep_alignment: bool = False
+    enable_global_merge: bool = False
+    enable_cache: bool = True
+    enable_merge: bool = True
+    max_generation_seconds: int = 180
+    llm_single_call_timeout: int = 45
 
 class GenerateRequest(BaseModel):
     file_path: str
@@ -70,7 +85,7 @@ def _default_stats() -> dict:
     }
 
 
-def generate_ontology(request: GenerateRequest, user: dict, job_id: str | None = None) -> dict:
+def generate_ontology(request: GenerateRequest, user: dict, job_id: Optional[str] = None) -> dict:
     file_path = request.file_path
     export_dir = settings.EXPORT_DIR / str(user["id"])
     export_dir.mkdir(parents=True, exist_ok=True)
@@ -78,7 +93,7 @@ def generate_ontology(request: GenerateRequest, user: dict, job_id: str | None =
     LLMService(timeout=request.llm_single_call_timeout, max_retries=1)
     write_system_log("INFO", f"本体生成开始：{file_path}")
 
-    def progress(step: str, label: str, message: str = "", stats: dict | None = None) -> None:
+    def progress(step: str, label: str, message: str = "", stats: Optional[dict] = None) -> None:
         if job_id:
             _update_job(job_id, step, label, message=message, stats=stats)
 
@@ -205,7 +220,7 @@ def _snapshot(job: dict) -> dict:
     }
 
 
-def _update_job(job_id: str, step: str, label: str | None = None, message: str = "", stats: dict | None = None, warnings: list | None = None, status: str | None = None) -> None:
+def _update_job(job_id: str, step: str, label: Optional[str] = None, message: str = "", stats: Optional[dict] = None, warnings: Optional[list] = None, status: Optional[str] = None) -> None:
     with JOBS_LOCK:
         job = JOBS.get(job_id)
         if not job:
@@ -295,3 +310,65 @@ def _dedupe(items: list) -> list:
         seen.add(text)
         result.append(text)
     return result
+
+
+@router.post("/generate/batch")
+def generate_batch(request: BatchGenerateRequest, user: dict = Depends(get_current_user)) -> dict:
+    if not request.file_paths:
+        raise HTTPException(status_code=400, detail="file_paths is required")
+    export_dir = settings.EXPORT_DIR / str(user["id"])
+    export_dir.mkdir(parents=True, exist_ok=True)
+    start = time.perf_counter()
+    write_operation_log(user=user, action="BATCH_GENERATE_START", method="POST", path="/generate/batch", status_code=200, detail=f"file_count={len(request.file_paths)} mode={request.mode}")
+    try:
+        result = run_batch_workflow(request.file_paths, {
+            "export_dir": str(export_dir),
+            "mode": request.mode,
+            "force_regenerate": request.force_regenerate,
+            "max_group_records": request.max_group_records,
+            "enable_review": request.enable_review,
+            "enable_alignment": request.enable_alignment,
+            "enable_deep_alignment": request.enable_deep_alignment,
+            "enable_global_merge": request.enable_global_merge,
+            "enable_cache": request.enable_cache,
+            "enable_merge": request.enable_merge,
+            "max_generation_seconds": request.max_generation_seconds,
+            "llm_single_call_timeout": request.llm_single_call_timeout,
+        })
+        duration_ms = round((time.perf_counter() - start) * 1000, 2)
+        stats = result.get("merged_stats", {}) if isinstance(result.get("merged_stats", {}), dict) else {}
+        filenames = [Path(path).name for path in request.file_paths]
+        write_generation_record(
+            user=user,
+            file_name=", ".join(filenames)[:300],
+            file_path=";".join(request.file_paths),
+            structured_file=result.get("merged_ontology_file", ""),
+            record_count=sum(int(item.get("record_count") or 0) for item in result.get("local_results", [])),
+            owl_file=result.get("owl_file", ""),
+            status="BATCH_SUCCESS" if result.get("status") == "success" else "BATCH_PARTIAL_SUCCESS",
+            duration_ms=duration_ms,
+        )
+        write_operation_log(user=user, action="BATCH_GENERATE_SUCCESS", method="POST", path="/generate/batch", status_code=200, duration_ms=duration_ms, detail=f"merged_classes={stats.get('classes', 0)} merged_properties={stats.get('datatype_properties', 0)} owl_file={result.get('owl_file', '')}")
+        write_question_record(
+            user=user,
+            question={"question_type": "batch_ontology_generation", "file_count": len(request.file_paths), "filenames": filenames, "mode": request.mode, "status": result.get("status")},
+            answer={"merged_classes": stats.get("classes", 0), "merged_properties": stats.get("datatype_properties", 0), "merged_relations": stats.get("relations", 0), "owl_file": result.get("owl_file", "")},
+        )
+        write_system_log("INFO", f"Batch ontology generation success: count={len(request.file_paths)}")
+        return result
+    except FileNotFoundError as exc:
+        write_operation_log(user=user, action="BATCH_GENERATE_FAILED", method="POST", path="/generate/batch", status_code=404, detail=str(exc))
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
+    except DataExtractionFailedError as exc:
+        write_operation_log(user=user, action="BATCH_GENERATE_FAILED", method="POST", path="/generate/batch", status_code=422, detail=str(exc))
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+    except Exception as exc:
+        duration_ms = round((time.perf_counter() - start) * 1000, 2)
+        write_generation_record(user=user, file_name="batch", file_path=";".join(request.file_paths), status="BATCH_FAILED", error_message=str(exc), duration_ms=duration_ms)
+        write_operation_log(user=user, action="BATCH_GENERATE_FAILED", method="POST", path="/generate/batch", status_code=500, duration_ms=duration_ms, detail=str(exc))
+        write_system_log("ERROR", f"Batch ontology generation failed: {exc}")
+        raise HTTPException(status_code=500, detail=f"Batch generation failed: {exc}") from exc
+
+
+
+

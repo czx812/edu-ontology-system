@@ -1,8 +1,10 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
+import json
 import re
 from datetime import datetime
 from pathlib import Path
+from typing import Optional
 from xml.sax.saxutils import escape
 
 try:
@@ -62,7 +64,7 @@ def _xsd_range(prop: dict) -> str:
     return infer_xsd_range(str(prop.get("label") or ""), str(prop.get("id") or prop.get("name") or ""), str(prop.get("description") or ""))
 
 
-def generate_owl(ontology: dict, export_dir: str | None = None) -> str:
+def generate_owl(ontology: dict, export_dir: Optional[str] = None) -> str:
     """Generate RDF/XML OWL from ontology JSON."""
     ontology = ontology if isinstance(ontology, dict) else {}
     classes = ontology.get("classes", []) or []
@@ -89,11 +91,18 @@ def generate_owl(ontology: dict, export_dir: str | None = None) -> str:
         '  xmlns:xsd="http://www.w3.org/2001/XMLSchema#"',
         f'  xmlns:edu="{escape(ONTOLOGY_BASE_URI)}">',
         "",
-        f'  <owl:Ontology rdf:about="{escape(ONTOLOGY_DOC_URI)}"/>',
+        f'  <owl:Ontology rdf:about="{escape(ONTOLOGY_DOC_URI)}">',
+        * _ontology_metadata_lines(ontology),
+        '  </owl:Ontology>',
         "",
         f'  <owl:AnnotationProperty rdf:about="{_resource("sourceRecordIds")}"/>',
         f'  <owl:AnnotationProperty rdf:about="{_resource("sourceDoc")}"/>',
         f'  <owl:AnnotationProperty rdf:about="{_resource("sourceTable")}"/>',
+        f'  <owl:AnnotationProperty rdf:about="{_resource("sourceFile")}"/>',
+        f'  <owl:AnnotationProperty rdf:about="{_resource("sourceFilename")}"/>',
+        f'  <owl:AnnotationProperty rdf:about="{_resource("sourcePage")}"/>',
+        f'  <owl:AnnotationProperty rdf:about="{_resource("sourceRow")}"/>',
+        f'  <owl:AnnotationProperty rdf:about="{_resource("sourcesJson")}"/>',
         "",
     ]
 
@@ -207,6 +216,24 @@ def _hierarchy_map(items: list) -> dict:
     return result
 
 
+def _ontology_metadata_lines(ontology: dict) -> list[str]:
+    metadata = ontology.get("metadata", {}) if isinstance(ontology.get("metadata", {}), dict) else {}
+    alignment_stats = metadata.get("alignment_stats", {}) if isinstance(metadata.get("alignment_stats", {}), dict) else {}
+    lines: list[str] = []
+    values = {
+        "generationMode": metadata.get("generation_mode"),
+        "sourceFileCount": metadata.get("source_file_count"),
+        "alignmentClassMappings": alignment_stats.get("class_mappings"),
+        "alignmentPropertyMappings": alignment_stats.get("property_mappings"),
+        "alignmentRelationMappings": alignment_stats.get("relation_mappings"),
+        "createdAt": metadata.get("created_at") or datetime.now().isoformat(timespec="seconds"),
+    }
+    for key, value in values.items():
+        if value not in (None, ""):
+            lines.append(f"    <edu:{key}>{escape(str(value))}</edu:{key}>")
+    return lines
+
+
 def _append_source_comment(lines: list[str], item: dict) -> None:
     ids = item.get("source_record_ids")
     if isinstance(ids, list) and ids:
@@ -216,6 +243,29 @@ def _append_source_comment(lines: list[str], item: dict) -> None:
         lines.append(f"    <edu:sourceDoc>{escape(str(item.get('source_doc')))}</edu:sourceDoc>")
     if item.get("source_table"):
         lines.append(f"    <edu:sourceTable>{escape(str(item.get('source_table')))}</edu:sourceTable>")
+    sources = item.get("sources") if isinstance(item.get("sources"), list) else []
+    source = item.get("source") if isinstance(item.get("source"), dict) else None
+    if source:
+        sources = [source, *sources]
+    if sources:
+        lines.append(f"    <edu:sourcesJson>{escape(json.dumps(sources, ensure_ascii=False))}</edu:sourcesJson>")
+    for source_item in sources[:20]:
+        if not isinstance(source_item, dict):
+            continue
+        file_path = source_item.get("file_path") or source_item.get("source_file")
+        filename = source_item.get("filename") or (Path(str(file_path)).name if file_path else "")
+        if file_path:
+            lines.append(f"    <edu:sourceFile>{escape(str(file_path))}</edu:sourceFile>")
+        if filename:
+            lines.append(f"    <edu:sourceFilename>{escape(str(filename))}</edu:sourceFilename>")
+        if source_item.get("page") not in (None, ""):
+            lines.append(f"    <edu:sourcePage>{escape(str(source_item.get('page')))}</edu:sourcePage>")
+        if source_item.get("table_index") not in (None, ""):
+            lines.append(f"    <edu:sourceTable>{escape(str(source_item.get('table_index')))}</edu:sourceTable>")
+        if source_item.get("row_index") not in (None, ""):
+            lines.append(f"    <edu:sourceRow>{escape(str(source_item.get('row_index')))}</edu:sourceRow>")
+    for file_path in item.get("source_files", []) if isinstance(item.get("source_files", []), list) else []:
+        lines.append(f"    <edu:sourceFile>{escape(str(file_path))}</edu:sourceFile>")
 
 
 def _dedupe_object_properties(items: list) -> list:
@@ -234,3 +284,5 @@ def _dedupe_object_properties(items: list) -> list:
         seen.add(marker)
         result.append(item)
     return result
+
+

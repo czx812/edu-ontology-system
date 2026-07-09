@@ -1,8 +1,8 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import hashlib
 import re
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 from backend.ai.llm_service import llm_group_max_records
 
@@ -77,7 +77,7 @@ def build_rule_draft_enhancement_context(clean_data: dict, document_structure: d
     }
 
 
-def compress_records_for_llm(records: list, document_structure: dict, max_group_records: int | None = None) -> list:
+def compress_records_for_llm(records: list, document_structure: dict, max_group_records: Optional[int] = None) -> list:
     """Legacy grouped context for group_llm mode."""
     max_size = max_group_records or llm_group_max_records()
     buckets: Dict[str, List[dict]] = {}
@@ -219,3 +219,4 @@ def _summary(title: str, records: List[dict], clues: List[dict]) -> str:
 def _group_id(title: str, records: List[dict]) -> str:
     seed = title + "|" + "|".join(str(item.get("record_id") or "") for item in records)
     return hashlib.sha1(seed.encode("utf-8")).hexdigest()[:16]
+

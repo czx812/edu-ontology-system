@@ -1,6 +1,8 @@
+﻿import json
+from datetime import datetime
 from importlib import import_module
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any, Callable, Optional
 
 from config import settings
 
@@ -161,3 +163,107 @@ def run_workflow(state: dict) -> dict:
                 raise DataExtractionFailedError("DATA_EXTRACTION_FAILED: 未从 PDF 中提取到结构化教育标准表格数据。")
 
     return state
+
+
+def _save_json(data: dict, directory: Path, prefix: str) -> str:
+    directory.mkdir(parents=True, exist_ok=True)
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
+    path = directory / f"{prefix}_{timestamp}.json"
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    try:
+        return str(path.relative_to(settings.PROJECT_DIR)).replace("\\", "/")
+    except ValueError:
+        return str(path)
+
+
+def _count_local_result(state: dict) -> dict:
+    clean_data = state.get("clean_data", {}) if isinstance(state.get("clean_data", {}), dict) else {}
+    ontology = state.get("ontology", {}) if isinstance(state.get("ontology", {}), dict) else {}
+    props = ontology.get("datatype_properties") or ontology.get("properties") or []
+    return {
+        "file_path": state.get("file_path", ""),
+        "structured_file": state.get("structured_file", ""),
+        "ontology_file": state.get("ontology_file", ""),
+        "record_count": int(clean_data.get("record_count") or len(clean_data.get("records", []) or [])),
+        "classes": len(ontology.get("classes", []) or []),
+        "properties": len(props),
+        "relations": len(ontology.get("relations", []) or []),
+        "status": "success",
+    }
+
+
+def run_batch_workflow(file_paths: list[str], options: Optional[dict] = None) -> dict:
+    options = options or {}
+    export_dir = Path(options.get("export_dir") or settings.EXPORT_DIR)
+    local_results: list[dict] = []
+    local_ontologies: list[dict] = []
+    files: list[dict] = []
+    warnings: list[str] = []
+
+    for file_path in file_paths or []:
+        file_state = {
+            "file_path": file_path,
+            "export_dir": str(export_dir),
+            "generate_options": options,
+        }
+        file_item = {"file_path": file_path, "filename": Path(str(file_path)).name, "status": "pending", "error": ""}
+        try:
+            state = run_workflow(file_state)
+            ontology = state.get("ontology", {}) if isinstance(state.get("ontology", {}), dict) else {}
+            ontology_file = _save_json(ontology, export_dir, f"{Path(str(state.get('file_path') or file_path)).stem}_ontology")
+            state["ontology_file"] = ontology_file
+            file_item.update({
+                "raw_text": state.get("raw_text", ""),
+                "tables": state.get("tables", []),
+                "clean_data": state.get("clean_data", {}),
+                "ontology": ontology,
+                "structured_file": state.get("structured_file", ""),
+                "ontology_file": ontology_file,
+                "status": "success",
+            })
+            local_ontologies.append(ontology)
+            local_results.append(_count_local_result(state))
+        except Exception as exc:
+            file_item.update({"status": "failed", "error": str(exc)})
+            warnings.append(f"{Path(str(file_path)).name}: {exc}")
+        files.append(file_item)
+
+    if not local_ontologies:
+        raise DataExtractionFailedError("DATA_EXTRACTION_FAILED: batch workflow produced no local ontologies.")
+
+    alignment_result = {"class_mappings": [], "property_mappings": [], "relation_mappings": [], "warnings": []}
+    if options.get("enable_alignment", True):
+        cross_file_ontology_align = _load_function("modules.batch_ontology_aligner", "cross_file_ontology_align")
+        alignment_result = cross_file_ontology_align(local_ontologies)
+    alignment_file = _save_json(alignment_result, export_dir, "alignment")
+
+    if options.get("enable_merge", True):
+        merge_ontologies = _load_function("modules.ontology_merger", "merge_ontologies")
+        merged_ontology = merge_ontologies(local_ontologies, alignment_result)
+    else:
+        merged_ontology = local_ontologies[0]
+    merged_ontology.setdefault("warnings", [])
+    merged_ontology["warnings"] = [*merged_ontology.get("warnings", []), *warnings]
+    merged_ontology_file = _save_json(merged_ontology, export_dir, "merged_ontology")
+
+    generate_owl = _load_function("modules.owl_generator", "generate_owl")
+    owl_file = generate_owl(merged_ontology, export_dir=str(export_dir))
+    stats = merged_ontology.get("stats", {}) if isinstance(merged_ontology.get("stats", {}), dict) else {}
+
+    return {
+        "status": "success" if not warnings else "partial_success",
+        "file_count": len(file_paths or []),
+        "local_results": local_results,
+        "files": files,
+        "local_ontologies": local_ontologies,
+        "alignment_result": alignment_result,
+        "alignment_file": alignment_file,
+        "merged_ontology": merged_ontology,
+        "merged_ontology_file": merged_ontology_file,
+        "owl_file": owl_file,
+        "merged_stats": stats,
+        "stats": stats,
+        "warnings": warnings,
+    }
+
+

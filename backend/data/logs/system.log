@@ -145,3 +145,17 @@
 [2026-07-08 16:34:14] [INFO] 后端服务启动
 [2026-07-08 16:34:15] [INFO] 后端服务启动
 [2026-07-08 16:34:15] [INFO] 后端服务启动
+[2026-07-08 17:01:06] [INFO] 后端服务启动
+[2026-07-08 17:04:28] [INFO] 后端服务启动
+[2026-07-08 17:07:44] [INFO] 上传 PDF 成功：JYT1002_教育管理基础信息.pdf
+[2026-07-08 17:07:55] [INFO] 本体生成开始：D:\基于大模型智能体的教育本体构建系统\edu-ontology-system\backend\data\uploads\3\5e089d7e02f548cfaec1586be448e83d.pdf
+[2026-07-08 17:08:15] [INFO] 本体生成成功：D:\基于大模型智能体的教育本体构建系统\edu-ontology-system\backend\data\uploads\3\5e089d7e02f548cfaec1586be448e83d.pdf
+[2026-07-08 17:10:39] [INFO] 上传 PDF 成功：JYT1007_教育统计信息.pdf
+[2026-07-08 17:10:44] [INFO] 本体生成开始：D:\基于大模型智能体的教育本体构建系统\edu-ontology-system\backend\data\uploads\2\fa8a2298bb8d4e55ae16359d6a1362f6.pdf
+[2026-07-08 17:10:53] [INFO] 本体生成成功：D:\基于大模型智能体的教育本体构建系统\edu-ontology-system\backend\data\uploads\2\fa8a2298bb8d4e55ae16359d6a1362f6.pdf
+[2026-07-09 08:32:24] [INFO] 后端服务启动
+[2026-07-09 08:39:42] [INFO] 上传 PDF 成功：JYT1002_教育管理基础信息.pdf
+[2026-07-09 08:39:46] [INFO] 本体生成开始：D:\基于大模型智能体的教育本体构建系统\edu-ontology-system\backend\data\uploads\3\f783076c082d4ff1a21e48bd14096865.pdf
+[2026-07-09 08:39:55] [INFO] 本体生成成功：D:\基于大模型智能体的教育本体构建系统\edu-ontology-system\backend\data\uploads\3\f783076c082d4ff1a21e48bd14096865.pdf
+[2026-07-09 09:21:45] [INFO] 后端服务启动
+[2026-07-09 09:23:11] [INFO] Batch PDF upload success: count=2

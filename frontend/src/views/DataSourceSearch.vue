@@ -32,7 +32,7 @@
     <div class="panel">
       <table>
         <thead>
-          <tr><th>类型</th><th>名称/编号</th><th>领域</th><th>来源</th><th>说明</th></tr>
+          <tr><th>类型</th><th>名称/编号</th><th>领域</th><th>来源文件</th><th>页/表/行</th><th>说明</th></tr>
         </thead>
         <tbody>
           <tr v-for="item in results" :key="item.key">
@@ -42,7 +42,7 @@
             <td class="path">{{ item.source || "-" }}</td>
             <td>{{ item.description || "-" }}</td>
           </tr>
-          <tr v-if="!results.length"><td colspan="5">暂无匹配结果</td></tr>
+          <tr v-if="!results.length"><td colspan="6">暂无匹配结果</td></tr>
         </tbody>
       </table>
     </div>
@@ -156,3 +156,4 @@ th { background: #f8fafc; }
 .error { color: #b91c1c; }
 @media (max-width: 720px) { .toolbar, .search-panel { grid-template-columns: 1fr; display: grid; } .stats-row { grid-template-columns: repeat(2, 1fr); } }
 </style>
+

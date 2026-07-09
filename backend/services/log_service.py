@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import sqlite3
 from datetime import datetime
@@ -164,6 +164,25 @@ def write_generation_record(
         write_system_log("ERROR", f"数据库异常：写入生成记录失败：{exc}")
 
 
+
+
+def write_question_record(user: Any = None, question: Any = "", answer: Any = "") -> None:
+    try:
+        init_log_tables_quiet()
+        user_id, username = _user_identity(user)
+        with _connect() as conn:
+            conn.execute(
+                """
+                INSERT INTO question_records
+                (user_id, username, question, answer, created_at)
+                VALUES (?, ?, ?, ?, ?)
+                """,
+                (user_id, username, _sanitize(question, 2000), _sanitize(answer, 4000), _now()),
+            )
+            conn.commit()
+    except Exception as exc:
+        write_system_log("ERROR", f"数据库异常：写入提问记录失败：{exc}")
+
 def init_log_tables_quiet() -> None:
     try:
         with _connect() as conn:
@@ -290,3 +309,4 @@ def _display_path(path: Path) -> str:
         return str(path.relative_to(settings.PROJECT_DIR)).replace("\\", "/")
     except ValueError:
         return str(path)
+

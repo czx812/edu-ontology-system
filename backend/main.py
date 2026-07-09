@@ -1,4 +1,4 @@
-import sys
+﻿import sys
 from pathlib import Path
 
 from fastapi import FastAPI
@@ -16,6 +16,7 @@ from api.debug import router as debug_router
 from api.export import router as export_router
 from api.generate import router as generate_router
 from api.logs import router as logs_router
+from api.sources import router as sources_router
 from api.upload import router as upload_router
 from config import settings
 from middleware.log_middleware import RequestLogMiddleware
@@ -50,6 +51,7 @@ def create_app() -> FastAPI:
         debug_router,
         export_router,
         logs_router,
+        sources_router,
         admin_logs_router,
     ):
         app.include_router(router)
@@ -80,3 +82,5 @@ def root() -> dict:
 @app.get("/health")
 def health_check() -> dict:
     return {"status": "ok"}
+
+

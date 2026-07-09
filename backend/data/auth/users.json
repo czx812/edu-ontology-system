@@ -24,6 +24,13 @@
       "password_hash": "1c8246537386d0e2d7ec637738bc2d8d683738d6177190f4f8a03836e9fe4a0c",
       "password_salt": "dd72a44bd06724e7",
       "role": "user"
+    },
+    "admin": {
+      "id": "5",
+      "username": "admin",
+      "password_hash": "815d4d098f8f434093ef3aac2dfb277af13ab299ec33ad14b0ea0cb0a3495098",
+      "password_salt": "22be1e332d7e972c",
+      "role": "admin"
     }
   }
 }
