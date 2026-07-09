@@ -42,7 +42,9 @@
 
       <div class="graph-layout">
         <div class="chart-wrap">
-          <div ref="chartRef" class="chart"></div>
+          <div class="chart-scroll">
+            <div ref="chartRef" class="chart"></div>
+          </div>
         </div>
 
         <aside class="detail">
@@ -377,7 +379,9 @@ input, select { min-width: 0; width: 100%; padding: 10px 12px; border: 1px solid
 .data-dot { background: #f97316; }
 .graph-layout { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 14px; align-items: stretch; }
 .chart-wrap, .detail { background: white; border: 1px solid #e2e8f0; border-radius: 8px; box-shadow: 0 8px 24px rgba(15, 23, 42, .08); }
-.chart { height: 650px; min-height: 520px; }
+.chart-wrap { overflow: hidden; }
+.chart-scroll { height: 650px; overflow: auto; }
+.chart { width: 1360px; max-width: none; height: 920px; min-height: 920px; }
 .detail { padding: 16px; overflow: auto; max-height: 650px; }
 .detail h2 { margin: 0 0 14px; font-size: 18px; color: #0f172a; }
 dl { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 9px 10px; margin: 0; }
@@ -390,7 +394,11 @@ dd { margin: 0; color: #0f172a; word-break: break-all; }
 }
 @media (max-width: 720px) {
   .graph-page { padding: 16px; }
-  .chart { height: 560px; }
+  .chart-scroll { height: 560px; }
+  .chart { width: 980px; height: 760px; min-height: 760px; }
 }
 </style>
+
+
+
 
