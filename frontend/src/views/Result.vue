@@ -58,6 +58,25 @@
         <span>文件名：{{ mergedOwlFileName }}</span>
         <button class="success" @click="download">下载融合 OWL</button>
       </div>
+      <section v-if="fileResults.length" class="ontology-results">
+        <h3>📄 单文件本体生成结果</h3>
+        <el-collapse v-model="openOntologyPanels">
+          <el-collapse-item v-for="(file, index) in fileResults" :key="file.source_id || `${file.file_name}-${index}`" :name="`file-${index}`">
+            <template #title><span class="collapse-title">{{ file.file_name || `文件 ${index + 1}` }}</span></template>
+            <div class="provenance">来源 ID：{{ file.source_id || "-" }}　生成时间：{{ formatGeneratedTime(file.generated_time) }}</div>
+            <OntologyDetails :ontology="file.ontology" />
+          </el-collapse-item>
+        </el-collapse>
+      </section>
+      <section v-if="batchMerged" class="ontology-results merged-result">
+        <h3>🔗 多文件融合本体</h3>
+        <el-collapse v-model="openOntologyPanels">
+          <el-collapse-item name="merged">
+            <template #title><span class="collapse-title">最终融合结果</span></template>
+            <OntologyDetails :ontology="ontology" />
+          </el-collapse-item>
+        </el-collapse>
+      </section>
       <table>
         <thead><tr><th>文件</th><th>状态</th><th>结构化记录</th><th>类</th><th>属性</th><th>关系</th></tr></thead>
         <tbody>
@@ -105,7 +124,7 @@
 </template>
 
 <script setup>
-import { computed, onBeforeUnmount, ref } from "vue";
+import { computed, defineComponent, h, onBeforeUnmount, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { exportOWL, generateBatchOntology, getGenerationProgress, getGenerationResult, startGeneration } from "../api/request";
 
@@ -140,12 +159,14 @@ const batchResult = ref(null);
 const progress = ref(null);
 const loading = ref(false);
 const error = ref("");
+const openOntologyPanels = ref(["merged"]);
 let timer = null;
 
 restoreResult();
 
 const modeLabel = computed(() => isBatch.value ? "批量本体构建：局部生成后进行跨文件对齐与融合" : "单文件本体生成");
 const batchRows = computed(() => batchResult.value?.local_results || []);
+const fileResults = computed(() => batchResult.value?.file_results || batchResult.value?.files || []);
 const displayStats = computed(() => countOntologyStats(ontology.value));
 const batchMerged = computed(() => Boolean(batchResult.value?.merge_status === "success" && ontology.value));
 const batchStats = computed(() => {
@@ -210,6 +231,36 @@ const recordCount = computed(() => resultInfo.value?.record_count || batchRows.v
 const statusText = computed(() => loading.value ? "正在生成" : error.value ? "生成失败" : ontology.value ? "生成成功" : "等待生成");
 const prettyOntology = computed(() => ontology.value ? JSON.stringify(ontology.value, null, 2) : "");
 
+const OntologyDetails = defineComponent({
+  name: "OntologyDetails",
+  props: { ontology: { type: Object, default: () => ({}) } },
+  setup(props) {
+    const values = (key, fallback = []) => Array.isArray(props.ontology?.[key]) ? props.ontology[key] : fallback;
+    const itemName = (item) => {
+      return typeof item === "string" ? item : item?.label || item?.name || item?.id || "-";
+    };
+    const propertyName = (item) => {
+      return typeof item === "string" ? item : item?.label || item?.name || item?.id || "-";
+    };
+    const relationName = (item) => {
+      if (typeof item === "string") return item;
+      const subject = item?.subject_label || item?.source_label || item?.subject || item?.source || item?.domain || "-";
+      const predicate = item?.label || item?.predicate_label || item?.type || item?.predicate || item?.relation || item?.name || item?.id || "-";
+      const object = item?.object_label || item?.target_label || item?.object || item?.target || item?.range || "-";
+      return `${subject} --${predicate}--> ${object}`;
+    };
+    const section = (title, items, formatter) => h("div", { class: "ontology-detail-section" }, [
+      h("h4", title),
+      items.length ? h("ul", items.map((item, index) => h("li", { key: `${title}-${index}` }, formatter(item)))) : h("p", { class: "empty-result" }, "暂无数据"),
+    ]);
+    return () => h("div", { class: "ontology-detail-grid" }, [
+      section("类 (Class)", values("classes"), itemName),
+      section("属性 (Property)", values("datatype_properties", values("properties")), propertyName),
+      section("关系 (Relation)", [...values("object_properties"), ...values("relations")], relationName),
+    ]);
+  },
+});
+
 async function generate() {
   if (isBatch.value) return generateBatch();
   if (!filePath) { error.value = "缺少上传文件，请先返回上传 PDF。"; return; }
@@ -270,6 +321,9 @@ function poll(jobId) {
 }
 
 function setResult(data) {
+  if (data?.data_type && data.data_type !== "ontology") {
+    throw new Error("本体结果接口返回了非 ontology 数据");
+  }
   resultInfo.value = data;
   ontology.value = data.ontology || null;
   owlFile.value = data.owl_file || "";
@@ -278,6 +332,9 @@ function setResult(data) {
 }
 
 function setBatchResult(data) {
+  if (data?.data_type && data.data_type !== "ontology") {
+    throw new Error("本体结果接口返回了非 ontology 数据");
+  }
   batchResult.value = data;
   ontology.value = data.merged_ontology || null;
   owlFile.value = data.owl_file || "";
@@ -288,6 +345,12 @@ function setBatchResult(data) {
 
 function displayFileName(value) {
   return String(value || "").split(/[\\/]/).pop() || "";
+}
+
+function formatGeneratedTime(value) {
+  if (!value) return "-";
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? value : date.toLocaleString();
 }
 
 function persistResult() {
@@ -405,7 +468,8 @@ button { padding: 10px 14px; border: none; border-radius: 6px; cursor: pointer; 
 .stats-row { margin-bottom: 14px; }.panel-grid { display: grid; grid-template-columns: 1.3fr .7fr; gap: 14px; margin-bottom: 14px; } .panel h2 { margin-top: 0; } dl { display: grid; grid-template-columns: 110px 1fr; gap: 10px; margin: 0; } dt { color: #64748b; } dd { margin: 0; }
 table { width: 100%; border-collapse: collapse; margin-top: 12px; } th, td { border-bottom: 1px solid #e5e7eb; padding: 9px; text-align: left; vertical-align: top; }
 .summary-grid { margin-top: 10px; }.merged-owl { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 12px; padding: 12px; color: #166534; background: #f0fdf4; border: 1px solid #86efac; border-radius: 8px; }.merged-owl button { padding: 7px 10px; }.quality-hints { margin-top: 12px; color: #1e3a8a; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 10px; }.notice { margin: 0 0 12px; color: #92400e; }.warnings { margin-top: 12px; color: #92400e; background: #fef3c7; border: 1px solid #fcd34d; border-radius: 8px; padding: 10px; }.preview pre { max-height: 52vh; overflow: auto; background: #0f172a; color: #d1d5db; padding: 14px; border-radius: 6px; white-space: pre-wrap; }
-@media (max-width: 860px) { .toolbar, .panel-grid { display: grid; grid-template-columns: 1fr; } .actions { justify-content: flex-start; } }
+.ontology-results { margin-top: 18px; }.ontology-results h3 { margin: 0 0 10px; color: #0f172a; }.merged-result { border-top: 1px solid #e2e8f0; padding-top: 18px; }.collapse-title { font-weight: 600; color: #1e3a8a; }.provenance { margin-bottom: 12px; color: #64748b; font-size: 13px; word-break: break-all; }.ontology-detail-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 4px 0 10px; }.ontology-detail-section { border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px; background: #f8fafc; min-width: 0; }.ontology-detail-section h4 { margin: 0 0 8px; color: #334155; }.ontology-detail-section ul { margin: 0; padding-left: 20px; }.ontology-detail-section li { margin: 4px 0; overflow-wrap: anywhere; }.empty-result { margin: 0; color: #94a3b8; }
+@media (max-width: 860px) { .toolbar, .panel-grid, .ontology-detail-grid { display: grid; grid-template-columns: 1fr; } .actions { justify-content: flex-start; } }
 </style>
 
 

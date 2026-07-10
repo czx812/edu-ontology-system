@@ -1,5 +1,7 @@
 ﻿import json
 from datetime import datetime
+import uuid
+from copy import deepcopy
 from importlib import import_module
 from pathlib import Path
 from typing import Any, Callable, Optional
@@ -26,10 +28,17 @@ DEFAULT_STATE = {
     "raw_text": "",
     "tables": [],
     "clean_data": {},
+    # Document-derived standard codes.  This is intentionally isolated from
+    # ``ontology``, which contains LLM-generated semantic concepts.
+    "standard_metadata": {"classes": [], "properties": [], "relations": []},
+    "source_metadata": {"classes": [], "properties": [], "relations": []},
     "structured_file": "",
     "entity_json": {},
     "semantic_model": {},
+    "single_ontology": {},
     "ontology": {},
+    "file_results": [],
+    "merged_ontology": {},
     "trace_map": {},
     "trace_file": "",
     "owl_file": "",
@@ -65,7 +74,35 @@ def extract_node(state: dict) -> dict:
 def clean_node(state: dict) -> dict:
     state = _merge_state(state)
     clean_data = _load_function("modules.data_cleaner", "clean_data")
-    return clean_data(state)
+    state = clean_data(state)
+    cleaned = state.get("clean_data", {}) if isinstance(state.get("clean_data"), dict) else {}
+    parse_source = _load_function("modules.standard_parser", "extract")
+    state["standard_metadata"] = parse_source(state.get("raw_text", ""), state.get("tables", []))
+    # Prefer the table-aware semantic names extracted by data_cleaner when
+    # PDF text layout splits a field label across multiple lines.
+    for key in ("classes", "properties"):
+        parsed_by_code = {str(item.get("code")): item for item in state["standard_metadata"].get(key, []) if isinstance(item, dict)}
+        cleaned_key = "data_classes" if key == "classes" else "data_properties"
+        for item in cleaned.get(cleaned_key, []) if isinstance(cleaned.get(cleaned_key), list) else []:
+            code = str(item.get("code") or "")
+            if code in parsed_by_code:
+                label = item.get("name") or item.get("label")
+                if label:
+                    parsed_by_code[code]["label"] = label
+                    parsed_by_code[code]["name"] = label
+    state["source_metadata"] = state["standard_metadata"]
+    # Preserve parser provenance when available, while keeping this payload
+    # independent from all ontology fields.
+    # Persist the same independent source payload with structured data so the
+    # source API can serve it after this in-memory workflow has finished.
+    cleaned["standard_metadata"] = state["standard_metadata"]
+    structured_value = str(state.get("structured_file") or "")
+    structured_path = Path(structured_value) if structured_value else None
+    if structured_path is not None and not structured_path.is_absolute():
+        structured_path = settings.PROJECT_DIR / structured_path
+    if structured_path is not None and structured_path.exists() and structured_path.is_file():
+        structured_path.write_text(json.dumps(cleaned, ensure_ascii=False, indent=2), encoding="utf-8")
+    return state
 
 
 def schema_match_node(state: dict) -> dict:
@@ -95,7 +132,13 @@ def semantic_classify_node(state: dict) -> dict:
 def ontology_build_node(state: dict) -> dict:
     state = _merge_state(state)
     build_ontology = _load_function("modules.ontology_builder", "build_ontology")
-    state["ontology"] = build_ontology(state)
+    single_result = build_ontology(state)
+    metadata = state.get("source_metadata", {})
+    if not metadata.get("classes") and not metadata.get("properties"):
+        metadata = state.get("standard_metadata", {})
+    _enrich_ontology_labels(single_result, metadata)
+    state["single_ontology"] = single_result
+    state["ontology"] = single_result
     return state
 
 
@@ -103,6 +146,10 @@ def align_node(state: dict) -> dict:
     state = _merge_state(state)
     align_ontology = _load_function("modules.ontology_aligner", "align_ontology")
     state["ontology"] = align_ontology(state["ontology"])
+    # Alignment may introduce endpoint placeholders; apply the document
+    # metadata boundary once more after normalization.
+    from modules.ontology_builder import _enforce_standard_schema, _metadata_from_state
+    state["ontology"] = _enforce_standard_schema(state["ontology"], _metadata_from_state(state))
     return state
 
 
@@ -150,6 +197,23 @@ def run_workflow(state: dict) -> dict:
         if callable(progress):
             progress(step, label, message=label)
         state = node(state)
+        if step == "data_clean":
+            source_metadata = state.get("standard_metadata", {})
+            print("========== SOURCE DATA ==========")
+            for item in [*(source_metadata.get("classes", []) or []), *(source_metadata.get("properties", []) or [])]:
+                print(f"{item.get('code', '')} {item.get('name', '')}".strip())
+            for item in source_metadata.get("classes", []) or []:
+                print(f"SOURCE CLASS: {item.get('code', '')} {item.get('label') or item.get('name', '')}".strip())
+        if step == "align":
+            print("========== ONTOLOGY ==========")
+            for item in state.get("ontology", {}).get("classes", []) or []:
+                if isinstance(item, dict):
+                    print(f"ONTOLOGY CLASS: {item.get('code') or item.get('name') or item.get('id')} {item.get('label', '')}".strip())
+                else:
+                    print(f"CLASS CHECK: {item}")
+            for item in state.get("ontology", {}).get("datatype_properties", []) or []:
+                if isinstance(item, dict):
+                    print(f"PROPERTY: {item.get('code') or item.get('name') or item.get('id')} label: {item.get('label', '')}".strip())
         if step == "schema_match":
             clean_data = state.get("clean_data", {}) if isinstance(state.get("clean_data", {}), dict) else {}
             records = clean_data.get("records", []) if isinstance(clean_data.get("records", []), list) else []
@@ -163,6 +227,7 @@ def run_workflow(state: dict) -> dict:
                     )
                 raise DataExtractionFailedError("DATA_EXTRACTION_FAILED: 未从 PDF 中提取到结构化教育标准表格数据。")
 
+    _save_source_metadata(state.get("standard_metadata", {}))
     return state
 
 
@@ -175,6 +240,54 @@ def _save_json(data: dict, directory: Path, prefix: str) -> str:
         return str(path.relative_to(settings.PROJECT_DIR)).replace("\\", "/")
     except ValueError:
         return str(path)
+
+
+def _save_source_metadata(metadata: dict) -> None:
+    cache_path = settings.DATA_DIR / "cache" / "source_metadata.json"
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "classes": list(metadata.get("classes", []) or []),
+        "properties": list(metadata.get("properties", []) or []),
+        "relations": list(metadata.get("relations", []) or []),
+    }
+    cache_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    print("[SOURCE METADATA]")
+    print(f"classes count: {len(payload['classes'])}")
+    for item in payload["classes"]:
+        print(f"{item.get('code', '')} {item.get('name', '')}".strip())
+    print(f"properties count: {len(payload['properties'])}")
+    for item in payload["properties"]:
+        print(f"{item.get('code', '')} {item.get('name', '')}".strip())
+
+
+def _enrich_ontology_labels(ontology: dict, metadata: dict) -> None:
+    labels = {
+        str(item.get("code")): item.get("label") or item.get("name")
+        for item in metadata.get("classes", []) or []
+        if isinstance(item, dict) and item.get("code")
+    }
+    for item in ontology.get("classes", []) if isinstance(ontology, dict) else []:
+        if not isinstance(item, dict):
+            continue
+        code = item.get("code") or ""
+        if not code and str(item.get("name", "")).startswith("DataClass"):
+            code = str(item["name"])[len("DataClass"):]
+        if code in labels:
+            item["code"] = code
+            item["label"] = labels[code]
+    property_labels = {
+        str(item.get("code")): item.get("label") or item.get("name")
+        for item in metadata.get("properties", []) or []
+        if isinstance(item, dict) and item.get("code")
+    }
+    property_items = ontology.get("datatype_properties") or ontology.get("properties") or []
+    for item in property_items:
+        if not isinstance(item, dict):
+            continue
+        code = item.get("code") or item.get("source_code")
+        if code in property_labels:
+            item["code"] = code
+            item["label"] = property_labels[code]
 
 
 def _count_local_result(state: dict, original_filename: str = "") -> dict:
@@ -201,6 +314,7 @@ def run_batch_workflow(file_paths: list[str], options: Optional[dict] = None) ->
     export_dir = Path(options.get("export_dir") or settings.EXPORT_DIR)
     local_results: list[dict] = []
     local_ontologies: list[dict] = []
+    file_results: list[dict] = []
     files: list[dict] = []
     warnings: list[str] = []
     upload_names = {
@@ -219,14 +333,25 @@ def run_batch_workflow(file_paths: list[str], options: Optional[dict] = None) ->
         file_item = {"file_path": file_path, "filename": original_filename, "status": "pending", "error": ""}
         try:
             state = run_workflow(file_state)
+            single_ontology = state.get("single_ontology", {}) if isinstance(state.get("single_ontology", {}), dict) else {}
             ontology = state.get("ontology", {}) if isinstance(state.get("ontology", {}), dict) else {}
-            ontology_file = _save_json(ontology, export_dir, f"{Path(str(state.get('file_path') or file_path)).stem}_ontology")
+            # Persist the independent extraction before the existing align node.
+            ontology_file = _save_json(single_ontology, export_dir, f"{Path(str(state.get('file_path') or file_path)).stem}_ontology")
             state["ontology_file"] = ontology_file
+            file_result = {
+                "file_name": original_filename,
+                "source_id": uuid.uuid4().hex,
+                "generated_time": datetime.now().isoformat(timespec="seconds"),
+                "ontology": deepcopy(single_ontology),
+            }
+            file_results.append(file_result)
             file_item.update({
                 "raw_text": state.get("raw_text", ""),
                 "tables": state.get("tables", []),
                 "clean_data": state.get("clean_data", {}),
-                "ontology": ontology,
+                "ontology": single_ontology,
+                "source_id": file_result["source_id"],
+                "generated_time": file_result["generated_time"],
                 "structured_file": state.get("structured_file", ""),
                 "ontology_file": ontology_file,
                 "status": "success",
@@ -293,7 +418,9 @@ def run_batch_workflow(file_paths: list[str], options: Optional[dict] = None) ->
         "status": "success" if not warnings else "partial_success",
         "file_count": len(file_paths or []),
         "local_results": local_results,
-        "files": files,
+        "files": file_results,
+        "file_results": file_results,
+        "processing_files": files,
         "local_ontologies": local_ontologies,
         "alignment_result": alignment_result,
         "alignment_file": alignment_file,

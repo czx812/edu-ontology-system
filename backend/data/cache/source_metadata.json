@@ -1,0 +1,5066 @@
+{
+  "classes": [
+    {
+      "code": "JCBX0101",
+      "name": "补助性收入数据子类表",
+      "type": "数据子类",
+      "label": "补助性收入数据子类表"
+    },
+    {
+      "code": "JCBX0102",
+      "name": "经营性收入数据子类表",
+      "type": "数据子类",
+      "label": "经营性收入数据子类表"
+    },
+    {
+      "code": "JCBX0103",
+      "name": "其他收入数据子类表",
+      "type": "数据子类",
+      "label": "其他收入数据子类表"
+    },
+    {
+      "code": "JCBX0104",
+      "name": "工资福利支出数据子类表",
+      "type": "数据子类",
+      "label": "工资福利支出数据子类表"
+    },
+    {
+      "code": "JCBX0105",
+      "name": "对个人和家庭的补助性支出数据子类表",
+      "type": "数据子类",
+      "label": "对个人和家庭的补助性支出数据子类表"
+    },
+    {
+      "code": "JCBX0106",
+      "name": "商品和服务支出数据子类表",
+      "type": "数据子类",
+      "label": "商品和服务支出数据子类表"
+    },
+    {
+      "code": "JCBX0107",
+      "name": "债务利息支出数据子类表",
+      "type": "数据子类",
+      "label": "债务利息支出数据子类表"
+    },
+    {
+      "code": "JCBX0108",
+      "name": "其他资本性支出数据子类表",
+      "type": "数据子类",
+      "label": "其他资本性支出数据子类表"
+    },
+    {
+      "code": "JCBX0109",
+      "name": "债务资金来源数据子类表",
+      "type": "数据子类",
+      "label": "债务资金来源数据子类表"
+    },
+    {
+      "code": "JCBX0110",
+      "name": "债务资金用途数据子类表",
+      "type": "数据子类",
+      "label": "债务资金用途数据子类表"
+    },
+    {
+      "code": "JCBX0201",
+      "name": "学校用地数据子类表",
+      "type": "数据子类",
+      "label": "学校用地数据子类表"
+    },
+    {
+      "code": "JCBX0202",
+      "name": "学校建筑物基本数据子类表",
+      "type": "数据子类",
+      "label": "学校建筑物基本数据子类表"
+    },
+    {
+      "code": "JCBX0203",
+      "name": "建筑物房间子类",
+      "type": "数据子类",
+      "label": "建筑物房间子类"
+    },
+    {
+      "code": "JCBX0204",
+      "name": "建筑物修缮子类",
+      "type": "数据子类",
+      "label": "建筑物修缮子类"
+    },
+    {
+      "code": "JCBX0205",
+      "name": "学校设施数据子类表",
+      "type": "数据子类",
+      "label": "学校设施数据子类表"
+    },
+    {
+      "code": "JCBX0301",
+      "name": "仪器设备基本数据子类表",
+      "type": "数据子类",
+      "label": "仪器设备基本数据子类表"
+    },
+    {
+      "code": "JCBX0302",
+      "name": "仪器设备附件数据子类表",
+      "type": "数据子类",
+      "label": "仪器设备附件数据子类表"
+    },
+    {
+      "code": "JCBX0303",
+      "name": "仪器设备管理数据子类表",
+      "type": "数据子类",
+      "label": "仪器设备管理数据子类表"
+    },
+    {
+      "code": "JCBX0304",
+      "name": "仪器设备报损、报废数据子类表",
+      "type": "数据子类",
+      "label": "仪器设备报损、报废数据子类表"
+    },
+    {
+      "code": "JCBX0305",
+      "name": "软件资源数据子类表",
+      "type": "数据子类",
+      "label": "软件资源数据子类表"
+    },
+    {
+      "code": "JCBX0306",
+      "name": "软件资源使用管理数据子类表",
+      "type": "数据子类",
+      "label": "软件资源使用管理数据子类表"
+    },
+    {
+      "code": "JCBX0307",
+      "name": "实验室基本数据子类表",
+      "type": "数据子类",
+      "label": "实验室基本数据子类表"
+    },
+    {
+      "code": "JCBX0308",
+      "name": "实验项目数据子类表",
+      "type": "数据子类",
+      "label": "实验项目数据子类表"
+    },
+    {
+      "code": "JCBX0401",
+      "name": "图书基本数据子类表",
+      "type": "数据子类",
+      "label": "图书基本数据子类表"
+    },
+    {
+      "code": "JCBX0402",
+      "name": "期刊基本数据子类表",
+      "type": "数据子类",
+      "label": "期刊基本数据子类表"
+    },
+    {
+      "code": "JCJG0101",
+      "name": "教职工基本数据子类表",
+      "type": "数据子类",
+      "label": "教职工基本数据子类表"
+    },
+    {
+      "code": "JCJG0110",
+      "name": "奖励数据子类表",
+      "type": "数据子类",
+      "label": "奖励数据子类表"
+    },
+    {
+      "code": "JCJG0111",
+      "name": "惩处数据子类表",
+      "type": "数据子类",
+      "label": "惩处数据子类表"
+    },
+    {
+      "code": "JCJG0201",
+      "name": "语言能力数据子类表",
+      "type": "数据子类",
+      "label": "语言能力数据子类表"
+    },
+    {
+      "code": "JCJG0202",
+      "name": "专业技术职务数据子类表",
+      "type": "数据子类",
+      "label": "专业技术职务数据子类表"
+    },
+    {
+      "code": "JCJG0203",
+      "name": "岗位证书数据子类表",
+      "type": "数据子类",
+      "label": "岗位证书数据子类表"
+    },
+    {
+      "code": "JCJG0204",
+      "name": "工人技术等级及职务数据子类表",
+      "type": "数据子类",
+      "label": "工人技术等级及职务数据子类表"
+    },
+    {
+      "code": "JCJG0205",
+      "name": "党政职务数据子类表",
+      "type": "数据子类",
+      "label": "党政职务数据子类表"
+    },
+    {
+      "code": "JCJG0301",
+      "name": "社会兼职职务数据子类表",
+      "type": "数据子类",
+      "label": "社会兼职职务数据子类表"
+    },
+    {
+      "code": "JCJG0302",
+      "name": "学术团体兼职数据子类表",
+      "type": "数据子类",
+      "label": "学术团体兼职数据子类表"
+    },
+    {
+      "code": "JCJG0401",
+      "name": "国内进修学习数据子类表",
+      "type": "数据子类",
+      "label": "国内进修学习数据子类表"
+    },
+    {
+      "code": "JCJG0402",
+      "name": "出国（境）进修学习工作数据子类表",
+      "type": "数据子类",
+      "label": "出国（境）进修学习工作数据子类表"
+    },
+    {
+      "code": "JCJG0501",
+      "name": "组织考察数据子类表",
+      "type": "数据子类",
+      "label": "组织考察数据子类表"
+    },
+    {
+      "code": "JCJG0502",
+      "name": "教职工考核数据子类表",
+      "type": "数据子类",
+      "label": "教职工考核数据子类表"
+    },
+    {
+      "code": "JCJG0503",
+      "name": "工人考技考工数据子类表",
+      "type": "数据子类",
+      "label": "工人考技考工数据子类表"
+    },
+    {
+      "code": "JCJG0601",
+      "name": "来源数据子类表",
+      "type": "数据子类",
+      "label": "来源数据子类表"
+    },
+    {
+      "code": "JCJG0602",
+      "name": "部门调动数据子类表",
+      "type": "数据子类",
+      "label": "部门调动数据子类表"
+    },
+    {
+      "code": "JCJG0603",
+      "name": "离岗数据子类表",
+      "type": "数据子类",
+      "label": "离岗数据子类表"
+    },
+    {
+      "code": "JCJG0604",
+      "name": "病休数据子类表",
+      "type": "数据子类",
+      "label": "病休数据子类表"
+    },
+    {
+      "code": "JCJG0701",
+      "name": "离职数据子类表",
+      "type": "数据子类",
+      "label": "离职数据子类表"
+    },
+    {
+      "code": "JCJG0702",
+      "name": "离退休数据子类表",
+      "type": "数据子类",
+      "label": "离退休数据子类表"
+    },
+    {
+      "code": "JCJG0703",
+      "name": "返聘数据子类表",
+      "type": "数据子类",
+      "label": "返聘数据子类表"
+    },
+    {
+      "code": "JCTB0101",
+      "name": "通用通讯数据子类表",
+      "type": "数据子类",
+      "label": "通用通讯数据子类表"
+    },
+    {
+      "code": "JCTB0102",
+      "name": "通用时间数据子类表",
+      "type": "数据子类",
+      "label": "通用时间数据子类表"
+    },
+    {
+      "code": "JCTB0103",
+      "name": "单位基本数据子类表",
+      "type": "数据子类",
+      "label": "单位基本数据子类表"
+    },
+    {
+      "code": "JCTB0104",
+      "name": "通用教学数据子类表",
+      "type": "数据子类",
+      "label": "通用教学数据子类表"
+    },
+    {
+      "code": "JCTB0201",
+      "name": "人员基本数据子类表",
+      "type": "数据子类",
+      "label": "人员基本数据子类表"
+    },
+    {
+      "code": "JCTB0202",
+      "name": "学习简历数据子类表",
+      "type": "数据子类",
+      "label": "学习简历数据子类表"
+    },
+    {
+      "code": "JCTB0203",
+      "name": "工作简历数据子类表",
+      "type": "数据子类",
+      "label": "工作简历数据子类表"
+    },
+    {
+      "code": "JCTB0204",
+      "name": "政治面貌数据子类表",
+      "type": "数据子类",
+      "label": "政治面貌数据子类表"
+    },
+    {
+      "code": "JCTB0205",
+      "name": "学历学位数据子类表",
+      "type": "数据子类",
+      "label": "学历学位数据子类表"
+    },
+    {
+      "code": "JCTB0206",
+      "name": "家庭通讯方式数据子类表",
+      "type": "数据子类",
+      "label": "家庭通讯方式数据子类表"
+    },
+    {
+      "code": "JCTB0207",
+      "name": "家庭成员数据子类表",
+      "type": "数据子类",
+      "label": "家庭成员数据子类表"
+    },
+    {
+      "code": "JCTB0208",
+      "name": "联系人数据子类表",
+      "type": "数据子类",
+      "label": "联系人数据子类表"
+    },
+    {
+      "code": "JCTB0209",
+      "name": "家庭经济情况数据子类表",
+      "type": "数据子类",
+      "label": "家庭经济情况数据子类表"
+    },
+    {
+      "code": "JCXS0101",
+      "name": "学生基本数据子类表",
+      "type": "数据子类",
+      "label": "学生基本数据子类表"
+    },
+    {
+      "code": "JCXS0102",
+      "name": "学习简历数据子类表",
+      "type": "数据子类",
+      "label": "学习简历数据子类表"
+    },
+    {
+      "code": "JCXS0103",
+      "name": "工作简历数据子类表",
+      "type": "数据子类",
+      "label": "工作简历数据子类表"
+    },
+    {
+      "code": "JCXS0104",
+      "name": "政治面貌数据子类表",
+      "type": "数据子类",
+      "label": "政治面貌数据子类表"
+    },
+    {
+      "code": "JCXS0105",
+      "name": "学历学位数据子类表",
+      "type": "数据子类",
+      "label": "学历学位数据子类表"
+    },
+    {
+      "code": "JCXS0106",
+      "name": "家庭通讯方式数据子类表",
+      "type": "数据子类",
+      "label": "家庭通讯方式数据子类表"
+    },
+    {
+      "code": "JCXS0107",
+      "name": "家庭成员数据子类表",
+      "type": "数据子类",
+      "label": "家庭成员数据子类表"
+    },
+    {
+      "code": "JCXS0108",
+      "name": "联系人数据子类表",
+      "type": "数据子类",
+      "label": "联系人数据子类表"
+    },
+    {
+      "code": "JCXS0109",
+      "name": "家庭经济情况数据子类表",
+      "type": "数据子类",
+      "label": "家庭经济情况数据子类表"
+    },
+    {
+      "code": "JCXS0110",
+      "name": "学生来源数据子类表",
+      "type": "数据子类",
+      "label": "学生来源数据子类表"
+    },
+    {
+      "code": "JCXS0111",
+      "name": "个人通讯子类",
+      "type": "数据子类",
+      "label": "个人通讯子类"
+    },
+    {
+      "code": "JCXS0201",
+      "name": "学籍基本数据子类表",
+      "type": "数据子类",
+      "label": "学籍基本数据子类表"
+    },
+    {
+      "code": "JCXS0202",
+      "name": "学籍异动数据子类表",
+      "type": "数据子类",
+      "label": "学籍异动数据子类表"
+    },
+    {
+      "code": "JCXS0203",
+      "name": "成绩数据子类表",
+      "type": "数据子类",
+      "label": "成绩数据子类表"
+    },
+    {
+      "code": "JCXS0204",
+      "name": "奖励数据子类表",
+      "type": "数据子类",
+      "label": "奖励数据子类表"
+    },
+    {
+      "code": "JCXS0205",
+      "name": "惩处数据子类表",
+      "type": "数据子类",
+      "label": "惩处数据子类表"
+    },
+    {
+      "code": "JCXS0301",
+      "name": "毕业数据子类表",
+      "type": "数据子类",
+      "label": "毕业数据子类表"
+    },
+    {
+      "code": "JCXS0302",
+      "name": "就业数据子类表",
+      "type": "数据子类",
+      "label": "就业数据子类表"
+    },
+    {
+      "code": "JCXX0101",
+      "name": "学校基本数据子类表",
+      "type": "数据子类",
+      "label": "学校基本数据子类表"
+    },
+    {
+      "code": "JCXX0102",
+      "name": "校区基本数据子类表",
+      "type": "数据子类",
+      "label": "校区基本数据子类表"
+    }
+  ],
+  "properties": [
+    {
+      "code": "JCBX010101",
+      "name": "JYSYFBK 教育事业费拨款",
+      "type": "数据属性",
+      "parent": "JCBX0101",
+      "label": "JYSYFBK 教育事业费拨款"
+    },
+    {
+      "code": "JCBX010102",
+      "name": "QTBK 其他拨款",
+      "type": "数据属性",
+      "parent": "JCBX0101",
+      "label": "QTBK 其他拨款"
+    },
+    {
+      "code": "JCBX010103",
+      "name": "JYFFJ 教育费附加",
+      "type": "数据属性",
+      "parent": "JCBX0101",
+      "label": "JYFFJ 教育费附加"
+    },
+    {
+      "code": "JCBX010104",
+      "name": "DFJYFFJ 地方教育费附加",
+      "type": "数据属性",
+      "parent": "JCBX0101",
+      "label": "DFJYFFJ 地方教育费附加"
+    },
+    {
+      "code": "JCBX010105",
+      "name": "DFJJ 地方基金",
+      "type": "数据属性",
+      "parent": "JCBX0101",
+      "label": "DFJJ 地方基金"
+    },
+    {
+      "code": "JCBX010106",
+      "name": "JBJSBK 基本建设拨款",
+      "type": "数据属性",
+      "parent": "JCBX0101",
+      "label": "JBJSBK 基本建设拨款"
+    },
+    {
+      "code": "JCBX010201",
+      "name": "XZFSR 学杂费收入",
+      "type": "数据属性",
+      "parent": "JCBX0102",
+      "label": "XZFSR 学杂费收入"
+    },
+    {
+      "code": "JCBX010202",
+      "name": "JYSR 经营收入",
+      "type": "数据属性",
+      "parent": "JCBX0102",
+      "label": "JYSR 经营收入"
+    },
+    {
+      "code": "JCBX010203",
+      "name": "FSDWSJSR 附属单位上缴收 入",
+      "type": "数据属性",
+      "parent": "JCBX0102",
+      "label": "FSDWSJSR 附属单位上缴收 入"
+    },
+    {
+      "code": "JCBX010301",
+      "name": "GATJHWJKSR 港澳台及海外捐 款收入",
+      "type": "数据属性",
+      "parent": "JCBX0103",
+      "label": "GATJHWJKSR 港澳台及海外捐 款收入"
+    },
+    {
+      "code": "JCBX010302",
+      "name": "QTJKSR 其他捐款收入",
+      "type": "数据属性",
+      "parent": "JCBX0103",
+      "label": "QTJKSR 其他捐款收入"
+    },
+    {
+      "code": "JCBX010303",
+      "name": "ZCCZSR 资产处置收入",
+      "type": "数据属性",
+      "parent": "JCBX0103",
+      "label": "ZCCZSR 资产处置收入"
+    },
+    {
+      "code": "JCBX010304",
+      "name": "LHBXSR 联合办学（班） 收入",
+      "type": "数据属性",
+      "parent": "JCBX0103",
+      "label": "LHBXSR 联合办学（班） 收入"
+    },
+    {
+      "code": "JCBX010305",
+      "name": "QTPXBKSR 其他培训拨款收 入",
+      "type": "数据属性",
+      "parent": "JCBX0103",
+      "label": "QTPXBKSR 其他培训拨款收 入"
+    },
+    {
+      "code": "JCBX010401",
+      "name": "JBGZ 基本工资",
+      "type": "数据属性",
+      "parent": "JCBX0104",
+      "label": "JBGZ 基本工资"
+    },
+    {
+      "code": "JCBX010402",
+      "name": "JTBT 津贴补贴",
+      "type": "数据属性",
+      "parent": "JCBX0104",
+      "label": "JTBT 津贴补贴"
+    },
+    {
+      "code": "JCBX010403",
+      "name": "JJJXGZ 奖金及绩效工资",
+      "type": "数据属性",
+      "parent": "JCBX0104",
+      "label": "JJJXGZ 奖金及绩效工资"
+    },
+    {
+      "code": "JCBX010404",
+      "name": "SHBZJF 社会保障缴费",
+      "type": "数据属性",
+      "parent": "JCBX0104",
+      "label": "SHBZJF 社会保障缴费"
+    },
+    {
+      "code": "JCBX010405",
+      "name": "QTGZFLXZC 其他工资福利性 支出",
+      "type": "数据属性",
+      "parent": "JCBX0104",
+      "label": "QTGZFLXZC 其他工资福利性 支出"
+    },
+    {
+      "code": "JCBX010501",
+      "name": "LTXF 离退休费",
+      "type": "数据属性",
+      "parent": "JCBX0105",
+      "label": "LTXF 离退休费"
+    },
+    {
+      "code": "JCBX010502",
+      "name": "YLF 医疗费",
+      "type": "数据属性",
+      "parent": "JCBX0105",
+      "label": "YLF 医疗费"
+    },
+    {
+      "code": "JCBX010503",
+      "name": "ZXJ 助学金",
+      "type": "数据属性",
+      "parent": "JCBX0105",
+      "label": "ZXJ 助学金"
+    },
+    {
+      "code": "JCBX010504",
+      "name": "QTBZXZC 其他补助性支出",
+      "type": "数据属性",
+      "parent": "JCBX0105",
+      "label": "QTBZXZC 其他补助性支出"
+    },
+    {
+      "code": "JCBX010601",
+      "name": "BGF 办公费",
+      "type": "数据属性",
+      "parent": "JCBX0106",
+      "label": "BGF 办公费"
+    },
+    {
+      "code": "JCBX010602",
+      "name": "SF 水费",
+      "type": "数据属性",
+      "parent": "JCBX0106",
+      "label": "SF 水费"
+    },
+    {
+      "code": "JCBX010603",
+      "name": "DF 电费",
+      "type": "数据属性",
+      "parent": "JCBX0106",
+      "label": "DF 电费"
+    },
+    {
+      "code": "JCBX010604",
+      "name": "YDF 邮电费",
+      "type": "数据属性",
+      "parent": "JCBX0106",
+      "label": "YDF 邮电费"
+    },
+    {
+      "code": "JCBX010605",
+      "name": "QNF 取暖费",
+      "type": "数据属性",
+      "parent": "JCBX0106",
+      "label": "QNF 取暖费"
+    },
+    {
+      "code": "JCBX010606",
+      "name": "CLF 差旅费",
+      "type": "数据属性",
+      "parent": "JCBX0106",
+      "label": "CLF 差旅费"
+    },
+    {
+      "code": "JCBX010607",
+      "name": "WXF 维修（护）费",
+      "type": "数据属性",
+      "parent": "JCBX0106",
+      "label": "WXF 维修（护）费"
+    },
+    {
+      "code": "JCBX010608",
+      "name": "PXF 培训费",
+      "type": "数据属性",
+      "parent": "JCBX0106",
+      "label": "PXF 培训费"
+    },
+    {
+      "code": "JCBX010609",
+      "name": "ZYCLF 专用材料费",
+      "type": "数据属性",
+      "parent": "JCBX0106",
+      "label": "ZYCLF 专用材料费"
+    },
+    {
+      "code": "JCBX010610",
+      "name": "LWF 劳务费",
+      "type": "数据属性",
+      "parent": "JCBX0106",
+      "label": "LWF 劳务费"
+    },
+    {
+      "code": "JCBX010611",
+      "name": "FLF 福利费",
+      "type": "数据属性",
+      "parent": "JCBX0106",
+      "label": "FLF 福利费"
+    },
+    {
+      "code": "JCBX010612",
+      "name": "QTSPHFWXFY 其他商品和服务 性费用",
+      "type": "数据属性",
+      "parent": "JCBX0106",
+      "label": "QTSPHFWXFY 其他商品和服务 性费用"
+    },
+    {
+      "code": "JCBX010701",
+      "name": "XGJYHJKFX 向国家银行借款付息",
+      "type": "数据属性",
+      "parent": "JCBX0107",
+      "label": "XGJYHJKFX 向国家银行借款付息"
+    },
+    {
+      "code": "JCBX010702",
+      "name": "QTGNJKFX 其他国内借款付息",
+      "type": "数据属性",
+      "parent": "JCBX0107",
+      "label": "QTGNJKFX 其他国内借款付息"
+    },
+    {
+      "code": "JCBX010703",
+      "name": "XGWZFJKFX 向国外政府借款付息",
+      "type": "数据属性",
+      "parent": "JCBX0107",
+      "label": "XGWZFJKFX 向国外政府借款付息"
+    },
+    {
+      "code": "JCBX010704",
+      "name": "XGJZZJKFX 向国际组织借款付息",
+      "type": "数据属性",
+      "parent": "JCBX0107",
+      "label": "XGJZZJKFX 向国际组织借款付息"
+    },
+    {
+      "code": "JCBX010705",
+      "name": "QTGWJKFX 其他国外借款付息",
+      "type": "数据属性",
+      "parent": "JCBX0107",
+      "label": "QTGWJKFX 其他国外借款付息"
+    },
+    {
+      "code": "JCBX010801",
+      "name": "BGSBGZF 办公设备购置费",
+      "type": "数据属性",
+      "parent": "JCBX0108",
+      "label": "BGSBGZF 办公设备购置费"
+    },
+    {
+      "code": "JCBX010802",
+      "name": "ZYSBGZF 专用设备购置费",
+      "type": "数据属性",
+      "parent": "JCBX0108",
+      "label": "ZYSBGZF 专用设备购置费"
+    },
+    {
+      "code": "JCBX010803",
+      "name": "JTGJGZF 交通工具购置费",
+      "type": "数据属性",
+      "parent": "JCBX0108",
+      "label": "JTGJGZF 交通工具购置费"
+    },
+    {
+      "code": "JCBX010804",
+      "name": "XXWLGJF 信息网络购建费",
+      "type": "数据属性",
+      "parent": "JCBX0108",
+      "label": "XXWLGJF 信息网络购建费"
+    },
+    {
+      "code": "JCBX010805",
+      "name": "FWJZGJF 房屋建筑物购建费",
+      "type": "数据属性",
+      "parent": "JCBX0108",
+      "label": "FWJZGJF 房屋建筑物购建费"
+    },
+    {
+      "code": "JCBX010806",
+      "name": "DXXSF 大型修缮费",
+      "type": "数据属性",
+      "parent": "JCBX0108",
+      "label": "DXXSF 大型修缮费"
+    },
+    {
+      "code": "JCBX010807",
+      "name": "JBJSZCF 基本建设支出费",
+      "type": "数据属性",
+      "parent": "JCBX0108",
+      "label": "JBJSZCF 基本建设支出费"
+    },
+    {
+      "code": "JCBX010901",
+      "name": "GWJRJGDK 国外金融机构贷款",
+      "type": "数据属性",
+      "parent": "JCBX0109",
+      "label": "GWJRJGDK 国外金融机构贷款"
+    },
+    {
+      "code": "JCBX010902",
+      "name": "GNJRJGDK 国内金融机构贷款",
+      "type": "数据属性",
+      "parent": "JCBX0109",
+      "label": "GNJRJGDK 国内金融机构贷款"
+    },
+    {
+      "code": "JCBX010903",
+      "name": "QSGDWGCK 欠施工单位工程款",
+      "type": "数据属性",
+      "parent": "JCBX0109",
+      "label": "QSGDWGCK 欠施工单位工程款"
+    },
+    {
+      "code": "JCBX010904",
+      "name": "JGRK 借（欠）个人款",
+      "type": "数据属性",
+      "parent": "JCBX0109",
+      "label": "JGRK 借（欠）个人款"
+    },
+    {
+      "code": "JCBX010905",
+      "name": "JQTDWK 借（欠）其他单位款",
+      "type": "数据属性",
+      "parent": "JCBX0109",
+      "label": "JQTDWK 借（欠）其他单位款"
+    },
+    {
+      "code": "JCBX010906",
+      "name": "QQTLYK 欠其他来源款",
+      "type": "数据属性",
+      "parent": "JCBX0109",
+      "label": "QQTLYK 欠其他来源款"
+    },
+    {
+      "code": "JCBX011001",
+      "name": "FWJZWGJHDXXSZW 房屋建筑物购建和 大型修缮债务",
+      "type": "数据属性",
+      "parent": "JCBX0110",
+      "label": "FWJZWGJHDXXSZW 房屋建筑物购建和 大型修缮债务"
+    },
+    {
+      "code": "JCBX011002",
+      "name": "TDZYFZW 土地征用费债务",
+      "type": "数据属性",
+      "parent": "JCBX0110",
+      "label": "TDZYFZW 土地征用费债务"
+    },
+    {
+      "code": "JCBX011003",
+      "name": "SBGZZW 设备购置债务",
+      "type": "数据属性",
+      "parent": "JCBX0110",
+      "label": "SBGZZW 设备购置债务"
+    },
+    {
+      "code": "JCBX011004",
+      "name": "QTYTZW 其他用途债务",
+      "type": "数据属性",
+      "parent": "JCBX0110",
+      "label": "QTYTZW 其他用途债务"
+    },
+    {
+      "code": "JCBX020101",
+      "name": "YDBH 用地编号",
+      "type": "数据属性",
+      "parent": "JCBX0201",
+      "label": "YDBH 用地编号"
+    },
+    {
+      "code": "JCBX020102",
+      "name": "TDCQM 土地产权码",
+      "type": "数据属性",
+      "parent": "JCBX0201",
+      "label": "TDCQM 土地产权码"
+    },
+    {
+      "code": "JCBX020103",
+      "name": "TDSYZKM 土地使用状况 码",
+      "type": "数据属性",
+      "parent": "JCBX0201",
+      "label": "TDSYZKM 土地使用状况 码"
+    },
+    {
+      "code": "JCBX020104",
+      "name": "ZDYTM 占地用途码",
+      "type": "数据属性",
+      "parent": "JCBX0201",
+      "label": "ZDYTM 占地用途码"
+    },
+    {
+      "code": "JCBX020105",
+      "name": "ZDMJ 占地面积",
+      "type": "数据属性",
+      "parent": "JCBX0201",
+      "label": "ZDMJ 占地面积"
+    },
+    {
+      "code": "JCBX020106",
+      "name": "YDDZ 用地地址",
+      "type": "数据属性",
+      "parent": "JCBX0201",
+      "label": "YDDZ 用地地址"
+    },
+    {
+      "code": "JCBX020107",
+      "name": "TDZH 土地证号",
+      "type": "数据属性",
+      "parent": "JCBX0201",
+      "label": "TDZH 土地证号"
+    },
+    {
+      "code": "JCBX020201",
+      "name": "JZWH 建筑物号",
+      "type": "数据属性",
+      "parent": "JCBX0202",
+      "label": "JZWH 建筑物号"
+    },
+    {
+      "code": "JCBX020202",
+      "name": "JZWMC 建筑物名称",
+      "type": "数据属性",
+      "parent": "JCBX0202",
+      "label": "JZWMC 建筑物名称"
+    },
+    {
+      "code": "JCBX020203",
+      "name": "FWCQM 房屋产权码",
+      "type": "数据属性",
+      "parent": "JCBX0202",
+      "label": "FWCQM 房屋产权码"
+    },
+    {
+      "code": "JCBX020204",
+      "name": "SYZKM 使用状况码",
+      "type": "数据属性",
+      "parent": "JCBX0202",
+      "label": "SYZKM 使用状况码"
+    },
+    {
+      "code": "JCBX020205",
+      "name": "JZWFLM 建筑物分类 码",
+      "type": "数据属性",
+      "parent": "JCBX0202",
+      "label": "JZWFLM 建筑物分类 码"
+    },
+    {
+      "code": "JCBX020206",
+      "name": "JZWJGM 建筑物结构 码",
+      "type": "数据属性",
+      "parent": "JCBX0202",
+      "label": "JZWJGM 建筑物结构 码"
+    },
+    {
+      "code": "JCBX020207",
+      "name": "JZWCS 建筑物层数",
+      "type": "数据属性",
+      "parent": "JCBX0202",
+      "label": "JZWCS 建筑物层数"
+    },
+    {
+      "code": "JCBX020208",
+      "name": "JCNY 建成年月",
+      "type": "数据属性",
+      "parent": "JCBX0202",
+      "label": "JCNY 建成年月"
+    },
+    {
+      "code": "JCBX020209",
+      "name": "JZWTZZE 建筑物投资 总额",
+      "type": "数据属性",
+      "parent": "JCBX0202",
+      "label": "JZWTZZE 建筑物投资 总额"
+    },
+    {
+      "code": "JCBX020210",
+      "name": "JFLYM 经费来源码",
+      "type": "数据属性",
+      "parent": "JCBX0202",
+      "label": "JFLYM 经费来源码"
+    },
+    {
+      "code": "JCBX020211",
+      "name": "ZJZMJ 总建筑面积",
+      "type": "数据属性",
+      "parent": "JCBX0202",
+      "label": "ZJZMJ 总建筑面积"
+    },
+    {
+      "code": "JCBX020212",
+      "name": "ZSYMJ 总使用面积",
+      "type": "数据属性",
+      "parent": "JCBX0202",
+      "label": "ZSYMJ 总使用面积"
+    },
+    {
+      "code": "JCBX020213",
+      "name": "KZSFLDM 抗震设防烈 度码",
+      "type": "数据属性",
+      "parent": "JCBX0202",
+      "label": "KZSFLDM 抗震设防烈 度码"
+    },
+    {
+      "code": "JCBX020214",
+      "name": "KZSFBZM 抗震设防标 准码",
+      "type": "数据属性",
+      "parent": "JCBX0202",
+      "label": "KZSFBZM 抗震设防标 准码"
+    },
+    {
+      "code": "JCBX020215",
+      "name": "JZWDZ 建筑物地址",
+      "type": "数据属性",
+      "parent": "JCBX0202",
+      "label": "JZWDZ 建筑物地址"
+    },
+    {
+      "code": "JCBX020216",
+      "name": "JZWZKM 建筑物状况 码",
+      "type": "数据属性",
+      "parent": "JCBX0202",
+      "label": "JZWZKM 建筑物状况 码"
+    },
+    {
+      "code": "JCBX020217",
+      "name": "JZWTP 建筑物图片",
+      "type": "数据属性",
+      "parent": "JCBX0202",
+      "label": "JZWTP 建筑物图片"
+    },
+    {
+      "code": "JCBX020218",
+      "name": "JZWPMT 建筑物平面 图",
+      "type": "数据属性",
+      "parent": "JCBX0202",
+      "label": "JZWPMT 建筑物平面 图"
+    },
+    {
+      "code": "JCBX020219",
+      "name": "QSZH 权属证号",
+      "type": "数据属性",
+      "parent": "JCBX0202",
+      "label": "QSZH 权属证号"
+    },
+    {
+      "code": "JCBX020220",
+      "name": "JZWZDMJ 建筑物占地 面积",
+      "type": "数据属性",
+      "parent": "JCBX0202",
+      "label": "JZWZDMJ 建筑物占地 面积"
+    },
+    {
+      "code": "JCBX020221",
+      "name": "SJSYNX 设计使用年 限",
+      "type": "数据属性",
+      "parent": "JCBX0202",
+      "label": "SJSYNX 设计使用年 限"
+    },
+    {
+      "code": "JCBX020301",
+      "name": "FJH 房间号",
+      "type": "数据属性",
+      "parent": "JCBX0203",
+      "label": "FJH 房间号"
+    },
+    {
+      "code": "JCBX020302",
+      "name": "FJMC 房间名称",
+      "type": "数据属性",
+      "parent": "JCBX0203",
+      "label": "FJMC 房间名称"
+    },
+    {
+      "code": "JCBX020303",
+      "name": "FJYTM 房间用途码",
+      "type": "数据属性",
+      "parent": "JCBX0203",
+      "label": "FJYTM 房间用途码"
+    },
+    {
+      "code": "JCBX020304",
+      "name": "FJLC 房间楼层",
+      "type": "数据属性",
+      "parent": "JCBX0203",
+      "label": "FJLC 房间楼层"
+    },
+    {
+      "code": "JCBX020305",
+      "name": "FJJZMJ 房间建筑面积",
+      "type": "数据属性",
+      "parent": "JCBX0203",
+      "label": "FJJZMJ 房间建筑面积"
+    },
+    {
+      "code": "JCBX020306",
+      "name": "FJSYMJ 房间使用面积",
+      "type": "数据属性",
+      "parent": "JCBX0203",
+      "label": "FJSYMJ 房间使用面积"
+    },
+    {
+      "code": "JCBX020401",
+      "name": "XSKSRQ 修缮开始日期",
+      "type": "数据属性",
+      "parent": "JCBX0204",
+      "label": "XSKSRQ 修缮开始日期"
+    },
+    {
+      "code": "JCBX020402",
+      "name": "XSJSRQ 修缮结束日期",
+      "type": "数据属性",
+      "parent": "JCBX0204",
+      "label": "XSJSRQ 修缮结束日期"
+    },
+    {
+      "code": "JCBX020403",
+      "name": "XSNR 修缮内容",
+      "type": "数据属性",
+      "parent": "JCBX0204",
+      "label": "XSNR 修缮内容"
+    },
+    {
+      "code": "JCBX020404",
+      "name": "XSJF 修缮经费",
+      "type": "数据属性",
+      "parent": "JCBX0204",
+      "label": "XSJF 修缮经费"
+    },
+    {
+      "code": "JCBX020405",
+      "name": "XSDW 修缮单位",
+      "type": "数据属性",
+      "parent": "JCBX0204",
+      "label": "XSDW 修缮单位"
+    },
+    {
+      "code": "JCBX020406",
+      "name": "JBRH 经办人号",
+      "type": "数据属性",
+      "parent": "JCBX0204",
+      "label": "JBRH 经办人号"
+    },
+    {
+      "code": "JCBX020407",
+      "name": "XSSM 修缮说明",
+      "type": "数据属性",
+      "parent": "JCBX0204",
+      "label": "XSSM 修缮说明"
+    },
+    {
+      "code": "JCBX020501",
+      "name": "SSH 设施号",
+      "type": "数据属性",
+      "parent": "JCBX0205",
+      "label": "SSH 设施号"
+    },
+    {
+      "code": "JCBX020502",
+      "name": "SSCQM 设施产权码",
+      "type": "数据属性",
+      "parent": "JCBX0205",
+      "label": "SSCQM 设施产权码"
+    },
+    {
+      "code": "JCBX020503",
+      "name": "SSSYZKM 设施使用状 况码",
+      "type": "数据属性",
+      "parent": "JCBX0205",
+      "label": "SSSYZKM 设施使用状 况码"
+    },
+    {
+      "code": "JCBX020504",
+      "name": "SSXXDWCCM 所属学校单 位层次码",
+      "type": "数据属性",
+      "parent": "JCBX0205",
+      "label": "SSXXDWCCM 所属学校单 位层次码"
+    },
+    {
+      "code": "JCBX020505",
+      "name": "SSMC 设施名称",
+      "type": "数据属性",
+      "parent": "JCBX0205",
+      "label": "SSMC 设施名称"
+    },
+    {
+      "code": "JCBX020506",
+      "name": "JSNY 建设年月",
+      "type": "数据属性",
+      "parent": "JCBX0205",
+      "label": "JSNY 建设年月"
+    },
+    {
+      "code": "JCBX020507",
+      "name": "JSFY 建设费用",
+      "type": "数据属性",
+      "parent": "JCBX0205",
+      "label": "JSFY 建设费用"
+    },
+    {
+      "code": "JCBX020508",
+      "name": "XSNY 修缮年月",
+      "type": "数据属性",
+      "parent": "JCBX0205",
+      "label": "XSNY 修缮年月"
+    },
+    {
+      "code": "JCBX020509",
+      "name": "XSFY 修缮费用",
+      "type": "数据属性",
+      "parent": "JCBX0205",
+      "label": "XSFY 修缮费用"
+    },
+    {
+      "code": "JCBX020510",
+      "name": "SYSFZC 使用是否正 常",
+      "type": "数据属性",
+      "parent": "JCBX0205",
+      "label": "SYSFZC 使用是否正 常"
+    },
+    {
+      "code": "JCBX030101",
+      "name": "YQH 仪器号",
+      "type": "数据属性",
+      "parent": "JCBX0301",
+      "label": "YQH 仪器号"
+    },
+    {
+      "code": "JCBX030102",
+      "name": "YQMC 仪器名称",
+      "type": "数据属性",
+      "parent": "JCBX0301",
+      "label": "YQMC 仪器名称"
+    },
+    {
+      "code": "JCBX030103",
+      "name": "YQYWMC 仪器英文名 称",
+      "type": "数据属性",
+      "parent": "JCBX0301",
+      "label": "YQYWMC 仪器英文名 称"
+    },
+    {
+      "code": "JCBX030104",
+      "name": "XXDWCCM 学校单位层 次码",
+      "type": "数据属性",
+      "parent": "JCBX0301",
+      "label": "XXDWCCM 学校单位层 次码"
+    },
+    {
+      "code": "JCBX030105",
+      "name": "CQM 产权码",
+      "type": "数据属性",
+      "parent": "JCBX0301",
+      "label": "CQM 产权码"
+    },
+    {
+      "code": "JCBX030106",
+      "name": "FLM 分类码",
+      "type": "数据属性",
+      "parent": "JCBX0301",
+      "label": "FLM 分类码"
+    },
+    {
+      "code": "JCBX030107",
+      "name": "YQXH 仪器型号",
+      "type": "数据属性",
+      "parent": "JCBX0301",
+      "label": "YQXH 仪器型号"
+    },
+    {
+      "code": "JCBX030108",
+      "name": "CCRQ 出厂日期",
+      "type": "数据属性",
+      "parent": "JCBX0301",
+      "label": "CCRQ 出厂日期"
+    },
+    {
+      "code": "JCBX030109",
+      "name": "SCGBDQM 生产国别/地 区码",
+      "type": "数据属性",
+      "parent": "JCBX0301",
+      "label": "SCGBDQM 生产国别/地 区码"
+    },
+    {
+      "code": "JCBX030110",
+      "name": "JFKMM 经费科目码",
+      "type": "数据属性",
+      "parent": "JCBX0301",
+      "label": "JFKMM 经费科目码"
+    },
+    {
+      "code": "JCBX030111",
+      "name": "GZRQ 购置日期",
+      "type": "数据属性",
+      "parent": "JCBX0301",
+      "label": "GZRQ 购置日期"
+    },
+    {
+      "code": "JCBX030112",
+      "name": "SCCJ 生产厂家",
+      "type": "数据属性",
+      "parent": "JCBX0301",
+      "label": "SCCJ 生产厂家"
+    },
+    {
+      "code": "JCBX030113",
+      "name": "CCH 出厂号",
+      "type": "数据属性",
+      "parent": "JCBX0301",
+      "label": "CCH 出厂号"
+    },
+    {
+      "code": "JCBX030114",
+      "name": "DJH 单据号",
+      "type": "数据属性",
+      "parent": "JCBX0301",
+      "label": "DJH 单据号"
+    },
+    {
+      "code": "JCBX030115",
+      "name": "TP 图片",
+      "type": "数据属性",
+      "parent": "JCBX0301",
+      "label": "TP 图片"
+    },
+    {
+      "code": "JCBX030116",
+      "name": "YQDD 仪器地点",
+      "type": "数据属性",
+      "parent": "JCBX0301",
+      "label": "YQDD 仪器地点"
+    },
+    {
+      "code": "JCBX030117",
+      "name": "SBFZRH 设备负责人 号",
+      "type": "数据属性",
+      "parent": "JCBX0301",
+      "label": "SBFZRH 设备负责人 号"
+    },
+    {
+      "code": "JCBX030118",
+      "name": "JSZB 技术指标",
+      "type": "数据属性",
+      "parent": "JCBX0301",
+      "label": "JSZB 技术指标"
+    },
+    {
+      "code": "JCBX030119",
+      "name": "YQPZ 仪器配置",
+      "type": "数据属性",
+      "parent": "JCBX0301",
+      "label": "YQPZ 仪器配置"
+    },
+    {
+      "code": "JCBX030120",
+      "name": "JGBZ 价格币种",
+      "type": "数据属性",
+      "parent": "JCBX0301",
+      "label": "JGBZ 价格币种"
+    },
+    {
+      "code": "JCBX030121",
+      "name": "YQJG 仪器价格",
+      "type": "数据属性",
+      "parent": "JCBX0301",
+      "label": "YQJG 仪器价格"
+    },
+    {
+      "code": "JCBX030122",
+      "name": "YQSM 仪器说明",
+      "type": "数据属性",
+      "parent": "JCBX0301",
+      "label": "YQSM 仪器说明"
+    },
+    {
+      "code": "JCBX030123",
+      "name": "CWZH 财务帐号",
+      "type": "数据属性",
+      "parent": "JCBX0301",
+      "label": "CWZH 财务帐号"
+    },
+    {
+      "code": "JCBX030124",
+      "name": "GHS 供货商",
+      "type": "数据属性",
+      "parent": "JCBX0301",
+      "label": "GHS 供货商"
+    },
+    {
+      "code": "JCBX030125",
+      "name": "BXJZRQ 保修截止日 期",
+      "type": "数据属性",
+      "parent": "JCBX0301",
+      "label": "BXJZRQ 保修截止日 期"
+    },
+    {
+      "code": "JCBX030126",
+      "name": "SBLY 设备来源",
+      "type": "数据属性",
+      "parent": "JCBX0301",
+      "label": "SBLY 设备来源"
+    },
+    {
+      "code": "JCBX030127",
+      "name": "SFJMGZYQ 是否精密贵 重仪器",
+      "type": "数据属性",
+      "parent": "JCBX0301",
+      "label": "SFJMGZYQ 是否精密贵 重仪器"
+    },
+    {
+      "code": "JCBX030201",
+      "name": "FJBH 附件编号",
+      "type": "数据属性",
+      "parent": "JCBX0302",
+      "label": "FJBH 附件编号"
+    },
+    {
+      "code": "JCBX030202",
+      "name": "FJSL 附件数量",
+      "type": "数据属性",
+      "parent": "JCBX0302",
+      "label": "FJSL 附件数量"
+    },
+    {
+      "code": "JCBX030203",
+      "name": "FUJMC 附件名称",
+      "type": "数据属性",
+      "parent": "JCBX0302",
+      "label": "FUJMC 附件名称"
+    },
+    {
+      "code": "JCBX030204",
+      "name": "FJXHGG 附件型号规格",
+      "type": "数据属性",
+      "parent": "JCBX0302",
+      "label": "FJXHGG 附件型号规格"
+    },
+    {
+      "code": "JCBX030205",
+      "name": "FJJG 附件价格",
+      "type": "数据属性",
+      "parent": "JCBX0302",
+      "label": "FJJG 附件价格"
+    },
+    {
+      "code": "JCBX030206",
+      "name": "FJYWMC 附件英文名称",
+      "type": "数据属性",
+      "parent": "JCBX0302",
+      "label": "FJYWMC 附件英文名称"
+    },
+    {
+      "code": "JCBX030207",
+      "name": "RMBZJ 人民币总价",
+      "type": "数据属性",
+      "parent": "JCBX0302",
+      "label": "RMBZJ 人民币总价"
+    },
+    {
+      "code": "JCBX030301",
+      "name": "XZM 现状码",
+      "type": "数据属性",
+      "parent": "JCBX0303",
+      "label": "XZM 现状码"
+    },
+    {
+      "code": "JCBX030302",
+      "name": "SYFXM 使用方向码",
+      "type": "数据属性",
+      "parent": "JCBX0303",
+      "label": "SYFXM 使用方向码"
+    },
+    {
+      "code": "JCBX030303",
+      "name": "SYDWH 使用单位号",
+      "type": "数据属性",
+      "parent": "JCBX0303",
+      "label": "SYDWH 使用单位号"
+    },
+    {
+      "code": "JCBX030304",
+      "name": "JSRH 经手人号",
+      "type": "数据属性",
+      "parent": "JCBX0303",
+      "label": "JSRH 经手人号"
+    },
+    {
+      "code": "JCBX030305",
+      "name": "LYDW 领用单位",
+      "type": "数据属性",
+      "parent": "JCBX0303",
+      "label": "LYDW 领用单位"
+    },
+    {
+      "code": "JCBX030306",
+      "name": "LYRH 领用人号",
+      "type": "数据属性",
+      "parent": "JCBX0303",
+      "label": "LYRH 领用人号"
+    },
+    {
+      "code": "JCBX030307",
+      "name": "WHRS 维护人数",
+      "type": "数据属性",
+      "parent": "JCBX0303",
+      "label": "WHRS 维护人数"
+    },
+    {
+      "code": "JCBX030308",
+      "name": "SYRSS 使用人时数",
+      "type": "数据属性",
+      "parent": "JCBX0303",
+      "label": "SYRSS 使用人时数"
+    },
+    {
+      "code": "JCBX030309",
+      "name": "KSSYGS 开设实验个数",
+      "type": "数据属性",
+      "parent": "JCBX0303",
+      "label": "KSSYGS 开设实验个数"
+    },
+    {
+      "code": "JCBX030310",
+      "name": "KSSYSS 开设实验时数",
+      "type": "数据属性",
+      "parent": "JCBX0303",
+      "label": "KSSYSS 开设实验时数"
+    },
+    {
+      "code": "JCBX030311",
+      "name": "JXSS 教学时数",
+      "type": "数据属性",
+      "parent": "JCBX0303",
+      "label": "JXSS 教学时数"
+    },
+    {
+      "code": "JCBX030312",
+      "name": "KYSS 科研时数",
+      "type": "数据属性",
+      "parent": "JCBX0303",
+      "label": "KYSS 科研时数"
+    },
+    {
+      "code": "JCBX030313",
+      "name": "SHXMSS 社会项目时数",
+      "type": "数据属性",
+      "parent": "JCBX0303",
+      "label": "SHXMSS 社会项目时数"
+    },
+    {
+      "code": "JCBX030314",
+      "name": "BGRH 保管人号",
+      "type": "数据属性",
+      "parent": "JCBX0303",
+      "label": "BGRH 保管人号"
+    },
+    {
+      "code": "JCBX030401",
+      "name": "BSBFRQ 报损报废日期",
+      "type": "数据属性",
+      "parent": "JCBX0304",
+      "label": "BSBFRQ 报损报废日期"
+    },
+    {
+      "code": "JCBX030402",
+      "name": "BSBFYY 报损报废原因",
+      "type": "数据属性",
+      "parent": "JCBX0304",
+      "label": "BSBFYY 报损报废原因"
+    },
+    {
+      "code": "JCBX030403",
+      "name": "CLJG 处理结果",
+      "type": "数据属性",
+      "parent": "JCBX0304",
+      "label": "CLJG 处理结果"
+    },
+    {
+      "code": "JCBX030404",
+      "name": "SFSM 损废说明",
+      "type": "数据属性",
+      "parent": "JCBX0304",
+      "label": "SFSM 损废说明"
+    },
+    {
+      "code": "JCBX030501",
+      "name": "RJBH 软件编号",
+      "type": "数据属性",
+      "parent": "JCBX0305",
+      "label": "RJBH 软件编号"
+    },
+    {
+      "code": "JCBX030502",
+      "name": "RJMC 软件名称",
+      "type": "数据属性",
+      "parent": "JCBX0305",
+      "label": "RJMC 软件名称"
+    },
+    {
+      "code": "JCBX030503",
+      "name": "RJFLM 软件分类码",
+      "type": "数据属性",
+      "parent": "JCBX0305",
+      "label": "RJFLM 软件分类码"
+    },
+    {
+      "code": "JCBX030504",
+      "name": "BBH 版本号",
+      "type": "数据属性",
+      "parent": "JCBX0305",
+      "label": "BBH 版本号"
+    },
+    {
+      "code": "JCBX030505",
+      "name": "JZLX 介质类型",
+      "type": "数据属性",
+      "parent": "JCBX0305",
+      "label": "JZLX 介质类型"
+    },
+    {
+      "code": "JCBX030506",
+      "name": "JZSL 介质数量",
+      "type": "数据属性",
+      "parent": "JCBX0305",
+      "label": "JZSL 介质数量"
+    },
+    {
+      "code": "JCBX030507",
+      "name": "SQFW 授权范围",
+      "type": "数据属性",
+      "parent": "JCBX0305",
+      "label": "SQFW 授权范围"
+    },
+    {
+      "code": "JCBX030508",
+      "name": "DJ 单价",
+      "type": "数据属性",
+      "parent": "JCBX0305",
+      "label": "DJ 单价"
+    },
+    {
+      "code": "JCBX030509",
+      "name": "AZTSF 安装调试费",
+      "type": "数据属性",
+      "parent": "JCBX0305",
+      "label": "AZTSF 安装调试费"
+    },
+    {
+      "code": "JCBX030510",
+      "name": "PXJJSZCF 培训及技术支 持费",
+      "type": "数据属性",
+      "parent": "JCBX0305",
+      "label": "PXJJSZCF 培训及技术支 持费"
+    },
+    {
+      "code": "JCBX030701",
+      "name": "SYSH 实验室号",
+      "type": "数据属性",
+      "parent": "JCBX0307",
+      "label": "SYSH 实验室号"
+    },
+    {
+      "code": "JCBX030702",
+      "name": "SYSMC 实验室名称",
+      "type": "数据属性",
+      "parent": "JCBX0307",
+      "label": "SYSMC 实验室名称"
+    },
+    {
+      "code": "JCBX030703",
+      "name": "JLRQ 建立日期",
+      "type": "数据属性",
+      "parent": "JCBX0307",
+      "label": "JLRQ 建立日期"
+    },
+    {
+      "code": "JCBX030704",
+      "name": "JZMJ 建筑面积",
+      "type": "数据属性",
+      "parent": "JCBX0307",
+      "label": "JZMJ 建筑面积"
+    },
+    {
+      "code": "JCBX030705",
+      "name": "SYMJ 使用面积",
+      "type": "数据属性",
+      "parent": "JCBX0307",
+      "label": "SYMJ 使用面积"
+    },
+    {
+      "code": "JCBX030706",
+      "name": "SYSWZ 实验室位置",
+      "type": "数据属性",
+      "parent": "JCBX0307",
+      "label": "SYSWZ 实验室位置"
+    },
+    {
+      "code": "JCBX030707",
+      "name": "FZRH 负责人号",
+      "type": "数据属性",
+      "parent": "JCBX0307",
+      "label": "FZRH 负责人号"
+    },
+    {
+      "code": "JCBX030708",
+      "name": "SYSLBM 实验室类别码",
+      "type": "数据属性",
+      "parent": "JCBX0307",
+      "label": "SYSLBM 实验室类别码"
+    },
+    {
+      "code": "JCBX030709",
+      "name": "SYSDH 实验室电话",
+      "type": "数据属性",
+      "parent": "JCBX0307",
+      "label": "SYSDH 实验室电话"
+    },
+    {
+      "code": "JCBX030710",
+      "name": "SYSJS 实验室介绍",
+      "type": "数据属性",
+      "parent": "JCBX0307",
+      "label": "SYSJS 实验室介绍"
+    },
+    {
+      "code": "JCBX030801",
+      "name": "SYXH 实验序号",
+      "type": "数据属性",
+      "parent": "JCBX0308",
+      "label": "SYXH 实验序号"
+    },
+    {
+      "code": "JCBX030802",
+      "name": "SYMC 实验名称",
+      "type": "数据属性",
+      "parent": "JCBX0308",
+      "label": "SYMC 实验名称"
+    },
+    {
+      "code": "JCBX030803",
+      "name": "LSKCH 隶属课程号",
+      "type": "数据属性",
+      "parent": "JCBX0308",
+      "label": "LSKCH 隶属课程号"
+    },
+    {
+      "code": "JCBX030804",
+      "name": "SYLBM 实验类别码",
+      "type": "数据属性",
+      "parent": "JCBX0308",
+      "label": "SYLBM 实验类别码"
+    },
+    {
+      "code": "JCBX030805",
+      "name": "ZYFLM 专业分类码",
+      "type": "数据属性",
+      "parent": "JCBX0308",
+      "label": "ZYFLM 专业分类码"
+    },
+    {
+      "code": "JCBX030806",
+      "name": "SYYQM 实验要求码",
+      "type": "数据属性",
+      "parent": "JCBX0308",
+      "label": "SYYQM 实验要求码"
+    },
+    {
+      "code": "JCBX030807",
+      "name": "SYZLBM 实验者类别码",
+      "type": "数据属性",
+      "parent": "JCBX0308",
+      "label": "SYZLBM 实验者类别码"
+    },
+    {
+      "code": "JCBX030808",
+      "name": "SYZRS 实验者人数",
+      "type": "数据属性",
+      "parent": "JCBX0308",
+      "label": "SYZRS 实验者人数"
+    },
+    {
+      "code": "JCBX030809",
+      "name": "MZRS 每组人数",
+      "type": "数据属性",
+      "parent": "JCBX0308",
+      "label": "MZRS 每组人数"
+    },
+    {
+      "code": "JCBX030810",
+      "name": "SYSS 实验时数",
+      "type": "数据属性",
+      "parent": "JCBX0308",
+      "label": "SYSS 实验时数"
+    },
+    {
+      "code": "JCBX030811",
+      "name": "HJJBM 获奖级别码",
+      "type": "数据属性",
+      "parent": "JCBX0308",
+      "label": "HJJBM 获奖级别码"
+    },
+    {
+      "code": "JCBX030812",
+      "name": "DKJSH 带课教师号",
+      "type": "数据属性",
+      "parent": "JCBX0308",
+      "label": "DKJSH 带课教师号"
+    },
+    {
+      "code": "JCBX030813",
+      "name": "SYDD 实验地点",
+      "type": "数据属性",
+      "parent": "JCBX0308",
+      "label": "SYDD 实验地点"
+    },
+    {
+      "code": "JCBX040101",
+      "name": "TSBH 图书编号",
+      "type": "数据属性",
+      "parent": "JCBX0401",
+      "label": "TSBH 图书编号"
+    },
+    {
+      "code": "JCBX040102",
+      "name": "TSTXM 图书条形码",
+      "type": "数据属性",
+      "parent": "JCBX0401",
+      "label": "TSTXM 图书条形码"
+    },
+    {
+      "code": "JCBX040103",
+      "name": "ZBT 正标题",
+      "type": "数据属性",
+      "parent": "JCBX0401",
+      "label": "ZBT 正标题"
+    },
+    {
+      "code": "JCBX040104",
+      "name": "BLBT 并列标题",
+      "type": "数据属性",
+      "parent": "JCBX0401",
+      "label": "BLBT 并列标题"
+    },
+    {
+      "code": "JCBX040105",
+      "name": "FBT 副标题",
+      "type": "数据属性",
+      "parent": "JCBX0401",
+      "label": "FBT 副标题"
+    },
+    {
+      "code": "JCBX040106",
+      "name": "JSGJZ 检索关键字",
+      "type": "数据属性",
+      "parent": "JCBX0401",
+      "label": "JSGJZ 检索关键字"
+    },
+    {
+      "code": "JCBX040107",
+      "name": "TSCBH 图书出版号",
+      "type": "数据属性",
+      "parent": "JCBX0401",
+      "label": "TSCBH 图书出版号"
+    },
+    {
+      "code": "JCBX040108",
+      "name": "DYZZ 第一作者",
+      "type": "数据属性",
+      "parent": "JCBX0401",
+      "label": "DYZZ 第一作者"
+    },
+    {
+      "code": "JCBX040109",
+      "name": "QTZZ 其他作者",
+      "type": "数据属性",
+      "parent": "JCBX0401",
+      "label": "QTZZ 其他作者"
+    },
+    {
+      "code": "JCBX040110",
+      "name": "JG 价格",
+      "type": "数据属性",
+      "parent": "JCBX0401",
+      "label": "JG 价格"
+    },
+    {
+      "code": "JCBX040111",
+      "name": "WXLXM 文献类型码",
+      "type": "数据属性",
+      "parent": "JCBX0401",
+      "label": "WXLXM 文献类型码"
+    },
+    {
+      "code": "JCBX040112",
+      "name": "ZDM 装订码",
+      "type": "数据属性",
+      "parent": "JCBX0401",
+      "label": "ZDM 装订码"
+    },
+    {
+      "code": "JCBX040113",
+      "name": "FLH 分类号",
+      "type": "数据属性",
+      "parent": "JCBX0401",
+      "label": "FLH 分类号"
+    },
+    {
+      "code": "JCBX040114",
+      "name": "ZGYZM 中国语种码",
+      "type": "数据属性",
+      "parent": "JCBX0401",
+      "label": "ZGYZM 中国语种码"
+    },
+    {
+      "code": "JCBX040115",
+      "name": "YZM 语种码",
+      "type": "数据属性",
+      "parent": "JCBX0401",
+      "label": "YZM 语种码"
+    },
+    {
+      "code": "JCBX040116",
+      "name": "KB 开本",
+      "type": "数据属性",
+      "parent": "JCBX0401",
+      "label": "KB 开本"
+    },
+    {
+      "code": "JCBX040117",
+      "name": "YS 页数",
+      "type": "数据属性",
+      "parent": "JCBX0401",
+      "label": "YS 页数"
+    },
+    {
+      "code": "JCBX040118",
+      "name": "BC 版次",
+      "type": "数据属性",
+      "parent": "JCBX0401",
+      "label": "BC 版次"
+    },
+    {
+      "code": "JCBX040119",
+      "name": "TSFJMC 图书附件名 称",
+      "type": "数据属性",
+      "parent": "JCBX0401",
+      "label": "TSFJMC 图书附件名 称"
+    },
+    {
+      "code": "JCBX040120",
+      "name": "CSMC 丛书名称",
+      "type": "数据属性",
+      "parent": "JCBX0401",
+      "label": "CSMC 丛书名称"
+    },
+    {
+      "code": "JCBX040121",
+      "name": "CSBZ 丛书编者",
+      "type": "数据属性",
+      "parent": "JCBX0401",
+      "label": "CSBZ 丛书编者"
+    },
+    {
+      "code": "JCBX040122",
+      "name": "CBS 出版社",
+      "type": "数据属性",
+      "parent": "JCBX0401",
+      "label": "CBS 出版社"
+    },
+    {
+      "code": "JCBX040123",
+      "name": "CBSJBM 出版社级别 码",
+      "type": "数据属性",
+      "parent": "JCBX0401",
+      "label": "CBSJBM 出版社级别 码"
+    },
+    {
+      "code": "JCBX040124",
+      "name": "CBD 出版地",
+      "type": "数据属性",
+      "parent": "JCBX0401",
+      "label": "CBD 出版地"
+    },
+    {
+      "code": "JCBX040125",
+      "name": "CBRQ 出版日期",
+      "type": "数据属性",
+      "parent": "JCBX0401",
+      "label": "CBRQ 出版日期"
+    },
+    {
+      "code": "JCBX040126",
+      "name": "FXDW 发行单位",
+      "type": "数据属性",
+      "parent": "JCBX0401",
+      "label": "FXDW 发行单位"
+    },
+    {
+      "code": "JCBX040127",
+      "name": "BZ 备注",
+      "type": "数据属性",
+      "parent": "JCBX0401",
+      "label": "BZ 备注"
+    },
+    {
+      "code": "JCBX040128",
+      "name": "TSZTM 图书状态码",
+      "type": "数据属性",
+      "parent": "JCBX0401",
+      "label": "TSZTM 图书状态码"
+    },
+    {
+      "code": "JCBX040201",
+      "name": "QKBH 期刊编号",
+      "type": "数据属性",
+      "parent": "JCBX0402",
+      "label": "QKBH 期刊编号"
+    },
+    {
+      "code": "JCBX040202",
+      "name": "QKTXM 期刊条形码",
+      "type": "数据属性",
+      "parent": "JCBX0402",
+      "label": "QKTXM 期刊条形码"
+    },
+    {
+      "code": "JCBX040203",
+      "name": "QKZWMC 期刊中文名 称",
+      "type": "数据属性",
+      "parent": "JCBX0402",
+      "label": "QKZWMC 期刊中文名 称"
+    },
+    {
+      "code": "JCBX040204",
+      "name": "QKYWMC 期刊英文名 称",
+      "type": "数据属性",
+      "parent": "JCBX0402",
+      "label": "QKYWMC 期刊英文名 称"
+    },
+    {
+      "code": "JCBX040205",
+      "name": "QKCBH 期刊出版号",
+      "type": "数据属性",
+      "parent": "JCBX0402",
+      "label": "QKCBH 期刊出版号"
+    },
+    {
+      "code": "JCBX040206",
+      "name": "BJB 编辑部",
+      "type": "数据属性",
+      "parent": "JCBX0402",
+      "label": "BJB 编辑部"
+    },
+    {
+      "code": "JCBX040207",
+      "name": "ZB 主编",
+      "type": "数据属性",
+      "parent": "JCBX0402",
+      "label": "ZB 主编"
+    },
+    {
+      "code": "JCBX040208",
+      "name": "MQDJ 每期单价",
+      "type": "数据属性",
+      "parent": "JCBX0402",
+      "label": "MQDJ 每期单价"
+    },
+    {
+      "code": "JCBX040209",
+      "name": "CKNY 创刊年月",
+      "type": "数据属性",
+      "parent": "JCBX0402",
+      "label": "CKNY 创刊年月"
+    },
+    {
+      "code": "JCBX040210",
+      "name": "NH 年号",
+      "type": "数据属性",
+      "parent": "JCBX0402",
+      "label": "NH 年号"
+    },
+    {
+      "code": "JCBX040211",
+      "name": "JH 卷号",
+      "type": "数据属性",
+      "parent": "JCBX0402",
+      "label": "JH 卷号"
+    },
+    {
+      "code": "JCBX040212",
+      "name": "QH 期号",
+      "type": "数据属性",
+      "parent": "JCBX0402",
+      "label": "QH 期号"
+    },
+    {
+      "code": "JCBX040213",
+      "name": "ZQH 总期号",
+      "type": "数据属性",
+      "parent": "JCBX0402",
+      "label": "ZQH 总期号"
+    },
+    {
+      "code": "JCBX040214",
+      "name": "QKLBM 期刊类别码",
+      "type": "数据属性",
+      "parent": "JCBX0402",
+      "label": "QKLBM 期刊类别码"
+    },
+    {
+      "code": "JCBX040215",
+      "name": "QKZTM 期刊状态码",
+      "type": "数据属性",
+      "parent": "JCBX0402",
+      "label": "QKZTM 期刊状态码"
+    },
+    {
+      "code": "JCJG010101",
+      "name": "GH 工号",
+      "type": "数据属性",
+      "parent": "JCJG0101",
+      "label": "GH 工号"
+    },
+    {
+      "code": "JCJG011001",
+      "name": "HJXM 获奖项目",
+      "type": "数据属性",
+      "parent": "JCJG0110",
+      "label": "HJXM 获奖项目"
+    },
+    {
+      "code": "JCJG011002",
+      "name": "JLJBM 奖励级别码",
+      "type": "数据属性",
+      "parent": "JCJG0110",
+      "label": "JLJBM 奖励级别码"
+    },
+    {
+      "code": "JCJG011003",
+      "name": "JLDJM 奖励等级码",
+      "type": "数据属性",
+      "parent": "JCJG0110",
+      "label": "JLDJM 奖励等级码"
+    },
+    {
+      "code": "JCJG011004",
+      "name": "HJLBM 获奖类别码",
+      "type": "数据属性",
+      "parent": "JCJG0110",
+      "label": "HJLBM 获奖类别码"
+    },
+    {
+      "code": "JCJG011005",
+      "name": "JLFSM 奖励方式码",
+      "type": "数据属性",
+      "parent": "JCJG0110",
+      "label": "JLFSM 奖励方式码"
+    },
+    {
+      "code": "JCJG011006",
+      "name": "JLMC 奖励名称",
+      "type": "数据属性",
+      "parent": "JCJG0110",
+      "label": "JLMC 奖励名称"
+    },
+    {
+      "code": "JCJG011007",
+      "name": "JLMCM 奖励名称码",
+      "type": "数据属性",
+      "parent": "JCJG0110",
+      "label": "JLMCM 奖励名称码"
+    },
+    {
+      "code": "JCJG011008",
+      "name": "HJYY 获奖原因",
+      "type": "数据属性",
+      "parent": "JCJG0110",
+      "label": "HJYY 获奖原因"
+    },
+    {
+      "code": "JCJG011009",
+      "name": "JLNR 奖励内容",
+      "type": "数据属性",
+      "parent": "JCJG0110",
+      "label": "JLNR 奖励内容"
+    },
+    {
+      "code": "JCJG011010",
+      "name": "BJDW 颁奖单位",
+      "type": "数据属性",
+      "parent": "JCJG0110",
+      "label": "BJDW 颁奖单位"
+    },
+    {
+      "code": "JCJG011011",
+      "name": "HJRQ 获奖日期",
+      "type": "数据属性",
+      "parent": "JCJG0110",
+      "label": "HJRQ 获奖日期"
+    },
+    {
+      "code": "JCJG011012",
+      "name": "RYCHM 荣誉称号码",
+      "type": "数据属性",
+      "parent": "JCJG0110",
+      "label": "RYCHM 荣誉称号码"
+    },
+    {
+      "code": "JCJG011013",
+      "name": "HJJSM 获奖角色码",
+      "type": "数据属性",
+      "parent": "JCJG0110",
+      "label": "HJJSM 获奖角色码"
+    },
+    {
+      "code": "JCJG011101",
+      "name": "CCMC 惩处名称",
+      "type": "数据属性",
+      "parent": "JCJG0111",
+      "label": "CCMC 惩处名称"
+    },
+    {
+      "code": "JCJG011102",
+      "name": "JLCFM 纪律处分码",
+      "type": "数据属性",
+      "parent": "JCJG0111",
+      "label": "JLCFM 纪律处分码"
+    },
+    {
+      "code": "JCJG011103",
+      "name": "CCYY 惩处原因",
+      "type": "数据属性",
+      "parent": "JCJG0111",
+      "label": "CCYY 惩处原因"
+    },
+    {
+      "code": "JCJG011104",
+      "name": "CCNR 惩处内容",
+      "type": "数据属性",
+      "parent": "JCJG0111",
+      "label": "CCNR 惩处内容"
+    },
+    {
+      "code": "JCJG011105",
+      "name": "CCDW 惩处单位",
+      "type": "数据属性",
+      "parent": "JCJG0111",
+      "label": "CCDW 惩处单位"
+    },
+    {
+      "code": "JCJG011106",
+      "name": "CCWH 惩处文号",
+      "type": "数据属性",
+      "parent": "JCJG0111",
+      "label": "CCWH 惩处文号"
+    },
+    {
+      "code": "JCJG011107",
+      "name": "CCRQ 惩处日期",
+      "type": "数据属性",
+      "parent": "JCJG0111",
+      "label": "CCRQ 惩处日期"
+    },
+    {
+      "code": "JCJG011108",
+      "name": "CCCXRQ 惩处撤销日期",
+      "type": "数据属性",
+      "parent": "JCJG0111",
+      "label": "CCCXRQ 惩处撤销日期"
+    },
+    {
+      "code": "JCJG011109",
+      "name": "CCCXWH 惩处撤消文号",
+      "type": "数据属性",
+      "parent": "JCJG0111",
+      "label": "CCCXWH 惩处撤消文号"
+    },
+    {
+      "code": "JCJG011110",
+      "name": "CCCXYY 惩处撤消原因",
+      "type": "数据属性",
+      "parent": "JCJG0111",
+      "label": "CCCXYY 惩处撤消原因"
+    },
+    {
+      "code": "JCJG020101",
+      "name": "WGYZM 外国语种码",
+      "type": "数据属性",
+      "parent": "JCJG0201",
+      "label": "WGYZM 外国语种码"
+    },
+    {
+      "code": "JCJG020102",
+      "name": "WGYZSLCDM 外国语种熟练 程度码",
+      "type": "数据属性",
+      "parent": "JCJG0201",
+      "label": "WGYZSLCDM 外国语种熟练 程度码"
+    },
+    {
+      "code": "JCJG020103",
+      "name": "ZGYZM 中国语种码",
+      "type": "数据属性",
+      "parent": "JCJG0201",
+      "label": "ZGYZM 中国语种码"
+    },
+    {
+      "code": "JCJG020104",
+      "name": "ZGYZSLCDM 中国语种熟练 程度码",
+      "type": "数据属性",
+      "parent": "JCJG0201",
+      "label": "ZGYZSLCDM 中国语种熟练 程度码"
+    },
+    {
+      "code": "JCJG020105",
+      "name": "PTHSPDJM 普通话水平等 级码",
+      "type": "数据属性",
+      "parent": "JCJG0201",
+      "label": "PTHSPDJM 普通话水平等 级码"
+    },
+    {
+      "code": "JCJG020201",
+      "name": "RZZGMCM 任职资格名 称码",
+      "type": "数据属性",
+      "parent": "JCJG0202",
+      "label": "RZZGMCM 任职资格名 称码"
+    },
+    {
+      "code": "JCJG020202",
+      "name": "QDZGTJM 取得资格途 径码",
+      "type": "数据属性",
+      "parent": "JCJG0202",
+      "label": "QDZGTJM 取得资格途 径码"
+    },
+    {
+      "code": "JCJG020203",
+      "name": "PSDW 评审单位",
+      "type": "数据属性",
+      "parent": "JCJG0202",
+      "label": "PSDW 评审单位"
+    },
+    {
+      "code": "JCJG020204",
+      "name": "PDRQ 评定日期",
+      "type": "数据属性",
+      "parent": "JCJG0202",
+      "label": "PDRQ 评定日期"
+    },
+    {
+      "code": "JCJG020205",
+      "name": "PRZWM 聘任职务码",
+      "type": "数据属性",
+      "parent": "JCJG0202",
+      "label": "PRZWM 聘任职务码"
+    },
+    {
+      "code": "JCJG020206",
+      "name": "PRDW 聘任单位",
+      "type": "数据属性",
+      "parent": "JCJG0202",
+      "label": "PRDW 聘任单位"
+    },
+    {
+      "code": "JCJG020207",
+      "name": "PRQSRQ 聘任起始日 期",
+      "type": "数据属性",
+      "parent": "JCJG0202",
+      "label": "PRQSRQ 聘任起始日 期"
+    },
+    {
+      "code": "JCJG020208",
+      "name": "PRZZRQ 聘任终止日 期",
+      "type": "数据属性",
+      "parent": "JCJG0202",
+      "label": "PRZZRQ 聘任终止日 期"
+    },
+    {
+      "code": "JCJG020209",
+      "name": "PRQKM 聘任情况码",
+      "type": "数据属性",
+      "parent": "JCJG0202",
+      "label": "PRQKM 聘任情况码"
+    },
+    {
+      "code": "JCJG020210",
+      "name": "JPRQ 解聘日期",
+      "type": "数据属性",
+      "parent": "JCJG0202",
+      "label": "JPRQ 解聘日期"
+    },
+    {
+      "code": "JCJG020211",
+      "name": "JPYY 解聘原因",
+      "type": "数据属性",
+      "parent": "JCJG0202",
+      "label": "JPYY 解聘原因"
+    },
+    {
+      "code": "JCJG020301",
+      "name": "GWZSMC 岗位证书名 称",
+      "type": "数据属性",
+      "parent": "JCJG0203",
+      "label": "GWZSMC 岗位证书名 称"
+    },
+    {
+      "code": "JCJG020302",
+      "name": "GWZSBH 岗位证书编 号",
+      "type": "数据属性",
+      "parent": "JCJG0203",
+      "label": "GWZSBH 岗位证书编 号"
+    },
+    {
+      "code": "JCJG020303",
+      "name": "BFDW 颁发单位",
+      "type": "数据属性",
+      "parent": "JCJG0203",
+      "label": "BFDW 颁发单位"
+    },
+    {
+      "code": "JCJG020304",
+      "name": "BFRQ 颁发日期",
+      "type": "数据属性",
+      "parent": "JCJG0203",
+      "label": "BFRQ 颁发日期"
+    },
+    {
+      "code": "JCJG020401",
+      "name": "GRJSDJM 工人技术等 级码",
+      "type": "数据属性",
+      "parent": "JCJG0204",
+      "label": "GRJSDJM 工人技术等 级码"
+    },
+    {
+      "code": "JCJG020402",
+      "name": "GRJSZWM 工人技术职 务码",
+      "type": "数据属性",
+      "parent": "JCJG0204",
+      "label": "GRJSZWM 工人技术职 务码"
+    },
+    {
+      "code": "JCJG020403",
+      "name": "GRGZM 工人工种码",
+      "type": "数据属性",
+      "parent": "JCJG0204",
+      "label": "GRGZM 工人工种码"
+    },
+    {
+      "code": "JCJG020404",
+      "name": "DJFZJG 等级发证机 关",
+      "type": "数据属性",
+      "parent": "JCJG0204",
+      "label": "DJFZJG 等级发证机 关"
+    },
+    {
+      "code": "JCJG020405",
+      "name": "DJPDRQ 等级评定日 期",
+      "type": "数据属性",
+      "parent": "JCJG0204",
+      "label": "DJPDRQ 等级评定日 期"
+    },
+    {
+      "code": "JCJG020501",
+      "name": "ZWMC 职务名称",
+      "type": "数据属性",
+      "parent": "JCJG0205",
+      "label": "ZWMC 职务名称"
+    },
+    {
+      "code": "JCJG020502",
+      "name": "ZWMCM 职务名称码",
+      "type": "数据属性",
+      "parent": "JCJG0205",
+      "label": "ZWMCM 职务名称码"
+    },
+    {
+      "code": "JCJG020503",
+      "name": "ZWLBM 职务类别码",
+      "type": "数据属性",
+      "parent": "JCJG0205",
+      "label": "ZWLBM 职务类别码"
+    },
+    {
+      "code": "JCJG020504",
+      "name": "ZWFLM 职位分类码",
+      "type": "数据属性",
+      "parent": "JCJG0205",
+      "label": "ZWFLM 职位分类码"
+    },
+    {
+      "code": "JCJG020505",
+      "name": "ZWJBM 职务级别码",
+      "type": "数据属性",
+      "parent": "JCJG0205",
+      "label": "ZWJBM 职务级别码"
+    },
+    {
+      "code": "JCJG020506",
+      "name": "RZRQ 任职日期",
+      "type": "数据属性",
+      "parent": "JCJG0205",
+      "label": "RZRQ 任职日期"
+    },
+    {
+      "code": "JCJG020507",
+      "name": "RZBM 任职部门",
+      "type": "数据属性",
+      "parent": "JCJG0205",
+      "label": "RZBM 任职部门"
+    },
+    {
+      "code": "JCJG020508",
+      "name": "RZFSM 任职方式码",
+      "type": "数据属性",
+      "parent": "JCJG0205",
+      "label": "RZFSM 任职方式码"
+    },
+    {
+      "code": "JCJG020509",
+      "name": "RZYY 任职原因",
+      "type": "数据属性",
+      "parent": "JCJG0205",
+      "label": "RZYY 任职原因"
+    },
+    {
+      "code": "JCJG020510",
+      "name": "RZWH 任职文号",
+      "type": "数据属性",
+      "parent": "JCJG0205",
+      "label": "RZWH 任职文号"
+    },
+    {
+      "code": "JCJG020511",
+      "name": "RZPZDW 任职批准单 位",
+      "type": "数据属性",
+      "parent": "JCJG0205",
+      "label": "RZPZDW 任职批准单 位"
+    },
+    {
+      "code": "JCJG020512",
+      "name": "ZWBDLBM 职务变动类 别码",
+      "type": "数据属性",
+      "parent": "JCJG0205",
+      "label": "ZWBDLBM 职务变动类 别码"
+    },
+    {
+      "code": "JCJG020513",
+      "name": "DQRZZK 当前任职状 况",
+      "type": "数据属性",
+      "parent": "JCJG0205",
+      "label": "DQRZZK 当前任职状 况"
+    },
+    {
+      "code": "JCJG020514",
+      "name": "ZWPX 职务排序",
+      "type": "数据属性",
+      "parent": "JCJG0205",
+      "label": "ZWPX 职务排序"
+    },
+    {
+      "code": "JCJG020515",
+      "name": "ZGHCSDGZ 主管或从事 的工作",
+      "type": "数据属性",
+      "parent": "JCJG0205",
+      "label": "ZGHCSDGZ 主管或从事 的工作"
+    },
+    {
+      "code": "JCJG020516",
+      "name": "MZRQ 免职日期",
+      "type": "数据属性",
+      "parent": "JCJG0205",
+      "label": "MZRQ 免职日期"
+    },
+    {
+      "code": "JCJG020517",
+      "name": "MZFSM 免职方式码",
+      "type": "数据属性",
+      "parent": "JCJG0205",
+      "label": "MZFSM 免职方式码"
+    },
+    {
+      "code": "JCJG020518",
+      "name": "MZYYM 免职原因码",
+      "type": "数据属性",
+      "parent": "JCJG0205",
+      "label": "MZYYM 免职原因码"
+    },
+    {
+      "code": "JCJG020519",
+      "name": "MZWH 免职文号",
+      "type": "数据属性",
+      "parent": "JCJG0205",
+      "label": "MZWH 免职文号"
+    },
+    {
+      "code": "JCJG020520",
+      "name": "MZPZDW 免职批准单 位",
+      "type": "数据属性",
+      "parent": "JCJG0205",
+      "label": "MZPZDW 免职批准单 位"
+    },
+    {
+      "code": "JCJG030101",
+      "name": "SHJZM 社会兼职码",
+      "type": "数据属性",
+      "parent": "JCJG0301",
+      "label": "SHJZM 社会兼职码"
+    },
+    {
+      "code": "JCJG030102",
+      "name": "SHJZQSRQ 社会兼职起 始日期",
+      "type": "数据属性",
+      "parent": "JCJG0301",
+      "label": "SHJZQSRQ 社会兼职起 始日期"
+    },
+    {
+      "code": "JCJG030103",
+      "name": "SHJZZZRQ 社会兼职终 止日期",
+      "type": "数据属性",
+      "parent": "JCJG0301",
+      "label": "SHJZZZRQ 社会兼职终 止日期"
+    },
+    {
+      "code": "JCJG030104",
+      "name": "SHJZCZYYM 社会兼职辞 职原因码",
+      "type": "数据属性",
+      "parent": "JCJG0301",
+      "label": "SHJZCZYYM 社会兼职辞 职原因码"
+    },
+    {
+      "code": "JCJG030201",
+      "name": "XSTTMC 学术团体名 称",
+      "type": "数据属性",
+      "parent": "JCJG0302",
+      "label": "XSTTMC 学术团体名 称"
+    },
+    {
+      "code": "JCJG030202",
+      "name": "XSTTJBM 学术团体级 别码",
+      "type": "数据属性",
+      "parent": "JCJG0302",
+      "label": "XSTTJBM 学术团体级 别码"
+    },
+    {
+      "code": "JCJG030203",
+      "name": "XXTTLSHZG DW 学术团体隶 属或主管单 位",
+      "type": "数据属性",
+      "parent": "JCJG0302",
+      "label": "XXTTLSHZG DW 学术团体隶 属或主管单 位"
+    },
+    {
+      "code": "JCJG030204",
+      "name": "XSJZZW 学术兼职职 务",
+      "type": "数据属性",
+      "parent": "JCJG0302",
+      "label": "XSJZZW 学术兼职职 务"
+    },
+    {
+      "code": "JCJG030205",
+      "name": "XSJZQSRQ 学术兼职起 始日期",
+      "type": "数据属性",
+      "parent": "JCJG0302",
+      "label": "XSJZQSRQ 学术兼职起 始日期"
+    },
+    {
+      "code": "JCJG030206",
+      "name": "XSJZZZRQ 学术兼职终 止日期",
+      "type": "数据属性",
+      "parent": "JCJG0302",
+      "label": "XSJZZZRQ 学术兼职终 止日期"
+    },
+    {
+      "code": "JCJG030207",
+      "name": "XSJZCZYYM 学术兼职辞 职原因码",
+      "type": "数据属性",
+      "parent": "JCJG0302",
+      "label": "XSJZCZYYM 学术兼职辞 职原因码"
+    },
+    {
+      "code": "JCJG040101",
+      "name": "JXXZM 进修性质码",
+      "type": "数据属性",
+      "parent": "JCJG0401",
+      "label": "JXXZM 进修性质码"
+    },
+    {
+      "code": "JCJG040102",
+      "name": "XXFSM 学习方式码",
+      "type": "数据属性",
+      "parent": "JCJG0401",
+      "label": "XXFSM 学习方式码"
+    },
+    {
+      "code": "JCJG040103",
+      "name": "XXQSNY 学习起始年 月",
+      "type": "数据属性",
+      "parent": "JCJG0401",
+      "label": "XXQSNY 学习起始年 月"
+    },
+    {
+      "code": "JCJG040104",
+      "name": "XXZZNY 学习终止年 月",
+      "type": "数据属性",
+      "parent": "JCJG0401",
+      "label": "XXZZNY 学习终止年 月"
+    },
+    {
+      "code": "JCJG040105",
+      "name": "ZXS 总学时",
+      "type": "数据属性",
+      "parent": "JCJG0401",
+      "label": "ZXS 总学时"
+    },
+    {
+      "code": "JCJG040106",
+      "name": "XXNR 学习内容",
+      "type": "数据属性",
+      "parent": "JCJG0401",
+      "label": "XXNR 学习内容"
+    },
+    {
+      "code": "JCJG040107",
+      "name": "JXBMC 进修班名称",
+      "type": "数据属性",
+      "parent": "JCJG0401",
+      "label": "JXBMC 进修班名称"
+    },
+    {
+      "code": "JCJG040108",
+      "name": "ZBDW 主办单位",
+      "type": "数据属性",
+      "parent": "JCJG0401",
+      "label": "ZBDW 主办单位"
+    },
+    {
+      "code": "JCJG040109",
+      "name": "ZBDWXZM 主办单位性 质码",
+      "type": "数据属性",
+      "parent": "JCJG0401",
+      "label": "ZBDWXZM 主办单位性 质码"
+    },
+    {
+      "code": "JCJG040110",
+      "name": "ZXDW 在学单位",
+      "type": "数据属性",
+      "parent": "JCJG0401",
+      "label": "ZXDW 在学单位"
+    },
+    {
+      "code": "JCJG040111",
+      "name": "ZXDWLBM 在学单位类 别码",
+      "type": "数据属性",
+      "parent": "JCJG0401",
+      "label": "ZXDWLBM 在学单位类 别码"
+    },
+    {
+      "code": "JCJG040112",
+      "name": "JXJGM 进修结果码",
+      "type": "数据属性",
+      "parent": "JCJG0401",
+      "label": "JXJGM 进修结果码"
+    },
+    {
+      "code": "JCJG040201",
+      "name": "CGRQ 出国（境）日 期",
+      "type": "数据属性",
+      "parent": "JCJG0402",
+      "label": "CGRQ 出国（境）日 期"
+    },
+    {
+      "code": "JCJG040202",
+      "name": "CGMDM 出国（境）目 的码",
+      "type": "数据属性",
+      "parent": "JCJG0402",
+      "label": "CGMDM 出国（境）目 的码"
+    },
+    {
+      "code": "JCJG040203",
+      "name": "CGGBM 出国（境）国 别码",
+      "type": "数据属性",
+      "parent": "JCJG0402",
+      "label": "CGGBM 出国（境）国 别码"
+    },
+    {
+      "code": "JCJG040204",
+      "name": "SQDWYWMC 所去单位英 文名称",
+      "type": "数据属性",
+      "parent": "JCJG0402",
+      "label": "SQDWYWMC 所去单位英 文名称"
+    },
+    {
+      "code": "JCJG040205",
+      "name": "SQDWZWMC 所去单位中 文名称",
+      "type": "数据属性",
+      "parent": "JCJG0402",
+      "label": "SQDWZWMC 所去单位中 文名称"
+    },
+    {
+      "code": "JCJG040206",
+      "name": "PCDW 派出单位",
+      "type": "数据属性",
+      "parent": "JCJG0402",
+      "label": "PCDW 派出单位"
+    },
+    {
+      "code": "JCJG040207",
+      "name": "TZMC 团组名称",
+      "type": "数据属性",
+      "parent": "JCJG0402",
+      "label": "TZMC 团组名称"
+    },
+    {
+      "code": "JCJG040208",
+      "name": "CGJFLYM 出国（境）经 费来源码",
+      "type": "数据属性",
+      "parent": "JCJG0402",
+      "label": "CGJFLYM 出国（境）经 费来源码"
+    },
+    {
+      "code": "JCJG040209",
+      "name": "SPDW 审批单位",
+      "type": "数据属性",
+      "parent": "JCJG0402",
+      "label": "SPDW 审批单位"
+    },
+    {
+      "code": "JCJG040210",
+      "name": "SPRQ 审批日期",
+      "type": "数据属性",
+      "parent": "JCJG0402",
+      "label": "SPRQ 审批日期"
+    },
+    {
+      "code": "JCJG040211",
+      "name": "SPWH 审批文号",
+      "type": "数据属性",
+      "parent": "JCJG0402",
+      "label": "SPWH 审批文号"
+    },
+    {
+      "code": "JCJG040212",
+      "name": "PZQX 批准期限",
+      "type": "数据属性",
+      "parent": "JCJG0402",
+      "label": "PZQX 批准期限"
+    },
+    {
+      "code": "JCJG040213",
+      "name": "XXGZNR 学习工作内 容",
+      "type": "数据属性",
+      "parent": "JCJG0402",
+      "label": "XXGZNR 学习工作内 容"
+    },
+    {
+      "code": "JCJG040214",
+      "name": "XXGZCJ 学习工作成 绩",
+      "type": "数据属性",
+      "parent": "JCJG0402",
+      "label": "XXGZCJ 学习工作成 绩"
+    },
+    {
+      "code": "JCJG040215",
+      "name": "YHGRQ 应回国日期",
+      "type": "数据属性",
+      "parent": "JCJG0402",
+      "label": "YHGRQ 应回国日期"
+    },
+    {
+      "code": "JCJG040216",
+      "name": "SHGRQ 实回国日期",
+      "type": "数据属性",
+      "parent": "JCJG0402",
+      "label": "SHGRQ 实回国日期"
+    },
+    {
+      "code": "JCJG040217",
+      "name": "HZHTXZH 护照号/通行 证号",
+      "type": "数据属性",
+      "parent": "JCJG0402",
+      "label": "HZHTXZH 护照号/通行 证号"
+    },
+    {
+      "code": "JCJG040218",
+      "name": "ZJYXQ 证件有效期",
+      "type": "数据属性",
+      "parent": "JCJG0402",
+      "label": "ZJYXQ 证件有效期"
+    },
+    {
+      "code": "JCJG050101",
+      "name": "KCLBM 考察（考核） 类别码",
+      "type": "数据属性",
+      "parent": "JCJG0501",
+      "label": "KCLBM 考察（考核） 类别码"
+    },
+    {
+      "code": "JCJG050102",
+      "name": "KCRQ 考察（考核） 日期",
+      "type": "数据属性",
+      "parent": "JCJG0501",
+      "label": "KCRQ 考察（考核） 日期"
+    },
+    {
+      "code": "JCJG050103",
+      "name": "KCYJ 考察（考核） 意见",
+      "type": "数据属性",
+      "parent": "JCJG0501",
+      "label": "KCYJ 考察（考核） 意见"
+    },
+    {
+      "code": "JCJG050104",
+      "name": "KCJGM 考察（考核） 结果码",
+      "type": "数据属性",
+      "parent": "JCJG0501",
+      "label": "KCJGM 考察（考核） 结果码"
+    },
+    {
+      "code": "JCJG050105",
+      "name": "KCZZJKCR 考察（考核） 组织及考察 人",
+      "type": "数据属性",
+      "parent": "JCJG0501",
+      "label": "KCZZJKCR 考察（考核） 组织及考察 人"
+    },
+    {
+      "code": "JCJG050201",
+      "name": "KHLBM 考核类别码",
+      "type": "数据属性",
+      "parent": "JCJG0502",
+      "label": "KHLBM 考核类别码"
+    },
+    {
+      "code": "JCJG050202",
+      "name": "KHRQ 考核日期",
+      "type": "数据属性",
+      "parent": "JCJG0502",
+      "label": "KHRQ 考核日期"
+    },
+    {
+      "code": "JCJG050203",
+      "name": "KHNR 考核内容",
+      "type": "数据属性",
+      "parent": "JCJG0502",
+      "label": "KHNR 考核内容"
+    },
+    {
+      "code": "JCJG050204",
+      "name": "KHJGM 考核结果码",
+      "type": "数据属性",
+      "parent": "JCJG0502",
+      "label": "KHJGM 考核结果码"
+    },
+    {
+      "code": "JCJG050205",
+      "name": "KHFZRGH 考核负责人 工号",
+      "type": "数据属性",
+      "parent": "JCJG0502",
+      "label": "KHFZRGH 考核负责人 工号"
+    },
+    {
+      "code": "JCJG050206",
+      "name": "KHPY 考核评语",
+      "type": "数据属性",
+      "parent": "JCJG0502",
+      "label": "KHPY 考核评语"
+    },
+    {
+      "code": "JCJG050207",
+      "name": "KHBM 考核部门",
+      "type": "数据属性",
+      "parent": "JCJG0502",
+      "label": "KHBM 考核部门"
+    },
+    {
+      "code": "JCJG050301",
+      "name": "KGNY 考工年月",
+      "type": "数据属性",
+      "parent": "JCJG0503",
+      "label": "KGNY 考工年月"
+    },
+    {
+      "code": "JCJG050302",
+      "name": "KHGZM 考核工种码",
+      "type": "数据属性",
+      "parent": "JCJG0503",
+      "label": "KHGZM 考核工种码"
+    },
+    {
+      "code": "JCJG050303",
+      "name": "KGBM 考工部门",
+      "type": "数据属性",
+      "parent": "JCJG0503",
+      "label": "KGBM 考工部门"
+    },
+    {
+      "code": "JCJG050304",
+      "name": "JSJB 技术级别",
+      "type": "数据属性",
+      "parent": "JCJG0503",
+      "label": "JSJB 技术级别"
+    },
+    {
+      "code": "JCJG050305",
+      "name": "KGZSH 考工证书号",
+      "type": "数据属性",
+      "parent": "JCJG0503",
+      "label": "KGZSH 考工证书号"
+    },
+    {
+      "code": "JCJG050306",
+      "name": "KGPY 考工评语",
+      "type": "数据属性",
+      "parent": "JCJG0503",
+      "label": "KGPY 考工评语"
+    },
+    {
+      "code": "JCJG050307",
+      "name": "KGCJ 考工成绩",
+      "type": "数据属性",
+      "parent": "JCJG0503",
+      "label": "KGCJ 考工成绩"
+    },
+    {
+      "code": "JCJG060101",
+      "name": "LDWRQ 来单位日期",
+      "type": "数据属性",
+      "parent": "JCJG0601",
+      "label": "LDWRQ 来单位日期"
+    },
+    {
+      "code": "JCJG060102",
+      "name": "LYM 来源码",
+      "type": "数据属性",
+      "parent": "JCJG0601",
+      "label": "LYM 来源码"
+    },
+    {
+      "code": "JCJG060103",
+      "name": "LYDQM 来源地区码",
+      "type": "数据属性",
+      "parent": "JCJG0601",
+      "label": "LYDQM 来源地区码"
+    },
+    {
+      "code": "JCJG060104",
+      "name": "LDWYY 来单位原因",
+      "type": "数据属性",
+      "parent": "JCJG0601",
+      "label": "LDWYY 来单位原因"
+    },
+    {
+      "code": "JCJG060105",
+      "name": "YDWMC 原单位名称",
+      "type": "数据属性",
+      "parent": "JCJG0601",
+      "label": "YDWMC 原单位名称"
+    },
+    {
+      "code": "JCJG060106",
+      "name": "YDZZWM 原党政职务 码",
+      "type": "数据属性",
+      "parent": "JCJG0601",
+      "label": "YDZZWM 原党政职务 码"
+    },
+    {
+      "code": "JCJG060107",
+      "name": "YJSZWM 原技术职务 码",
+      "type": "数据属性",
+      "parent": "JCJG0601",
+      "label": "YJSZWM 原技术职务 码"
+    },
+    {
+      "code": "JCJG060108",
+      "name": "YCSXKM 原从事学科 码",
+      "type": "数据属性",
+      "parent": "JCJG0601",
+      "label": "YCSXKM 原从事学科 码"
+    },
+    {
+      "code": "JCJG060109",
+      "name": "YGZZE 原工资总额",
+      "type": "数据属性",
+      "parent": "JCJG0601",
+      "label": "YGZZE 原工资总额"
+    },
+    {
+      "code": "JCJG060110",
+      "name": "YJHLJT 原教护龄津 贴",
+      "type": "数据属性",
+      "parent": "JCJG0601",
+      "label": "YJHLJT 原教护龄津 贴"
+    },
+    {
+      "code": "JCJG060201",
+      "name": "BMDDRQ 部门调动日 期",
+      "type": "数据属性",
+      "parent": "JCJG0602",
+      "label": "BMDDRQ 部门调动日 期"
+    },
+    {
+      "code": "JCJG060202",
+      "name": "BMDDYY 部门调动原 因",
+      "type": "数据属性",
+      "parent": "JCJG0602",
+      "label": "BMDDYY 部门调动原 因"
+    },
+    {
+      "code": "JCJG060203",
+      "name": "ZZNDCBMH 组织内调出 部门号",
+      "type": "数据属性",
+      "parent": "JCJG0602",
+      "label": "ZZNDCBMH 组织内调出 部门号"
+    },
+    {
+      "code": "JCJG060204",
+      "name": "ZZNDRBMH 组织内调入 部门号",
+      "type": "数据属性",
+      "parent": "JCJG0602",
+      "label": "ZZNDRBMH 组织内调入 部门号"
+    },
+    {
+      "code": "JCJG060205",
+      "name": "GZZYRQ 工资转移日 期",
+      "type": "数据属性",
+      "parent": "JCJG0602",
+      "label": "GZZYRQ 工资转移日 期"
+    },
+    {
+      "code": "JCJG060206",
+      "name": "WSDAH 文书档案号",
+      "type": "数据属性",
+      "parent": "JCJG0602",
+      "label": "WSDAH 文书档案号"
+    },
+    {
+      "code": "JCJG060301",
+      "name": "LGRQ 离岗日期",
+      "type": "数据属性",
+      "parent": "JCJG0603",
+      "label": "LGRQ 离岗日期"
+    },
+    {
+      "code": "JCJG060302",
+      "name": "LGYYM 离岗原因码",
+      "type": "数据属性",
+      "parent": "JCJG0603",
+      "label": "LGYYM 离岗原因码"
+    },
+    {
+      "code": "JCJG060303",
+      "name": "FGRQ 返岗日期",
+      "type": "数据属性",
+      "parent": "JCJG0603",
+      "label": "FGRQ 返岗日期"
+    },
+    {
+      "code": "JCJG060401",
+      "name": "BXQSRQ 病休起始日 期",
+      "type": "数据属性",
+      "parent": "JCJG0604",
+      "label": "BXQSRQ 病休起始日 期"
+    },
+    {
+      "code": "JCJG060402",
+      "name": "BXZDYY 病休诊断医 院",
+      "type": "数据属性",
+      "parent": "JCJG0604",
+      "label": "BXZDYY 病休诊断医 院"
+    },
+    {
+      "code": "JCJG060403",
+      "name": "BXZDZM 病休诊断证 明",
+      "type": "数据属性",
+      "parent": "JCJG0604",
+      "label": "BXZDZM 病休诊断证 明"
+    },
+    {
+      "code": "JCJG060404",
+      "name": "HFGZRQ 恢复工作日 期",
+      "type": "数据属性",
+      "parent": "JCJG0604",
+      "label": "HFGZRQ 恢复工作日 期"
+    },
+    {
+      "code": "JCJG060405",
+      "name": "KFZDYY 康复诊断医 院",
+      "type": "数据属性",
+      "parent": "JCJG0604",
+      "label": "KFZDYY 康复诊断医 院"
+    },
+    {
+      "code": "JCJG060406",
+      "name": "KFZDZM 康复诊断证 明",
+      "type": "数据属性",
+      "parent": "JCJG0604",
+      "label": "KFZDZM 康复诊断证 明"
+    },
+    {
+      "code": "JCJG070101",
+      "name": "LZRQ 离职日期",
+      "type": "数据属性",
+      "parent": "JCJG0701",
+      "label": "LZRQ 离职日期"
+    },
+    {
+      "code": "JCJG070102",
+      "name": "LZYYM 离职原因码",
+      "type": "数据属性",
+      "parent": "JCJG0701",
+      "label": "LZYYM 离职原因码"
+    },
+    {
+      "code": "JCJG070103",
+      "name": "LZQX 离职去向",
+      "type": "数据属性",
+      "parent": "JCJG0701",
+      "label": "LZQX 离职去向"
+    },
+    {
+      "code": "JCJG070201",
+      "name": "LTLBM 离退类别码",
+      "type": "数据属性",
+      "parent": "JCJG0702",
+      "label": "LTLBM 离退类别码"
+    },
+    {
+      "code": "JCJG070202",
+      "name": "LTQSRQ 离退起始日 期",
+      "type": "数据属性",
+      "parent": "JCJG0702",
+      "label": "LTQSRQ 离退起始日 期"
+    },
+    {
+      "code": "JCJG070203",
+      "name": "LTHXSJBM 离退后享受 级别码",
+      "type": "数据属性",
+      "parent": "JCJG0702",
+      "label": "LTHXSJBM 离退后享受 级别码"
+    },
+    {
+      "code": "JCJG070204",
+      "name": "LTXFZFDW 离退休费支 付单位",
+      "type": "数据属性",
+      "parent": "JCJG0702",
+      "label": "LTXFZFDW 离退休费支 付单位"
+    },
+    {
+      "code": "JCJG070205",
+      "name": "LTHGLDW 离退后管理 单位",
+      "type": "数据属性",
+      "parent": "JCJG0702",
+      "label": "LTHGLDW 离退后管理 单位"
+    },
+    {
+      "code": "JCJG070206",
+      "name": "YDAZDD 异地安置地 点",
+      "type": "数据属性",
+      "parent": "JCJG0702",
+      "label": "YDAZDD 异地安置地 点"
+    },
+    {
+      "code": "JCJG070301",
+      "name": "FPQSRQ 返聘起始日 期",
+      "type": "数据属性",
+      "parent": "JCJG0703",
+      "label": "FPQSRQ 返聘起始日 期"
+    },
+    {
+      "code": "JCJG070302",
+      "name": "FPZZRQ 返聘终止日 期",
+      "type": "数据属性",
+      "parent": "JCJG0703",
+      "label": "FPZZRQ 返聘终止日 期"
+    },
+    {
+      "code": "JCJG070303",
+      "name": "FPDWH 返聘单位号",
+      "type": "数据属性",
+      "parent": "JCJG0703",
+      "label": "FPDWH 返聘单位号"
+    },
+    {
+      "code": "JCJG070304",
+      "name": "FPGW 返聘岗位",
+      "type": "数据属性",
+      "parent": "JCJG0703",
+      "label": "FPGW 返聘岗位"
+    },
+    {
+      "code": "JCJG070305",
+      "name": "FPCJ 返聘酬金",
+      "type": "数据属性",
+      "parent": "JCJG0703",
+      "label": "FPCJ 返聘酬金"
+    },
+    {
+      "code": "JCJG070306",
+      "name": "FPJLY 返聘金来源",
+      "type": "数据属性",
+      "parent": "JCJG0703",
+      "label": "FPJLY 返聘金来源"
+    },
+    {
+      "code": "JCJG070307",
+      "name": "FPGZL 返聘工作量",
+      "type": "数据属性",
+      "parent": "JCJG0703",
+      "label": "FPGZL 返聘工作量"
+    },
+    {
+      "code": "JCTB010101",
+      "name": "YZBM 邮政编码",
+      "type": "数据属性",
+      "parent": "JCTB0101",
+      "label": "YZBM 邮政编码"
+    },
+    {
+      "code": "JCTB010102",
+      "name": "TXDZ 通信地址",
+      "type": "数据属性",
+      "parent": "JCTB0101",
+      "label": "TXDZ 通信地址"
+    },
+    {
+      "code": "JCTB010103",
+      "name": "DH 电话",
+      "type": "数据属性",
+      "parent": "JCTB0101",
+      "label": "DH 电话"
+    },
+    {
+      "code": "JCTB010104",
+      "name": "YDDH 移动电话",
+      "type": "数据属性",
+      "parent": "JCTB0101",
+      "label": "YDDH 移动电话"
+    },
+    {
+      "code": "JCTB010105",
+      "name": "CZDH 传真电话",
+      "type": "数据属性",
+      "parent": "JCTB0101",
+      "label": "CZDH 传真电话"
+    },
+    {
+      "code": "JCTB010106",
+      "name": "DZXX 电子信箱",
+      "type": "数据属性",
+      "parent": "JCTB0101",
+      "label": "DZXX 电子信箱"
+    },
+    {
+      "code": "JCTB010107",
+      "name": "WLDZ 网络地址",
+      "type": "数据属性",
+      "parent": "JCTB0101",
+      "label": "WLDZ 网络地址"
+    },
+    {
+      "code": "JCTB010108",
+      "name": "JSTXH 即时通讯号",
+      "type": "数据属性",
+      "parent": "JCTB0101",
+      "label": "JSTXH 即时通讯号"
+    },
+    {
+      "code": "JCTB010201",
+      "name": "ND 年度（年份、年）",
+      "type": "数据属性",
+      "parent": "JCTB0102",
+      "label": "ND 年度（年份、年）"
+    },
+    {
+      "code": "JCTB010202",
+      "name": "NY 年月",
+      "type": "数据属性",
+      "parent": "JCTB0102",
+      "label": "NY 年月"
+    },
+    {
+      "code": "JCTB010203",
+      "name": "RQ 日期",
+      "type": "数据属性",
+      "parent": "JCTB0102",
+      "label": "RQ 日期"
+    },
+    {
+      "code": "JCTB010204",
+      "name": "SJ 时间",
+      "type": "数据属性",
+      "parent": "JCTB0102",
+      "label": "SJ 时间"
+    },
+    {
+      "code": "JCTB010205",
+      "name": "XN 学年（度）",
+      "type": "数据属性",
+      "parent": "JCTB0102",
+      "label": "XN 学年（度）"
+    },
+    {
+      "code": "JCTB010206",
+      "name": "XQM 学期码",
+      "type": "数据属性",
+      "parent": "JCTB0102",
+      "label": "XQM 学期码"
+    },
+    {
+      "code": "JCTB010207",
+      "name": "YXQ 有效期",
+      "type": "数据属性",
+      "parent": "JCTB0102",
+      "label": "YXQ 有效期"
+    },
+    {
+      "code": "JCTB010301",
+      "name": "DWH 单位号",
+      "type": "数据属性",
+      "parent": "JCTB0103",
+      "label": "DWH 单位号"
+    },
+    {
+      "code": "JCTB010302",
+      "name": "DWMC 单位名称",
+      "type": "数据属性",
+      "parent": "JCTB0103",
+      "label": "DWMC 单位名称"
+    },
+    {
+      "code": "JCTB010303",
+      "name": "DWYWMC 单位英文名称",
+      "type": "数据属性",
+      "parent": "JCTB0103",
+      "label": "DWYWMC 单位英文名称"
+    },
+    {
+      "code": "JCTB010304",
+      "name": "DWJC 单位简称",
+      "type": "数据属性",
+      "parent": "JCTB0103",
+      "label": "DWJC 单位简称"
+    },
+    {
+      "code": "JCTB010305",
+      "name": "DWYWJC 单位英文简称",
+      "type": "数据属性",
+      "parent": "JCTB0103",
+      "label": "DWYWJC 单位英文简称"
+    },
+    {
+      "code": "JCTB010306",
+      "name": "DWJP 单位简拼",
+      "type": "数据属性",
+      "parent": "JCTB0103",
+      "label": "DWJP 单位简拼"
+    },
+    {
+      "code": "JCTB010307",
+      "name": "DWDZ 单位地址",
+      "type": "数据属性",
+      "parent": "JCTB0103",
+      "label": "DWDZ 单位地址"
+    },
+    {
+      "code": "JCTB010308",
+      "name": "LSDWH 隶属单位号",
+      "type": "数据属性",
+      "parent": "JCTB0103",
+      "label": "LSDWH 隶属单位号"
+    },
+    {
+      "code": "JCTB010309",
+      "name": "DWLBM 单位类别码",
+      "type": "数据属性",
+      "parent": "JCTB0103",
+      "label": "DWLBM 单位类别码"
+    },
+    {
+      "code": "JCTB010310",
+      "name": "DWBBM 单位办别码",
+      "type": "数据属性",
+      "parent": "JCTB0103",
+      "label": "DWBBM 单位办别码"
+    },
+    {
+      "code": "JCTB010311",
+      "name": "DWYXBS 单位有效标识",
+      "type": "数据属性",
+      "parent": "JCTB0103",
+      "label": "DWYXBS 单位有效标识"
+    },
+    {
+      "code": "JCTB010312",
+      "name": "SXRQ 失效日期",
+      "type": "数据属性",
+      "parent": "JCTB0103",
+      "label": "SXRQ 失效日期"
+    },
+    {
+      "code": "JCTB010313",
+      "name": "SFST 是否实体",
+      "type": "数据属性",
+      "parent": "JCTB0103",
+      "label": "SFST 是否实体"
+    },
+    {
+      "code": "JCTB010314",
+      "name": "JLNY 建立年月",
+      "type": "数据属性",
+      "parent": "JCTB0103",
+      "label": "JLNY 建立年月"
+    },
+    {
+      "code": "JCTB010315",
+      "name": "DWFZRH 单位负责人号",
+      "type": "数据属性",
+      "parent": "JCTB0103",
+      "label": "DWFZRH 单位负责人号"
+    },
+    {
+      "code": "JCTB010401",
+      "name": "NJ 年级",
+      "type": "数据属性",
+      "parent": "JCTB0104",
+      "label": "NJ 年级"
+    },
+    {
+      "code": "JCTB010402",
+      "name": "XZ 学制",
+      "type": "数据属性",
+      "parent": "JCTB0104",
+      "label": "XZ 学制"
+    },
+    {
+      "code": "JCTB010403",
+      "name": "KCH 课程号",
+      "type": "数据属性",
+      "parent": "JCTB0104",
+      "label": "KCH 课程号"
+    },
+    {
+      "code": "JCTB010404",
+      "name": "KCMC 课程名称",
+      "type": "数据属性",
+      "parent": "JCTB0104",
+      "label": "KCMC 课程名称"
+    },
+    {
+      "code": "JCTB010405",
+      "name": "KCYWMC 课程英文名称",
+      "type": "数据属性",
+      "parent": "JCTB0104",
+      "label": "KCYWMC 课程英文名称"
+    },
+    {
+      "code": "JCTB010406",
+      "name": "KSFSM 考试方式码",
+      "type": "数据属性",
+      "parent": "JCTB0104",
+      "label": "KSFSM 考试方式码"
+    },
+    {
+      "code": "JCTB010407",
+      "name": "ZYM 专业码",
+      "type": "数据属性",
+      "parent": "JCTB0104",
+      "label": "ZYM 专业码"
+    },
+    {
+      "code": "JCTB010408",
+      "name": "ZYMC 专业名称",
+      "type": "数据属性",
+      "parent": "JCTB0104",
+      "label": "ZYMC 专业名称"
+    },
+    {
+      "code": "JCTB020101",
+      "name": "XM 姓名",
+      "type": "数据属性",
+      "parent": "JCTB0201",
+      "label": "XM 姓名"
+    },
+    {
+      "code": "JCTB020102",
+      "name": "YWXM 英文姓名",
+      "type": "数据属性",
+      "parent": "JCTB0201",
+      "label": "YWXM 英文姓名"
+    },
+    {
+      "code": "JCTB020103",
+      "name": "XMPY 姓名拼音",
+      "type": "数据属性",
+      "parent": "JCTB0201",
+      "label": "XMPY 姓名拼音"
+    },
+    {
+      "code": "JCTB020104",
+      "name": "CYM 曾用名",
+      "type": "数据属性",
+      "parent": "JCTB0201",
+      "label": "CYM 曾用名"
+    },
+    {
+      "code": "JCTB020105",
+      "name": "XBM 性别码",
+      "type": "数据属性",
+      "parent": "JCTB0201",
+      "label": "XBM 性别码"
+    },
+    {
+      "code": "JCTB020106",
+      "name": "CSRQ 出生日期",
+      "type": "数据属性",
+      "parent": "JCTB0201",
+      "label": "CSRQ 出生日期"
+    },
+    {
+      "code": "JCTB020107",
+      "name": "CSDM 出生地码",
+      "type": "数据属性",
+      "parent": "JCTB0201",
+      "label": "CSDM 出生地码"
+    },
+    {
+      "code": "JCTB020108",
+      "name": "JG 籍贯",
+      "type": "数据属性",
+      "parent": "JCTB0201",
+      "label": "JG 籍贯"
+    },
+    {
+      "code": "JCTB020109",
+      "name": "MZM 民族码",
+      "type": "数据属性",
+      "parent": "JCTB0201",
+      "label": "MZM 民族码"
+    },
+    {
+      "code": "JCTB020110",
+      "name": "GJDQM 国籍/地区 码",
+      "type": "数据属性",
+      "parent": "JCTB0201",
+      "label": "GJDQM 国籍/地区 码"
+    },
+    {
+      "code": "JCTB020111",
+      "name": "SFZJLXM 身份证件类 型码",
+      "type": "数据属性",
+      "parent": "JCTB0201",
+      "label": "SFZJLXM 身份证件类 型码"
+    },
+    {
+      "code": "JCTB020112",
+      "name": "SFZJH 身份证件号",
+      "type": "数据属性",
+      "parent": "JCTB0201",
+      "label": "SFZJH 身份证件号"
+    },
+    {
+      "code": "JCTB020113",
+      "name": "HYZKM 婚姻状况码",
+      "type": "数据属性",
+      "parent": "JCTB0201",
+      "label": "HYZKM 婚姻状况码"
+    },
+    {
+      "code": "JCTB020114",
+      "name": "GATQWM 港澳台侨外 码",
+      "type": "数据属性",
+      "parent": "JCTB0201",
+      "label": "GATQWM 港澳台侨外 码"
+    },
+    {
+      "code": "JCTB020115",
+      "name": "ZZMMM 政治面貌码",
+      "type": "数据属性",
+      "parent": "JCTB0201",
+      "label": "ZZMMM 政治面貌码"
+    },
+    {
+      "code": "JCTB020116",
+      "name": "JKZKM 健康状况码",
+      "type": "数据属性",
+      "parent": "JCTB0201",
+      "label": "JKZKM 健康状况码"
+    },
+    {
+      "code": "JCTB020117",
+      "name": "XYZJM 信仰宗教码",
+      "type": "数据属性",
+      "parent": "JCTB0201",
+      "label": "XYZJM 信仰宗教码"
+    },
+    {
+      "code": "JCTB020118",
+      "name": "XXM 血型码",
+      "type": "数据属性",
+      "parent": "JCTB0201",
+      "label": "XXM 血型码"
+    },
+    {
+      "code": "JCTB020119",
+      "name": "ZP 照片",
+      "type": "数据属性",
+      "parent": "JCTB0201",
+      "label": "ZP 照片"
+    },
+    {
+      "code": "JCTB020120",
+      "name": "RYH 人员号",
+      "type": "数据属性",
+      "parent": "JCTB0201",
+      "label": "RYH 人员号"
+    },
+    {
+      "code": "JCTB020121",
+      "name": "SFZJYXQ 身份证件有 效期",
+      "type": "数据属性",
+      "parent": "JCTB0201",
+      "label": "SFZJYXQ 身份证件有 效期"
+    },
+    {
+      "code": "JCTB020122",
+      "name": "SFDSZN 是否独生子 女",
+      "type": "数据属性",
+      "parent": "JCTB0201",
+      "label": "SFDSZN 是否独生子 女"
+    },
+    {
+      "code": "JCTB020201",
+      "name": "XXQSRQ 学习起始日 期",
+      "type": "数据属性",
+      "parent": "JCTB0202",
+      "label": "XXQSRQ 学习起始日 期"
+    },
+    {
+      "code": "JCTB020202",
+      "name": "XXZZRQ 学习终止日 期",
+      "type": "数据属性",
+      "parent": "JCTB0202",
+      "label": "XXZZRQ 学习终止日 期"
+    },
+    {
+      "code": "JCTB020203",
+      "name": "XXDW 学习单位",
+      "type": "数据属性",
+      "parent": "JCTB0202",
+      "label": "XXDW 学习单位"
+    },
+    {
+      "code": "JCTB020204",
+      "name": "XXNR 学习内容",
+      "type": "数据属性",
+      "parent": "JCTB0202",
+      "label": "XXNR 学习内容"
+    },
+    {
+      "code": "JCTB020205",
+      "name": "SXZYMC 所学专业名 称",
+      "type": "数据属性",
+      "parent": "JCTB0202",
+      "label": "SXZYMC 所学专业名 称"
+    },
+    {
+      "code": "JCTB020206",
+      "name": "SHXWM 所获学位码",
+      "type": "数据属性",
+      "parent": "JCTB0202",
+      "label": "SHXWM 所获学位码"
+    },
+    {
+      "code": "JCTB020207",
+      "name": "XXZMR 学习证明人",
+      "type": "数据属性",
+      "parent": "JCTB0202",
+      "label": "XXZMR 学习证明人"
+    },
+    {
+      "code": "JCTB020208",
+      "name": "XXJLBZ 学习简历备 注",
+      "type": "数据属性",
+      "parent": "JCTB0202",
+      "label": "XXJLBZ 学习简历备 注"
+    },
+    {
+      "code": "JCTB020301",
+      "name": "GZQSRQ 工作起始日 期",
+      "type": "数据属性",
+      "parent": "JCTB0203",
+      "label": "GZQSRQ 工作起始日 期"
+    },
+    {
+      "code": "JCTB020302",
+      "name": "GZZZRQ 工作终止日 期",
+      "type": "数据属性",
+      "parent": "JCTB0203",
+      "label": "GZZZRQ 工作终止日 期"
+    },
+    {
+      "code": "JCTB020303",
+      "name": "GZDW 工作单位",
+      "type": "数据属性",
+      "parent": "JCTB0203",
+      "label": "GZDW 工作单位"
+    },
+    {
+      "code": "JCTB020304",
+      "name": "GZNR 工作内容",
+      "type": "数据属性",
+      "parent": "JCTB0203",
+      "label": "GZNR 工作内容"
+    },
+    {
+      "code": "JCTB020305",
+      "name": "CRDZZW 曾任党政职 务",
+      "type": "数据属性",
+      "parent": "JCTB0203",
+      "label": "CRDZZW 曾任党政职 务"
+    },
+    {
+      "code": "JCTB020306",
+      "name": "CRZYJSZWM 曾任专业技 术职务码",
+      "type": "数据属性",
+      "parent": "JCTB0203",
+      "label": "CRZYJSZWM 曾任专业技 术职务码"
+    },
+    {
+      "code": "JCTB020307",
+      "name": "GZZMR 工作证明人",
+      "type": "数据属性",
+      "parent": "JCTB0203",
+      "label": "GZZMR 工作证明人"
+    },
+    {
+      "code": "JCTB020308",
+      "name": "GZJLBZ 工作简历备 注",
+      "type": "数据属性",
+      "parent": "JCTB0203",
+      "label": "GZJLBZ 工作简历备 注"
+    },
+    {
+      "code": "JCTB020401",
+      "name": "CJRQ 参加日期",
+      "type": "数据属性",
+      "parent": "JCTB0204",
+      "label": "CJRQ 参加日期"
+    },
+    {
+      "code": "JCTB020402",
+      "name": "CJSZDW 参加所在单 位",
+      "type": "数据属性",
+      "parent": "JCTB0204",
+      "label": "CJSZDW 参加所在单 位"
+    },
+    {
+      "code": "JCTB020403",
+      "name": "JSR 介绍人",
+      "type": "数据属性",
+      "parent": "JCTB0204",
+      "label": "JSR 介绍人"
+    },
+    {
+      "code": "JCTB020404",
+      "name": "ZZRQ 转正日期",
+      "type": "数据属性",
+      "parent": "JCTB0204",
+      "label": "ZZRQ 转正日期"
+    },
+    {
+      "code": "JCTB020405",
+      "name": "YCLBM 异常类别码",
+      "type": "数据属性",
+      "parent": "JCTB0204",
+      "label": "YCLBM 异常类别码"
+    },
+    {
+      "code": "JCTB020406",
+      "name": "YCYY 异常原因",
+      "type": "数据属性",
+      "parent": "JCTB0204",
+      "label": "YCYY 异常原因"
+    },
+    {
+      "code": "JCTB020407",
+      "name": "YCRQ 异常日期",
+      "type": "数据属性",
+      "parent": "JCTB0204",
+      "label": "YCRQ 异常日期"
+    },
+    {
+      "code": "JCTB020408",
+      "name": "ZRRQ 转入日期",
+      "type": "数据属性",
+      "parent": "JCTB0204",
+      "label": "ZRRQ 转入日期"
+    },
+    {
+      "code": "JCTB020409",
+      "name": "ZRQDW 转入前单位",
+      "type": "数据属性",
+      "parent": "JCTB0204",
+      "label": "ZRQDW 转入前单位"
+    },
+    {
+      "code": "JCTB020410",
+      "name": "ZCRQ 转出日期",
+      "type": "数据属性",
+      "parent": "JCTB0204",
+      "label": "ZCRQ 转出日期"
+    },
+    {
+      "code": "JCTB020411",
+      "name": "ZCDW 转出单位",
+      "type": "数据属性",
+      "parent": "JCTB0204",
+      "label": "ZCDW 转出单位"
+    },
+    {
+      "code": "JCTB020501",
+      "name": "RXNY 入学年月",
+      "type": "数据属性",
+      "parent": "JCTB0205",
+      "label": "RXNY 入学年月"
+    },
+    {
+      "code": "JCTB020502",
+      "name": "XXFSM 学习方式码",
+      "type": "数据属性",
+      "parent": "JCTB0205",
+      "label": "XXFSM 学习方式码"
+    },
+    {
+      "code": "JCTB020503",
+      "name": "XXXSM 学习形式码",
+      "type": "数据属性",
+      "parent": "JCTB0205",
+      "label": "XXXSM 学习形式码"
+    },
+    {
+      "code": "JCTB020504",
+      "name": "XLM 学历码",
+      "type": "数据属性",
+      "parent": "JCTB0205",
+      "label": "XLM 学历码"
+    },
+    {
+      "code": "JCTB020505",
+      "name": "SXZYM 所学专业码",
+      "type": "数据属性",
+      "parent": "JCTB0205",
+      "label": "SXZYM 所学专业码"
+    },
+    {
+      "code": "JCTB020506",
+      "name": "JSXYNY 结束学业年月",
+      "type": "数据属性",
+      "parent": "JCTB0205",
+      "label": "JSXYNY 结束学业年月"
+    },
+    {
+      "code": "JCTB020507",
+      "name": "BYYXXHDW 毕肄业学校或 单位",
+      "type": "数据属性",
+      "parent": "JCTB0205",
+      "label": "BYYXXHDW 毕肄业学校或 单位"
+    },
+    {
+      "code": "JCTB020508",
+      "name": "XLZSH 学历证书号",
+      "type": "数据属性",
+      "parent": "JCTB0205",
+      "label": "XLZSH 学历证书号"
+    },
+    {
+      "code": "JCTB020509",
+      "name": "HDXWM 获得学位码",
+      "type": "数据属性",
+      "parent": "JCTB0205",
+      "label": "HDXWM 获得学位码"
+    },
+    {
+      "code": "JCTB020510",
+      "name": "SXWDWMC 授学位单位名 称",
+      "type": "数据属性",
+      "parent": "JCTB0205",
+      "label": "SXWDWMC 授学位单位名 称"
+    },
+    {
+      "code": "JCTB020511",
+      "name": "SXWGJDQM 授学位国家/ 地区码",
+      "type": "数据属性",
+      "parent": "JCTB0205",
+      "label": "SXWGJDQM 授学位国家/ 地区码"
+    },
+    {
+      "code": "JCTB020512",
+      "name": "HXWZYM 获学位专业码",
+      "type": "数据属性",
+      "parent": "JCTB0205",
+      "label": "HXWZYM 获学位专业码"
+    },
+    {
+      "code": "JCTB020513",
+      "name": "HXWRQ 获学位日期",
+      "type": "数据属性",
+      "parent": "JCTB0205",
+      "label": "HXWRQ 获学位日期"
+    },
+    {
+      "code": "JCTB020514",
+      "name": "XWZSH 学位证书号",
+      "type": "数据属性",
+      "parent": "JCTB0205",
+      "label": "XWZSH 学位证书号"
+    },
+    {
+      "code": "JCTB020601",
+      "name": "JTZZ 家庭住址",
+      "type": "数据属性",
+      "parent": "JCTB0206",
+      "label": "JTZZ 家庭住址"
+    },
+    {
+      "code": "JCTB020602",
+      "name": "JTYZBM 家庭邮政编 码",
+      "type": "数据属性",
+      "parent": "JCTB0206",
+      "label": "JTYZBM 家庭邮政编 码"
+    },
+    {
+      "code": "JCTB020603",
+      "name": "JTDH 家庭电话",
+      "type": "数据属性",
+      "parent": "JCTB0206",
+      "label": "JTDH 家庭电话"
+    },
+    {
+      "code": "JCTB020604",
+      "name": "JTDZXX 家庭电子信 箱",
+      "type": "数据属性",
+      "parent": "JCTB0206",
+      "label": "JTDZXX 家庭电子信 箱"
+    },
+    {
+      "code": "JCTB020701",
+      "name": "GXM 关系码",
+      "type": "数据属性",
+      "parent": "JCTB0207",
+      "label": "GXM 关系码"
+    },
+    {
+      "code": "JCTB020702",
+      "name": "CYXM 成员姓名",
+      "type": "数据属性",
+      "parent": "JCTB0207",
+      "label": "CYXM 成员姓名"
+    },
+    {
+      "code": "JCTB020703",
+      "name": "CSNY 出生年月",
+      "type": "数据属性",
+      "parent": "JCTB0207",
+      "label": "CSNY 出生年月"
+    },
+    {
+      "code": "JCTB020704",
+      "name": "CYGZDW 成员工作单 位",
+      "type": "数据属性",
+      "parent": "JCTB0207",
+      "label": "CYGZDW 成员工作单 位"
+    },
+    {
+      "code": "JCTB020705",
+      "name": "CYEM 从业码",
+      "type": "数据属性",
+      "parent": "JCTB0207",
+      "label": "CYEM 从业码"
+    },
+    {
+      "code": "JCTB020706",
+      "name": "ZYJSZWM 专业技术职 务码",
+      "type": "数据属性",
+      "parent": "JCTB0207",
+      "label": "ZYJSZWM 专业技术职 务码"
+    },
+    {
+      "code": "JCTB020707",
+      "name": "ZWJBM 职务级别码",
+      "type": "数据属性",
+      "parent": "JCTB0207",
+      "label": "ZWJBM 职务级别码"
+    },
+    {
+      "code": "JCTB020801",
+      "name": "LXRXM 联系人姓名",
+      "type": "数据属性",
+      "parent": "JCTB0208",
+      "label": "LXRXM 联系人姓名"
+    },
+    {
+      "code": "JCTB020901",
+      "name": "JTRK 家庭人口",
+      "type": "数据属性",
+      "parent": "JCTB0209",
+      "label": "JTRK 家庭人口"
+    },
+    {
+      "code": "JCTB020902",
+      "name": "SYRK 赡养人口",
+      "type": "数据属性",
+      "parent": "JCTB0209",
+      "label": "SYRK 赡养人口"
+    },
+    {
+      "code": "JCTB020903",
+      "name": "LDLRK 劳动力人口",
+      "type": "数据属性",
+      "parent": "JCTB0209",
+      "label": "LDLRK 劳动力人口"
+    },
+    {
+      "code": "JCTB020904",
+      "name": "JTRJYSR 家庭人均月 收入",
+      "type": "数据属性",
+      "parent": "JCTB0209",
+      "label": "JTRJYSR 家庭人均月 收入"
+    },
+    {
+      "code": "JCTB020905",
+      "name": "JTZYSRLY 家庭主要收 入来源",
+      "type": "数据属性",
+      "parent": "JCTB0209",
+      "label": "JTZYSRLY 家庭主要收 入来源"
+    },
+    {
+      "code": "JCTB020906",
+      "name": "JTLBM 家庭类别码",
+      "type": "数据属性",
+      "parent": "JCTB0209",
+      "label": "JTLBM 家庭类别码"
+    },
+    {
+      "code": "JCTB020907",
+      "name": "KNYYM 困难原因码",
+      "type": "数据属性",
+      "parent": "JCTB0209",
+      "label": "KNYYM 困难原因码"
+    },
+    {
+      "code": "JCTB020908",
+      "name": "KNCDM 困难程度码",
+      "type": "数据属性",
+      "parent": "JCTB0209",
+      "label": "KNCDM 困难程度码"
+    },
+    {
+      "code": "JCTB020909",
+      "name": "SFDB 是否低保",
+      "type": "数据属性",
+      "parent": "JCTB0209",
+      "label": "SFDB 是否低保"
+    },
+    {
+      "code": "JCTB020910",
+      "name": "RXQHKLBM 入学前户口 类别码",
+      "type": "数据属性",
+      "parent": "JCTB0209",
+      "label": "RXQHKLBM 入学前户口 类别码"
+    },
+    {
+      "code": "JCTB020911",
+      "name": "JXDDBX 就学地低保 线",
+      "type": "数据属性",
+      "parent": "JCTB0209",
+      "label": "JXDDBX 就学地低保 线"
+    },
+    {
+      "code": "JCXS010101",
+      "name": "XH 学号",
+      "type": "数据属性",
+      "parent": "JCXS0101",
+      "label": "XH 学号"
+    },
+    {
+      "code": "JCXS011001",
+      "name": "YXXMC 原学校名称",
+      "type": "数据属性",
+      "parent": "JCXS0110",
+      "label": "YXXMC 原学校名称"
+    },
+    {
+      "code": "JCXS011002",
+      "name": "YXH 原学号",
+      "type": "数据属性",
+      "parent": "JCXS0110",
+      "label": "YXH 原学号"
+    },
+    {
+      "code": "JCXS011003",
+      "name": "RXFSM 入学方式码",
+      "type": "数据属性",
+      "parent": "JCXS0110",
+      "label": "RXFSM 入学方式码"
+    },
+    {
+      "code": "JCXS011004",
+      "name": "LYDQM 来源地区码",
+      "type": "数据属性",
+      "parent": "JCXS0110",
+      "label": "LYDQM 来源地区码"
+    },
+    {
+      "code": "JCXS011005",
+      "name": "XSLYM 学生来源码",
+      "type": "数据属性",
+      "parent": "JCXS0110",
+      "label": "XSLYM 学生来源码"
+    },
+    {
+      "code": "JCXS011006",
+      "name": "JDFSM 就读方式码",
+      "type": "数据属性",
+      "parent": "JCXS0110",
+      "label": "JDFSM 就读方式码"
+    },
+    {
+      "code": "JCXS020101",
+      "name": "RXNY 入学年月",
+      "type": "数据属性",
+      "parent": "JCXS0201",
+      "label": "RXNY 入学年月"
+    },
+    {
+      "code": "JCXS020102",
+      "name": "XSLBM 学生类别码",
+      "type": "数据属性",
+      "parent": "JCXS0201",
+      "label": "XSLBM 学生类别码"
+    },
+    {
+      "code": "JCXS020103",
+      "name": "SZBH 所在班号",
+      "type": "数据属性",
+      "parent": "JCXS0201",
+      "label": "SZBH 所在班号"
+    },
+    {
+      "code": "JCXS020104",
+      "name": "SZNJ 所在年级",
+      "type": "数据属性",
+      "parent": "JCXS0201",
+      "label": "SZNJ 所在年级"
+    },
+    {
+      "code": "JCXS020105",
+      "name": "XSDQZTM 学生当前状 态码",
+      "type": "数据属性",
+      "parent": "JCXS0201",
+      "label": "XSDQZTM 学生当前状 态码"
+    },
+    {
+      "code": "JCXS020201",
+      "name": "YDLBM 异动类别码",
+      "type": "数据属性",
+      "parent": "JCXS0202",
+      "label": "YDLBM 异动类别码"
+    },
+    {
+      "code": "JCXS020202",
+      "name": "YDRQ 异动日期",
+      "type": "数据属性",
+      "parent": "JCXS0202",
+      "label": "YDRQ 异动日期"
+    },
+    {
+      "code": "JCXS020203",
+      "name": "YDYYM 异动原因码",
+      "type": "数据属性",
+      "parent": "JCXS0202",
+      "label": "YDYYM 异动原因码"
+    },
+    {
+      "code": "JCXS020204",
+      "name": "SPRQ 审批日期",
+      "type": "数据属性",
+      "parent": "JCXS0202",
+      "label": "SPRQ 审批日期"
+    },
+    {
+      "code": "JCXS020205",
+      "name": "SPWH 审批文号",
+      "type": "数据属性",
+      "parent": "JCXS0202",
+      "label": "SPWH 审批文号"
+    },
+    {
+      "code": "JCXS020206",
+      "name": "YDLYXXM 异动来源学 校码",
+      "type": "数据属性",
+      "parent": "JCXS0202",
+      "label": "YDLYXXM 异动来源学 校码"
+    },
+    {
+      "code": "JCXS020207",
+      "name": "YDQXXXM 异动去向学 校码",
+      "type": "数据属性",
+      "parent": "JCXS0202",
+      "label": "YDQXXXM 异动去向学 校码"
+    },
+    {
+      "code": "JCXS020208",
+      "name": "YDSM 异动说明",
+      "type": "数据属性",
+      "parent": "JCXS0202",
+      "label": "YDSM 异动说明"
+    },
+    {
+      "code": "JCXS020209",
+      "name": "YYXSH 原院系所号",
+      "type": "数据属性",
+      "parent": "JCXS0202",
+      "label": "YYXSH 原院系所号"
+    },
+    {
+      "code": "JCXS020210",
+      "name": "YZYM 原专业码",
+      "type": "数据属性",
+      "parent": "JCXS0202",
+      "label": "YZYM 原专业码"
+    },
+    {
+      "code": "JCXS020211",
+      "name": "YBH 原班号",
+      "type": "数据属性",
+      "parent": "JCXS0202",
+      "label": "YBH 原班号"
+    },
+    {
+      "code": "JCXS020212",
+      "name": "YNJ 原年级",
+      "type": "数据属性",
+      "parent": "JCXS0202",
+      "label": "YNJ 原年级"
+    },
+    {
+      "code": "JCXS020213",
+      "name": "YXZ 原学制",
+      "type": "数据属性",
+      "parent": "JCXS0202",
+      "label": "YXZ 原学制"
+    },
+    {
+      "code": "JCXS020214",
+      "name": "XYXSH 现院系所号",
+      "type": "数据属性",
+      "parent": "JCXS0202",
+      "label": "XYXSH 现院系所号"
+    },
+    {
+      "code": "JCXS020215",
+      "name": "XZYM 现专业码",
+      "type": "数据属性",
+      "parent": "JCXS0202",
+      "label": "XZYM 现专业码"
+    },
+    {
+      "code": "JCXS020216",
+      "name": "XBH 现班号",
+      "type": "数据属性",
+      "parent": "JCXS0202",
+      "label": "XBH 现班号"
+    },
+    {
+      "code": "JCXS020217",
+      "name": "XNJ 现年级",
+      "type": "数据属性",
+      "parent": "JCXS0202",
+      "label": "XNJ 现年级"
+    },
+    {
+      "code": "JCXS020218",
+      "name": "XXZ 现学制",
+      "type": "数据属性",
+      "parent": "JCXS0202",
+      "label": "XXZ 现学制"
+    },
+    {
+      "code": "JCXS020301",
+      "name": "KSRQ 考试日期",
+      "type": "数据属性",
+      "parent": "JCXS0203",
+      "label": "KSRQ 考试日期"
+    },
+    {
+      "code": "JCXS020302",
+      "name": "PSCJ 平时成绩",
+      "type": "数据属性",
+      "parent": "JCXS0203",
+      "label": "PSCJ 平时成绩"
+    },
+    {
+      "code": "JCXS020303",
+      "name": "KSXZM 考试性质码",
+      "type": "数据属性",
+      "parent": "JCXS0203",
+      "label": "KSXZM 考试性质码"
+    },
+    {
+      "code": "JCXS020304",
+      "name": "KSXSM 考试形式码",
+      "type": "数据属性",
+      "parent": "JCXS0203",
+      "label": "KSXSM 考试形式码"
+    },
+    {
+      "code": "JCXS020305",
+      "name": "FSLKSCJ 分数类考试 成绩",
+      "type": "数据属性",
+      "parent": "JCXS0203",
+      "label": "FSLKSCJ 分数类考试 成绩"
+    },
+    {
+      "code": "JCXS020306",
+      "name": "DJLKSCJ 等级类考试 成绩",
+      "type": "数据属性",
+      "parent": "JCXS0203",
+      "label": "DJLKSCJ 等级类考试 成绩"
+    },
+    {
+      "code": "JCXS020307",
+      "name": "KCCJ 课程成绩",
+      "type": "数据属性",
+      "parent": "JCXS0203",
+      "label": "KCCJ 课程成绩"
+    },
+    {
+      "code": "JCXS020308",
+      "name": "KCDJCJM 课程等级成 绩码",
+      "type": "数据属性",
+      "parent": "JCXS0203",
+      "label": "KCDJCJM 课程等级成 绩码"
+    },
+    {
+      "code": "JCXS020309",
+      "name": "RKJSGH 任课教师工 号",
+      "type": "数据属性",
+      "parent": "JCXS0203",
+      "label": "RKJSGH 任课教师工 号"
+    },
+    {
+      "code": "JCXS020310",
+      "name": "CJLRRH 成绩录入人 号",
+      "type": "数据属性",
+      "parent": "JCXS0203",
+      "label": "CJLRRH 成绩录入人 号"
+    },
+    {
+      "code": "JCXS020311",
+      "name": "CJLRRQ 成绩录入日 期",
+      "type": "数据属性",
+      "parent": "JCXS0203",
+      "label": "CJLRRQ 成绩录入日 期"
+    },
+    {
+      "code": "JCXS020312",
+      "name": "CJLRSJ 成绩录入时 间",
+      "type": "数据属性",
+      "parent": "JCXS0203",
+      "label": "CJLRSJ 成绩录入时 间"
+    },
+    {
+      "code": "JCXS020401",
+      "name": "JLMC 奖励名称",
+      "type": "数据属性",
+      "parent": "JCXS0204",
+      "label": "JLMC 奖励名称"
+    },
+    {
+      "code": "JCXS020402",
+      "name": "JLJBM 奖励级别码",
+      "type": "数据属性",
+      "parent": "JCXS0204",
+      "label": "JLJBM 奖励级别码"
+    },
+    {
+      "code": "JCXS020403",
+      "name": "JLDJM 奖励等级码",
+      "type": "数据属性",
+      "parent": "JCXS0204",
+      "label": "JLDJM 奖励等级码"
+    },
+    {
+      "code": "JCXS020404",
+      "name": "HJLBM 获奖类别码",
+      "type": "数据属性",
+      "parent": "JCXS0204",
+      "label": "HJLBM 获奖类别码"
+    },
+    {
+      "code": "JCXS020405",
+      "name": "JLYY 奖励原因",
+      "type": "数据属性",
+      "parent": "JCXS0204",
+      "label": "JLYY 奖励原因"
+    },
+    {
+      "code": "JCXS020406",
+      "name": "JLJE 奖励金额",
+      "type": "数据属性",
+      "parent": "JCXS0204",
+      "label": "JLJE 奖励金额"
+    },
+    {
+      "code": "JCXS020407",
+      "name": "JLWH 奖励文号",
+      "type": "数据属性",
+      "parent": "JCXS0204",
+      "label": "JLWH 奖励文号"
+    },
+    {
+      "code": "JCXS020408",
+      "name": "JLXND 奖励学年度",
+      "type": "数据属性",
+      "parent": "JCXS0204",
+      "label": "JLXND 奖励学年度"
+    },
+    {
+      "code": "JCXS020409",
+      "name": "BJDW 颁奖单位",
+      "type": "数据属性",
+      "parent": "JCXS0204",
+      "label": "BJDW 颁奖单位"
+    },
+    {
+      "code": "JCXS020410",
+      "name": "JLLXM 奖励类型码",
+      "type": "数据属性",
+      "parent": "JCXS0204",
+      "label": "JLLXM 奖励类型码"
+    },
+    {
+      "code": "JCXS020411",
+      "name": "JLFSM 奖励方式码",
+      "type": "数据属性",
+      "parent": "JCXS0204",
+      "label": "JLFSM 奖励方式码"
+    },
+    {
+      "code": "JCXS020501",
+      "name": "WJRQ 违纪日期",
+      "type": "数据属性",
+      "parent": "JCXS0205",
+      "label": "WJRQ 违纪日期"
+    },
+    {
+      "code": "JCXS020502",
+      "name": "WJJK 违纪简况",
+      "type": "数据属性",
+      "parent": "JCXS0205",
+      "label": "WJJK 违纪简况"
+    },
+    {
+      "code": "JCXS020503",
+      "name": "WJLBM 违纪类别码",
+      "type": "数据属性",
+      "parent": "JCXS0205",
+      "label": "WJLBM 违纪类别码"
+    },
+    {
+      "code": "JCXS020504",
+      "name": "CFMCM 处分名称码",
+      "type": "数据属性",
+      "parent": "JCXS0205",
+      "label": "CFMCM 处分名称码"
+    },
+    {
+      "code": "JCXS020505",
+      "name": "CFYY 处分原因",
+      "type": "数据属性",
+      "parent": "JCXS0205",
+      "label": "CFYY 处分原因"
+    },
+    {
+      "code": "JCXS020506",
+      "name": "CFRQ 处分日期",
+      "type": "数据属性",
+      "parent": "JCXS0205",
+      "label": "CFRQ 处分日期"
+    },
+    {
+      "code": "JCXS020507",
+      "name": "CFWH 处分文号",
+      "type": "数据属性",
+      "parent": "JCXS0205",
+      "label": "CFWH 处分文号"
+    },
+    {
+      "code": "JCXS020508",
+      "name": "CFCXRQ 处分撤消日 期",
+      "type": "数据属性",
+      "parent": "JCXS0205",
+      "label": "CFCXRQ 处分撤消日 期"
+    },
+    {
+      "code": "JCXS020509",
+      "name": "CFCXWH 处分撤消文 号",
+      "type": "数据属性",
+      "parent": "JCXS0205",
+      "label": "CFCXWH 处分撤消文 号"
+    },
+    {
+      "code": "JCXS030101",
+      "name": "JSXYNY 结束学业年 月",
+      "type": "数据属性",
+      "parent": "JCXS0301",
+      "label": "JSXYNY 结束学业年 月"
+    },
+    {
+      "code": "JCXS030102",
+      "name": "JSXYM 结束学业码",
+      "type": "数据属性",
+      "parent": "JCXS0301",
+      "label": "JSXYM 结束学业码"
+    },
+    {
+      "code": "JCXS030103",
+      "name": "JSXYYYSM 结束学业原 因说明",
+      "type": "数据属性",
+      "parent": "JCXS0301",
+      "label": "JSXYYYSM 结束学业原 因说明"
+    },
+    {
+      "code": "JCXS030104",
+      "name": "BYZSH 毕业证书号",
+      "type": "数据属性",
+      "parent": "JCXS0301",
+      "label": "BYZSH 毕业证书号"
+    },
+    {
+      "code": "JCXS030105",
+      "name": "XWZSH 学位证书号",
+      "type": "数据属性",
+      "parent": "JCXS0301",
+      "label": "XWZSH 学位证书号"
+    },
+    {
+      "code": "JCXS030106",
+      "name": "JYZSH 结业证书号",
+      "type": "数据属性",
+      "parent": "JCXS0301",
+      "label": "JYZSH 结业证书号"
+    },
+    {
+      "code": "JCXS030107",
+      "name": "HBYZSRQ 获毕业证书 日期",
+      "type": "数据属性",
+      "parent": "JCXS0301",
+      "label": "HBYZSRQ 获毕业证书 日期"
+    },
+    {
+      "code": "JCXS030108",
+      "name": "HXWZSRQ 获学位证书 日期",
+      "type": "数据属性",
+      "parent": "JCXS0301",
+      "label": "HXWZSRQ 获学位证书 日期"
+    },
+    {
+      "code": "JCXS030109",
+      "name": "HJYZSRQ 获结业证书 日期",
+      "type": "数据属性",
+      "parent": "JCXS0301",
+      "label": "HJYZSRQ 获结业证书 日期"
+    },
+    {
+      "code": "JCXS030201",
+      "name": "XYSBH 协议书编号",
+      "type": "数据属性",
+      "parent": "JCXS0302",
+      "label": "XYSBH 协议书编号"
+    },
+    {
+      "code": "JCXS030202",
+      "name": "XYQDRQ 协议签订日 期",
+      "type": "数据属性",
+      "parent": "JCXS0302",
+      "label": "XYQDRQ 协议签订日 期"
+    },
+    {
+      "code": "JCXS030203",
+      "name": "XYNX 协议年限",
+      "type": "数据属性",
+      "parent": "JCXS0302",
+      "label": "XYNX 协议年限"
+    },
+    {
+      "code": "JCXS030204",
+      "name": "BDRQ 报到日期",
+      "type": "数据属性",
+      "parent": "JCXS0302",
+      "label": "BDRQ 报到日期"
+    },
+    {
+      "code": "JCXS030205",
+      "name": "JYLSFSM 就业落实方 式码",
+      "type": "数据属性",
+      "parent": "JCXS0302",
+      "label": "JYLSFSM 就业落实方 式码"
+    },
+    {
+      "code": "JCXS030206",
+      "name": "BYQXM 毕业去向码",
+      "type": "数据属性",
+      "parent": "JCXS0302",
+      "label": "BYQXM 毕业去向码"
+    },
+    {
+      "code": "JCXS030207",
+      "name": "JSDW 接收单位",
+      "type": "数据属性",
+      "parent": "JCXS0302",
+      "label": "JSDW 接收单位"
+    },
+    {
+      "code": "JCXS030208",
+      "name": "DWSZDQHM 单位所在地 区划码",
+      "type": "数据属性",
+      "parent": "JCXS0302",
+      "label": "DWSZDQHM 单位所在地 区划码"
+    },
+    {
+      "code": "JCXS030209",
+      "name": "DWZGBM 单位主管部 门",
+      "type": "数据属性",
+      "parent": "JCXS0302",
+      "label": "DWZGBM 单位主管部 门"
+    },
+    {
+      "code": "JCXS030210",
+      "name": "SHDWXZM 社会单位性 质码",
+      "type": "数据属性",
+      "parent": "JCXS0302",
+      "label": "SHDWXZM 社会单位性 质码"
+    },
+    {
+      "code": "JCXS030211",
+      "name": "DWJJXZM 单位经济性 质码",
+      "type": "数据属性",
+      "parent": "JCXS0302",
+      "label": "DWJJXZM 单位经济性 质码"
+    },
+    {
+      "code": "JCXS030212",
+      "name": "DWTGDDY 单位提供的 待遇",
+      "type": "数据属性",
+      "parent": "JCXS0302",
+      "label": "DWTGDDY 单位提供的 待遇"
+    },
+    {
+      "code": "JCXS030213",
+      "name": "DAJSDZ 档案接收地 址",
+      "type": "数据属性",
+      "parent": "JCXS0302",
+      "label": "DAJSDZ 档案接收地 址"
+    },
+    {
+      "code": "JCXS030214",
+      "name": "JSDYZBM 接收地邮政 编码",
+      "type": "数据属性",
+      "parent": "JCXS0302",
+      "label": "JSDYZBM 接收地邮政 编码"
+    },
+    {
+      "code": "JCXS030215",
+      "name": "GZGWXZM 工作岗位性 质码",
+      "type": "数据属性",
+      "parent": "JCXS0302",
+      "label": "GZGWXZM 工作岗位性 质码"
+    },
+    {
+      "code": "JCXS030216",
+      "name": "DWHYM 单位行业码",
+      "type": "数据属性",
+      "parent": "JCXS0302",
+      "label": "DWHYM 单位行业码"
+    },
+    {
+      "code": "JCXS030217",
+      "name": "BDZH 报到证号",
+      "type": "数据属性",
+      "parent": "JCXS0302",
+      "label": "BDZH 报到证号"
+    },
+    {
+      "code": "JCXS030218",
+      "name": "YRDWYRXSM 用人单位用 人形式码",
+      "type": "数据属性",
+      "parent": "JCXS0302",
+      "label": "YRDWYRXSM 用人单位用 人形式码"
+    },
+    {
+      "code": "JCXS030219",
+      "name": "PQF 派遣费",
+      "type": "数据属性",
+      "parent": "JCXS0302",
+      "label": "PQF 派遣费"
+    },
+    {
+      "code": "JCXX010101",
+      "name": "XXDM 学校代码",
+      "type": "数据属性",
+      "parent": "JCXX0101",
+      "label": "XXDM 学校代码"
+    },
+    {
+      "code": "JCXX010102",
+      "name": "XXMC 学校名称",
+      "type": "数据属性",
+      "parent": "JCXX0101",
+      "label": "XXMC 学校名称"
+    },
+    {
+      "code": "JCXX010103",
+      "name": "XXYWMC 学校英文名 称",
+      "type": "数据属性",
+      "parent": "JCXX0101",
+      "label": "XXYWMC 学校英文名 称"
+    },
+    {
+      "code": "JCXX010104",
+      "name": "XXDZ 学校地址",
+      "type": "数据属性",
+      "parent": "JCXX0101",
+      "label": "XXDZ 学校地址"
+    },
+    {
+      "code": "JCXX010105",
+      "name": "XXYZBM 学校邮政编 码",
+      "type": "数据属性",
+      "parent": "JCXX0101",
+      "label": "XXYZBM 学校邮政编 码"
+    },
+    {
+      "code": "JCXX010106",
+      "name": "XZQHM 行政区划码",
+      "type": "数据属性",
+      "parent": "JCXX0101",
+      "label": "XZQHM 行政区划码"
+    },
+    {
+      "code": "JCXX010107",
+      "name": "JXNY 建校年月",
+      "type": "数据属性",
+      "parent": "JCXX0101",
+      "label": "JXNY 建校年月"
+    },
+    {
+      "code": "JCXX010108",
+      "name": "XQR 校庆日",
+      "type": "数据属性",
+      "parent": "JCXX0101",
+      "label": "XQR 校庆日"
+    },
+    {
+      "code": "JCXX010109",
+      "name": "XXBXLXM 学校办学类 型码",
+      "type": "数据属性",
+      "parent": "JCXX0101",
+      "label": "XXBXLXM 学校办学类 型码"
+    },
+    {
+      "code": "JCXX010110",
+      "name": "XXJBZM 学校举办者 码",
+      "type": "数据属性",
+      "parent": "JCXX0101",
+      "label": "XXJBZM 学校举办者 码"
+    },
+    {
+      "code": "JCXX010111",
+      "name": "XXZGBMM 学校主管部 门码",
+      "type": "数据属性",
+      "parent": "JCXX0101",
+      "label": "XXZGBMM 学校主管部 门码"
+    },
+    {
+      "code": "JCXX010112",
+      "name": "FDDBRH 法定代表人 号",
+      "type": "数据属性",
+      "parent": "JCXX0101",
+      "label": "FDDBRH 法定代表人 号"
+    },
+    {
+      "code": "JCXX010113",
+      "name": "FRZSH 法人证书号",
+      "type": "数据属性",
+      "parent": "JCXX0101",
+      "label": "FRZSH 法人证书号"
+    },
+    {
+      "code": "JCXX010114",
+      "name": "XZGH 校长工号",
+      "type": "数据属性",
+      "parent": "JCXX0101",
+      "label": "XZGH 校长工号"
+    },
+    {
+      "code": "JCXX010115",
+      "name": "XZXM 校长姓名",
+      "type": "数据属性",
+      "parent": "JCXX0101",
+      "label": "XZXM 校长姓名"
+    },
+    {
+      "code": "JCXX010116",
+      "name": "DWFZRH 党委负责人 号",
+      "type": "数据属性",
+      "parent": "JCXX0101",
+      "label": "DWFZRH 党委负责人 号"
+    },
+    {
+      "code": "JCXX010117",
+      "name": "ZZJGM 组织机构码",
+      "type": "数据属性",
+      "parent": "JCXX0101",
+      "label": "ZZJGM 组织机构码"
+    },
+    {
+      "code": "JCXX010118",
+      "name": "LXDH 联系电话",
+      "type": "数据属性",
+      "parent": "JCXX0101",
+      "label": "LXDH 联系电话"
+    },
+    {
+      "code": "JCXX010119",
+      "name": "CZDH 传真电话",
+      "type": "数据属性",
+      "parent": "JCXX0101",
+      "label": "CZDH 传真电话"
+    },
+    {
+      "code": "JCXX010120",
+      "name": "DZXX 电子信箱",
+      "type": "数据属性",
+      "parent": "JCXX0101",
+      "label": "DZXX 电子信箱"
+    },
+    {
+      "code": "JCXX010121",
+      "name": "ZYDZ 主页地址",
+      "type": "数据属性",
+      "parent": "JCXX0101",
+      "label": "ZYDZ 主页地址"
+    },
+    {
+      "code": "JCXX010122",
+      "name": "LSYG 历史沿革",
+      "type": "数据属性",
+      "parent": "JCXX0101",
+      "label": "LSYG 历史沿革"
+    },
+    {
+      "code": "JCXX010201",
+      "name": "XQH 校区号",
+      "type": "数据属性",
+      "parent": "JCXX0102",
+      "label": "XQH 校区号"
+    },
+    {
+      "code": "JCXX010202",
+      "name": "XQMC 校区名称",
+      "type": "数据属性",
+      "parent": "JCXX0102",
+      "label": "XQMC 校区名称"
+    },
+    {
+      "code": "JCXX010203",
+      "name": "XQDZ 校区地址",
+      "type": "数据属性",
+      "parent": "JCXX0102",
+      "label": "XQDZ 校区地址"
+    },
+    {
+      "code": "JCXX010204",
+      "name": "XQYZBM 校区邮政编 码",
+      "type": "数据属性",
+      "parent": "JCXX0102",
+      "label": "XQYZBM 校区邮政编 码"
+    },
+    {
+      "code": "JCXX010205",
+      "name": "XQLXDH 校区联系电 话",
+      "type": "数据属性",
+      "parent": "JCXX0102",
+      "label": "XQLXDH 校区联系电 话"
+    },
+    {
+      "code": "JCXX010206",
+      "name": "XQCZDH 校区传真电 话",
+      "type": "数据属性",
+      "parent": "JCXX0102",
+      "label": "XQCZDH 校区传真电 话"
+    },
+    {
+      "code": "JCXX010207",
+      "name": "XQFZRH 校区负责人 号",
+      "type": "数据属性",
+      "parent": "JCXX0102",
+      "label": "XQFZRH 校区负责人 号"
+    },
+    {
+      "code": "JCXX020001",
+      "name": "BH 班号",
+      "type": "数据属性",
+      "label": "BH 班号"
+    },
+    {
+      "code": "JCXX020002",
+      "name": "BJMC 班级名称",
+      "type": "数据属性",
+      "label": "BJMC 班级名称"
+    },
+    {
+      "code": "JCXX020003",
+      "name": "JBNY 建班年月",
+      "type": "数据属性",
+      "label": "JBNY 建班年月"
+    },
+    {
+      "code": "JCXX020004",
+      "name": "SSNJ 所属年级",
+      "type": "数据属性",
+      "label": "SSNJ 所属年级"
+    },
+    {
+      "code": "JCXX020005",
+      "name": "BZRGH 班主任工号",
+      "type": "数据属性",
+      "label": "BZRGH 班主任工号"
+    },
+    {
+      "code": "JCXX020006",
+      "name": "BZXH 班长学号",
+      "type": "数据属性",
+      "label": "BZXH 班长学号"
+    }
+  ],
+  "relations": []
+}

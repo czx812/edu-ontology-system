@@ -140,7 +140,9 @@ def generate_ontology(request: GenerateRequest, user: dict, job_id: Optional[str
         result = {
             "message": "本体生成完成",
             "status": response_status,
+            "data_type": "ontology",
             "ontology": ontology,
+            "standard_metadata": state.get("standard_metadata", {"classes": [], "properties": []}),
             "structured_file": state.get("structured_file", ""),
             "record_count": record_count,
             "trace_map": state.get("trace_map", {}),
@@ -360,6 +362,7 @@ def generate_batch(request: BatchGenerateRequest, user: dict = Depends(get_curre
             answer={"merged_classes": stats.get("classes", 0), "merged_properties": stats.get("datatype_properties", 0), "merged_relations": stats.get("relations", 0), "owl_file": result.get("owl_file", "")},
         )
         write_system_log("INFO", f"Batch ontology generation success: count={len(request.file_paths)}")
+        result["data_type"] = "ontology"
         return result
     except FileNotFoundError as exc:
         write_operation_log(user=user, action="BATCH_GENERATE_FAILED", method="POST", path="/generate/batch", status_code=404, detail=str(exc))

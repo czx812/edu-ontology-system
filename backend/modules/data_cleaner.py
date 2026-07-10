@@ -214,6 +214,11 @@ def clean_data(payload: Union[State, str]) -> Union[State, Dict[str, Any]]:
         "unstructured_text": raw_text[:3000],
         **semantic_items,
     }
+    cleaned["source_metadata"] = {
+        "classes": list(cleaned.get("data_classes", []) or []),
+        "properties": list(cleaned.get("data_properties", []) or []),
+        "relations": [],
+    }
 
     state["clean_data"] = cleaned
     state["structured_file"] = _save_clean_data(cleaned)

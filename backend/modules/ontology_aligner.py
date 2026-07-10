@@ -17,6 +17,7 @@ def align_ontology(ontology: Dict[str, Any]) -> Dict[str, Any]:
 
     classes = _normalize_classes(ontology.get("classes", []))
     class_names = {item["name"] for item in classes}
+    class_codes = {item.get("code") for item in classes if item.get("code")}
     properties = _normalize_properties(ontology.get("datatype_properties") or ontology.get("properties", []))
     object_properties = _normalize_object_properties(ontology.get("object_properties", []))
     relations = _normalize_relations(ontology.get("relations", []))
@@ -24,20 +25,20 @@ def align_ontology(ontology: Dict[str, Any]) -> Dict[str, Any]:
 
     for prop in properties:
         domain = prop.get("domain") or "EducationResource"
-        if domain not in class_names:
+        if domain not in class_names and domain not in class_codes and f"DataClass{domain}" not in class_names:
             classes.append({"name": domain, "id": domain, "label": domain, "description": "Added from datatype property domain.", "low_confidence": True})
             class_names.add(domain)
 
     for prop in object_properties:
         for endpoint in (prop.get("domain"), prop.get("range")):
-            if endpoint and endpoint not in class_names:
+            if endpoint and endpoint not in class_names and endpoint not in class_codes and f"DataClass{endpoint}" not in class_names:
                 classes.append({"name": endpoint, "id": endpoint, "label": endpoint, "description": "Added from object property endpoint.", "low_confidence": True})
                 class_names.add(endpoint)
 
     for relation in relations:
         for endpoint in (relation.get("source"), relation.get("target"), relation.get("subject"), relation.get("object")):
             endpoint = _safe_class_name(endpoint)
-            if endpoint and endpoint not in class_names:
+            if endpoint and endpoint not in class_names and endpoint not in class_codes and f"DataClass{endpoint}" not in class_names:
                 classes.append({"name": endpoint, "id": endpoint, "label": endpoint, "description": "Added from relation endpoint.", "low_confidence": True})
                 class_names.add(endpoint)
 
@@ -139,7 +140,7 @@ def _normalize_classes(items: Any) -> List[Dict[str, Any]]:
         if key in seen:
             continue
         seen.add(key)
-        cls = {"id": name, "name": name, "label": label or name, "description": _text(item.get("description"))}
+        cls = {"id": name, "name": name, "code": _text(item.get("code")), "label": label or name, "description": _text(item.get("description"))}
         parent = _safe_class_name(item.get("parent"))
         if parent and parent != name:
             cls["parent"] = parent
@@ -164,6 +165,7 @@ def _normalize_properties(items: Any) -> List[Dict[str, Any]]:
         prop = {
             "id": name,
             "name": name,
+            "code": _text(item.get("code")),
             "label": label or name,
             "domain": domain,
             "range": _normalize_range(item.get("range") or item.get("data_type"), label, name, item.get("description")),

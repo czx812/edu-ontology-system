@@ -11,69 +11,10 @@ import os
 from typing import Any, Dict
 
 
-CANDIDATE_CLASSES = """
-EducationResource 教育资源
-Person 人员
-Student 学生
-Teacher 教师
-Staff 教职工
-School 学校
-Campus 校区
-Class 班级
-Grade 年级
-Course 课程
-Major 专业
-Organization 机构
-ContactInfo 联系信息
-Enrollment 入学/注册信息
-StudentStatus 学籍状态
-Exam 考试
-Score 成绩
-Reward 奖励
-Punishment 处分
-Graduation 毕业信息
-Position 职务
-ProfessionalTitle 专业技术职务
-Assessment 考核
-Training 进修培训
-FinanceItem 经费项目
-Building 建筑物
-Room 房间
-Facility 设施
-Instrument 仪器设备
-Book 图书
-Journal 期刊
-Laboratory 实验室
-Experiment 实验
-DataElement 数据元素
-DataCatalog 数据类
-DataSubcatalog 数据子类
-CodeItem 代码项
-""".strip()
+CANDIDATE_CLASSES = ""
 
 
-CANDIDATE_RELATIONS = """
-Student -> School belongs_to
-Student -> Class belongs_to_class
-Class -> Grade belongs_to_grade
-Campus -> School campus_of
-Course -> Major belongs_to_major
-Teacher -> Course teaches
-Student -> Course takes_course
-Score -> Student score_of_student
-Score -> Course score_of_course
-Building -> Campus located_in_campus
-Room -> Building located_in_building
-Instrument -> Room located_in_room
-Laboratory -> Room located_in_room
-Experiment -> Course experiment_of_course
-Book -> School owned_by_school
-FinanceItem -> School finance_of_school
-Staff -> Organization works_for
-Teacher -> School works_for_school
-DataElement -> DataSubcatalog belongs_to_subcatalog
-DataSubcatalog -> DataCatalog belongs_to_catalog
-""".strip()
+CANDIDATE_RELATIONS = ""
 
 
 NOISE_RULES = """
@@ -281,10 +222,9 @@ GLOBAL_RELATION_PROMPT = """
 You are the final global relation inference step for an education ontology system.
 
 Task:
-Infer object relations across all generated classes, including relations that may
-span different batches or source tables. Only output relations that can be
-supported by the class names, property domains, labels, evidence, source table
-signals, or common education-domain semantics.
+Infer object relations only from explicit PDF reference fields, source metadata
+relations, or explicit data-item association evidence. Never infer a relation
+from common education-domain semantics alone.
 
 Candidate relations:
 __CANDIDATE_RELATIONS__

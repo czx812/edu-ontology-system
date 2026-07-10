@@ -3,19 +3,17 @@
     <div class="toolbar">
       <div>
         <h1>数据源检索</h1>
-        <p>检索已生成本体中的类、属性、关系与来源文件，辅助追溯数据项依据。</p>
+        <p>检索 PDF 解析出的教育标准编码、中文名称及其来源。</p>
       </div>
       <button :disabled="loading" @click="search">{{ loading ? "检索中..." : "检索" }}</button>
     </div>
 
     <div class="search-panel">
-      <input v-model="keyword" placeholder="输入类名、数据项编号、字段名、文件名或描述" @keyup.enter="search" />
+      <input v-model="keyword" placeholder="输入标准编码或中文名称，例如 JCTB0203、工作简历" @keyup.enter="search" />
       <select v-model="scope">
         <option value="all">全部范围</option>
-        <option value="class">类</option>
-        <option value="property">属性</option>
-        <option value="relation">关系</option>
-        <option value="file">来源文件</option>
+        <option value="class">数据子类</option>
+        <option value="property">数据属性</option>
       </select>
     </div>
 
@@ -24,25 +22,29 @@
 
     <div class="stats-row">
       <div class="stat"><strong>{{ results.length }}</strong><span>匹配结果</span></div>
-      <div class="stat"><strong>{{ sourceSummary.classes }}</strong><span>类</span></div>
-      <div class="stat"><strong>{{ sourceSummary.properties }}</strong><span>属性</span></div>
-      <div class="stat"><strong>{{ sourceSummary.relations }}</strong><span>关系</span></div>
+      <div class="stat"><strong>{{ sourceSummary.classes }}</strong><span>数据子类</span></div>
+      <div class="stat"><strong>{{ sourceSummary.properties }}</strong><span>数据属性</span></div>
     </div>
 
     <div class="panel">
       <table>
         <thead>
-          <tr><th>类型</th><th>名称/编号</th><th>领域</th><th>来源文件</th><th>页/表/行</th><th>说明</th></tr>
+          <tr><th>编码</th><th>中文名称</th><th>类型</th><th>所属类</th><th>来源</th></tr>
         </thead>
         <tbody>
-          <tr v-for="item in results" :key="item.key">
+          <tr v-for="item in visibleResults" :key="item.key" :class="{ child: item.isChild }">
+            <td class="code">{{ item.code || "-" }}</td>
+            <td class="name">
+              <button v-if="item.type_key === 'class' && item.childCount" class="expand" @click="toggle(item.code)" :aria-label="`${expandedCodes.has(item.code) ? '收起' : '展开'} ${item.name}`">
+                {{ expandedCodes.has(item.code) ? "▾" : "▸" }}
+              </button>
+              {{ item.name || "-" }}
+            </td>
             <td><span class="tag">{{ item.type }}</span></td>
-            <td class="name">{{ item.name }}</td>
-            <td>{{ item.domain || "-" }}</td>
-            <td class="path">{{ item.source || "-" }}</td>
-            <td>{{ item.description || "-" }}</td>
+            <td>{{ item.parent_name || item.domain || "-" }}</td>
+            <td class="path">{{ sourceLabel(item) }}</td>
           </tr>
-          <tr v-if="!results.length"><td colspan="6">暂无匹配结果</td></tr>
+          <tr v-if="!visibleResults.length"><td colspan="5">暂无匹配结果</td></tr>
         </tbody>
       </table>
     </div>
@@ -51,7 +53,7 @@
 
 <script setup>
 import { computed, onMounted, ref } from "vue";
-import { getMyGenerations, searchDataSources } from "../api/request";
+import { searchDataSources } from "../api/request";
 
 const keyword = ref("");
 const scope = ref("all");
@@ -59,54 +61,47 @@ const results = ref([]);
 const loading = ref(false);
 const error = ref("");
 const notice = ref("");
-const localIndex = ref([]);
-const ontology = ref({ classes: [], properties: [], relations: [] });
+const sourceMetadata = ref({ classes: [], properties: [] });
+const expandedCodes = ref(new Set());
 
 const sourceSummary = computed(() => ({
-  classes: ontology.value.classes?.length || 0,
-  properties: ontology.value.properties?.length || 0,
-  relations: ontology.value.relations?.length || 0,
+  classes: sourceMetadata.value.classes?.length || 0,
+  properties: sourceMetadata.value.properties?.length || 0,
 }));
 
-function readLocalOntology() {
-  try {
-    ontology.value = JSON.parse(localStorage.getItem("lastOntology") || "{}");
-  } catch (err) {
-    ontology.value = {};
+const visibleResults = computed(() => {
+  const all = results.value;
+  const childrenByParent = new Map();
+  for (const item of all) {
+    if (item.type_key === "property" && item.parent) {
+      const list = childrenByParent.get(item.parent) || [];
+      list.push(item);
+      childrenByParent.set(item.parent, list);
+    }
   }
+  const rows = [];
+  for (const item of all) {
+    if (item.type_key !== "class") continue;
+    const children = childrenByParent.get(item.code) || [];
+    rows.push({ ...item, childCount: children.length });
+    if (expandedCodes.value.has(item.code)) rows.push(...children.map((child) => ({ ...child, isChild: true })));
+  }
+  // A direct property search may not include its parent row; still show it.
+  rows.push(...all.filter((item) => item.type_key !== "class" && (!item.parent || !all.some((parent) => parent.type_key === "class" && parent.code === item.parent))));
+  return rows;
+});
+
+function toggle(code) {
+  const next = new Set(expandedCodes.value);
+  next.has(code) ? next.delete(code) : next.add(code);
+  expandedCodes.value = next;
 }
 
-function itemText(item) {
-  return [item.type, item.name, item.domain, item.source, item.description].join(" ").toLowerCase();
-}
-
-function buildLocalIndex(generations = []) {
-  readLocalOntology();
-  const list = [];
-  for (const cls of ontology.value.classes || []) {
-    list.push({ key: `class-${cls.name}`, type: "类", name: cls.name || cls.label, domain: cls.parent || "-", source: "当前本体", description: cls.description || cls.label || "" });
-  }
-  for (const prop of ontology.value.properties || []) {
-    list.push({ key: `property-${prop.code || prop.name}`, type: "属性", name: `${prop.code || ""} ${prop.label || prop.name || ""}`.trim(), domain: prop.domain, source: prop.source_table || prop.source?.table_index || "当前本体", description: prop.description || prop.field_name || "" });
-  }
-  for (const rel of ontology.value.relations || []) {
-    list.push({ key: `relation-${rel.source}-${rel.target}-${rel.type}`, type: "关系", name: `${rel.source} -> ${rel.target}`, domain: rel.type, source: "当前本体", description: rel.description || rel.reason || "" });
-  }
-  for (const item of generations) {
-    list.push({ key: `file-${item.id}`, type: "来源文件", name: item.file_name, domain: item.status, source: item.structured_file || item.owl_file, description: `记录数 ${item.record_count || 0}，耗时 ${item.duration_ms || 0} ms` });
-  }
-  localIndex.value = list;
-}
-
-function filterLocalIndex() {
-  const query = keyword.value.trim().toLowerCase();
-  const selected = scope.value;
-  const scopeMap = { class: "类", property: "属性", relation: "关系", file: "来源文件" };
-  results.value = localIndex.value.filter((item) => {
-    const scopeOk = selected === "all" || item.type === scopeMap[selected];
-    const queryOk = !query || itemText(item).includes(query);
-    return scopeOk && queryOk;
-  });
+function sourceLabel(item) {
+  const source = item.source && typeof item.source === "object" ? item.source : {};
+  const file = source.file || item.source_file || item.filename || "-";
+  const page = source.page ?? item.page;
+  return page !== undefined && page !== null && page !== "" ? `${file} 第${page}页` : file;
 }
 
 async function search() {
@@ -115,16 +110,20 @@ async function search() {
   notice.value = "";
   try {
     const res = await searchDataSources({ keyword: keyword.value, scope: scope.value });
-    results.value = res.data.items || [];
+    if (res.data.data_type !== "source") throw new Error("数据源接口返回了非 source 数据");
+    results.value = [
+      ...(res.data.classes || []).map((item) => ({ ...item, type_key: "class", key: `class-${item.code}` })),
+      ...(res.data.properties || []).map((item) => ({ ...item, type_key: "property", key: `property-${item.code}` })),
+    ];
+    sourceMetadata.value = {
+      classes: res.data.classes || [],
+      properties: res.data.properties || [],
+    };
+    // Source records are the primary result; show their standard properties
+    // immediately instead of hiding them behind an ontology-style tree.
+    expandedCodes.value = new Set((res.data.classes || []).map((item) => item.code).filter(Boolean));
   } catch (err) {
-    try {
-      const gen = await getMyGenerations();
-      buildLocalIndex(gen.data.items || []);
-      filterLocalIndex();
-      notice.value = "当前使用本地本体与生成记录检索。";
-    } catch (fallbackErr) {
-      error.value = fallbackErr.response?.data?.detail || fallbackErr.message || "检索失败";
-    }
+    error.value = err.response?.data?.detail || err.message || "检索失败";
   } finally {
     loading.value = false;
   }
@@ -150,6 +149,9 @@ table { width: 100%; border-collapse: collapse; font-size: 14px; }
 th, td { border-bottom: 1px solid #e5e7eb; padding: 10px; text-align: left; vertical-align: top; }
 th { background: #f8fafc; }
 .name { font-weight: 700; color: #0f172a; }
+.code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; white-space: nowrap; }
+.child .name, .child .code { padding-left: 28px; }
+.expand { border: 0; background: transparent; color: #2563eb; padding: 0 6px 0 0; font-size: 16px; }
 .path { max-width: 260px; word-break: break-all; }
 .tag { display: inline-block; padding: 3px 8px; border-radius: 999px; background: #e0f2fe; color: #075985; font-size: 12px; }
 .notice { color: #0369a1; }

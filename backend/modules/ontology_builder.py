@@ -16,6 +16,7 @@ from backend.modules.llm_context_compressor import build_rule_draft_enhancement_
 from backend.modules.ontology_global_merger import merge_ontology_programmatically
 from backend.modules.ontology_stats import count_ontology_stats
 from backend.modules.ontology_validator import build_rule_draft_properties, validate_and_complete_ontology
+from backend.modules.source_parser import clean_label
 
 
 PROMPT_VERSION = "rule_draft_llm_enhance_v3_coded_classes_reference_relations"
@@ -39,6 +40,7 @@ def build_ontology_with_rule_draft_llm_enhance(state: Dict[str, Any]) -> Dict[st
     clean_data = state.get("clean_data") if "clean_data" in state else state
     clean_data = clean_data if isinstance(clean_data, dict) else {}
     records = clean_data.get("records", []) if isinstance(clean_data.get("records", []), list) else []
+    standard_metadata = _metadata_from_state(state)
     raw_text = str(clean_data.get("raw_text") or clean_data.get("clean_text") or state.get("raw_text") or "")
     source_doc = str(state.get("file_path") or clean_data.get("source_file") or "")
     progress = state.get("progress_callback")
@@ -51,7 +53,7 @@ def build_ontology_with_rule_draft_llm_enhance(state: Dict[str, Any]) -> Dict[st
 
     document_structure = analyze_document_structure(clean_data, raw_text)
     _progress(progress, "rule_draft", "规则生成初始本体中")
-    rule_draft = rule_draft_ontology(records, document_structure, source_doc=source_doc)
+    rule_draft = rule_draft_ontology(records, document_structure, source_doc=source_doc, standard_metadata=standard_metadata)
     stats.update({
         "generation_strategy": "rule_draft_llm_enhance",
         "total_records": len(records),
@@ -65,6 +67,7 @@ def build_ontology_with_rule_draft_llm_enhance(state: Dict[str, Any]) -> Dict[st
     if options["mode"] == "rule_only":
         _progress(progress, "validate", "本体规则校验补全中", stats=stats)
         ontology = validate_and_complete_ontology(rule_draft, records, document_structure, source_doc=source_doc)
+        _enforce_standard_schema(ontology, standard_metadata)
         stats.update(_validation_stats(ontology))
         stats["duration_ms"] = _elapsed_ms(start)
         return _finalize(ontology, "rule_only", warnings, stats, service, source_docs=[source_doc])
@@ -75,6 +78,7 @@ def build_ontology_with_rule_draft_llm_enhance(state: Dict[str, Any]) -> Dict[st
     if options["enable_cache"] and not options["force_regenerate"] and final_cache_path.exists():
         cached = _read_json(final_cache_path)
         if cached and cached.get("datatype_properties"):
+            _enforce_standard_schema(cached, standard_metadata)
             cached["stats"] = {**cached.get("stats", {}), **count_ontology_stats(cached), "cache_hit": True}
             cached["stats"]["duration_ms"] = _elapsed_ms(start)
             return cached
@@ -138,6 +142,7 @@ def build_ontology_with_rule_draft_llm_enhance(state: Dict[str, Any]) -> Dict[st
 
     _progress(progress, "validate", "本体规则校验补全中", stats=stats)
     ontology = validate_and_complete_ontology(ontology, records, document_structure, source_doc=source_doc)
+    _enforce_standard_schema(ontology, standard_metadata)
     if len(ontology.get("datatype_properties", []) or []) == 0:
         raise RuntimeError("ONTOLOGY_VALIDATION_FAILED: records>0 但 datatype_properties=0。")
 
@@ -156,8 +161,8 @@ def build_ontology_with_rule_draft_llm_enhance(state: Dict[str, Any]) -> Dict[st
     return result
 
 
-def rule_draft_ontology(records: list, document_structure: dict, source_doc: str = "") -> dict:
-    classes = _rule_classes(records, document_structure)
+def rule_draft_ontology(records: list, document_structure: dict, source_doc: str = "", standard_metadata: dict | None = None) -> dict:
+    classes = _rule_classes(records, document_structure, standard_metadata or {})
     coded_hierarchy = _coded_class_hierarchy(records)
     reference_relations = _reference_relations(records)
     ontology = {
@@ -262,8 +267,10 @@ def build_ontology_with_llm_groups(state: Dict[str, Any]) -> Dict[str, Any]:
     raw_text = str(clean_data.get("clean_text") or clean_data.get("raw_text") or state.get("raw_text") or "") if isinstance(clean_data, dict) else ""
     document_structure = analyze_document_structure(clean_data if isinstance(clean_data, dict) else {}, raw_text)
     groups = compress_records_for_llm(records, document_structure, _options(state)["max_group_records"])
-    draft = rule_draft_ontology(records, document_structure, source_doc=str(state.get("file_path") or ""))
+    standard_metadata = _metadata_from_state(state)
+    draft = rule_draft_ontology(records, document_structure, source_doc=str(state.get("file_path") or ""), standard_metadata=standard_metadata)
     result = validate_and_complete_ontology(merge_ontology_programmatically([draft]), records, document_structure, source_doc=str(state.get("file_path") or ""))
+    _enforce_standard_schema(result, standard_metadata)
     stats = {**_empty_stats(), **_validation_stats(result), "total_records": len(records), "record_groups": len(groups), "generation_strategy": "group_llm"}
     return _finalize(result, "group_llm", ["group_llm currently preserves rule draft and skips default extra LLM batches."], stats, LLMService(), source_docs=[str(state.get("file_path") or "")])
 
@@ -297,7 +304,7 @@ def _smoke_llm(service: LLMService, stats: dict, warnings: list, progress: Any) 
         return {}
 
 
-def _rule_classes(records: list, document_structure: dict) -> list:
+def _rule_classes(records: list, document_structure: dict, standard_metadata: dict | None = None) -> list:
     """Build classes from the standard's coded data-class hierarchy.
 
     A data-element code in these education standards has the form
@@ -309,7 +316,17 @@ def _rule_classes(records: list, document_structure: dict) -> list:
     fallback; coded classes are the primary, traceable source of ontology
     classes.
     """
-    class_ids = {"EducationResource", "EducationDataElement"}
+    metadata_classes = standard_metadata.get("classes", []) if isinstance(standard_metadata, dict) else []
+    if isinstance(metadata_classes, list) and metadata_classes:
+        return [
+            {"id": f"DataClass{item['code']}", "name": f"DataClass{item['code']}", "code": item["code"],
+             "label": clean_label(item.get("label") or item.get("name") or item["code"]), "generated_by": "standard_metadata"}
+            for item in metadata_classes if isinstance(item, dict) and item.get("code")
+        ]
+    # No document metadata means there is no factual class source.
+    if not metadata_classes:
+        return []
+    class_ids = set()
     class_labels = {
         "EducationResource": "教育资源",
         "EducationDataElement": "教育数据元素",
@@ -349,6 +366,49 @@ def _rule_classes(records: list, document_structure: dict) -> list:
         for cid in sorted(class_ids)
     ]
     return classes
+
+
+def _enforce_standard_schema(ontology: dict, standard_metadata: dict) -> dict:
+    """Make the parsed PDF metadata the factual boundary of the ontology."""
+    metadata_classes = [item for item in standard_metadata.get("classes", []) if isinstance(item, dict)]
+    metadata_properties = [item for item in standard_metadata.get("properties", []) if isinstance(item, dict)]
+    class_by_code = {str(item.get("code")): item for item in metadata_classes if item.get("code")}
+    allowed_ids = {f"DataClass{code}" for code in class_by_code}
+    ontology["classes"] = [item for item in ontology.get("classes", []) if isinstance(item, dict) and (item.get("id") in allowed_ids or item.get("code") in class_by_code)]
+    for item in ontology["classes"]:
+        code = item.get("code") or str(item.get("id", ""))[len("DataClass"):]
+        source = class_by_code.get(code)
+        if source:
+            item.update({"id": f"DataClass{code}", "name": f"DataClass{code}", "code": code, "label": clean_label(source.get("label") or source.get("name") or code)})
+    property_by_code = {str(item.get("code")): item for item in metadata_properties if item.get("code")}
+    normalized = []
+    for source in metadata_properties:
+        code = str(source.get("code") or "")
+        if not code:
+            continue
+        existing = next((item for item in ontology.get("datatype_properties", []) if isinstance(item, dict) and (item.get("code") == code or item.get("source_code") == code)), {})
+        source_name = source.get("symbol") or str(source.get("name") or source.get("label") or code).split()[0]
+        normalized.append({**existing, "code": code, "name": source_name,
+                           "label": clean_label(source.get("label") or source.get("name") or code),
+                           "domain": source.get("parent") or existing.get("domain", ""), "range": existing.get("range", "string")})
+    ontology["datatype_properties"] = normalized
+    ontology["properties"] = normalized
+    allowed_relations = [item for item in ontology.get("relations", []) if isinstance(item, dict) and item.get("generated_by") == "reference_number"]
+    ontology["relations"] = allowed_relations
+    ontology["object_properties"] = [item for item in ontology.get("object_properties", []) if isinstance(item, dict) and item.get("generated_by") == "reference_number"]
+    return ontology
+
+
+def _metadata_from_state(state: dict) -> dict:
+    source = state.get("source_metadata") if isinstance(state.get("source_metadata"), dict) else {}
+    if source.get("classes") or source.get("properties"):
+        return source
+    standard = state.get("standard_metadata") if isinstance(state.get("standard_metadata"), dict) else {}
+    if standard.get("classes") or standard.get("properties"):
+        return standard
+    clean_data = state.get("clean_data") if isinstance(state.get("clean_data"), dict) else {}
+    embedded = clean_data.get("standard_metadata") or clean_data.get("source_metadata")
+    return embedded if isinstance(embedded, dict) else {"classes": [], "properties": []}
 
 
 def _standard_class_from_record(record: dict) -> tuple[str, str, str, str]:

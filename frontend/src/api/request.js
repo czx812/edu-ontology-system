@@ -116,7 +116,7 @@ export function getAdminQuestionRecords(params = {}) {
 }
 
 export function searchDataSources(params = {}) {
-  return api.get("/sources/search", { params });
+  return api.get("/sources", { params });
 }
 
 export function getAdminUsers() {
