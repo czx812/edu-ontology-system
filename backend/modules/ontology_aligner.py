@@ -4,6 +4,8 @@ import difflib
 import re
 from typing import Any, Dict, List, Optional, Tuple
 
+from backend.modules.ontology_stats import count_ontology_stats
+
 
 NOISE_LABELS = {"目录", "前言", "范围", "编号", "中文简称", "数据项名", "解释/举例", "值空间", "引用编号"}
 
@@ -51,10 +53,7 @@ def align_ontology(ontology: Dict[str, Any]) -> Dict[str, Any]:
         if key in ontology:
             result[key] = ontology[key]
     if "stats" in result:
-        result["stats"]["classes"] = len(classes)
-        result["stats"]["datatype_properties"] = len(properties)
-        result["stats"]["object_properties"] = len(object_properties)
-        result["stats"]["relations"] = len(relations)
+        result["stats"].update(count_ontology_stats(result))
     return result
 
 
@@ -123,10 +122,7 @@ def align_multiple_ontologies(ontologies: list, source_docs: Optional[list] = No
         "aligned_ontology_count": len(aligned),
         "alignment_mappings": len(result["alignment_mappings"]),
         "source_mappings": len(result["source_mappings"]),
-        "classes": len(result["classes"]),
-        "datatype_properties": len(result["datatype_properties"]),
-        "object_properties": len(result["object_properties"]),
-        "relations": len(result["relations"]),
+        **count_ontology_stats(result),
     }
     return result
 
@@ -395,4 +391,6 @@ def _dedupe_dicts(items: list, keys: tuple[str, ...]) -> list:
         seen.add(marker)
         result.append(item)
     return result
+
+
 

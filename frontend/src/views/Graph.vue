@@ -38,6 +38,9 @@
         <span><i class="property-dot"></i>DatatypeProperty</span>
         <span><i class="data-dot"></i>DataElement</span>
         <strong>{{ graphStats.nodes }} 节点 / {{ graphStats.edges }} 边</strong>
+        <span v-if="activeClassName" class="active-class">已展开：{{ activeClassName }}</span>
+        <button v-if="activeClassName" class="text-btn" @click="collapseClass">收起</button>
+        <span v-else class="active-class">点击蓝色 Class 节点展开属性</span>
       </div>
 
       <div class="graph-layout">
@@ -75,6 +78,7 @@ const keyword = ref("");
 const showReferences = ref(true);
 const maxNodes = ref(260);
 const selectedNode = ref(null);
+const activeClassName = ref("");
 let chart = null;
 
 const CLASS_COLOR = "#2563eb";
@@ -202,18 +206,18 @@ function selectedClasses() {
   return filtered.map((item) => ({ item, name: className(item) })).filter((item) => item.name);
 }
 
-function limitedPropertiesByDomain() {
-  const buckets = new Map();
+function propertiesForActiveClass(propertyCapacity) {
+  const capacity = Math.max(0, Number(propertyCapacity) || 0);
+  if (!capacity || !activeClassName.value) return [];
+
+  const result = [];
   properties.value.forEach((item, index) => {
-    if (selectedDomain.value && item.domain !== selectedDomain.value) return;
+    if (result.length >= Math.min(PROPERTY_LIMIT_PER_DOMAIN, capacity)) return;
+    if (text(item.domain) !== activeClassName.value) return;
     if (!itemMatches(item)) return;
-    const domain = text(item.domain || "未分组");
-    if (!buckets.has(domain)) buckets.set(domain, []);
-    if (buckets.get(domain).length < PROPERTY_LIMIT_PER_DOMAIN) {
-      buckets.get(domain).push({ item: normalizeRaw(item, index), index });
-    }
+    result.push({ item: normalizeRaw(item, index), index });
   });
-  return [...buckets.values()].flat();
+  return result;
 }
 
 function buildGraph() {
@@ -235,7 +239,8 @@ function buildGraph() {
   }
 
   const shownProperties = [];
-  for (const { item, index } of limitedPropertiesByDomain()) {
+  const propertyCapacity = Math.floor((limit - nodes.length) / 2);
+  for (const { item, index } of propertiesForActiveClass(propertyCapacity)) {
     if (nodes.length + 2 > limit) break;
     const code = propertyCode(item, index);
     const propId = `property:${code}`;
@@ -289,7 +294,12 @@ function renderChart() {
   if (!chart) {
     chart = echarts.init(chartRef.value);
     chart.on("click", (params) => {
-      if (params.dataType === "node") selectedNode.value = params.data;
+      if (params.dataType !== "node") return;
+      selectedNode.value = params.data;
+      if (params.data.category === 0) {
+        const name = params.data.raw?.name || params.data.id?.replace("class:", "") || "";
+        activeClassName.value = activeClassName.value === name ? "" : name;
+      }
     });
   }
 
@@ -339,8 +349,11 @@ function resizeChart() {
   chart?.resize();
 }
 
+function collapseClass() {
+  activeClassName.value = "";
+}
+
 watch([graphData, ontology], async () => {
-  selectedNode.value = null;
   await nextTick();
   renderChart();
 }, { deep: true });
@@ -373,6 +386,9 @@ input, select { min-width: 0; width: 100%; padding: 10px 12px; border: 1px solid
 .switch input { width: auto; }
 .legend { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 14px; color: #475569; }
 .legend span, .legend strong { display: inline-flex; align-items: center; gap: 7px; }
+.active-class { color: #0f172a; }
+.text-btn { padding: 5px 9px; border: 1px solid #cbd5e1; border-radius: 6px; background: white; color: #2563eb; cursor: pointer; }
+.text-btn:hover { background: #eff6ff; }
 .legend i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
 .class-dot { background: #2563eb; }
 .property-dot { background: #16a34a; }
@@ -398,6 +414,10 @@ dd { margin: 0; color: #0f172a; word-break: break-all; }
   .chart { width: 980px; height: 760px; min-height: 760px; }
 }
 </style>
+
+
+
+
 
 
 

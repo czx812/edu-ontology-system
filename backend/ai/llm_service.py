@@ -328,10 +328,20 @@ def _configured_api_key(provider: str) -> str:
 
 def _configured_base_url(provider: str) -> str:
     if provider in {"", "longcat"}:
-        return _env_first("LONGCAT_BASE_URL", "LLM_BASE_URL", "OPENAI_BASE_URL", default=LONGCAT_BASE_URL)
+        return _normalize_longcat_chat_url(
+            _env_first("LONGCAT_BASE_URL", "LLM_BASE_URL", "OPENAI_BASE_URL", default=LONGCAT_BASE_URL)
+        )
     if provider == "openai":
         return _env_first("OPENAI_BASE_URL", "LLM_BASE_URL", "LONGCAT_BASE_URL", default=LONGCAT_BASE_URL)
     return _env_first(f"{provider.upper()}_BASE_URL", "LLM_BASE_URL", "LONGCAT_BASE_URL", "OPENAI_BASE_URL", default=LONGCAT_BASE_URL)
+
+
+def _normalize_longcat_chat_url(url: str) -> str:
+    """Accept the LongCat OpenAI gateway root while always calling its chat endpoint."""
+    normalized = url.rstrip("/")
+    if normalized == "https://api.longcat.chat/openai":
+        return LONGCAT_BASE_URL
+    return normalized
 
 
 def _configured_model(provider: str) -> str:

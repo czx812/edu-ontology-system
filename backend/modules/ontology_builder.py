@@ -14,6 +14,7 @@ from backend.config import settings
 from backend.modules.document_structure_analyzer import analyze_document_structure
 from backend.modules.llm_context_compressor import build_rule_draft_enhancement_context, compress_records_for_llm
 from backend.modules.ontology_global_merger import merge_ontology_programmatically
+from backend.modules.ontology_stats import count_ontology_stats
 from backend.modules.ontology_validator import build_rule_draft_properties, validate_and_complete_ontology
 
 
@@ -74,7 +75,7 @@ def build_ontology_with_rule_draft_llm_enhance(state: Dict[str, Any]) -> Dict[st
     if options["enable_cache"] and not options["force_regenerate"] and final_cache_path.exists():
         cached = _read_json(final_cache_path)
         if cached and cached.get("datatype_properties"):
-            cached.setdefault("stats", {})["cache_hit"] = True
+            cached["stats"] = {**cached.get("stats", {}), **count_ontology_stats(cached), "cache_hit": True}
             cached["stats"]["duration_ms"] = _elapsed_ms(start)
             return cached
 
@@ -380,13 +381,7 @@ def _validation_stats(ontology: dict) -> dict:
 
 
 def _count_stats(ontology: dict) -> dict:
-    datatype = ontology.get("datatype_properties") or ontology.get("properties") or []
-    return {
-        "classes": len(ontology.get("classes", []) or []),
-        "datatype_properties": len(datatype),
-        "object_properties": len(ontology.get("object_properties", []) or []),
-        "relations": len(ontology.get("relations", []) or []),
-    }
+    return count_ontology_stats(ontology)
 
 
 def _options(state: dict) -> dict:
@@ -519,4 +514,7 @@ def _dedupe_text(items: Iterable[str]) -> List[str]:
 
 def _empty_ontology() -> Dict[str, Any]:
     return {"classes": [], "properties": [], "datatype_properties": [], "object_properties": [], "relations": [], "class_hierarchy": []}
+
+
+
 

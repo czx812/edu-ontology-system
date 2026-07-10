@@ -126,6 +126,7 @@ export function getAdminUsers() {
 export function generateBatchOntology(filePaths, options = {}) {
   return api.post("/generate/batch", {
     file_paths: filePaths,
+    file_metadata: Array.isArray(options.fileMetadata) ? options.fileMetadata : [],
     mode: options.mode || "rule_draft_llm_enhance",
     force_regenerate: Boolean(options.force_regenerate),
     max_group_records: Number(options.max_group_records || 80),

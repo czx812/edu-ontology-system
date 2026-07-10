@@ -3,12 +3,12 @@
     <div class="toolbar">
       <div>
         <h1>本体生成与导出</h1>
-        <p class="path">{{ isBatch ? `${filePaths.length} 个 PDF` : filePath || "请先上传 PDF 文件" }}</p>
+        <p class="path">{{ isBatch ? `${filePaths.length} 个 PDF` : displayFileName(filePath) || "请先上传 PDF 文件" }}</p>
         <p class="hint">{{ modeLabel }}</p>
       </div>
       <div class="actions">
         <button class="primary" :disabled="loading || (!filePath && !filePaths.length)" @click="generate">{{ loading ? "生成中..." : "开始生成" }}</button>
-        <button class="success" :disabled="!owlFile" @click="download">导出 OWL</button>
+        <button class="success" :disabled="!owlFile" @click="download">{{ isBatch ? "下载融合 OWL" : "导出 OWL" }}</button>
         <button class="secondary" :disabled="!ontology" @click="goSources">检索数据源</button>
       </div>
     </div>
@@ -27,27 +27,41 @@
     </div>
 
     <div class="stats-row">
-      <div class="stat"><strong>{{ stats.classes }}</strong><span>类</span></div>
-      <div class="stat"><strong>{{ stats.properties }}</strong><span>属性</span></div>
-      <div class="stat"><strong>{{ stats.relations }}</strong><span>关系</span></div>
+      <div class="stat"><strong>{{ stats.classes }}</strong><span>{{ batchMerged ? "融合类" : isBatch ? "局部类合计" : "类" }}</span></div>
+      <div class="stat"><strong>{{ stats.properties }}</strong><span>{{ batchMerged ? "融合属性" : isBatch ? "局部属性合计" : "属性" }}</span></div>
+      <div class="stat"><strong>{{ stats.relations }}</strong><span>{{ batchMerged ? "融合关系" : isBatch ? "局部关系合计" : "关系" }}</span></div>
       <div class="stat"><strong>{{ recordCount }}</strong><span>结构化记录</span></div>
     </div>
 
     <div v-if="batchResult" class="panel batch-panel">
       <h2>批量处理结果</h2>
+      <p v-if="batchMerged" class="success">已完成 {{ batchResult.file_count }} 个 PDF 的局部本体生成、跨文件对齐与融合。</p>
+      <p v-else class="notice">融合失败或未执行，顶部统计当前显示局部汇总。</p>
       <div class="progress-grid">
         <div><strong>文件数</strong><span>{{ batchResult.file_count }}</span></div>
         <div><strong>状态</strong><span>{{ batchResult.status }}</span></div>
-        <div><strong>class mappings</strong><span>{{ batchResult.alignment_result?.class_mappings?.length || 0 }}</span></div>
-        <div><strong>property mappings</strong><span>{{ batchResult.alignment_result?.property_mappings?.length || 0 }}</span></div>
-        <div><strong>relation mappings</strong><span>{{ batchResult.alignment_result?.relation_mappings?.length || 0 }}</span></div>
-        <div><strong>merged owl</strong><span class="path">{{ owlFile || "-" }}</span></div>
+        <div><strong>类对齐映射</strong><span>{{ batchResult.alignment_result?.class_mappings?.length || 0 }}</span></div>
+        <div><strong>属性对齐映射</strong><span>{{ batchResult.alignment_result?.property_mappings?.length || 0 }}</span></div>
+        <div><strong>关系对齐映射</strong><span>{{ batchResult.alignment_result?.relation_mappings?.length || 0 }}</span></div>
+      </div>
+      <div class="progress-grid summary-grid">
+        <div><strong>局部类合计</strong><span>{{ batchStats.local.classes }}</span></div>
+        <div><strong>融合类</strong><span>{{ batchStats.merged.classes }}</span></div>
+        <div><strong>局部属性合计</strong><span>{{ batchStats.local.properties }}</span></div>
+        <div><strong>融合属性</strong><span>{{ batchStats.merged.properties }}</span></div>
+        <div><strong>合并减少</strong><span>{{ batchStats.reduced.properties }}</span></div>
+        <div><strong>局部关系合计 / 融合关系</strong><span>{{ batchStats.local.relations }} / {{ batchStats.merged.relations }}</span></div>
+      </div>
+      <div v-if="batchMerged" class="merged-owl">
+        <strong>融合 OWL 已生成</strong>
+        <span>文件名：{{ mergedOwlFileName }}</span>
+        <button class="success" @click="download">下载融合 OWL</button>
       </div>
       <table>
-        <thead><tr><th>文件</th><th>状态</th><th>records</th><th>classes</th><th>properties</th><th>relations</th></tr></thead>
+        <thead><tr><th>文件</th><th>状态</th><th>结构化记录</th><th>类</th><th>属性</th><th>关系</th></tr></thead>
         <tbody>
           <tr v-for="item in batchRows" :key="item.file_path">
-            <td class="path">{{ item.file_path }}</td>
+            <td>{{ item.original_filename || item.file_name || displayFileName(item.file_path) }}</td>
             <td>{{ item.status }}</td>
             <td>{{ item.record_count || 0 }}</td>
             <td>{{ item.classes || 0 }}</td>
@@ -56,8 +70,12 @@
           </tr>
         </tbody>
       </table>
+      <div v-if="qualityHints.length" class="quality-hints">
+        <strong>质量提示</strong>
+        <div v-for="hint in qualityHints" :key="hint">{{ hint }}</div>
+      </div>
       <div v-if="batchResult.warnings?.length" class="warnings">
-        <strong>warnings</strong>
+        <strong>提示</strong>
         <div v-for="warning in batchResult.warnings" :key="warning">{{ warning }}</div>
       </div>
     </div>
@@ -67,8 +85,8 @@
         <h2>生成状态</h2>
         <dl>
           <dt>状态</dt><dd>{{ statusText }}</dd>
-          <dt>OWL 文件</dt><dd class="path">{{ owlFile || "尚未生成" }}</dd>
-          <dt>结构化文件</dt><dd class="path">{{ structuredFile || batchResult?.merged_ontology_file || "尚未生成" }}</dd>
+          <dt>OWL 文件</dt><dd>{{ owlFile ? displayFileName(owlFile) : "尚未生成" }}</dd>
+          <dt>结构化文件</dt><dd>{{ structuredFile || batchResult?.merged_ontology_file ? displayFileName(structuredFile || batchResult?.merged_ontology_file) : "尚未生成" }}</dd>
           <dt>生成模式</dt><dd>{{ ontology?.metadata?.generation_mode || ontology?.stats?.generation_mode || "-" }}</dd>
         </dl>
       </div>
@@ -92,6 +110,7 @@ import { exportOWL, generateBatchOntology, getGenerationProgress, getGenerationR
 
 const route = useRoute();
 const router = useRouter();
+const RESULT_STORAGE_KEY = "lastOntologyResult";
 
 function readFilePaths() {
   if (route.query.filePaths) {
@@ -100,8 +119,13 @@ function readFilePaths() {
   try { return JSON.parse(localStorage.getItem("lastUploadedPdfs") || "[]"); } catch (err) { return []; }
 }
 
+function readUploadedFiles() {
+  try { return JSON.parse(localStorage.getItem("lastUploadedFiles") || "[]"); } catch (err) { return []; }
+}
+
 const filePath = route.query.filePath || localStorage.getItem("lastUploadedPdf") || "";
 const filePaths = ref(readFilePaths().filter(Boolean));
+const uploadedFiles = ref(readUploadedFiles().filter((item) => item?.file_path));
 const isBatch = computed(() => filePaths.value.length > 1);
 const mode = computed(() => route.query.mode || "rule_draft_llm_enhance");
 const forceRegenerate = computed(() => route.query.forceRegenerate === "true");
@@ -117,13 +141,51 @@ const loading = ref(false);
 const error = ref("");
 let timer = null;
 
+restoreResult();
+
 const modeLabel = computed(() => isBatch.value ? "批量本体构建：局部生成后进行跨文件对齐与融合" : "单文件本体生成");
 const batchRows = computed(() => batchResult.value?.local_results || []);
+const displayStats = computed(() => countOntologyStats(ontology.value));
+const batchMerged = computed(() => Boolean(batchResult.value?.merge_status === "success" && ontology.value));
+const batchStats = computed(() => {
+  const data = batchResult.value?.batch_stats || {};
+  const local = data.local || {};
+  const merged = data.merged || {};
+  const reduced = data.reduced || {};
+  const fallbackLocal = batchRows.value.reduce((total, item) => ({
+    classes: total.classes + Number(item.classes || 0),
+    properties: total.properties + Number(item.properties || 0),
+    relations: total.relations + Number(item.relations || 0),
+  }), { classes: 0, properties: 0, relations: 0 });
+  const fallbackMerged = {
+    classes: displayStats.value.classes,
+    properties: displayStats.value.datatype_properties,
+    relations: displayStats.value.relations,
+  };
+  return {
+    local: { classes: Number(local.classes ?? fallbackLocal.classes), properties: Number(local.properties ?? fallbackLocal.properties), relations: Number(local.relations ?? fallbackLocal.relations) },
+    merged: { classes: Number(merged.classes ?? fallbackMerged.classes), properties: Number(merged.properties ?? fallbackMerged.properties), relations: Number(merged.relations ?? fallbackMerged.relations) },
+    reduced: {
+      classes: Number(reduced.classes ?? Math.max(0, fallbackLocal.classes - fallbackMerged.classes)),
+      properties: Number(reduced.properties ?? Math.max(0, fallbackLocal.properties - fallbackMerged.properties)),
+      relations: Number(reduced.relations ?? Math.max(0, fallbackLocal.relations - fallbackMerged.relations)),
+    },
+  };
+});
 const stats = computed(() => ({
-  classes: ontology.value?.stats?.classes || ontology.value?.classes?.length || progress.value?.stats?.classes || 0,
-  properties: ontology.value?.stats?.datatype_properties || ontology.value?.properties?.length || progress.value?.stats?.datatype_properties || 0,
-  relations: ontology.value?.stats?.relations || ontology.value?.relations?.length || progress.value?.stats?.relations || 0,
+  classes: isBatch.value && !batchMerged.value ? batchStats.value.local.classes : displayStats.value.classes || progress.value?.stats?.classes || 0,
+  properties: isBatch.value && !batchMerged.value ? batchStats.value.local.properties : displayStats.value.datatype_properties || progress.value?.stats?.datatype_properties || 0,
+  relations: isBatch.value && !batchMerged.value ? batchStats.value.local.relations : displayStats.value.relations || progress.value?.stats?.relations || 0,
 }));
+const mergedOwlFileName = computed(() => batchResult.value?.merged_owl_file_name || displayFileName(owlFile.value));
+const qualityHints = computed(() => {
+  const hints = [...(batchResult.value?.quality_hints || [])];
+  const propertyMappings = batchResult.value?.alignment_result?.property_mappings?.length || 0;
+  const relationMappings = batchResult.value?.alignment_result?.relation_mappings?.length || 0;
+  if (propertyMappings >= 20) hints.push("属性对齐数量较多，建议在数据源检索中核查高相似字段是否被过度合并。");
+  if (batchResult.value && relationMappings <= 1) hints.push("关系对齐数量较少，当前结果以类和数据属性融合为主。");
+  return [...new Set(hints)];
+});
 const recordCount = computed(() => resultInfo.value?.record_count || batchRows.value.reduce((sum, item) => sum + Number(item.record_count || 0), 0) || progress.value?.stats?.total_records || 0);
 const statusText = computed(() => loading.value ? "正在生成" : error.value ? "生成失败" : ontology.value ? "生成成功" : "等待生成");
 const prettyOntology = computed(() => ontology.value ? JSON.stringify(ontology.value, null, 2) : "");
@@ -146,7 +208,7 @@ async function generateBatch() {
   if (!filePaths.value.length) { error.value = "缺少批量上传文件。"; return; }
   resetState();
   try {
-    const res = await generateBatchOntology(filePaths.value, { ...generationOptions(), enable_merge: true });
+    const res = await generateBatchOntology(filePaths.value, { ...generationOptions(), enable_merge: true, fileMetadata: uploadedFiles.value });
     setBatchResult(res.data);
   } catch (err) {
     error.value = displayError(err);
@@ -204,20 +266,105 @@ function setBatchResult(data) {
   persistResult();
 }
 
+function displayFileName(value) {
+  return String(value || "").split(/[\\/]/).pop() || "";
+}
+
 function persistResult() {
   if (owlFile.value) localStorage.setItem("lastOwlFile", owlFile.value);
   if (structuredFile.value) localStorage.setItem("lastStructuredFile", structuredFile.value);
   if (ontology.value) localStorage.setItem("lastOntology", JSON.stringify(ontology.value));
+  try {
+    localStorage.setItem(RESULT_STORAGE_KEY, JSON.stringify({
+      version: 1,
+      savedAt: new Date().toISOString(),
+      filePath,
+      filePaths: filePaths.value,
+      ontology: ontology.value,
+      owlFile: owlFile.value,
+      structuredFile: structuredFile.value,
+      resultInfo: resultInfo.value,
+      batchResult: batchResult.value,
+    }));
+  } catch (err) {
+    // Keep the lightweight ontology cache available for the graph page if the full result is too large.
+  }
+}
+
+function restoreResult() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(RESULT_STORAGE_KEY) || "null");
+    if (saved?.ontology && typeof saved.ontology === "object") {
+      ontology.value = saved.ontology;
+      owlFile.value = saved.owlFile || localStorage.getItem("lastOwlFile") || "";
+      structuredFile.value = saved.structuredFile || localStorage.getItem("lastStructuredFile") || "";
+      resultInfo.value = saved.resultInfo || null;
+      batchResult.value = saved.batchResult || null;
+      return;
+    }
+
+    const lastOntology = JSON.parse(localStorage.getItem("lastOntology") || "null");
+    if (lastOntology && typeof lastOntology === "object") {
+      ontology.value = lastOntology;
+      owlFile.value = localStorage.getItem("lastOwlFile") || "";
+      structuredFile.value = localStorage.getItem("lastStructuredFile") || "";
+    }
+  } catch (err) {
+    localStorage.removeItem(RESULT_STORAGE_KEY);
+  }
 }
 
 function displayError(err) { return err.response?.data?.detail || err.message || "生成失败。"; }
+function safeIdentifier(value) {
+  return String(value || "").trim().replace(/[^A-Za-z0-9_]+/g, "_").replace(/^_+|_+$/g, "").replace(/_+/g, "_");
+}
+function classKey(value) {
+  return safeIdentifier(value).split("_").filter(Boolean).map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join("").toLowerCase();
+}
+function propertyKey(value) {
+  const text = String(value || "").trim();
+  const match = text.match(/\b([A-Z]{2,}[A-Z0-9]*\d{4,})\b/i);
+  return (match ? match[1] : safeIdentifier(text)).toLowerCase().slice(0, 100);
+}
+function countOntologyStats(data) {
+  const onto = data && typeof data === "object" ? data : {};
+  const classes = new Set();
+  const properties = new Set();
+  const relations = new Set();
+
+  for (const item of Array.isArray(onto.classes) ? onto.classes : []) {
+    const key = classKey(item?.id || item?.name || item?.label);
+    if (key) classes.add(key);
+  }
+  const datatypeItems = Array.isArray(onto.datatype_properties) ? onto.datatype_properties : Array.isArray(onto.properties) ? onto.properties : [];
+  for (const item of datatypeItems) {
+    const domain = classKey(item?.domain || "EducationResource");
+    const name = propertyKey(item?.id || item?.name || item?.label);
+    if (name) properties.add(`${domain}|${name}`);
+  }
+  for (const item of Array.isArray(onto.object_properties) ? onto.object_properties : []) {
+    const source = classKey(item?.domain || item?.source || item?.subject);
+    const type = propertyKey(item?.id || item?.name || item?.predicate || item?.type);
+    const target = classKey(item?.range || item?.target || item?.object);
+    if (source && type && target) relations.add(`${source}|${type}|${target}`);
+  }
+  for (const item of Array.isArray(onto.relations) ? onto.relations : []) {
+    const source = classKey(item?.source || item?.subject);
+    const type = propertyKey(item?.type || item?.predicate || item?.relation);
+    const target = classKey(item?.target || item?.object);
+    if (source && type && target) relations.add(`${source}|${type}|${target}`);
+  }
+
+  return { classes: classes.size, datatype_properties: properties.size, object_properties: relations.size, relations: relations.size };
+}
 async function download() {
   if (!owlFile.value) return;
-  const res = await exportOWL(owlFile.value);
+  const downloadKey = batchResult.value?.merged_owl_file_name || owlFile.value;
+  const res = await exportOWL(downloadKey);
   const url = window.URL.createObjectURL(new Blob([res.data]));
   const link = document.createElement("a");
   link.href = url;
-  link.download = owlFile.value.split(/[\\/]/).pop() || "ontology.owl";
+  link.download = displayFileName(downloadKey) || "ontology.owl";
   link.click();
   window.URL.revokeObjectURL(url);
 }
@@ -237,6 +384,8 @@ button { padding: 10px 14px; border: none; border-radius: 6px; cursor: pointer; 
 .progress-grid, .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }.progress-grid div, .stat { background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 8px; padding: 10px; }.progress-grid strong, .progress-grid span { display: block; word-break: break-all; }.stat strong { display: block; font-size: 22px; color: #0f172a; }.stat span { color: #64748b; font-size: 13px; }
 .stats-row { margin-bottom: 14px; }.panel-grid { display: grid; grid-template-columns: 1.3fr .7fr; gap: 14px; margin-bottom: 14px; } .panel h2 { margin-top: 0; } dl { display: grid; grid-template-columns: 110px 1fr; gap: 10px; margin: 0; } dt { color: #64748b; } dd { margin: 0; }
 table { width: 100%; border-collapse: collapse; margin-top: 12px; } th, td { border-bottom: 1px solid #e5e7eb; padding: 9px; text-align: left; vertical-align: top; }
-.warnings { margin-top: 12px; color: #92400e; background: #fef3c7; border: 1px solid #fcd34d; border-radius: 8px; padding: 10px; }.preview pre { max-height: 52vh; overflow: auto; background: #0f172a; color: #d1d5db; padding: 14px; border-radius: 6px; white-space: pre-wrap; }
+.summary-grid { margin-top: 10px; }.merged-owl { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 12px; padding: 12px; color: #166534; background: #f0fdf4; border: 1px solid #86efac; border-radius: 8px; }.merged-owl button { padding: 7px 10px; }.quality-hints { margin-top: 12px; color: #1e3a8a; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 10px; }.notice { margin: 0 0 12px; color: #92400e; }.warnings { margin-top: 12px; color: #92400e; background: #fef3c7; border: 1px solid #fcd34d; border-radius: 8px; padding: 10px; }.preview pre { max-height: 52vh; overflow: auto; background: #0f172a; color: #d1d5db; padding: 14px; border-radius: 6px; white-space: pre-wrap; }
 @media (max-width: 860px) { .toolbar, .panel-grid { display: grid; grid-template-columns: 1fr; } .actions { justify-content: flex-start; } }
 </style>
+
+

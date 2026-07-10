@@ -3,6 +3,8 @@
 from pathlib import Path
 from typing import Any
 
+from backend.modules.ontology_stats import count_ontology_stats
+
 
 def _text(value: Any) -> str:
     return str(value or "").strip()
@@ -39,6 +41,7 @@ def merge_ontologies(local_ontologies: list[dict], alignment_result: dict) -> di
     warnings: list[str] = []
     classes = _merge_classes(ontologies)
     properties = _merge_properties(ontologies, warnings)
+    object_properties = _merge_object_properties(ontologies)
     relations = _merge_relations(ontologies)
     source_files = _all_source_files(ontologies)
     alignment_result = alignment_result if isinstance(alignment_result, dict) else {}
@@ -54,18 +57,20 @@ def merge_ontologies(local_ontologies: list[dict], alignment_result: dict) -> di
         },
     }
     stats = {
-        "classes": len(classes),
-        "datatype_properties": len(properties),
+        **count_ontology_stats({
+            "classes": classes,
+            "datatype_properties": properties,
+            "object_properties": object_properties,
+            "relations": relations,
+        }),
         "properties": len(properties),
-        "object_properties": sum(len(item.get("object_properties", []) or []) for item in ontologies),
-        "relations": len(relations),
         "source_files": len(source_files),
     }
     return {
         "classes": classes,
         "properties": properties,
         "datatype_properties": properties,
-        "object_properties": _merge_object_properties(ontologies),
+        "object_properties": object_properties,
         "relations": relations,
         "class_hierarchy": _merge_hierarchy(ontologies),
         "alignment": alignment_result,
@@ -208,3 +213,5 @@ def _dedupe_text(items: list[Any]) -> list[str]:
 def _looks_like_code(value: str) -> bool:
     text = _text(value)
     return bool(text and any(ch.isdigit() for ch in text) and len(text) >= 8 and text.upper() == text)
+
+

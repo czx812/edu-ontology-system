@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Any, Callable, Optional
 
 from config import settings
+from modules.ontology_stats import count_ontology_stats
 
 
 class ModuleNotReadyError(RuntimeError):
@@ -176,18 +177,21 @@ def _save_json(data: dict, directory: Path, prefix: str) -> str:
         return str(path)
 
 
-def _count_local_result(state: dict) -> dict:
+def _count_local_result(state: dict, original_filename: str = "") -> dict:
     clean_data = state.get("clean_data", {}) if isinstance(state.get("clean_data", {}), dict) else {}
     ontology = state.get("ontology", {}) if isinstance(state.get("ontology", {}), dict) else {}
     props = ontology.get("datatype_properties") or ontology.get("properties") or []
+    stats = count_ontology_stats(ontology)
     return {
         "file_path": state.get("file_path", ""),
+        "original_filename": original_filename or Path(str(state.get("file_path") or "")).name,
+        "file_name": original_filename or Path(str(state.get("file_path") or "")).name,
         "structured_file": state.get("structured_file", ""),
         "ontology_file": state.get("ontology_file", ""),
         "record_count": int(clean_data.get("record_count") or len(clean_data.get("records", []) or [])),
-        "classes": len(ontology.get("classes", []) or []),
+        "classes": stats["classes"],
         "properties": len(props),
-        "relations": len(ontology.get("relations", []) or []),
+        "relations": stats["relations"],
         "status": "success",
     }
 
@@ -199,14 +203,20 @@ def run_batch_workflow(file_paths: list[str], options: Optional[dict] = None) ->
     local_ontologies: list[dict] = []
     files: list[dict] = []
     warnings: list[str] = []
+    upload_names = {
+        str(item.get("file_path") or ""): str(item.get("file_name") or item.get("original_filename") or "")
+        for item in options.get("file_metadata", [])
+        if isinstance(item, dict) and item.get("file_path")
+    }
 
     for file_path in file_paths or []:
+        original_filename = upload_names.get(str(file_path), "") or Path(str(file_path)).name
         file_state = {
             "file_path": file_path,
             "export_dir": str(export_dir),
             "generate_options": options,
         }
-        file_item = {"file_path": file_path, "filename": Path(str(file_path)).name, "status": "pending", "error": ""}
+        file_item = {"file_path": file_path, "filename": original_filename, "status": "pending", "error": ""}
         try:
             state = run_workflow(file_state)
             ontology = state.get("ontology", {}) if isinstance(state.get("ontology", {}), dict) else {}
@@ -222,7 +232,7 @@ def run_batch_workflow(file_paths: list[str], options: Optional[dict] = None) ->
                 "status": "success",
             })
             local_ontologies.append(ontology)
-            local_results.append(_count_local_result(state))
+            local_results.append(_count_local_result(state, original_filename=original_filename))
         except Exception as exc:
             file_item.update({"status": "failed", "error": str(exc)})
             warnings.append(f"{Path(str(file_path)).name}: {exc}")
@@ -249,6 +259,20 @@ def run_batch_workflow(file_paths: list[str], options: Optional[dict] = None) ->
     generate_owl = _load_function("modules.owl_generator", "generate_owl")
     owl_file = generate_owl(merged_ontology, export_dir=str(export_dir))
     stats = merged_ontology.get("stats", {}) if isinstance(merged_ontology.get("stats", {}), dict) else {}
+    local_summary = {
+        "classes": sum(int(item.get("classes") or 0) for item in local_results),
+        "properties": sum(int(item.get("properties") or 0) for item in local_results),
+        "relations": sum(int(item.get("relations") or 0) for item in local_results),
+    }
+    merged_summary = {
+        "classes": int(stats.get("classes") or 0),
+        "properties": int(stats.get("datatype_properties") or stats.get("properties") or 0),
+        "relations": int(stats.get("relations") or 0),
+    }
+    quality_hints: list[str] = []
+    local_class_counts = [int(item.get("classes") or 0) for item in local_results]
+    if len(local_class_counts) > 1 and len(set(local_class_counts)) == 1:
+        quality_hints.append("多个文件类数量高度一致，请核查是否存在候选类模板化问题。")
 
     return {
         "status": "success" if not warnings else "partial_success",
@@ -261,9 +285,20 @@ def run_batch_workflow(file_paths: list[str], options: Optional[dict] = None) ->
         "merged_ontology": merged_ontology,
         "merged_ontology_file": merged_ontology_file,
         "owl_file": owl_file,
+        "merged_owl_file_name": Path(owl_file).name,
+        "merged_owl_download_url": f"/api/export?file_path={Path(owl_file).name}",
+        "merge_status": "success" if options.get("enable_merge", True) else "not_requested",
+        "batch_stats": {
+            "local": local_summary,
+            "merged": merged_summary,
+            "reduced": {key: max(0, local_summary[key] - merged_summary[key]) for key in local_summary},
+        },
+        "quality_hints": quality_hints,
         "merged_stats": stats,
         "stats": stats,
         "warnings": warnings,
     }
+
+
 
 

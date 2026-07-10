@@ -23,7 +23,6 @@
         <span>生成模式</span>
         <select v-model="mode">
           <option value="rule_draft_llm_enhance">大模型快速增强</option>
-          <option value="group_llm">深度全量生成</option>
           <option value="smoke_llm">仅测试大模型调用</option>
           <option value="rule_only">纯规则备用</option>
         </select>
@@ -34,10 +33,6 @@
         <span>强制重新生成</span>
       </label>
 
-      <label>
-        <span>每组最大 records</span>
-        <input v-model.number="maxGroupRecords" type="number" min="20" max="120" />
-      </label>
     </div>
 
     <p class="hint">多文件上传会分别解析每个 PDF，先生成局部本体，再做跨文件对齐、去重和融合。</p>
@@ -50,7 +45,7 @@
     </div>
 
     <p v-if="error" class="error">{{ error }}</p>
-    <p v-if="filePaths.length" class="success">上传成功：{{ filePaths.join("；") }}</p>
+    <p v-if="uploadedFiles.length" class="success">上传成功：{{ uploadedFiles.map((item) => item.file_name).join("；") }}</p>
   </div>
 </template>
 
@@ -61,12 +56,12 @@ import { uploadBatchPDF, uploadPDF } from "../api/request";
 
 const files = ref([]);
 const filePaths = ref([]);
+const uploadedFiles = ref([]);
 const loading = ref(false);
 const error = ref("");
 
 const mode = ref("rule_draft_llm_enhance");
 const forceRegenerate = ref(false);
-const maxGroupRecords = ref(80);
 
 const router = useRouter();
 
@@ -76,6 +71,7 @@ function handleFiles(e) {
   files.value = Array.from(e.target.files || []);
   error.value = "";
   filePaths.value = [];
+  uploadedFiles.value = [];
 }
 
 function formatSize(size) {
@@ -97,17 +93,21 @@ async function upload() {
   loading.value = true;
   error.value = "";
   filePaths.value = [];
+  uploadedFiles.value = [];
 
   try {
     if (files.value.length === 1) {
       const res = await uploadPDF(files.value[0]);
       filePaths.value = [res.data.file_path];
+      uploadedFiles.value = [{ file_path: res.data.file_path, file_name: res.data.file_name || files.value[0].name }];
       localStorage.setItem("lastUploadedPdf", res.data.file_path);
     } else {
       const res = await uploadBatchPDF(files.value);
       filePaths.value = res.data.file_paths || [];
+      uploadedFiles.value = (res.data.files || []).map((item) => ({ file_path: item.file_path, file_name: item.filename || item.file_name }));
     }
     localStorage.setItem("lastUploadedPdfs", JSON.stringify(filePaths.value));
+    localStorage.setItem("lastUploadedFiles", JSON.stringify(uploadedFiles.value));
     goNext();
   } catch (err) {
     error.value = err.response?.data?.detail || err.message || "上传失败，请确认后端服务已启动。";
@@ -121,7 +121,6 @@ function goNext() {
   const query = {
     mode: mode.value,
     forceRegenerate: String(forceRegenerate.value),
-    maxGroupRecords: String(maxGroupRecords.value || 80),
   };
   if (filePaths.value.length === 1) query.filePath = filePaths.value[0];
   else query.filePaths = encodeURIComponent(JSON.stringify(filePaths.value));

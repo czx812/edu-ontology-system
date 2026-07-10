@@ -12,6 +12,7 @@ from pydantic import BaseModel
 from api.auth import get_current_user
 from config import settings
 from core.workflow import DataExtractionFailedError, ModuleNotReadyError, OntologyValidationFailedError, run_batch_workflow, run_workflow
+from modules.ontology_stats import count_ontology_stats
 from services.llm_service import LLMService
 from services.log_service import write_generation_record, write_operation_log, write_question_record, write_system_log
 
@@ -41,6 +42,7 @@ JOBS_LOCK = threading.Lock()
 
 class BatchGenerateRequest(BaseModel):
     file_paths: list[str]
+    file_metadata: list[dict[str, str]] = []
     mode: str = "rule_draft_llm_enhance"
     force_regenerate: bool = False
     max_group_records: int = 80
@@ -126,6 +128,8 @@ def generate_ontology(request: GenerateRequest, user: dict, job_id: Optional[str
             raise OntologyValidationFailedError("ONTOLOGY_VALIDATION_FAILED: records>0 但 datatype_properties=0。")
 
         stats = ontology.get("stats", {}) if isinstance(ontology.get("stats", {}), dict) else {}
+        stats.update(count_ontology_stats(ontology))
+        ontology["stats"] = stats
         warnings = ontology.get("warnings", []) if isinstance(ontology.get("warnings", []), list) else []
         generation_mode = ontology.get("metadata", {}).get("generation_mode") or stats.get("generation_mode") or request.mode
         stats["duration_ms"] = stats.get("duration_ms") or duration_ms
@@ -323,6 +327,7 @@ def generate_batch(request: BatchGenerateRequest, user: dict = Depends(get_curre
     try:
         result = run_batch_workflow(request.file_paths, {
             "export_dir": str(export_dir),
+            "file_metadata": request.file_metadata,
             "mode": request.mode,
             "force_regenerate": request.force_regenerate,
             "max_group_records": request.max_group_records,
@@ -368,6 +373,7 @@ def generate_batch(request: BatchGenerateRequest, user: dict = Depends(get_curre
         write_operation_log(user=user, action="BATCH_GENERATE_FAILED", method="POST", path="/generate/batch", status_code=500, duration_ms=duration_ms, detail=str(exc))
         write_system_log("ERROR", f"Batch ontology generation failed: {exc}")
         raise HTTPException(status_code=500, detail=f"Batch generation failed: {exc}") from exc
+
 
 
 
