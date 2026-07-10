@@ -18,7 +18,7 @@ from backend.modules.ontology_stats import count_ontology_stats
 from backend.modules.ontology_validator import build_rule_draft_properties, validate_and_complete_ontology
 
 
-PROMPT_VERSION = "rule_draft_llm_enhance_v1"
+PROMPT_VERSION = "rule_draft_llm_enhance_v3_coded_classes_reference_relations"
 CACHE_ROOT = settings.DATA_DIR / "cache"
 ONTOLOGY_CACHE_DIR = CACHE_ROOT / "ontology"
 ENHANCE_CACHE_DIR = CACHE_ROOT / "llm_enhance"
@@ -158,13 +158,19 @@ def build_ontology_with_rule_draft_llm_enhance(state: Dict[str, Any]) -> Dict[st
 
 def rule_draft_ontology(records: list, document_structure: dict, source_doc: str = "") -> dict:
     classes = _rule_classes(records, document_structure)
+    coded_hierarchy = _coded_class_hierarchy(records)
+    reference_relations = _reference_relations(records)
     ontology = {
         "classes": classes,
         "datatype_properties": build_rule_draft_properties(records, classes, source_doc=source_doc),
         "properties": [],
         "object_properties": _object_property_candidates(records, classes),
-        "relations": [],
-        "class_hierarchy": [{"parent": "EducationResource", "child": cls["id"], "generated_by": "rule_draft"} for cls in classes if cls.get("id") != "EducationResource"],
+        "relations": reference_relations,
+        "class_hierarchy": [
+            *[{"parent": "EducationResource", "child": cls["id"], "generated_by": "rule_draft"}
+              for cls in classes if cls.get("id") not in {"EducationResource", "EducationDataElement"}],
+            *coded_hierarchy,
+        ],
         "alignment_hints": [],
     }
     ontology["properties"] = ontology["datatype_properties"]
@@ -176,6 +182,58 @@ def rule_draft_ontology(records: list, document_structure: dict, source_doc: str
         "source_mapped_elements": len(ontology["source_mappings"]),
     }
     return ontology
+
+
+def _coded_class_hierarchy(records: list) -> list[dict]:
+    relations = []
+    seen = set()
+    for record in records:
+        if not isinstance(record, dict):
+            continue
+        child, parent, _, _ = _standard_class_from_record(record)
+        if not child or not parent or (parent, child) in seen:
+            continue
+        seen.add((parent, child))
+        relations.append({"parent": parent, "child": child, "generated_by": "standard_code_hierarchy"})
+    return relations
+
+
+def _reference_relations(records: list) -> list[dict]:
+    """Create traceable object relations from standard reference numbers."""
+    import re
+
+    relations = []
+    seen = set()
+    for index, record in enumerate(records):
+        if not isinstance(record, dict):
+            continue
+        source_class, _, _, _ = _standard_class_from_record(record)
+        reference = str(record.get("reference") or record.get("reference_id") or "")
+        for target_code in re.findall(r"\b[A-Z]{4}\d{6}\b", reference.upper()):
+            target_class, _, _, _ = _standard_class_from_record({"code": target_code})
+            if not source_class or not target_class or source_class == target_class:
+                continue
+            key = (source_class, "referencesDataElement", target_class)
+            if key in seen:
+                continue
+            seen.add(key)
+            source_code = str(record.get("code") or record.get("id") or "")
+            relations.append({
+                "subject": source_class,
+                "source": source_class,
+                "predicate": "referencesDataElement",
+                "type": "referencesDataElement",
+                "object": target_class,
+                "target": target_class,
+                "label": "引用数据元素",
+                "description": "由标准数据项的引用编号推导。",
+                "source_record_ids": [str(record.get("id") or record.get("code") or f"record_{index + 1}")],
+                "source_code": source_code,
+                "target_code": target_code,
+                "evidence": [f"{source_code} -> {target_code}"],
+                "generated_by": "reference_number",
+            })
+    return relations
 
 
 def apply_llm_enhancement_to_rule_draft(rule_draft_ontology: dict, llm_enhancement: dict) -> dict:
@@ -240,7 +298,45 @@ def _smoke_llm(service: LLMService, stats: dict, warnings: list, progress: Any) 
 
 
 def _rule_classes(records: list, document_structure: dict) -> list:
+    """Build classes from the standard's coded data-class hierarchy.
+
+    A data-element code in these education standards has the form
+    ``ABCD010301``: the first four digits identify the data class/subclass
+    (``ABCD0103``), while the final two digits identify the field.  The old
+    implementation only used a small, generic candidate-domain template
+    (Student/School/Teacher...), which made unrelated documents repeatedly
+    produce the same 34 classes.  Keep those generic domains only as a
+    fallback; coded classes are the primary, traceable source of ontology
+    classes.
+    """
     class_ids = {"EducationResource", "EducationDataElement"}
+    class_labels = {
+        "EducationResource": "教育资源",
+        "EducationDataElement": "教育数据元素",
+    }
+    for record in records:
+        if not isinstance(record, dict):
+            continue
+        class_id, group_id, class_label, group_label = _standard_class_from_record(record)
+        if class_id:
+            class_ids.add(class_id)
+            class_labels[class_id] = class_label
+            if group_id:
+                class_ids.add(group_id)
+                class_labels[group_id] = group_label
+
+        # Referenced elements may be defined only in another standard file.
+        # Add their classes so cross-standard reference relations remain valid.
+        for reference_relation in _reference_relations([record]):
+            target_code = reference_relation["target_code"]
+            target_id, target_group, target_label, target_group_label = _standard_class_from_record({"code": target_code})
+            if target_id:
+                class_ids.add(target_id)
+                class_labels[target_id] = target_label
+            if target_group:
+                class_ids.add(target_group)
+                class_labels[target_group] = target_group_label
+
     for group in document_structure.get("detected_groups", []) if isinstance(document_structure, dict) else []:
         for name in group.get("possible_entities", []) if isinstance(group, dict) else []:
             class_ids.add(_safe_class_id(name) or "EducationDataElement")
@@ -248,7 +344,30 @@ def _rule_classes(records: list, document_structure: dict) -> list:
         if isinstance(record, dict):
             for name in record.get("candidate_domains", []) if isinstance(record.get("candidate_domains"), list) else []:
                 class_ids.add(_safe_class_id(name) or "EducationDataElement")
-    return [{"id": cid, "name": cid, "label": cid, "generated_by": "rule_draft"} for cid in sorted(class_ids)]
+    classes = [
+        {"id": cid, "name": cid, "label": class_labels.get(cid, cid), "generated_by": "rule_draft"}
+        for cid in sorted(class_ids)
+    ]
+    return classes
+
+
+def _standard_class_from_record(record: dict) -> tuple[str, str, str, str]:
+    """Return subclass and data-set identifiers encoded in a standard field code."""
+    import re
+
+    code = re.sub(r"\s+", "", str(record.get("code") or record.get("id") or "")).upper()
+    match = re.match(r"^([A-Z]{4})(\d{4})\d{2}$", code)
+    if not match:
+        return "", "", "", ""
+    prefix, hierarchy_code = match.groups()
+    class_code = f"{prefix}{hierarchy_code}"
+    group_code = f"{prefix}{hierarchy_code[:2]}"
+    return (
+        f"DataClass{class_code}",
+        f"DataSet{group_code}",
+        f"数据子类 {class_code}",
+        f"数据类 {group_code}",
+    )
 
 
 def _object_property_candidates(records: list, classes: list) -> list:

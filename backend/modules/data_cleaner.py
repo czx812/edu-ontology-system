@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any, Dict, Iterable, List, Tuple, Union
 
 from config import settings
+from modules.standard_mapper import map_standard_codes
 from utils.file_utils import logger
 
 
@@ -20,6 +21,7 @@ STANDARD_FIELDS = [
     "length",
     "description",
     "value_range",
+    "reference",
 ]
 
 HEADER_ALIASES = {
@@ -63,6 +65,11 @@ HEADER_ALIASES = {
     "value_range": "value_range",
     "valuespace": "value_range",
     "value_space": "value_range",
+    "引用编号": "reference",
+    "引用号": "reference",
+    "引用": "reference",
+    "reference": "reference",
+    "reference_id": "reference",
 }
 
 
@@ -197,11 +204,15 @@ def clean_data(payload: Union[State, str]) -> Union[State, Dict[str, Any]]:
 
     file_path = str(state.get("file_path") or "")
     records = _build_records_from_tables(tables, file_path)
+    semantic_items = map_standard_codes(tables, raw_text, file_path)
     cleaned = {
         "source_file": str(state.get("file_path") or ""),
+        "raw_text": raw_text,
+        "tables": tables,
         "record_count": len(records),
         "records": records,
         "unstructured_text": raw_text[:3000],
+        **semantic_items,
     }
 
     state["clean_data"] = cleaned

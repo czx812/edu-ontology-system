@@ -269,6 +269,21 @@ def run_batch_workflow(file_paths: list[str], options: Optional[dict] = None) ->
         "properties": int(stats.get("datatype_properties") or stats.get("properties") or 0),
         "relations": int(stats.get("relations") or 0),
     }
+    applied_merges = {
+        key: max(0, local_summary[key] - merged_summary[key])
+        for key in local_summary
+    }
+    alignment_summary = {
+        "candidate_mappings": {
+            "classes": len(alignment_result.get("class_mappings", []) or []),
+            "properties": len(alignment_result.get("property_mappings", []) or []),
+            "relations": len(alignment_result.get("relation_mappings", []) or []),
+        },
+        # The current merger only removes elements with the same canonical key.
+        # These counts are the actual reduction, not the number of candidates.
+        "applied_merges": applied_merges,
+        "merge_strategy": "canonical_identity_deduplication",
+    }
     quality_hints: list[str] = []
     local_class_counts = [int(item.get("classes") or 0) for item in local_results]
     if len(local_class_counts) > 1 and len(set(local_class_counts)) == 1:
@@ -291,8 +306,9 @@ def run_batch_workflow(file_paths: list[str], options: Optional[dict] = None) ->
         "batch_stats": {
             "local": local_summary,
             "merged": merged_summary,
-            "reduced": {key: max(0, local_summary[key] - merged_summary[key]) for key in local_summary},
+            "reduced": applied_merges,
         },
+        "alignment_summary": alignment_summary,
         "quality_hints": quality_hints,
         "merged_stats": stats,
         "stats": stats,

@@ -313,6 +313,9 @@ def _infer_domain(record: dict, class_ids: Set[str], domain_rules: list, mapping
 
 
 def _rule_domain(record: dict, class_ids: Set[str], default_domain: str) -> str:
+    coded_domain = _standard_class_id(record)
+    if coded_domain in class_ids:
+        return coded_domain
     candidates = [str(item) for item in record.get("candidate_domains", []) if str(item)] if isinstance(record.get("candidate_domains"), list) else []
     for candidate in candidates:
         cid = _safe_class_id(candidate)
@@ -321,6 +324,17 @@ def _rule_domain(record: dict, class_ids: Set[str], default_domain: str) -> str:
     if "EducationDataElement" in class_ids:
         return "EducationDataElement"
     return default_domain
+
+
+def _standard_class_id(record: dict) -> str:
+    """Map ABCD010301-style data element codes to their data-subclass class."""
+    code = re.sub(r"\s+", "", str(record.get("code") or record.get("id") or "")).upper()
+    match = re.match(r"^([A-Z]{4})(\d{4})\d{2}$", code)
+    if not match:
+        return ""
+    # _safe_class_id removes separators, so keep this identifier in the same
+    # canonical form as the class generator.
+    return f"DataClass{match.group(1)}{match.group(2)}"
 
 
 def _infer_range(record: dict, range_rules: list) -> tuple[str, float]:

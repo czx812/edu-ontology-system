@@ -40,16 +40,17 @@
       <div class="progress-grid">
         <div><strong>文件数</strong><span>{{ batchResult.file_count }}</span></div>
         <div><strong>状态</strong><span>{{ batchResult.status }}</span></div>
-        <div><strong>类对齐映射</strong><span>{{ batchResult.alignment_result?.class_mappings?.length || 0 }}</span></div>
-        <div><strong>属性对齐映射</strong><span>{{ batchResult.alignment_result?.property_mappings?.length || 0 }}</span></div>
-        <div><strong>关系对齐映射</strong><span>{{ batchResult.alignment_result?.relation_mappings?.length || 0 }}</span></div>
+        <div><strong>候选类映射</strong><span>{{ alignmentStats.candidates.classes }}</span></div>
+        <div><strong>候选属性映射</strong><span>{{ alignmentStats.candidates.properties }}</span></div>
+        <div><strong>候选关系映射</strong><span>{{ alignmentStats.candidates.relations }}</span></div>
       </div>
       <div class="progress-grid summary-grid">
         <div><strong>局部类合计</strong><span>{{ batchStats.local.classes }}</span></div>
         <div><strong>融合类</strong><span>{{ batchStats.merged.classes }}</span></div>
         <div><strong>局部属性合计</strong><span>{{ batchStats.local.properties }}</span></div>
         <div><strong>融合属性</strong><span>{{ batchStats.merged.properties }}</span></div>
-        <div><strong>合并减少</strong><span>{{ batchStats.reduced.properties }}</span></div>
+        <div><strong>实际合并类 / 属性</strong><span>{{ alignmentStats.applied.classes }} / {{ alignmentStats.applied.properties }}</span></div>
+        <div><strong>实际合并关系</strong><span>{{ alignmentStats.applied.relations }}</span></div>
         <div><strong>局部关系合计 / 融合关系</strong><span>{{ batchStats.local.relations }} / {{ batchStats.merged.relations }}</span></div>
       </div>
       <div v-if="batchMerged" class="merged-owl">
@@ -172,6 +173,24 @@ const batchStats = computed(() => {
     },
   };
 });
+const alignmentStats = computed(() => {
+  const summary = batchResult.value?.alignment_summary || {};
+  const candidates = summary.candidate_mappings || {};
+  const applied = summary.applied_merges || batchStats.value.reduced;
+  const raw = batchResult.value?.alignment_result || {};
+  return {
+    candidates: {
+      classes: Number(candidates.classes ?? raw.class_mappings?.length ?? 0),
+      properties: Number(candidates.properties ?? raw.property_mappings?.length ?? 0),
+      relations: Number(candidates.relations ?? raw.relation_mappings?.length ?? 0),
+    },
+    applied: {
+      classes: Number(applied.classes ?? 0),
+      properties: Number(applied.properties ?? 0),
+      relations: Number(applied.relations ?? 0),
+    },
+  };
+});
 const stats = computed(() => ({
   classes: isBatch.value && !batchMerged.value ? batchStats.value.local.classes : displayStats.value.classes || progress.value?.stats?.classes || 0,
   properties: isBatch.value && !batchMerged.value ? batchStats.value.local.properties : displayStats.value.datatype_properties || progress.value?.stats?.datatype_properties || 0,
@@ -180,10 +199,11 @@ const stats = computed(() => ({
 const mergedOwlFileName = computed(() => batchResult.value?.merged_owl_file_name || displayFileName(owlFile.value));
 const qualityHints = computed(() => {
   const hints = [...(batchResult.value?.quality_hints || [])];
-  const propertyMappings = batchResult.value?.alignment_result?.property_mappings?.length || 0;
-  const relationMappings = batchResult.value?.alignment_result?.relation_mappings?.length || 0;
-  if (propertyMappings >= 20) hints.push("属性对齐数量较多，建议在数据源检索中核查高相似字段是否被过度合并。");
-  if (batchResult.value && relationMappings <= 1) hints.push("关系对齐数量较少，当前结果以类和数据属性融合为主。");
+  const propertyMappings = alignmentStats.value.candidates.properties;
+  const appliedProperties = alignmentStats.value.applied.properties;
+  const relationMappings = alignmentStats.value.candidates.relations;
+  if (propertyMappings >= 20) hints.push(`发现 ${propertyMappings} 条候选属性映射；其中仅 ${appliedProperties} 个按规范化标识实际合并。候选映射不等于融合结果。`);
+  if (batchResult.value && relationMappings <= 1) hints.push("候选关系映射较少；请结合引用编号关系检查跨标准关联是否完整。");
   return [...new Set(hints)];
 });
 const recordCount = computed(() => resultInfo.value?.record_count || batchRows.value.reduce((sum, item) => sum + Number(item.record_count || 0), 0) || progress.value?.stats?.total_records || 0);

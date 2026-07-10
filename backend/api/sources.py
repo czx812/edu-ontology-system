@@ -8,6 +8,7 @@ from fastapi import APIRouter, Depends, Query
 
 from api.auth import get_current_user
 from config import settings
+from services.log_service import list_my_generations
 
 
 router = APIRouter(prefix="/sources", tags=["sources"])
@@ -44,8 +45,12 @@ def search_sources(
     ontology_file: str = Query(""),
     user: dict = Depends(get_current_user),
 ) -> dict:
+    # Structured clean_data retains the standard code/name relationship which
+    # is intentionally independent of the generated ontology's internal IDs.
+    items = _index_structured_sources(user)
     ontology = _load_latest_ontology(str(user["id"]), ontology_file)
-    items = _index_ontology(ontology)
+    if not items:
+        items = _index_ontology(ontology)
     query = keyword.lower().strip()
     filename_query = filename.lower().strip()
     scope_map = {"class": "class", "property": "property", "relation": "relation", "file": "source"}
@@ -62,7 +67,59 @@ def search_sources(
         return query in blob
 
     filtered = [item for item in items if ok(item)]
-    return {"items": filtered, "total": len(filtered), "ontology_file": ontology_file, "stats": ontology.get("stats", {}) if isinstance(ontology, dict) else {}}
+    return {
+        "items": filtered,  # legacy field consumed by older clients
+        "sources": filtered,
+        "total": len(filtered),
+        "ontology_file": ontology_file,
+        "stats": ontology.get("stats", {}) if isinstance(ontology, dict) else {},
+    }
+
+
+def _index_structured_sources(user: dict) -> list[dict]:
+    """Read a user's saved clean_data files and expose document-derived items."""
+    indexed: dict[str, dict] = {}
+    for generation in list_my_generations(user):
+        data = _load_structured_file(generation.get("structured_file", ""))
+        if not data:
+            continue
+        source_file = Path(str(data.get("source_file") or generation.get("file_path") or generation.get("file_name") or "")).name
+        classes = data.get("data_classes", []) if isinstance(data.get("data_classes"), list) else []
+        class_names = {str(item.get("code")): str(item.get("name") or "") for item in classes if isinstance(item, dict)}
+        for item in [*classes, *(data.get("data_properties", []) if isinstance(data.get("data_properties"), list) else [])]:
+            if not isinstance(item, dict) or not _text(item.get("code")):
+                continue
+            code = _text(item.get("code"))
+            source = item.get("source") if isinstance(item.get("source"), dict) else {}
+            filename = source.get("file") or source_file
+            parent_code = _text(item.get("parent"))
+            row = {
+                "key": f"standard-{code}", "type_key": "class" if item.get("type") == "数据子类" else "property",
+                "type": item.get("type") or "数据属性", "code": code, "name": _text(item.get("name")),
+                "label": _text(item.get("name")), "parent": parent_code,
+                "parent_name": class_names.get(parent_code, parent_code), "domain": class_names.get(parent_code, ""),
+                "source_file": filename, "filename": filename, "source_files": [source.get("file_path") or str(data.get("source_file") or "")],
+                "source": {"file": filename, "page": source.get("page")}, "sources": [source],
+                "page": source.get("page"), "description": "",
+            }
+            # Most recent generated file wins; a code is only displayed once.
+            indexed.setdefault(code, row)
+    return sorted(indexed.values(), key=lambda item: (item["code"], item["type_key"]))
+
+
+def _load_structured_file(value: str) -> dict:
+    if not value:
+        return {}
+    path = Path(value)
+    candidates = [path, settings.PROJECT_DIR / path]
+    for candidate in candidates:
+        try:
+            if candidate.exists() and candidate.is_file():
+                data = json.loads(candidate.read_text(encoding="utf-8"))
+                return data if isinstance(data, dict) else {}
+        except Exception:
+            continue
+    return {}
 
 
 def _index_ontology(ontology: dict) -> list[dict]:

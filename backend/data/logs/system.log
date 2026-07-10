@@ -182,3 +182,25 @@
 [2026-07-10 09:56:29] [INFO] 后端服务启动
 [2026-07-10 09:57:10] [INFO] Batch PDF upload success: count=4
 [2026-07-10 10:00:33] [INFO] Batch ontology generation success: count=4
+[2026-07-10 10:42:24] [INFO] Batch PDF upload success: count=4
+[2026-07-10 10:47:48] [INFO] Batch ontology generation success: count=4
+[2026-07-10 10:48:06] [INFO] Batch ontology generation success: count=4
+[2026-07-10 10:49:15] [INFO] 后端服务启动
+[2026-07-10 10:50:38] [INFO] Batch PDF upload success: count=4
+[2026-07-10 10:50:51] [INFO] Batch PDF upload success: count=4
+[2026-07-10 10:57:16] [INFO] Batch ontology generation success: count=4
+[2026-07-10 10:57:35] [INFO] Batch ontology generation success: count=4
+[2026-07-10 11:09:46] [INFO] 后端服务启动
+[2026-07-10 11:10:59] [INFO] Batch PDF upload success: count=4
+[2026-07-10 11:15:57] [INFO] Batch ontology generation success: count=4
+[2026-07-10 11:16:10] [INFO] Batch PDF upload success: count=4
+[2026-07-10 11:20:20] [INFO] Batch ontology generation success: count=4
+[2026-07-10 11:24:23] [INFO] OWL 导出成功：D:\基于大模型智能体的教育本体构建系统\edu-ontology-system\backend\data\exports\3\ontology_20260710_112018.owl
+[2026-07-10 11:40:11] [INFO] Batch PDF upload success: count=4
+[2026-07-10 11:44:31] [INFO] Batch PDF upload success: count=2
+[2026-07-10 11:44:39] [INFO] Batch ontology generation success: count=2
+[2026-07-10 12:57:41] [INFO] 上传 PDF 成功：JYT1002_教育管理基础信息.pdf
+[2026-07-10 12:57:44] [INFO] 本体生成开始：D:\基于大模型智能体的教育本体构建系统\edu-ontology-system\backend\data\uploads\3\931e00ff8da54f3386f50ca6ca4c0d16.pdf
+[2026-07-10 12:58:12] [INFO] 本体生成成功：D:\基于大模型智能体的教育本体构建系统\edu-ontology-system\backend\data\uploads\3\931e00ff8da54f3386f50ca6ca4c0d16.pdf
+[2026-07-10 12:59:25] [INFO] Batch PDF upload success: count=2
+[2026-07-10 13:01:58] [INFO] Batch ontology generation success: count=2
